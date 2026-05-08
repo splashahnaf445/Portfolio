@@ -4,104 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahnaf Shahriar | Visual Architect & Engineer</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --primary-glow: #8a2be2;
-            --secondary-glow: #00d2ff;
-        }
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #050505;
-            color: #ffffff;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-        h1, h2, h3, .serif {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        /* Glassmorphism */
-        .glass {
-            background: rgba(20, 20, 20, 0.4);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease;
-        }
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        /* Artistic Gradients & Text */
-        .text-gradient {
-            background: linear-gradient(to right, #00d2ff, #3a7bd5, #8a2be2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .bg-gradient-art {
-            background: linear-gradient(135deg, rgba(138,43,226,0.1) 0%, rgba(0,210,255,0.05) 100%);
-        }
-
-        /* Hero Background with Parallax Effect */
-        .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(5,5,5,0.5), rgba(5,5,5,1)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        /* Image Hover Effects */
-        .img-zoom-container {
-            overflow: hidden;
-            border-radius: 0.5rem;
-        }
-        .img-zoom {
-            transition: transform 0.7s ease;
-        }
-        .img-zoom-container:hover .img-zoom {
-            transform: scale(1.1);
-        }
-
-        /* Animations */
-        .fade-in-up {
-            animation: fadeInUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            opacity: 0;
-            transform: translateY(30px);
-        }
+        :root { --primary-glow: #8a2be2; --secondary-glow: #00d2ff; }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; overflow-x: hidden; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        .glass { background: rgba(20, 20, 20, 0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease; }
+        .glass-card:hover { transform: translateY(-10px); border-color: rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.08); }
+        .text-gradient { background: linear-gradient(to right, #00d2ff, #3a7bd5, #8a2be2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-bg { background-image: linear-gradient(to bottom, rgba(5,5,5,0.5), rgba(5,5,5,1)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; }
+        .img-zoom-container { overflow: hidden; border-radius: 1rem; }
+        .img-zoom { transition: transform 0.7s ease; }
+        .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
+        .fade-in-up { animation: fadeInUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; transform: translateY(30px); }
         .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 10px; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #050505; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
     </style>
 </head>
 <body class="antialiased selection:bg-purple-500 selection:text-white">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b border-white/10 transition-all duration-300">
+    <nav class="fixed w-full z-50 glass border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold tracking-tighter serif text-white">AS<span class="text-gradient">.</span></div>
             <div class="space-x-8 text-sm tracking-widest uppercase font-medium text-gray-300 hidden md:flex">
@@ -109,89 +39,108 @@
                 <a href="#engineering" class="hover:text-white transition">The Code</a>
                 <a href="#contact" class="hover:text-white transition">Contact</a>
             </div>
-            <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="hidden md:inline-block px-5 py-2 border border-white/20 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition duration-300">
-                Behance
-            </a>
+            <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="hidden md:inline-block px-5 py-2 border border-white/20 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition duration-300">Behance</a>
         </div>
     </nav>
 
-    <!-- Split Hero Section -->
+    <!-- Hero Section -->
     <header class="relative min-h-screen flex items-center justify-center hero-bg px-6 pt-28 pb-16">
-        <!-- Abstract glowing orbs behind text -->
-        <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center text-center lg:text-left">
-            
-            <!-- Left Side: Text Content -->
+        <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
             <div class="order-2 lg:order-1 fade-in-up">
-                <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-gray-300 font-semibold mb-6 block">Computer Science Engineer & Graphic Designer</span>
-                <h1 class="text-6xl md:text-8xl font-bold leading-none mb-8 tracking-tighter serif">
-                    Ahnaf <br><span class="text-gradient">Shahriar.</span>
-                </h1>
+                <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-gray-400 font-semibold mb-6 block">Computer Science Engineer & Graphic Designer</span>
+                <h1 class="text-6xl md:text-8xl font-bold leading-none mb-8 tracking-tighter serif">Ahnaf <br><span class="text-gradient">Shahriar.</span></h1>
                 <p class="text-lg md:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light mb-10">
-                    I don't just write code; I design experiences. Bridging the logic of <span class="text-white font-medium">Data Structures</span> with the soul of <span class="text-white font-medium">Digital Aesthetics.</span>
+                    Bridging the logic of <span class="text-white font-medium">Software Engineering</span> with the soul of <span class="text-white font-medium">Digital Aesthetics.</span> Currently pursuing a Major in Computer Science and Engineering.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-                    <a href="#art" class="px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition duration-300 uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                        Explore My Art
-                    </a>
-                    <a href="#engineering" class="px-8 py-4 glass border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition duration-300 uppercase tracking-widest text-sm flex items-center gap-2">
-                        <i class="fa-solid fa-code"></i> View Code
-                    </a>
+                    <a href="#art" class="px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition duration-300 uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(255,255,255,0.2)]">Explore My Art</a>
+                    <a href="#engineering" class="px-8 py-4 glass border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition duration-300 uppercase tracking-widest text-sm">View Engineering</a>
                 </div>
             </div>
-
-            <!-- Right Side: Profile Photo -->
             <div class="order-1 lg:order-2 flex justify-center lg:justify-end fade-in-up delay-1">
-                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] rounded-full lg:rounded-[2.5rem] p-2 glass border border-white/20 shadow-[0_0_60px_rgba(138,43,226,0.25)] hover:shadow-[0_0_80px_rgba(0,210,255,0.4)] transition duration-700 ease-out overflow-hidden group">
-                    <!-- The profile.jpg image matches the file you upload to GitHub -->
-                    <img src="profile.jpg" alt="Ahnaf Shahriar" class="w-full h-full object-cover rounded-full lg:rounded-[2rem] filter contrast-110 saturate-110 group-hover:scale-105 transition duration-700">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] rounded-full lg:rounded-[2.5rem] p-2 glass border border-white/20 shadow-[0_0_60px_rgba(138,43,226,0.15)] overflow-hidden">
+                    <img src="profile.jpg" alt="Ahnaf Shahriar" class="w-full h-full object-cover rounded-full lg:rounded-[2rem] filter contrast-110 saturate-110">
                 </div>
             </div>
-
-        </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fa-solid fa-arrow-down text-white/50 text-xl"></i>
         </div>
     </header>
 
-    <!-- Philosophy & Impact -->
-    <section class="py-24 bg-[#050505] relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div>
-                <h2 class="text-4xl md:text-6xl serif mb-8 leading-tight">Driven by passion, <br><span class="italic text-gray-400">not just motivation.</span></h2>
-                <p class="text-gray-300 leading-relaxed mb-6 text-lg font-light">
-                    With over 5 years of experience in the graphic design sector, I believe great work comes from an internal drive. I am not a person forced by temporary motivation—I work with relentless passion.
-                </p>
-                <p class="text-gray-400 leading-relaxed text-lg font-light">
-                    From complex C++ algorithms to high-end logo design and photo retouching, my goal is to create solutions that are structurally sound and visually breathtaking.
-                </p>
+    <!-- Stats Section -->
+    <section class="py-24 bg-[#050505] border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="glass-card p-8 rounded-2xl text-center">
+                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">5.5k+</div>
+                <div class="text-[10px] tracking-widest uppercase text-gray-500">Adobe Stock Assets</div>
             </div>
-            <div class="grid grid-cols-2 gap-6">
-                <div class="glass-card p-8 rounded-2xl text-center">
-                    <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">5.5k+</div>
-                    <div class="text-sm tracking-widest uppercase text-gray-400">Adobe Stock Assets</div>
+            <div class="glass-card p-8 rounded-2xl text-center">
+                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">3.5k+</div>
+                <div class="text-[10px] tracking-widest uppercase text-gray-500">Freepik Assets</div>
+            </div>
+            <div class="glass-card p-8 rounded-2xl text-center">
+                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">Level 3</div>
+                <div class="text-[10px] tracking-widest uppercase text-gray-500">Freepik Contributor</div>
+            </div>
+            <div class="glass-card p-8 rounded-2xl text-center">
+                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">5+ Yrs</div>
+                <div class="text-[10px] tracking-widest uppercase text-gray-500">Design Experience</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Section -->
+    <section id="engineering" class="py-32 bg-[#020202] relative">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="mb-16 text-center lg:text-left">
+                <span class="text-xs uppercase tracking-[0.4em] text-blue-400 font-bold mb-4 block">Software & Systems</span>
+                <h2 class="text-5xl md:text-7xl serif">Engineering Journey</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Project 1: Smart Queue Management -->
+                <div class="glass-card rounded-3xl overflow-hidden group">
+                    <div class="img-zoom-container aspect-video">
+                        <img src="arduino.jpg" alt="Smart Queue Management System" class="img-zoom w-full h-full object-cover">
+                    </div>
+                    <div class="p-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl md:text-3xl serif">Smart Queue Management</h3>
+                            <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                        <p class="text-gray-400 font-light leading-relaxed mb-6">
+                            An electronics course project built with **Arduino**. This hardware-software integration optimizes waiting lines through real-time sensors and an LCD interface.
+                        </p>
+                        <div class="flex gap-3">
+                            <span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Arduino</span>
+                            <span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Embedded Systems</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-card p-8 rounded-2xl text-center translate-y-8">
-                    <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">3.5k+</div>
-                    <div class="text-sm tracking-widest uppercase text-gray-400">Freepik Assets</div>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center">
-                    <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">Lvl 3</div>
-                    <div class="text-sm tracking-widest uppercase text-gray-400">Freepik Contributor</div>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center translate-y-8">
-                    <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">5+ Yrs</div>
-                    <div class="text-sm tracking-widest uppercase text-gray-400">Design Experience</div>
+
+                <!-- Project 2: Tuition Fee Calculator -->
+                <div class="glass-card rounded-3xl overflow-hidden group flex flex-col">
+                    <div class="bg-gradient-to-br from-purple-900/40 to-blue-900/40 aspect-video flex items-center justify-center p-10 border-b border-white/5">
+                        <i class="fa-brands fa-java text-8xl text-white/20"></i>
+                    </div>
+                    <div class="p-10 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl md:text-3xl serif">Tuition Fee Calculator</h3>
+                            <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" class="text-2xl hover:text-purple-400 transition"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                        <p class="text-gray-400 font-light leading-relaxed mb-6">
+                            A complex **Java GUI** application for CSE departments at **BRACU, UIU, and NSU**. It calculates trimester and graduation costs based on CGPA and credits, factoring in specific university waiver requirements.
+                        </p>
+                        <div class="flex gap-3">
+                            <span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Java Swing/GUI</span>
+                            <span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Algorithm</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The Art / Portfolio Section -->
+    <!-- Art Section -->
     <section id="art" class="py-32 bg-gradient-art relative border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16">
@@ -199,120 +148,40 @@
                     <span class="text-xs uppercase tracking-[0.3em] text-blue-400 font-bold mb-4 block">Visual Architecture</span>
                     <h2 class="text-5xl md:text-7xl serif">Creative Works</h2>
                 </div>
-                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="mt-6 md:mt-0 group flex items-center gap-3 text-lg font-medium hover:text-blue-400 transition">
-                    View Full Behance <i class="fa-brands fa-behance text-2xl group-hover:scale-110 transition"></i>
-                </a>
+                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="group flex items-center gap-3 text-lg font-medium hover:text-blue-400 transition mt-6">View Full Behance <i class="fa-brands fa-behance text-2xl group-hover:scale-110 transition"></i></a>
             </div>
-
-            <!-- Masonry-style Artistic Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Behance Project 1 -->
                 <div class="col-span-1 md:col-span-2 img-zoom-container relative rounded-2xl aspect-[16/9] lg:aspect-[21/9]">
-                    <img src="https://images.unsplash.com/photo-1613564834361-9436948817d1?q=80&w=1200&auto=format&fit=crop" alt="Digital Art" class="img-zoom w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
-                        <span class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">Illustration & Mascots</span>
-                        <h3 class="text-3xl serif text-white">Digital Character Design</h3>
+                    <img src="https://images.unsplash.com/photo-1613564834361-9436948817d1?q=80&w=1200&auto=format&fit=crop" class="img-zoom w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                        <span class="text-blue-400 text-xs font-bold tracking-widest uppercase mb-2">Illustration</span>
+                        <h3 class="text-3xl serif">Digital Character Design</h3>
                     </div>
                 </div>
-                
-                <!-- Behance Project 2 -->
                 <div class="col-span-1 img-zoom-container relative rounded-2xl aspect-square md:aspect-auto">
-                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop" alt="Photo Manipulation" class="img-zoom w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
-                        <span class="text-purple-400 text-sm font-bold tracking-widest uppercase mb-2">Retouching</span>
-                        <h3 class="text-2xl serif text-white">Photo Manipulation</h3>
-                    </div>
-                </div>
-
-                <!-- Adobe Stock -->
-                <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" class="col-span-1 img-zoom-container relative rounded-2xl aspect-square group">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop" alt="Adobe Stock" class="img-zoom w-full h-full object-cover opacity-80 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-300 flex flex-col items-center justify-center p-8 text-center border border-white/10 rounded-2xl">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Adobe_Stock_logo.svg/1024px-Adobe_Stock_logo.svg.png" class="w-16 h-16 mb-4 filter brightness-0 invert" alt="Adobe">
-                        <h3 class="text-2xl serif text-white mb-2">Adobe Stock</h3>
-                        <p class="text-sm text-gray-300">Explore 5,500+ Premium Assets</p>
-                    </div>
-                </a>
-
-                <!-- Freepik -->
-                <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" class="col-span-1 md:col-span-2 img-zoom-container relative rounded-2xl aspect-[16/9] lg:aspect-[21/9] group">
-                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1200&auto=format&fit=crop" alt="Freepik Art" class="img-zoom w-full h-full object-cover opacity-80 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent flex flex-col justify-center p-10">
-                        <h3 class="text-4xl serif text-white mb-3">Freepik Portfolio</h3>
-                        <p class="text-gray-300 max-w-md mb-6">Level 3 Contributor. A massive collection of high-quality PNGs, vectors, and graphic assets providing a significant passive income flow.</p>
-                        <span class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white group-hover:text-blue-400 transition">View Assets <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Code / Engineering Section -->
-    <section id="engineering" class="py-32 bg-[#020202] border-t border-white/5 relative">
-        <div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <span class="text-xs uppercase tracking-[0.3em] text-gray-500 font-bold mb-4 block">Software Engineering</span>
-            <h2 class="text-5xl md:text-7xl serif mb-16">The Code.</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                <div class="lg:col-span-5 space-y-6">
-                    <p class="text-xl text-gray-300 leading-relaxed font-light">
-                        Currently majoring in <span class="text-white font-medium">Computer Science & Engineering</span>. My approach to coding is identical to my approach to design: it must be elegant, efficient, and perfectly structured.
-                    </p>
-                    <p class="text-gray-400 leading-relaxed">
-                        I have documented my full journey through Data Structures & Algorithms in C++, alongside full GUI applications built in Java.
-                    </p>
-                    <a href="https://github.com/splashahnaf445" target="_blank" class="mt-8 inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 rounded-full transition text-sm uppercase tracking-widest font-bold">
-                        <i class="fa-brands fa-github text-xl"></i> Explore GitHub
-                    </a>
-                </div>
-                
-                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
-                        <i class="fa-solid fa-code text-3xl text-blue-400 mb-6 group-hover:scale-110 transition"></i>
-                        <h3 class="text-2xl serif mb-3">DSA Journey in C++</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Comprehensive documentation and implementation of fundamental Data Structures and Algorithms.</p>
-                    </div>
-                    <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 w-1 h-full bg-purple-500"></div>
-                        <i class="fa-brands fa-java text-4xl text-purple-400 mb-6 group-hover:scale-110 transition"></i>
-                        <h3 class="text-2xl serif mb-3">Java GUI Applications</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Desktop programs integrating robust backend logic with user-friendly graphical interfaces.</p>
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop" class="img-zoom w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                        <span class="text-purple-400 text-xs font-bold tracking-widest uppercase mb-2">Retouching</span>
+                        <h3 class="text-2xl serif">Photo Manipulation</h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action / Footer -->
-    <footer id="contact" class="relative py-32 bg-[#050505] overflow-hidden">
-        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl h-64 bg-gradient-to-t from-blue-900/20 to-transparent pointer-events-none"></div>
-        
+    <!-- Footer -->
+    <footer id="contact" class="py-32 bg-[#050505] border-t border-white/5 relative overflow-hidden">
         <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
             <h2 class="text-5xl md:text-7xl serif mb-8">Let's Create.</h2>
-            <p class="text-xl text-gray-400 mb-12 font-light">
-                Whether you need a complex Illustrator workaround, a full brand identity, or technical problem-solving—I am open for collaboration.
-            </p>
-            
-            <a href="mailto:shahriarahnaf@gmail.com" class="inline-block px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(138,43,226,0.5)] transition duration-300 uppercase tracking-widest text-sm mb-20">
-                Start a Project
-            </a>
-            
-            <!-- Updated Social Links -->
-            <div class="flex justify-center gap-8 md:gap-12 text-2xl md:text-3xl mb-12">
-                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
-                <a href="https://github.com/splashahnaf445" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/@itsahnaf666" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <p class="text-xl text-gray-400 mb-12 font-light">Troubleshooting Adobe Illustrator or brand identity? I'm open to solving your problems with passion.</p>
+            <a href="mailto:shahriarahnaf@gmail.com" class="inline-block px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(138,43,226,0.4)] transition duration-300 uppercase tracking-widest text-sm mb-20">Start a Project</a>
+            <div class="flex justify-center gap-10 text-3xl mb-12">
+                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-behance"></i></a>
+                <a href="https://github.com/splashahnaf445" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/@itsahnaf666" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
             </div>
-            
-            <div class="w-24 h-px bg-white/20 mx-auto mb-8"></div>
-            
-            <p class="text-[11px] text-gray-600 uppercase tracking-widest">
-                &copy; 2026 Ahnaf Shahriar. Built with Code & Art.
-            </p>
+            <p class="text-[10px] text-gray-600 uppercase tracking-widest">&copy; 2026 Ahnaf Shahriar. Built with Code & Art.</p>
         </div>
     </footer>
 
