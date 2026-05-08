@@ -59,7 +59,7 @@
 
         /* Hero Background with Parallax Effect */
         .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(5,5,5,0.3), rgba(5,5,5,1)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
+            background-image: linear-gradient(to bottom, rgba(5,5,5,0.5), rgba(5,5,5,1)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -115,32 +115,45 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center justify-center hero-bg px-6 pt-20">
+    <!-- Split Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center hero-bg px-6 pt-28 pb-16">
         <!-- Abstract glowing orbs behind text -->
         <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
         <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div class="relative z-10 max-w-5xl mx-auto text-center">
-            <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-gray-300 font-semibold mb-6 block fade-in-up">Computer Science Engineer & Graphic Designer</span>
-            <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold leading-none mb-8 tracking-tighter serif fade-in-up delay-1">
-                Ahnaf <br><span class="text-gradient">Shahriar.</span>
-            </h1>
-            <p class="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light mb-12 fade-in-up delay-2">
-                I don't just write code; I design experiences. Bridging the logic of <span class="text-white font-medium">Data Structures</span> with the soul of <span class="text-white font-medium">Digital Aesthetics.</span>
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 fade-in-up delay-3">
-                <a href="#art" class="px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition duration-300 uppercase tracking-widest text-sm">
-                    Explore My Art
-                </a>
-                <a href="#engineering" class="px-8 py-4 glass border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition duration-300 uppercase tracking-widest text-sm flex items-center gap-2">
-                    <i class="fa-solid fa-code"></i> View Code
-                </a>
+        <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center text-center lg:text-left">
+            
+            <!-- Left Side: Text Content -->
+            <div class="order-2 lg:order-1 fade-in-up">
+                <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-gray-300 font-semibold mb-6 block">Computer Science Engineer & Graphic Designer</span>
+                <h1 class="text-6xl md:text-8xl font-bold leading-none mb-8 tracking-tighter serif">
+                    Ahnaf <br><span class="text-gradient">Shahriar.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light mb-10">
+                    I don't just write code; I design experiences. Bridging the logic of <span class="text-white font-medium">Data Structures</span> with the soul of <span class="text-white font-medium">Digital Aesthetics.</span>
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
+                    <a href="#art" class="px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition duration-300 uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                        Explore My Art
+                    </a>
+                    <a href="#engineering" class="px-8 py-4 glass border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition duration-300 uppercase tracking-widest text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-code"></i> View Code
+                    </a>
+                </div>
             </div>
+
+            <!-- Right Side: Profile Photo -->
+            <div class="order-1 lg:order-2 flex justify-center lg:justify-end fade-in-up delay-1">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] rounded-full lg:rounded-[2.5rem] p-2 glass border border-white/20 shadow-[0_0_60px_rgba(138,43,226,0.25)] hover:shadow-[0_0_80px_rgba(0,210,255,0.4)] transition duration-700 ease-out overflow-hidden group">
+                    <!-- The profile.jpg image matches the file you upload to GitHub -->
+                    <img src="profile.jpg" alt="Ahnaf Shahriar" class="w-full h-full object-cover rounded-full lg:rounded-[2rem] filter contrast-110 saturate-110 group-hover:scale-105 transition duration-700">
+                </div>
+            </div>
+
         </div>
         
         <!-- Scroll indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
             <i class="fa-solid fa-arrow-down text-white/50 text-xl"></i>
         </div>
     </header>
@@ -193,7 +206,7 @@
 
             <!-- Masonry-style Artistic Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Behance Project 1 (Mascot/Logo Vibe) -->
+                <!-- Behance Project 1 -->
                 <div class="col-span-1 md:col-span-2 img-zoom-container relative rounded-2xl aspect-[16/9] lg:aspect-[21/9]">
                     <img src="https://images.unsplash.com/photo-1613564834361-9436948817d1?q=80&w=1200&auto=format&fit=crop" alt="Digital Art" class="img-zoom w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
@@ -202,7 +215,7 @@
                     </div>
                 </div>
                 
-                <!-- Behance Project 2 (Photo Manipulation) -->
+                <!-- Behance Project 2 -->
                 <div class="col-span-1 img-zoom-container relative rounded-2xl aspect-square md:aspect-auto">
                     <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop" alt="Photo Manipulation" class="img-zoom w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
@@ -226,7 +239,7 @@
                     <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1200&auto=format&fit=crop" alt="Freepik Art" class="img-zoom w-full h-full object-cover opacity-80 group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent flex flex-col justify-center p-10">
                         <h3 class="text-4xl serif text-white mb-3">Freepik Portfolio</h3>
-                        <p class="text-gray-300 max-w-md mb-6">Level 3 Contributor. A massive collection of high-quality PNGs, vectors, and graphic assets providing a significant passive income flow, Alhamdulillah.</p>
+                        <p class="text-gray-300 max-w-md mb-6">Level 3 Contributor. A massive collection of high-quality PNGs, vectors, and graphic assets providing a significant passive income flow.</p>
                         <span class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white group-hover:text-blue-400 transition">View Assets <i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </a>
@@ -236,7 +249,6 @@
 
     <!-- The Code / Engineering Section -->
     <section id="engineering" class="py-32 bg-[#020202] border-t border-white/5 relative">
-        <!-- Abstract Tech Graphic -->
         <div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
         
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -257,14 +269,12 @@
                 </div>
                 
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- Code Card 1 -->
                     <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
                         <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
                         <i class="fa-solid fa-code text-3xl text-blue-400 mb-6 group-hover:scale-110 transition"></i>
                         <h3 class="text-2xl serif mb-3">DSA Journey in C++</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Comprehensive documentation and implementation of fundamental Data Structures and Algorithms.</p>
                     </div>
-                    <!-- Code Card 2 -->
                     <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
                         <div class="absolute top-0 left-0 w-1 h-full bg-purple-500"></div>
                         <i class="fa-brands fa-java text-4xl text-purple-400 mb-6 group-hover:scale-110 transition"></i>
@@ -278,7 +288,6 @@
 
     <!-- Call to Action / Footer -->
     <footer id="contact" class="relative py-32 bg-[#050505] overflow-hidden">
-        <!-- Glowing bg -->
         <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl h-64 bg-gradient-to-t from-blue-900/20 to-transparent pointer-events-none"></div>
         
         <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
@@ -291,11 +300,12 @@
                 Start a Project
             </a>
             
+            <!-- Updated Social Links -->
             <div class="flex justify-center gap-8 md:gap-12 text-2xl md:text-3xl mb-12">
-                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2"><i class="fa-brands fa-behance"></i></a>
-                <a href="https://github.com/splashahnaf445" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com/in/your-profile" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://youtube.com/c/your-channel" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+                <a href="https://github.com/splashahnaf445" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/@itsahnaf666" target="_blank" class="text-gray-500 hover:text-white transition transform hover:-translate-y-2" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
             </div>
             
             <div class="w-24 h-px bg-white/20 mx-auto mb-8"></div>
