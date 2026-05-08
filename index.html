@@ -28,7 +28,7 @@
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
     </style>
 </head>
-<body class="antialiased selection:bg-purple-500 selection:text-white">
+<body class="antialiased">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass border-b border-white/10">
@@ -54,8 +54,8 @@
                     Bridging the logic of <span class="text-white font-medium">Software Engineering</span> with the soul of <span class="text-white font-medium">Digital Aesthetics.</span> Currently pursuing a Major in Computer Science and Engineering.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-                    <a href="#art" class="px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition duration-300 uppercase tracking-widest text-sm">Explore My Art</a>
-                    <a href="#marketplaces" class="px-8 py-4 glass border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition duration-300 uppercase tracking-widest text-sm">View Portfolios</a>
+                    <a href="#art" class="px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition duration-300 uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(255,255,255,0.2)]">Explore My Art</a>
+                    <a href="#engineering" class="px-8 py-4 glass border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition duration-300 uppercase tracking-widest text-sm flex items-center gap-2"><i class="fa-solid fa-code"></i> View Code</a>
                 </div>
             </div>
             <div class="order-1 lg:order-2 flex justify-center lg:justify-end fade-in-up delay-1">
@@ -66,45 +66,54 @@
         </div>
     </header>
 
+    <!-- Stats Section -->
+    <section class="py-24 bg-[#050505] border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="glass-card p-8 rounded-2xl text-center">
+                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">5.5k+</div>
+                <div class="text-[10px] tracking-widest uppercase text-gray-500">Adobe Stock Assets</div>
+            </div>
+            <div class="glass-card p-8 rounded-2xl text-center">
+                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">3.5k+</div>
+                <div class="text-[10px] tracking-widest uppercase text-gray-500">Freepik Assets</div>
+            </div>
+            <div class="glass-card p-8 rounded-2xl text-center">
+                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">Level 3</div>
+                <div class="text-[10px] tracking-widest uppercase text-gray-500">Freepik Contributor</div>
+            </div>
+            <div class="glass-card p-8 rounded-2xl text-center">
+                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">5+ Yrs</div>
+                <div class="text-[10px] tracking-widest uppercase text-gray-500">Design Experience</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Global Marketplaces Section -->
     <section id="marketplaces" class="py-32 bg-[#050505] relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-xs uppercase tracking-[0.4em] text-blue-400 font-bold mb-4 block">Commercial Impact</span>
                 <h2 class="text-5xl md:text-7xl serif mb-6">Global Marketplaces</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto font-light">Managing thousands of creative assets across the world's leading stock platforms, generating a consistent flow of passive income, Alhamdulillah.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Adobe Stock Card -->
                 <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" class="glass-card rounded-3xl overflow-hidden group p-8 md:p-12 border border-white/5 hover:border-blue-500/30 transition-all duration-500">
                     <div class="flex items-center gap-6 mb-8">
                         <div class="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Adobe_Stock_logo.svg/1024px-Adobe_Stock_logo.svg.png" class="w-10 h-10 filter brightness-0 invert" alt="Adobe Stock">
                         </div>
-                        <div>
-                            <h3 class="text-3xl serif text-white">Adobe Stock</h3>
-                            <span class="text-blue-400 text-xs font-bold uppercase tracking-widest">Active Contributor</span>
-                        </div>
+                        <h3 class="text-3xl serif text-white">Adobe Stock</h3>
                     </div>
                     <div class="text-5xl font-extrabold text-white mb-4 tracking-tighter">5,500+ <span class="text-lg text-gray-500 font-light">Assets</span></div>
-                    <p class="text-gray-400 font-light leading-relaxed mb-8">A vast library of premium vectors, images, and videos. Successfully navigating commercial trends through a mix of manual design and AI prompt architecture.</p>
+                    <p class="text-gray-400 font-light leading-relaxed mb-8">Successfully navigating commercial trends through a mix of manual design and AI prompt architecture.</p>
                     <div class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest group-hover:text-blue-400 transition">Visit Portfolio <i class="fa-solid fa-arrow-right"></i></div>
                 </a>
-
-                <!-- Freepik Card -->
                 <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" class="glass-card rounded-3xl overflow-hidden group p-8 md:p-12 border border-white/5 hover:border-purple-500/30 transition-all duration-500">
                     <div class="flex items-center gap-6 mb-8">
-                        <div class="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 text-3xl">
-                            <i class="fa-solid fa-cloud-arrow-up text-purple-400"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-3xl serif text-white">Freepik</h3>
-                            <span class="text-purple-400 text-xs font-bold uppercase tracking-widest">Level 3 Contributor</span>
-                        </div>
+                        <div class="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 text-3xl"><i class="fa-solid fa-cloud-arrow-up text-purple-400"></i></div>
+                        <h3 class="text-3xl serif text-white">Freepik</h3>
                     </div>
                     <div class="text-5xl font-extrabold text-white mb-4 tracking-tighter">3,500+ <span class="text-lg text-gray-500 font-light">Assets</span></div>
-                    <p class="text-gray-400 font-light leading-relaxed mb-8">Specializing in high-demand PNGs and vector graphics. Maintaining high quality standards as a top-tier contributor in the Magnific collection.</p>
+                    <p class="text-gray-400 font-light leading-relaxed mb-8">Specializing in high-demand PNGs and vector graphics. Top-tier contributor in the Magnific collection.</p>
                     <div class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest group-hover:text-purple-400 transition">Visit Portfolio <i class="fa-solid fa-arrow-right"></i></div>
                 </a>
             </div>
@@ -116,72 +125,81 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-16 text-center lg:text-left">
                 <span class="text-xs uppercase tracking-[0.4em] text-blue-400 font-bold mb-4 block">Software & Systems</span>
-                <h2 class="text-5xl md:text-7xl serif">The Engineering Code</h2>
+                <h2 class="text-5xl md:text-7xl serif">Engineering Projects</h2>
             </div>
-            
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Smart Queue Management -->
                 <div class="glass-card rounded-3xl overflow-hidden group">
-                    <div class="img-zoom-container aspect-video">
-                        <img src="arduino.jpg" alt="Smart Queue Management System" class="img-zoom w-full h-full object-cover">
-                    </div>
+                    <div class="img-zoom-container aspect-video"><img src="arduino.jpg" class="img-zoom w-full h-full object-cover"></div>
                     <div class="p-10">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-2xl md:text-3xl serif">Smart Queue Management</h3>
                             <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-github"></i></a>
                         </div>
-                        <p class="text-gray-400 font-light leading-relaxed mb-6">Built with **Arduino**, this project optimizes real-time waiting lines through sensor integration and an automated LCD gateway interface.</p>
-                        <div class="flex gap-3">
-                            <span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Arduino</span>
-                            <span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">IoT</span>
-                        </div>
+                        <p class="text-gray-400 font-light leading-relaxed mb-6">Built with **Arduino**, this project optimizes real-time waiting lines through sensor integration and an automated interface.</p>
+                        <div class="flex gap-3"><span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Arduino</span></div>
                     </div>
                 </div>
-
-                <!-- Tuition Fee Calculator -->
-                <div class="glass-card rounded-3xl overflow-hidden group flex flex-col">
-                    <div class="bg-gradient-to-br from-purple-900/40 to-blue-900/40 aspect-video flex items-center justify-center p-10">
-                        <i class="fa-brands fa-java text-8xl text-white/20"></i>
-                    </div>
-                    <div class="p-10 flex-grow">
+                <div class="glass-card rounded-3xl overflow-hidden group">
+                    <div class="bg-gradient-to-br from-purple-900/40 to-blue-900/40 aspect-video flex items-center justify-center p-10"><i class="fa-brands fa-java text-8xl text-white/20"></i></div>
+                    <div class="p-10">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-2xl md:text-3xl serif">Tuition Fee Calculator</h3>
                             <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" class="text-2xl hover:text-purple-400 transition"><i class="fa-brands fa-github"></i></a>
                         </div>
-                        <p class="text-gray-400 font-light leading-relaxed mb-6">A **Java GUI** application for BRACU, UIU, and NSU students. It factors in complex credit logic and specific university scholarship/waiver requirements.</p>
-                        <div class="flex gap-3">
-                            <span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Java Swing</span>
-                            <span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Algorithms</span>
-                        </div>
+                        <p class="text-gray-400 font-light leading-relaxed mb-6">A **Java GUI** application for BRACU, UIU, and NSU students factoring in complex credit and waiver logic.</p>
+                        <div class="flex gap-3"><span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Java Swing</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Art Section -->
+    <!-- Creative Sneak Peek Section -->
     <section id="art" class="py-32 bg-gradient-art border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16">
                 <div>
                     <span class="text-xs uppercase tracking-[0.3em] text-blue-400 font-bold mb-4 block">Visual Architecture</span>
-                    <h2 class="text-5xl md:text-7xl serif">Creative Works</h2>
+                    <h2 class="text-5xl md:text-7xl serif">Creative Sneak Peek</h2>
                 </div>
-                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="group flex items-center gap-3 text-lg font-medium hover:text-blue-400 transition mt-6">View Full Behance <i class="fa-brands fa-behance text-2xl group-hover:scale-110 transition"></i></a>
+                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="group flex items-center gap-3 text-lg font-medium hover:text-blue-400 transition mt-6">All Projects on Behance <i class="fa-brands fa-behance text-2xl group-hover:scale-110 transition"></i></a>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="col-span-1 md:col-span-2 img-zoom-container relative rounded-2xl aspect-[16/9] lg:aspect-[21/9]">
-                    <img src="https://images.unsplash.com/photo-1613564834361-9436948817d1?q=80&w=1200&auto=format&fit=crop" class="img-zoom w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
-                        <span class="text-blue-400 text-xs font-bold tracking-widest uppercase mb-2">Illustration</span>
-                        <h3 class="text-3xl serif">Digital Character Design</h3>
+
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Project 1: Banner Design -->
+                <div class="glass-card rounded-3xl overflow-hidden group">
+                    <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="banner_proj.jpg" class="img-zoom w-full h-full object-cover"></div>
+                    <div class="p-8">
+                        <h3 class="text-2xl serif mb-2">Banner Design</h3>
+                        <p class="text-gray-400 font-light text-sm">Professional web and social media banners focused on high-conversion layouts and clean typography. [Bicycle Tours Project]</p>
                     </div>
                 </div>
-                <div class="col-span-1 img-zoom-container relative rounded-2xl aspect-square md:aspect-auto">
-                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop" class="img-zoom w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
-                        <span class="text-purple-400 text-xs font-bold tracking-widest uppercase mb-2">Retouching</span>
-                        <h3 class="text-2xl serif">Photo Manipulation</h3>
+
+                <!-- Project 2: Logo Design -->
+                <div class="glass-card rounded-3xl overflow-hidden group">
+                    <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="logo_proj.jpg" class="img-zoom w-full h-full object-cover bg-white"></div>
+                    <div class="p-8">
+                        <h3 class="text-2xl serif mb-2">Logo Design</h3>
+                        <p class="text-gray-400 font-light text-sm">Minimalist and elegant branding identities built with precision line art and balance. [Wonder World Identity]</p>
+                    </div>
+                </div>
+
+                <!-- Project 3: Mascot Illustrations -->
+                <div class="glass-card rounded-3xl overflow-hidden group">
+                    <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="mascot_proj.jpg" class="img-zoom w-full h-full object-contain bg-zinc-900/50 p-4"></div>
+                    <div class="p-8">
+                        <h3 class="text-2xl serif mb-2">Mascot Illustration</h3>
+                        <p class="text-gray-400 font-light text-sm">Bold, high-detail character and mascot illustrations for gaming and modern brand storytelling.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4: Poster Design -->
+                <div class="glass-card rounded-3xl overflow-hidden group">
+                    <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="poster_proj.jpg" class="img-zoom w-full h-full object-cover"></div>
+                    <div class="p-8">
+                        <h3 class="text-2xl serif mb-2">Poster Design</h3>
+                        <p class="text-gray-400 font-light text-sm">Vibrant digital compositions and event flyers blending photo manipulation with artistic typography. [Girls Night Event]</p>
                     </div>
                 </div>
             </div>
@@ -191,8 +209,8 @@
     <!-- Footer -->
     <footer id="contact" class="py-32 bg-[#050505] border-t border-white/5 relative overflow-hidden">
         <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <h2 class="text-5xl md:text-7xl serif mb-8">Let's Create.</h2>
-            <p class="text-xl text-gray-400 mb-12 font-light">Available for high-end digital identity projects and technical collaboration.</p>
+            <h2 class="text-5xl md:text-7xl serif mb-8 text-gradient">Let's Create.</h2>
+            <p class="text-xl text-gray-400 mb-12 font-light italic">"Driven by passion, not just motivation."</p>
             <a href="mailto:shahriarahnaf@gmail.com" class="inline-block px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(138,43,226,0.4)] transition duration-300 uppercase tracking-widest text-sm mb-20">Start a Project</a>
             <div class="flex justify-center gap-10 text-3xl mb-12">
                 <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-behance"></i></a>
