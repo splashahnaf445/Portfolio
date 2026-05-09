@@ -98,8 +98,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" class="glass-card rounded-3xl overflow-hidden group p-8 md:p-12 border border-white/5 hover:border-blue-500/30 transition-all duration-500">
                     <div class="flex items-center gap-6 mb-8">
-                        <div class="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Adobe_Stock_logo.svg/1024px-Adobe_Stock_logo.svg.png" class="w-10 h-10 filter brightness-0 invert" alt="Adobe Stock">
+                        <div class="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 overflow-hidden">
+                            <img src="image1.png" class="w-full h-full object-cover" alt="Adobe Stock">
                         </div>
                         <h3 class="text-3xl serif text-white">Adobe Stock</h3>
                     </div>
@@ -109,7 +109,9 @@
                 </a>
                 <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" class="glass-card rounded-3xl overflow-hidden group p-8 md:p-12 border border-white/5 hover:border-purple-500/30 transition-all duration-500">
                     <div class="flex items-center gap-6 mb-8">
-                        <div class="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 text-3xl"><i class="fa-solid fa-cloud-arrow-up text-purple-400"></i></div>
+                        <div class="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 overflow-hidden">
+                            <img src="image2.png" class="w-full h-full object-cover" alt="Freepik">
+                        </div>
                         <h3 class="text-3xl serif text-white">Freepik</h3>
                     </div>
                     <div class="text-5xl font-extrabold text-white mb-4 tracking-tighter">3,500+ <span class="text-lg text-gray-500 font-light">Assets</span></div>
@@ -171,14 +173,28 @@
                         <div class="flex gap-3"><span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Arduino</span></div>
                     </div>
                 </div>
+                
                 <div class="glass-card rounded-3xl overflow-hidden group">
-                    <div class="bg-gradient-to-br from-purple-900/40 to-blue-900/40 aspect-video flex items-center justify-center p-10"><i class="fa-brands fa-java text-8xl text-white/20"></i></div>
+                    <div class="img-zoom-container aspect-video"><img src="image3.png" class="img-zoom w-full h-full object-cover bg-white"></div>
                     <div class="p-10">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-2xl md:text-3xl serif">Tuition Fee Calculator</h3>
                             <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" class="text-2xl hover:text-purple-400 transition"><i class="fa-brands fa-github"></i></a>
                         </div>
                         <p class="text-gray-400 font-light leading-relaxed mb-6">A **Java GUI** application for BRACU, UIU, and NSU students factoring in complex credit and waiver logic.</p>
+                        <div class="flex gap-3"><span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Java Swing</span></div>
+                    </div>
+                </div>
+
+                <!-- Password Manager Project -->
+                <div class="glass-card rounded-3xl overflow-hidden group">
+                    <div class="img-zoom-container aspect-video"><img src="image4.png" class="img-zoom w-full h-full object-cover bg-white"></div>
+                    <div class="p-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl md:text-3xl serif">Password Manager</h3>
+                            <a href="#" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                        <p class="text-gray-400 font-light leading-relaxed mb-6">A simple and intuitive password manager implemented using **Java Swing** for local credential storage and management.</p>
                         <div class="flex gap-3"><span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Java Swing</span></div>
                     </div>
                 </div>
@@ -234,6 +250,18 @@
                         <p class="text-gray-400 font-light text-sm">Vibrant digital compositions and event flyers blending photo manipulation with artistic typography. [Girls Night Event]</p>
                     </div>
                 </div>
+
+                <!-- Project 5: Line Drawing Expertise -->
+                <div class="glass-card rounded-3xl overflow-hidden group md:col-span-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="image5.png" class="img-zoom w-full h-full object-cover bg-white"></div>
+                        <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="image6.png" class="img-zoom w-full h-full object-cover bg-white"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl serif mb-2">Line Drawing</h3>
+                        <p class="text-gray-400 font-light text-sm">Detailed vector illustrations and digital line art conversions from portraits and reference imagery, demonstrating precision and steady tracing techniques.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -250,7 +278,7 @@
                 <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://www.youtube.com/@itsahnaf666" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
             </div>
-            <p class="text-[10px] text-gray-600 uppercase tracking-widest">&copy; 2026 Ahnaf Shahriar. Built with Code & Art.</p>
+            <p class="text-[10px] text-gray-600 uppercase tracking-widest">&copy; 2026 Ahnaf Shahriar. All Rights Reserved.</p>
         </div>
     </footer>
 
