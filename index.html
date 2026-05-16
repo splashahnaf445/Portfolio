@@ -19,13 +19,24 @@
             --text-soft: #a8b4ff;
             --shadow-glow: 0 28px 80px rgba(125, 90, 255, 0.14);
         }
-        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; background-image: radial-gradient(circle at 18% 12%, rgba(0,210,255,0.12), transparent 20%), radial-gradient(circle at 84% 10%, rgba(125,90,255,0.1), transparent 14%), radial-gradient(circle at 22% 80%, rgba(255,255,255,0.05), transparent 12%), linear-gradient(180deg, #050505 0%, #050505 100%); background-attachment: fixed; background-size: cover; color: #ffffff; scroll-behavior: smooth; overflow-x: hidden; }
+        body::before { content: ''; position: fixed; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.03), transparent 17%), radial-gradient(circle at 75% 80%, rgba(255,255,255,0.02), transparent 14%); opacity: 0.45; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
         .glass { background: rgba(20, 20, 20, 0.45); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255, 255, 255, 0.07); }
         .glass-card { background: var(--card-bg); backdrop-filter: blur(14px); border: 1px solid var(--border-soft); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease; }
         .glass-card:hover { transform: translateY(-10px); border-color: rgba(125, 90, 255, 0.35); background: rgba(255, 255, 255, 0.1); box-shadow: var(--shadow-glow); }
         .text-gradient { background: linear-gradient(to right, var(--secondary-glow), #3a7bd5, var(--primary-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-bg { background-image: linear-gradient(to bottom, rgba(5,5,5,0.5), rgba(5,5,5,1)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; }
+        .bg-gradient-art { background-image: radial-gradient(circle at top left, rgba(125,90,255,0.1), transparent 26%), linear-gradient(180deg, rgba(6,4,18,0.96), rgba(18,4,50,0.98)); }
+        #marketplaces { background: linear-gradient(180deg, rgba(4,8,20,0.96), rgba(8,14,40,0.96)); }
+        #education { background: linear-gradient(180deg, rgba(8,9,18,0.96), rgba(12,6,38,0.97)); }
+        #engineering { background: linear-gradient(180deg, rgba(3,5,12,0.96), rgba(12,3,34,0.98)); }
+        footer { background: linear-gradient(180deg, rgba(10,8,18,0.96), rgba(17,4,38,0.98)); }
+        .section-glow { position: absolute; border-radius: 999px; filter: blur(72px); opacity: 0.35; pointer-events: none; }
+        .circle-a { width: 240px; height: 240px; background: rgba(0,210,255,0.16); top: 10%; left: -6%; }
+        .circle-b { width: 300px; height: 300px; background: rgba(125,90,255,0.18); bottom: 10%; right: -10%; }
+        .circle-c { width: 260px; height: 260px; background: rgba(80,180,255,0.14); bottom: 12%; left: 8%; }
+        .circle-d { width: 320px; height: 320px; background: rgba(255,120,180,0.12); top: 20%; right: 4%; }
         .img-zoom-container { overflow: hidden; border-radius: 1rem; }
         .img-zoom { transition: transform 0.7s ease; }
         .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
@@ -124,6 +135,7 @@
 
     <!-- Global Marketplaces Section -->
     <section id="marketplaces" class="py-32 bg-[#050505] relative overflow-hidden">
+        <div class="section-glow circle-a hidden lg:block"></div>
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-xs uppercase tracking-[0.4em] text-blue-400 font-bold mb-4 block">Commercial Impact</span>
@@ -160,7 +172,7 @@
          EDUCATION SECTION (NEW)
     ============================== -->
     <section id="education" class="py-32 bg-[#050505] border-t border-white/5 relative overflow-hidden">
-        <!-- Decorative ambient glow -->
+        <div class="section-glow circle-b hidden lg:block"></div>
         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(0,210,255,0.05) 0%,transparent 70%);pointer-events:none;"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -265,7 +277,8 @@
     <!-- ============================== -->
 
     <!-- Engineering Section -->
-    <section id="engineering" class="py-32 bg-[#020202] border-t border-white/5">
+    <section id="engineering" class="py-32 bg-[#020202] border-t border-white/5 relative overflow-hidden">
+        <div class="section-glow circle-c hidden lg:block"></div>
         <div class="max-w-7xl mx-auto px-6">
             
             <!-- Academic Documentation Section -->
@@ -361,7 +374,8 @@
     </section>
 
     <!-- Creative Sneak Peek Section -->
-    <section id="art" class="py-32 bg-gradient-art border-t border-white/5">
+    <section id="art" class="py-32 bg-gradient-art border-t border-white/5 relative overflow-hidden">
+        <div class="section-glow circle-d hidden lg:block"></div>
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16">
                 <div>
