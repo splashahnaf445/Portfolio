@@ -9,19 +9,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root { --primary-glow: #8a2be2; --secondary-glow: #00d2ff; }
+        :root {
+            --primary-glow: #8a2be2;
+            --secondary-glow: #00d2ff;
+            --accent: #7d5aff;
+            --accent-soft: rgba(125, 90, 255, 0.14);
+            --card-bg: rgba(255,255,255,0.05);
+            --border-soft: rgba(255,255,255,0.12);
+            --text-soft: #a8b4ff;
+            --shadow-glow: 0 28px 80px rgba(125, 90, 255, 0.14);
+        }
         body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; overflow-x: hidden; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
-        .glass { background: rgba(20, 20, 20, 0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease; }
-        .glass-card:hover { transform: translateY(-10px); border-color: rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.08); }
-        .text-gradient { background: linear-gradient(to right, #00d2ff, #3a7bd5, #8a2be2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-bg { background-image: linear-gradient(to bottom, rgba(5,5,5,0.6), rgba(5,5,5,1)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; }
+        .glass { background: rgba(20, 20, 20, 0.45); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255, 255, 255, 0.07); }
+        .glass-card { background: var(--card-bg); backdrop-filter: blur(14px); border: 1px solid var(--border-soft); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease; }
+        .glass-card:hover { transform: translateY(-10px); border-color: rgba(125, 90, 255, 0.35); background: rgba(255, 255, 255, 0.1); box-shadow: var(--shadow-glow); }
+        .text-gradient { background: linear-gradient(to right, var(--secondary-glow), #3a7bd5, var(--primary-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-bg { background-image: linear-gradient(to bottom, rgba(5,5,5,0.5), rgba(5,5,5,1)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; }
         .img-zoom-container { overflow: hidden; border-radius: 1rem; }
         .img-zoom { transition: transform 0.7s ease; }
         .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
-        .fade-in-up { animation: fadeInUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; transform: translateY(30px); }
+        .fade-in-up { animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; transform: translateY(30px); }
         .delay-1 { animation-delay: 0.2s; }
+        .section-intro { color: var(--text-soft); max-width: 760px; margin-top: 1.2rem; line-height: 1.9; }
+        .accent-line { width: 70px; height: 2px; background: linear-gradient(90deg, var(--secondary-glow), var(--primary-glow)); border-radius: 999px; margin-top: 1rem; margin-bottom: 1.5rem; }
+        .hero-highlight { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.85rem; padding: 0.85rem 1.1rem; border-radius: 9999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 18px 40px rgba(0,0,0,0.18); }
+        .hero-highlight span { color: var(--text-soft); font-size: 0.76rem; letter-spacing: 0.2em; text-transform: uppercase; }
+        .hero-highlight strong { color: #fff; font-size: 0.95rem; }
+        .btn-accent { background: linear-gradient(135deg, var(--secondary-glow), var(--primary-glow)); color: #fff; }
+        .btn-accent:hover { box-shadow: 0 18px 40px rgba(125, 90, 255, 0.28); }
+        .skill-badge { background: var(--card-bg); border: 1px solid var(--border-soft); box-shadow: var(--shadow-glow); transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease; }
+        .skill-badge:hover { transform: translateY(-4px); border-color: rgba(125, 90, 255, 0.45); background: rgba(125, 90, 255, 0.12); }
+        .skill-badge i { min-width: 1.5rem; }
+        .project-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 10px; text-transform: uppercase; letter-spacing: 0.26em; padding: 0.75rem 1rem; border-radius: 9999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #b8c1ff; }
+        .project-card:hover .img-zoom { transform: scale(1.08); }
+        .project-card:hover { transform: translateY(-6px); box-shadow: 0 32px 80px rgba(0,0,0,0.2); }
+        .floating-badge { position: absolute; top: 6%; right: 4%; z-index: 2; padding: 1rem 1.25rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 2rem; backdrop-filter: blur(16px); box-shadow: 0 20px 50px rgba(0,0,0,0.18); }
+        .floating-badge span { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.32em; color: #8ab8ff; }
+        .floating-badge strong { display: block; font-size: 0.95rem; margin-top: 0.35rem; color: #fff; }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #050505; }
@@ -50,17 +75,25 @@
         <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
             <div class="order-2 lg:order-1 fade-in-up">
                 <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-gray-400 font-semibold mb-6 block">Computer Science Engineer & Graphic Designer</span>
+                <div class="hero-highlight mb-8">
+                    <span>Visual systems · Brand motion · Clean code</span>
+                    <strong>Design-led engineering for polished digital experiences</strong>
+                </div>
                 <h1 class="text-6xl md:text-8xl font-bold leading-none mb-8 tracking-tighter serif">Ahnaf <br><span class="text-gradient">Shahriar.</span></h1>
-                <p class="text-lg md:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light mb-10">
-                    Bridging the logic of <span class="text-white font-medium">Computer Engineering</span> with the soul of <span class="text-white font-medium">Digital Aesthetics.</span> Currently pursuing a Major in Computer Science and Engineering.
+                <p class="text-lg md:text-xl section-intro mx-auto lg:mx-0 font-light mb-10">
+                    Bridging the logic of <span class="text-white font-medium">Computer Engineering</span> with the soul of <span class="text-white font-medium">Digital Aesthetics.</span> I build expressive brand systems, polished UI, and code-driven projects that feel cohesive and bold.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-                    <a href="#art" class="px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition duration-300 uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(255,255,255,0.2)]">Explore My Art</a>
+                    <a href="#art" class="px-8 py-4 btn-accent font-semibold rounded-full hover:scale-105 transition duration-300 uppercase tracking-widest text-sm shadow-[0_0_24px_rgba(125,90,255,0.25)]">Explore My Art</a>
                     <a href="#engineering" class="px-8 py-4 glass border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition duration-300 uppercase tracking-widest text-sm flex items-center gap-2"><i class="fa-solid fa-code"></i> View Code</a>
                 </div>
             </div>
             <div class="order-1 lg:order-2 flex justify-center lg:justify-end fade-in-up delay-1">
                 <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] rounded-full lg:rounded-[2.5rem] p-2 glass border border-white/20 shadow-[0_0_60px_rgba(138,43,226,0.15)] overflow-hidden">
+                    <div class="floating-badge hidden lg:flex flex-col">
+                        <span>Featured workflow</span>
+                        <strong>Photoshop · Illustrator · Java</strong>
+                    </div>
                     <img src="profile.jpg" alt="Ahnaf Shahriar" class="w-full h-full object-cover rounded-full lg:rounded-[2rem] filter contrast-110 saturate-110">
                 </div>
             </div>
@@ -239,7 +272,9 @@
             <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 gap-10">
                 <div>
                     <span class="text-xs uppercase tracking-[0.4em] text-blue-400 font-bold mb-4 block">Software & Systems</span>
-                    <h2 class="text-5xl md:text-7xl serif">Engineering Projects</h2>
+                    <h2 class="text-5xl md:text-7xl serif section-title">Engineering Projects</h2>
+                    <div class="accent-line"></div>
+                    <p class="section-intro">I merge software design and visual interface thinking across every build, presenting both technical rigor and polished interaction design.</p>
                 </div>
                 <div class="lg:max-w-xl glass-card p-8 rounded-3xl border-l-4 border-l-blue-500">
                     <p class="text-gray-300 font-light leading-relaxed text-sm md:text-base">
@@ -251,27 +286,27 @@
 
             <!-- Core Expertise Badges -->
             <div class="flex flex-wrap gap-4 mb-16">
-                <div class="glass-card px-6 py-3 rounded-xl flex items-center gap-3 border border-white/10 hover:border-blue-500/50 transition cursor-default">
+                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-blue-500/50 transition cursor-default">
                     <i class="fa-solid fa-code text-blue-400"></i>
                     <span class="text-sm font-bold tracking-widest uppercase text-white">C++</span>
                 </div>
-                <div class="glass-card px-6 py-3 rounded-xl flex items-center gap-3 border border-white/10 hover:border-purple-500/50 transition cursor-default">
+                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-purple-500/50 transition cursor-default">
                     <i class="fa-brands fa-java text-purple-400 text-lg"></i>
                     <span class="text-sm font-bold tracking-widest uppercase text-white">Java</span>
                 </div>
-                <div class="glass-card px-6 py-3 rounded-xl flex items-center gap-3 border border-white/10 hover:border-orange-500/50 transition cursor-default">
+                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-orange-500/50 transition cursor-default">
                     <i class="fa-brands fa-adobe text-orange-400 text-lg"></i>
                     <span class="text-sm font-bold tracking-widest uppercase text-white">Adobe Photoshop</span>
                 </div>
-                <div class="glass-card px-6 py-3 rounded-xl flex items-center gap-3 border border-white/10 hover:border-red-500/50 transition cursor-default">
+                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-red-500/50 transition cursor-default">
                     <i class="fa-brands fa-adobe text-red-400 text-lg"></i>
                     <span class="text-sm font-bold tracking-widest uppercase text-white">Adobe Illustrator</span>
                 </div>
-                <div class="glass-card px-6 py-3 rounded-xl flex items-center gap-3 border border-white/10 hover:border-teal-500/50 transition cursor-default">
+                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-teal-500/50 transition cursor-default">
                     <i class="fa-solid fa-database text-teal-400"></i>
                     <span class="text-sm font-bold tracking-widest uppercase text-white">SQL / DBMS</span>
                 </div>
-                <div class="glass-card px-6 py-3 rounded-xl flex items-center gap-3 border border-white/10 hover:border-gray-400/50 transition cursor-default">
+                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-gray-400/50 transition cursor-default">
                     <i class="fa-solid fa-microchip text-gray-400"></i>
                     <span class="text-sm font-bold tracking-widest uppercase text-white">Arduino / Embedded</span>
                 </div>
@@ -279,40 +314,46 @@
 
             <!-- Specific Projects -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="glass-card rounded-3xl overflow-hidden group">
+                <div class="glass-card rounded-3xl overflow-hidden group project-card">
                     <div class="img-zoom-container aspect-video"><img src="arduino.jpg" class="img-zoom w-full h-full object-cover"></div>
                     <div class="p-10">
                         <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl md:text-3xl serif">Smart Queue Management</h3>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl serif">Smart Queue Management</h3>
+                                <div class="project-tag mt-4">Arduino · Embedded Systems</div>
+                            </div>
                             <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-github"></i></a>
                         </div>
                         <p class="text-gray-400 font-light leading-relaxed mb-6">Built with **Arduino**, this project optimizes real-time waiting lines through sensor integration and an automated interface.</p>
-                        <div class="flex gap-3"><span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Arduino</span></div>
                     </div>
                 </div>
                 
-                <div class="glass-card rounded-3xl overflow-hidden group">
+                <div class="glass-card rounded-3xl overflow-hidden group project-card">
                     <div class="img-zoom-container aspect-video"><img src="image3.png" class="img-zoom w-full h-full object-cover bg-white"></div>
                     <div class="p-10">
                         <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl md:text-3xl serif">Tuition Fee Calculator</h3>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl serif">Tuition Fee Calculator</h3>
+                                <div class="project-tag mt-4">Java Swing · Academic Tool</div>
+                            </div>
                             <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" class="text-2xl hover:text-purple-400 transition"><i class="fa-brands fa-github"></i></a>
                         </div>
                         <p class="text-gray-400 font-light leading-relaxed mb-6">A **Java GUI** application for BRACU, UIU, and NSU students factoring in complex credit and waiver logic.</p>
-                        <div class="flex gap-3"><span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Java Swing</span></div>
                     </div>
                 </div>
 
                 <!-- Password Manager Project -->
-                <div class="glass-card rounded-3xl overflow-hidden group">
+                <div class="glass-card rounded-3xl overflow-hidden group project-card">
                     <div class="img-zoom-container aspect-video"><img src="image4.png" class="img-zoom w-full h-full object-cover bg-white"></div>
                     <div class="p-10">
                         <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl md:text-3xl serif">Password Manager</h3>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl serif">Password Manager</h3>
+                                <div class="project-tag mt-4">Java Swing · UX-focused Tool</div>
+                            </div>
                             <a href="#" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-github"></i></a>
                         </div>
                         <p class="text-gray-400 font-light leading-relaxed mb-6">A simple and intuitive password manager implemented using **Java Swing** for local credential storage and management.</p>
-                        <div class="flex gap-3"><span class="px-4 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gray-500">Java Swing</span></div>
                     </div>
                 </div>
             </div>
@@ -325,7 +366,9 @@
             <div class="flex flex-col md:flex-row justify-between items-end mb-16">
                 <div>
                     <span class="text-xs uppercase tracking-[0.3em] text-blue-400 font-bold mb-4 block">Visual Architecture</span>
-                    <h2 class="text-5xl md:text-7xl serif">Creative Sneak Peek</h2>
+                    <h2 class="text-5xl md:text-7xl serif section-title">Creative Sneak Peek</h2>
+                    <div class="accent-line"></div>
+                    <p class="section-intro">A hand-picked collection of brand visuals, illustration work, and expressive texture-driven layouts made for polished digital storytelling.</p>
                 </div>
                 <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="group flex items-center gap-3 text-lg font-medium hover:text-blue-400 transition mt-6">All Projects on Behance <i class="fa-brands fa-behance text-2xl group-hover:scale-110 transition"></i></a>
             </div>
@@ -333,49 +376,54 @@
             <!-- Project Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Project 1: Banner Design -->
-                <div class="glass-card rounded-3xl overflow-hidden group">
+                <div class="glass-card rounded-3xl overflow-hidden group project-card">
                     <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="banner_proj.jpg" class="img-zoom w-full h-full object-cover"></div>
                     <div class="p-8">
                         <h3 class="text-2xl serif mb-2">Banner Design</h3>
+                        <div class="project-tag mb-4">Photoshop · Layout</div>
                         <p class="text-gray-400 font-light text-sm">Professional web and social media banners focused on high-conversion layouts and clean typography. [Bicycle Tours Project]</p>
                     </div>
                 </div>
 
                 <!-- Project 2: Logo Design -->
-                <div class="glass-card rounded-3xl overflow-hidden group">
+                <div class="glass-card rounded-3xl overflow-hidden group project-card">
                     <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="logo_proj.jpg" class="img-zoom w-full h-full object-cover bg-white"></div>
                     <div class="p-8">
                         <h3 class="text-2xl serif mb-2">Logo Design</h3>
+                        <div class="project-tag mb-4">Illustrator · Branding</div>
                         <p class="text-gray-400 font-light text-sm">Minimalist and elegant branding identities built with precision line art and balance. [Wonder World Identity]</p>
                     </div>
                 </div>
 
                 <!-- Project 3: Mascot Illustrations -->
-                <div class="glass-card rounded-3xl overflow-hidden group">
+                <div class="glass-card rounded-3xl overflow-hidden group project-card">
                     <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="mascot_proj.jpg" class="img-zoom w-full h-full object-contain bg-zinc-900/50 p-4"></div>
                     <div class="p-8">
                         <h3 class="text-2xl serif mb-2">Mascot Illustration</h3>
+                        <div class="project-tag mb-4">Illustrator · Character Art</div>
                         <p class="text-gray-400 font-light text-sm">Bold, high-detail character and mascot illustrations for gaming and modern brand storytelling.</p>
                     </div>
                 </div>
 
                 <!-- Project 4: Poster Design -->
-                <div class="glass-card rounded-3xl overflow-hidden group">
+                <div class="glass-card rounded-3xl overflow-hidden group project-card">
                     <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="poster_proj.jpg" class="img-zoom w-full h-full object-cover"></div>
                     <div class="p-8">
                         <h3 class="text-2xl serif mb-2">Poster Design</h3>
+                        <div class="project-tag mb-4">Photoshop · Print Layout</div>
                         <p class="text-gray-400 font-light text-sm">Vibrant digital compositions and event flyers blending photo manipulation with artistic typography. [Girls Night Event]</p>
                     </div>
                 </div>
 
                 <!-- Project 5: Line Drawing Expertise -->
-                <div class="glass-card rounded-3xl overflow-hidden group md:col-span-2">
+                <div class="glass-card rounded-3xl overflow-hidden group md:col-span-2 project-card">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="image5.png" class="img-zoom w-full h-full object-cover bg-white"></div>
                         <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="image6.png" class="img-zoom w-full h-full object-cover bg-white"></div>
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl serif mb-2">Line Drawing</h3>
+                        <div class="project-tag mb-4">Illustrator · Vector Detail</div>
                         <p class="text-gray-400 font-light text-sm">Detailed vector illustrations and digital line art conversions from portraits and reference imagery, demonstrating precision and steady tracing techniques.</p>
                     </div>
                 </div>
