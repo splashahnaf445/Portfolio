@@ -53,6 +53,10 @@
         .skill-badge:hover { transform: translateY(-4px); border-color: rgba(125, 90, 255, 0.45); background: rgba(125, 90, 255, 0.12); }
         .skill-badge i { min-width: 1.5rem; }
         .project-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 10px; text-transform: uppercase; letter-spacing: 0.26em; padding: 0.75rem 1rem; border-radius: 9999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #b8c1ff; }
+        .project-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1.25rem; }
+        .project-preview { position: relative; border-radius: 1.5rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); }
+        .project-preview img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .project-preview:hover img { transform: scale(1.05); }
         .project-card:hover .img-zoom { transform: scale(1.08); }
         .project-card:hover { transform: translateY(-6px); box-shadow: 0 32px 80px rgba(0,0,0,0.2); }
         .floating-badge { position: absolute; top: 6%; right: 4%; z-index: 2; padding: 1rem 1.25rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 2rem; backdrop-filter: blur(16px); box-shadow: 0 20px 50px rgba(0,0,0,0.18); }
@@ -366,7 +370,7 @@
                     </div>
                 </div>
 
-                <!-- Seekr Project (Database Management System Course) - description only -->
+                <!-- Seekr Project (Database Management System Course) - description with image previews -->
                 <div class="glass-card rounded-3xl overflow-hidden group project-card">
                     <div class="p-10">
                         <div class="flex justify-between items-start mb-4">
@@ -377,6 +381,13 @@
                             <a href="https://github.com/splashahnaf445/Seekr" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-github"></i></a>
                         </div>
                         <p class="text-gray-400 font-light leading-relaxed mb-4">Seekr is a Lost & Found University Portal that modernizes reporting, discovering, and claiming campus items. Features include user registration/login, lost/found posting, image uploads, category filtering, search, claim requests, messaging, moderation, and an admin dashboard. Email notifications are planned.</p>
+                        <div class="project-gallery">
+                            <div class="project-preview"><img src="seekr images/seekr preview (1).jpg" alt="Seekr interface preview 1"></div>
+                            <div class="project-preview"><img src="seekr images/seekr preview (2).jpeg" alt="Seekr interface preview 2"></div>
+                            <div class="project-preview"><img src="seekr images/seekr preview (3).jpeg" alt="Seekr interface preview 3"></div>
+                            <div class="project-preview"><img src="seekr images/seekr preview (4).jpeg" alt="Seekr interface preview 4"></div>
+                        </div>
+                        <p class="text-gray-400 font-light text-sm mt-4">Explore Seekr's dashboard, claim flow, item listings, and mobile-friendly submission screens.</p>
                     </div>
                 </div>
             </div>
