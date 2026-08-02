@@ -1,488 +1,753 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahnaf Shahriar | Visual Architect & Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-glow: #8a2be2;
-            --secondary-glow: #00d2ff;
-            --accent: #7d5aff;
-            --accent-soft: rgba(125, 90, 255, 0.14);
-            --card-bg: rgba(255,255,255,0.05);
-            --border-soft: rgba(255,255,255,0.12);
-            --text-soft: #a8b4ff;
-            --shadow-glow: 0 28px 80px rgba(125, 90, 255, 0.14);
-        }
-        body { font-family: 'Outfit', sans-serif; background-color: #050505; background-image: radial-gradient(circle at 18% 12%, rgba(0,210,255,0.12), transparent 20%), radial-gradient(circle at 84% 10%, rgba(125,90,255,0.1), transparent 14%), radial-gradient(circle at 22% 80%, rgba(255,255,255,0.05), transparent 12%), linear-gradient(180deg, #050505 0%, #050505 100%); background-attachment: fixed; background-size: cover; color: #ffffff; scroll-behavior: smooth; overflow-x: hidden; }
-        body::before { content: ''; position: fixed; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.03), transparent 17%), radial-gradient(circle at 75% 80%, rgba(255,255,255,0.02), transparent 14%); opacity: 0.45; }
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
-        .glass { background: rgba(20, 20, 20, 0.45); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255, 255, 255, 0.07); }
-        .glass-card { background: var(--card-bg); backdrop-filter: blur(14px); border: 1px solid var(--border-soft); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease; }
-        .glass-card:hover { transform: translateY(-10px); border-color: rgba(125, 90, 255, 0.35); background: rgba(255, 255, 255, 0.1); box-shadow: var(--shadow-glow); }
-        .text-gradient { background: linear-gradient(to right, var(--secondary-glow), #3a7bd5, var(--primary-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-bg { background-image: linear-gradient(to bottom, rgba(5,5,5,0.5), rgba(5,5,5,1)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; }
-        .bg-gradient-art { background-image: radial-gradient(circle at top left, rgba(125,90,255,0.1), transparent 26%), linear-gradient(180deg, rgba(6,4,18,0.96), rgba(18,4,50,0.98)); }
-        #marketplaces { background: linear-gradient(180deg, rgba(4,8,20,0.96), rgba(8,14,40,0.96)); }
-        #education { background: linear-gradient(180deg, rgba(8,9,18,0.96), rgba(12,6,38,0.97)); }
-        #engineering { background: linear-gradient(180deg, rgba(3,5,12,0.96), rgba(12,3,34,0.98)); }
-        footer { background: linear-gradient(180deg, rgba(10,8,18,0.96), rgba(17,4,38,0.98)); }
-        .section-glow { position: absolute; border-radius: 999px; filter: blur(72px); opacity: 0.35; pointer-events: none; }
-        .circle-a { width: 240px; height: 240px; background: rgba(0,210,255,0.16); top: 10%; left: -6%; }
-        .circle-b { width: 300px; height: 300px; background: rgba(125,90,255,0.18); bottom: 10%; right: -10%; }
-        .circle-c { width: 260px; height: 260px; background: rgba(80,180,255,0.14); bottom: 12%; left: 8%; }
-        .circle-d { width: 320px; height: 320px; background: rgba(255,120,180,0.12); top: 20%; right: 4%; }
-        .img-zoom-container { overflow: hidden; border-radius: 1rem; }
-        .img-zoom { transition: transform 0.7s ease; }
-        .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
-        .fade-in-up { animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; transform: translateY(30px); }
-        .delay-1 { animation-delay: 0.2s; }
-        .section-intro { color: var(--text-soft); max-width: 760px; margin-top: 1.2rem; line-height: 1.9; }
-        .accent-line { width: 70px; height: 2px; background: linear-gradient(90deg, var(--secondary-glow), var(--primary-glow)); border-radius: 999px; margin-top: 1rem; margin-bottom: 1.5rem; }
-        .hero-highlight { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.85rem; padding: 0.85rem 1.1rem; border-radius: 9999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 18px 40px rgba(0,0,0,0.18); }
-        .hero-highlight span { color: var(--text-soft); font-size: 0.76rem; letter-spacing: 0.2em; text-transform: uppercase; }
-        .hero-highlight strong { color: #fff; font-size: 0.95rem; }
-        .btn-accent { background: linear-gradient(135deg, var(--secondary-glow), var(--primary-glow)); color: #fff; }
-        .btn-accent:hover { box-shadow: 0 18px 40px rgba(125, 90, 255, 0.28); }
-        .skill-badge { background: var(--card-bg); border: 1px solid var(--border-soft); box-shadow: var(--shadow-glow); transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease; }
-        .skill-badge:hover { transform: translateY(-4px); border-color: rgba(125, 90, 255, 0.45); background: rgba(125, 90, 255, 0.12); }
-        .skill-badge i { min-width: 1.5rem; }
-        .project-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 10px; text-transform: uppercase; letter-spacing: 0.26em; padding: 0.75rem 1rem; border-radius: 9999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #b8c1ff; }
-        .project-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1.25rem; }
-        .project-preview { position: relative; border-radius: 1.5rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); }
-        .project-preview img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .project-preview:hover img { transform: scale(1.05); }
-        .project-card:hover .img-zoom { transform: scale(1.08); }
-        .project-card:hover { transform: translateY(-6px); box-shadow: 0 32px 80px rgba(0,0,0,0.2); }
-        .floating-badge { position: absolute; top: 6%; right: 4%; z-index: 2; padding: 1rem 1.25rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 2rem; backdrop-filter: blur(16px); box-shadow: 0 20px 50px rgba(0,0,0,0.18); }
-        .floating-badge span { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.32em; color: #8ab8ff; }
-        .floating-badge strong { display: block; font-size: 0.95rem; margin-top: 0.35rem; color: #fff; }
-        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahnaf Shahriar — Engineer &amp; Visual Systems Artist</title>
+<meta name="description" content="Ahnaf Shahriar — Computer Science Engineer and visual designer working across code, generative image pipelines, and brand illustration.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --paper:#EDEAE2;
+  --paper-dim:#E1DDD1;
+  --paper-deep:#D8D3C4;
+  --ink:#17160F;
+  --ink-soft:#4A4738;
+  --ink-faint:#8C8778;
+  --red:#C1392B;
+  --red-soft:#C1392B22;
+  --blue:#2D4A73;
+  --line:rgba(23,22,15,0.16);
+  --line-soft:rgba(23,22,15,0.08);
+  --radius:4px;
+  --wrap:1180px;
+  --ff-display:'Fraunces', serif;
+  --ff-body:'Public Sans', sans-serif;
+  --ff-mono:'IBM Plex Mono', monospace;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background-color:var(--paper);
+  color:var(--ink);
+  font-family:var(--ff-body);
+  font-weight:400;
+  line-height:1.6;
+  position:relative;
+  overflow-x:hidden;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:2000;
+  opacity:0.05;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+h1,h2,h3{font-family:var(--ff-display); margin:0; font-weight:500; color:var(--ink);}
+p{margin:0;}
+.wrap{max-width:var(--wrap); margin:0 auto; padding:0 28px;}
+:focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
+
+.eyebrow{
+  font-family:var(--ff-mono);
+  font-size:11px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--red);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:14px;
+}
+.eyebrow::before{content:'●'; font-size:8px;}
+
+.section-head{max-width:640px; margin-bottom:56px;}
+.section-head h2{font-size:clamp(2.2rem,4.5vw,3.4rem); line-height:1.05;}
+.section-head p{color:var(--ink-soft); margin-top:16px; font-size:1.02rem; max-width:520px;}
+
+section{position:relative; padding:100px 0;}
+.rule-top{border-top:1px solid var(--line);}
+
+/* sprocket strip — static decorative motif reused across sections */
+.sprocket-strip{
+  height:20px;
+  background-image:
+    radial-gradient(circle, var(--paper) 3px, transparent 3.6px);
+  background-size:26px 20px;
+  background-repeat:repeat-x;
+  background-position:13px center;
+  background-color:var(--ink);
+}
+
+/* ============ SCROLL SIGNATURE: FILM ADVANCE BAR + FRAME COUNTER ============ */
+.cs-filmbar{
+  position:fixed; top:0; left:0; right:0; height:5px;
+  background:var(--paper-deep); z-index:1200;
+  background-image:radial-gradient(circle, var(--ink-faint) 1px, transparent 1.4px);
+  background-size:16px 5px; background-repeat:repeat-x; background-position:8px center;
+}
+.cs-filmbar__fill{
+  height:100%; width:0%; background:var(--red);
+}
+.cs-counter{
+  position:fixed; right:22px; bottom:22px; z-index:1200;
+  background:var(--ink); color:var(--paper);
+  font-family:var(--ff-mono); font-size:11px; letter-spacing:0.12em;
+  padding:9px 14px; border-radius:2px;
+  display:flex; align-items:center; gap:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+}
+.cs-counter__dot{width:6px; height:6px; border-radius:50%; background:var(--red); display:inline-block;}
+@media (max-width:640px){ .cs-counter{display:none;} }
+
+/* ============ NAV ============ */
+.cs-nav{
+  position:sticky; top:5px; z-index:1000;
+  background:var(--paper); border-bottom:1px solid var(--line);
+}
+.cs-nav__inner{
+  max-width:var(--wrap); margin:0 auto; padding:16px 28px;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+.cs-logo{
+  font-family:var(--ff-display); font-style:italic; font-weight:600;
+  font-size:1.4rem; letter-spacing:0.02em; flex-shrink:0;
+}
+.cs-logo span{color:var(--red);}
+.cs-nav__links{display:flex; gap:32px; align-items:center;}
+.cs-nav__links a{
+  font-family:var(--ff-mono); font-size:11px; text-transform:uppercase;
+  letter-spacing:0.14em; color:var(--ink-soft); padding:4px 0; border-bottom:1px solid transparent;
+  transition:color .2s ease, border-color .2s ease;
+}
+.cs-nav__links a:hover{color:var(--ink); border-color:var(--red);}
+.cs-nav__cta{
+  font-family:var(--ff-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.12em;
+  border:1px solid var(--ink); padding:9px 16px; border-radius:2px; flex-shrink:0;
+  transition:background .2s ease, color .2s ease;
+}
+.cs-nav__cta:hover{background:var(--ink); color:var(--paper);}
+.cs-nav__toggle{
+  display:none; font-family:var(--ff-mono); font-size:11px; letter-spacing:0.14em;
+  background:none; border:1px solid var(--ink); padding:8px 12px; border-radius:2px; cursor:pointer;
+  color:var(--ink);
+}
+@media (max-width:860px){
+  .cs-nav__links{
+    position:absolute; top:100%; left:0; right:0; background:var(--paper);
+    flex-direction:column; align-items:flex-start; gap:0; border-bottom:1px solid var(--line);
+    max-height:0; overflow:hidden; transition:max-height .3s ease;
+  }
+  .cs-nav__links.is-open{max-height:320px;}
+  .cs-nav__links a{width:100%; padding:16px 28px; border-bottom:1px solid var(--line-soft);}
+  .cs-nav__cta{display:none;}
+  .cs-nav__toggle{display:block;}
+}
+
+/* ============ HERO ============ */
+.cs-hero{padding:72px 0 100px;}
+.cs-hero__grid{
+  display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center;
+}
+@media (max-width:900px){ .cs-hero__grid{grid-template-columns:1fr; gap:52px;} }
+
+.cs-hero__label{
+  font-family:var(--ff-mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:22px; display:block;
+}
+.cs-hero h1{
+  font-size:clamp(3rem,7vw,5.2rem); line-height:0.98; letter-spacing:-0.01em;
+}
+.cs-hero h1 em{color:var(--red); font-style:italic;}
+.cs-hero__lede{
+  margin-top:26px; font-size:1.12rem; color:var(--ink-soft); max-width:480px; line-height:1.75;
+}
+.cs-hero__lede strong{color:var(--ink); font-weight:600;}
+.cs-hero__actions{display:flex; gap:16px; margin-top:38px; flex-wrap:wrap;}
+.stamp-btn{
+  font-family:var(--ff-mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+  padding:14px 26px; border-radius:3px; display:inline-flex; align-items:center; gap:10px;
+  transform:rotate(-1deg); transition:transform .2s ease, box-shadow .2s ease;
+}
+.stamp-btn--solid{background:var(--ink); color:var(--paper);}
+.stamp-btn--solid:hover{transform:rotate(-1deg) translateY(-3px); box-shadow:0 10px 22px rgba(0,0,0,0.18);}
+.stamp-btn--outline{border:1.5px solid var(--red); color:var(--red);}
+.stamp-btn--outline:hover{transform:rotate(-1deg) translateY(-3px); background:var(--red); color:var(--paper);}
+
+/* hero contact frame */
+.cs-frame-block{position:relative;}
+.reg-mark{position:absolute; width:18px; height:18px; z-index:3;}
+.reg-mark::before,.reg-mark::after{content:''; position:absolute; background:var(--ink);}
+.reg-mark::before{left:50%; top:0; width:1.5px; height:100%; transform:translateX(-50%);}
+.reg-mark::after{top:50%; left:0; height:1.5px; width:100%; transform:translateY(-50%);}
+.reg-mark--tl{top:-9px; left:-9px;} .reg-mark--tr{top:-9px; right:-9px;}
+.reg-mark--bl{bottom:-9px; left:-9px;} .reg-mark--br{bottom:-9px; right:-9px;}
+
+.cs-contact{
+  border:1px solid var(--ink); border-radius:4px; background:#fff;
+  display:grid; grid-template-columns:1.3fr 1fr; gap:1px; background-color:var(--ink);
+  overflow:hidden;
+}
+.cs-contact__pick{
+  position:relative; grid-row:span 2; overflow:hidden; background:var(--paper);
+}
+.cs-contact__pick img{width:100%; height:100%; object-fit:cover; aspect-ratio:3/4;}
+.cs-pick-tag{
+  position:absolute; bottom:14px; left:14px; z-index:3;
+  background:var(--paper); color:var(--red); font-family:var(--ff-mono); font-weight:600;
+  font-size:11px; letter-spacing:0.1em; padding:5px 10px; border:1.5px solid var(--red);
+  transform:rotate(-4deg); border-radius:2px;
+}
+.cs-pick-mark{position:absolute; inset:-6%; z-index:2; pointer-events:none; transform:rotate(-3deg);}
+.cs-pick-mark path{stroke:var(--red); stroke-width:2.6; fill:none;}
+
+.cs-contact__mini{position:relative; overflow:hidden; background:var(--paper);}
+.cs-contact__mini img{width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; filter:grayscale(0.15);}
+.cs-frame-no{
+  position:absolute; top:8px; right:8px; font-family:var(--ff-mono); font-size:10px;
+  color:var(--paper); background:rgba(23,22,15,0.55); padding:2px 6px; letter-spacing:0.06em;
+}
+
+/* ============ LEDGER (stats) ============ */
+.cs-ledger{
+  background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.cs-ledger__row{display:grid; grid-template-columns:repeat(4,1fr);}
+.cs-ledger__item{
+  padding:34px 24px; border-left:1px solid var(--line); text-align:left;
+}
+.cs-ledger__item:first-child{border-left:none;}
+.cs-ledger__label{
+  display:block; font-family:var(--ff-mono); font-size:10.5px; letter-spacing:0.14em;
+  text-transform:uppercase; color:var(--ink-faint); margin-bottom:10px;
+}
+.cs-ledger__value{font-family:var(--ff-display); font-size:clamp(1.8rem,3vw,2.6rem); color:var(--ink);}
+.cs-ledger__value span{color:var(--red);}
+@media (max-width:760px){
+  .cs-ledger__row{grid-template-columns:repeat(2,1fr);}
+  .cs-ledger__item:nth-child(3){border-left:none;}
+  .cs-ledger__item{border-top:1px solid var(--line);}
+  .cs-ledger__item:nth-child(1),.cs-ledger__item:nth-child(2){border-top:none;}
+}
+
+/* ============ MARKETPLACES: slide mounts ============ */
+.cs-mounts{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
+@media (max-width:760px){ .cs-mounts{grid-template-columns:1fr;} }
+.slide-mount{
+  border:10px solid var(--paper-deep); background:var(--ink); border-radius:6px;
+  position:relative; padding:38px 32px 28px; transition:transform .25s ease, border-color .25s ease;
+}
+.slide-mount:hover{transform:translateY(-6px); border-color:var(--red-soft);}
+.slide-mount::before{
+  content:''; position:absolute; top:-10px; left:24px; right:24px; height:10px;
+  background:repeating-linear-gradient(90deg, var(--paper) 0 4px, transparent 4px 12px);
+}
+.slide-mount::after{
+  content:''; position:absolute; bottom:-10px; left:24px; right:24px; height:10px;
+  background:repeating-linear-gradient(90deg, var(--paper) 0 4px, transparent 4px 12px);
+}
+.slide-mount__top{display:flex; align-items:center; gap:16px; margin-bottom:26px;}
+.slide-mount__icon{
+  width:52px; height:52px; border-radius:6px; overflow:hidden; background:var(--paper);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.slide-mount__icon img{width:100%; height:100%; object-fit:cover;}
+.slide-mount h3{color:var(--paper); font-size:1.5rem;}
+.slide-mount__num{
+  font-family:var(--ff-display); font-size:clamp(2rem,4vw,2.8rem); color:var(--paper); margin-bottom:10px;
+}
+.slide-mount__num span{font-family:var(--ff-mono); font-size:0.9rem; color:var(--ink-faint); font-weight:400; margin-left:8px;}
+.slide-mount p{color:#C9C5B6; font-size:0.95rem; line-height:1.7; margin-bottom:22px;}
+.slide-mount__link{
+  font-family:var(--ff-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--paper); border-bottom:1px solid var(--red); padding-bottom:3px; display:inline-flex; gap:8px;
+}
+.slide-mount__link i{color:var(--red);}
+
+/* ============ EDUCATION: development strip ============ */
+.cs-strip{
+  display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--ink); border-radius:4px; overflow:hidden;
+}
+@media (max-width:760px){ .cs-strip{grid-template-columns:1fr;} }
+.cs-strip__frame{
+  padding:42px 38px; position:relative; background:var(--paper);
+}
+.cs-strip__frame + .cs-strip__frame{border-left:1px solid var(--ink);}
+@media (max-width:760px){ .cs-strip__frame + .cs-strip__frame{border-left:none; border-top:1px solid var(--ink);} }
+.cs-strip__frame--developing{
+  background:linear-gradient(120deg, var(--paper) 40%, var(--paper-dim) 100%);
+}
+.cs-strip__status{
+  font-family:var(--ff-mono); font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase;
+  margin-bottom:16px; display:inline-flex; align-items:center; gap:8px;
+}
+.cs-strip__status--done{color:var(--blue);}
+.cs-strip__status--live{color:var(--red);}
+.cs-strip__status::before{content:''; width:7px; height:7px; border-radius:50%; background:currentColor; display:inline-block;}
+.cs-strip__frame h3{font-size:1.7rem; line-height:1.15; margin-bottom:18px;}
+.cs-strip__tags{display:flex; gap:10px; flex-wrap:wrap;}
+.mono-tag{
+  font-family:var(--ff-mono); font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase;
+  border:1px solid var(--line); padding:7px 12px; border-radius:2px; color:var(--ink-soft);
+}
+
+/* ============ ENGINEERING ============ */
+.cs-eng__intro{
+  display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; margin-bottom:52px; align-items:start;
+}
+@media (max-width:860px){ .cs-eng__intro{grid-template-columns:1fr;} }
+.cs-eng__note{
+  border-left:2px solid var(--red); padding-left:22px; font-size:0.98rem; color:var(--ink-soft); line-height:1.75;
+}
+.cs-eng__note a{color:var(--ink); border-bottom:1px solid var(--red); font-weight:600;}
+
+.stamp-row{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:64px;}
+.stamp-chip{
+  display:flex; align-items:center; gap:10px; border:1px solid var(--line); background:var(--paper-dim);
+  padding:10px 16px; border-radius:2px; font-family:var(--ff-mono); font-size:12px; letter-spacing:0.04em;
+  color:var(--ink-soft);
+}
+.stamp-chip img{width:18px; height:18px; object-fit:contain; border-radius:3px;}
+.stamp-chip i{width:18px; text-align:center; color:var(--red);}
+
+.cs-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:28px;}
+@media (max-width:760px){ .cs-grid{grid-template-columns:1fr;} }
+.frame-card{
+  border:1px solid var(--ink); border-radius:4px; overflow:hidden; background:var(--paper);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.frame-card:hover{transform:translateY(-5px); box-shadow:0 16px 34px rgba(23,22,15,0.14);}
+.frame-card--wide{grid-column:1/-1;}
+.frame-card__media{position:relative; aspect-ratio:16/9; overflow:hidden; border-bottom:1px solid var(--ink);}
+.frame-card__media img{width:100%; height:100%; object-fit:cover;}
+.frame-card__body{padding:26px 28px 28px;}
+.frame-card__head{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:10px;}
+.frame-card h3{font-size:1.4rem;}
+.frame-card__gh{
+  font-size:1.25rem; color:var(--ink-faint); flex-shrink:0; transition:color .2s ease;
+  border:1px solid var(--line); border-radius:50%; width:38px; height:38px; display:flex;
+  align-items:center; justify-content:center;
+}
+.frame-card__gh:hover{color:var(--paper); background:var(--ink); border-color:var(--ink);}
+.frame-card__desc{color:var(--ink-soft); font-size:0.94rem; line-height:1.7; margin:10px 0 14px;}
+.frame-card__tags{display:flex; gap:8px; flex-wrap:wrap;}
+
+.seekr-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--ink); border-bottom:1px solid var(--ink);}
+.seekr-strip img{width:100%; height:100%; object-fit:cover; aspect-ratio:16/11; background:var(--paper);}
+
+/* ============ ART: contact sheet ============ */
+.cs-art-grid{
+  display:grid; grid-template-columns:repeat(6,1fr); gap:14px;
+}
+@media (max-width:900px){ .cs-art-grid{grid-template-columns:repeat(2,1fr);} }
+.art-frame{
+  position:relative; border:1px solid var(--ink); border-radius:3px; overflow:hidden; background:#fff;
+  transition:transform .25s ease, z-index 0s;
+}
+.art-frame:hover{transform:translateY(-6px) scale(1.02); z-index:5; box-shadow:0 18px 36px rgba(23,22,15,0.18);}
+.art-frame img{width:100%; height:100%; object-fit:cover;}
+.art-frame--a{grid-column:span 3; aspect-ratio:16/8;}
+.art-frame--b{grid-column:span 3; aspect-ratio:16/8;}
+.art-frame--c{grid-column:span 2; aspect-ratio:4/5;}
+.art-frame--d{grid-column:span 2; aspect-ratio:4/5;}
+.art-frame--e{grid-column:span 2; aspect-ratio:4/5;}
+@media (max-width:900px){
+  .art-frame--a,.art-frame--b{grid-column:span 2;}
+  .art-frame--c,.art-frame--d,.art-frame--e{grid-column:span 1; aspect-ratio:1/1;}
+}
+.art-frame__no{
+  position:absolute; top:8px; left:8px; font-family:var(--ff-mono); font-size:10px;
+  color:var(--paper); background:rgba(23,22,15,0.6); padding:2px 6px; z-index:2; letter-spacing:0.06em;
+}
+.art-frame__cap{
+  position:absolute; bottom:0; left:0; right:0; padding:10px 12px;
+  background:linear-gradient(to top, rgba(23,22,15,0.82), transparent);
+  color:var(--paper); font-family:var(--ff-mono); font-size:11px; letter-spacing:0.05em;
+  opacity:0; transform:translateY(6px); transition:opacity .25s ease, transform .25s ease;
+}
+.art-frame:hover .art-frame__cap{opacity:1; transform:translateY(0);}
+.art-frame--pick .art-frame__cap{opacity:1; transform:none;}
+.art-pick-mark{position:absolute; inset:-4%; z-index:1; pointer-events:none;}
+.art-pick-mark path{stroke:var(--red); stroke-width:2.2; fill:none;}
+.art-frame--pick{border-color:var(--red);}
+
+.cs-art__footnote{margin-top:22px; color:var(--ink-faint); font-size:0.88rem; font-family:var(--ff-mono);}
+.cs-art__footnote a{color:var(--red); border-bottom:1px solid var(--red);}
+
+/* ============ FOOTER ============ */
+.cs-footer{
+  background:var(--ink); color:var(--paper); padding:0; position:relative;
+}
+.cs-footer__tear{
+  height:14px; width:100%;
+  background:var(--paper);
+  clip-path:polygon(0% 100%, 3% 0%, 6% 100%, 9% 0%, 12% 100%, 15% 0%, 18% 100%, 21% 0%, 24% 100%, 27% 0%, 30% 100%, 33% 0%, 36% 100%, 39% 0%, 42% 100%, 45% 0%, 48% 100%, 51% 0%, 54% 100%, 57% 0%, 60% 100%, 63% 0%, 66% 100%, 69% 0%, 72% 100%, 75% 0%, 78% 100%, 81% 0%, 84% 100%, 87% 0%, 90% 100%, 93% 0%, 96% 100%, 99% 0%, 100% 100%);
+}
+.cs-footer__inner{max-width:720px; margin:0 auto; padding:90px 28px 60px; text-align:center;}
+.cs-footer__stamp{
+  display:inline-block; border:1.5px solid var(--red); color:var(--red); font-family:var(--ff-mono);
+  font-size:11px; letter-spacing:0.16em; text-transform:uppercase; padding:8px 16px; border-radius:2px;
+  transform:rotate(-2deg); margin-bottom:26px;
+}
+.cs-footer h2{font-size:clamp(2.4rem,5vw,3.6rem); color:var(--paper); font-style:italic;}
+.cs-footer__tag{color:#B7B2A0; font-size:1.05rem; margin:20px 0 40px; font-style:italic; font-family:var(--ff-display);}
+.cs-footer__social{display:flex; justify-content:center; gap:16px; margin-top:50px;}
+.cs-footer__social a{
+  width:46px; height:46px; border:1px solid #3a3829; border-radius:2px; display:flex;
+  align-items:center; justify-content:center; font-size:1.1rem; color:#B7B2A0;
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+.cs-footer__social a:hover{background:var(--red); color:var(--paper); border-color:var(--red);}
+.cs-footer__meta{margin-top:56px; font-family:var(--ff-mono); font-size:10.5px; letter-spacing:0.1em; color:#6b6858;}
+
+/* reveal on scroll (JS-enhanced, degrades gracefully) */
+.cs-reveal{opacity:1; transform:none;}
+@media (prefers-reduced-motion:no-preference){
+  .cs-reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease;}
+  .cs-reveal.is-visible{opacity:1; transform:none;}
+}
+</style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tighter serif text-white">AS<span class="text-gradient">.</span></div>
-            <div class="space-x-8 text-sm tracking-widest uppercase font-medium text-gray-300 hidden md:flex">
-                <a href="#art" class="hover:text-white transition">The Art</a>
-                <a href="#marketplaces" class="hover:text-white transition">Marketplaces</a>
-                <a href="#education" class="hover:text-white transition">Education</a>
-                <a href="#engineering" class="hover:text-white transition">The Code</a>
-                <a href="#contact" class="hover:text-white transition">Contact</a>
-            </div>
-            <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="hidden md:inline-block px-5 py-2 border border-white/20 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition duration-300">Behance</a>
+<div class="cs-filmbar"><div class="cs-filmbar__fill" id="filmbarFill"></div></div>
+<div class="cs-counter"><span class="cs-counter__dot"></span>FRAME <span id="frameNum">001</span>/36</div>
+
+<nav class="cs-nav">
+  <div class="cs-nav__inner">
+    <a href="#top" class="cs-logo">AS<span>.</span></a>
+    <button class="cs-nav__toggle" id="navToggle">Menu</button>
+    <div class="cs-nav__links" id="navLinks">
+      <a href="#marketplaces">Marketplaces</a>
+      <a href="#education">Education</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#art">Visual Works</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener" class="cs-nav__cta">Behance ↗</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header id="top" class="cs-hero wrap">
+  <div class="cs-hero__grid">
+    <div class="cs-reveal">
+      <span class="cs-hero__label">Computer Science Engineer · Visual Systems</span>
+      <h1>Ahnaf<br><em>Shahriar.</em></h1>
+      <p class="cs-hero__lede">
+        I work both sides of the lens: <strong>writing the code</strong> that runs systems and pipelines, and
+        <strong>directing the imagery</strong> that comes out of them. Ten thousand assets across Adobe Stock
+        and Freepik have taught me the same lesson software does — the good version only shows up after you've
+        made, sorted, and rejected a lot of average ones.
+      </p>
+      <div class="cs-hero__actions">
+        <a href="#art" class="stamp-btn stamp-btn--solid"><i class="fa-solid fa-image"></i> View the Roll</a>
+        <a href="#engineering" class="stamp-btn stamp-btn--outline"><i class="fa-solid fa-code"></i> View the Code</a>
+      </div>
+    </div>
+
+    <div class="cs-frame-block cs-reveal">
+      <div class="reg-mark reg-mark--tl"></div>
+      <div class="reg-mark reg-mark--tr"></div>
+      <div class="reg-mark reg-mark--bl"></div>
+      <div class="reg-mark reg-mark--br"></div>
+      <div class="cs-contact">
+        <div class="cs-contact__pick">
+          <img src="profile.jpg" alt="Ahnaf Shahriar">
+          <svg class="cs-pick-mark" viewBox="0 0 220 260" preserveAspectRatio="none">
+            <path d="M108 10 C 168 4, 210 56, 208 124 C 206 198, 162 248, 100 252 C 44 255, 8 204, 6 136 C 4 64, 54 14, 108 10 Z"/>
+          </svg>
+          <span class="cs-pick-tag">PICK ✓</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center justify-center hero-bg px-6 pt-28 pb-16">
-        <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
-            <div class="order-2 lg:order-1 fade-in-up">
-                <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-gray-400 font-semibold mb-6 block">Computer Science Engineer & Graphic Designer</span>
-                <div class="hero-highlight mb-8">
-                    <span>Visual systems · Brand motion · Clean code</span>
-                    <strong>Design-led engineering for polished digital experiences</strong>
-                </div>
-                <h1 class="text-6xl md:text-8xl font-bold leading-none mb-8 tracking-tighter serif">Ahnaf <br><span class="text-gradient">Shahriar.</span></h1>
-                <p class="text-lg md:text-xl section-intro mx-auto lg:mx-0 font-light mb-10">
-                    Bridging the logic of <span class="text-white font-medium">Computer Engineering</span> with the soul of <span class="text-white font-medium">Digital Aesthetics.</span> I build expressive brand systems, polished UI, and code-driven projects that feel cohesive and bold.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-                    <a href="#art" class="px-8 py-4 btn-accent font-semibold rounded-full hover:scale-105 transition duration-300 uppercase tracking-widest text-sm shadow-[0_0_24px_rgba(125,90,255,0.25)]">Explore My Art</a>
-                    <a href="#engineering" class="px-8 py-4 glass border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition duration-300 uppercase tracking-widest text-sm flex items-center gap-2"><i class="fa-solid fa-code"></i> View Code</a>
-                </div>
-            </div>
-            <div class="order-1 lg:order-2 flex justify-center lg:justify-end fade-in-up delay-1">
-                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] rounded-full lg:rounded-[2.5rem] p-2 glass border border-white/20 shadow-[0_0_60px_rgba(138,43,226,0.15)] overflow-hidden">
-                    <img src="profile.jpg" alt="Ahnaf Shahriar" class="w-full h-full object-cover rounded-full lg:rounded-[2rem] filter contrast-110 saturate-110">
-                </div>
-            </div>
+        <div class="cs-contact__mini">
+          <img src="mascot_proj.jpg" alt="Mascot illustration frame">
+          <span class="cs-frame-no">07A</span>
         </div>
-    </header>
-
-    <!-- Stats Section -->
-    <section class="py-24 bg-[#050505] border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="glass-card p-8 rounded-2xl text-center">
-                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">6k+</div>
-                <div class="text-[10px] tracking-widest uppercase text-gray-500">Adobe Stock Assets</div>
-            </div>
-            <div class="glass-card p-8 rounded-2xl text-center">
-                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">2.5k+</div>
-                <div class="text-[10px] tracking-widest uppercase text-gray-500">Freepik Assets</div>
-            </div>
-            <div class="glass-card p-8 rounded-2xl text-center">
-                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">Level 3</div>
-                <div class="text-[10px] tracking-widest uppercase text-gray-500">Freepik Contributor</div>
-            </div>
-            <div class="glass-card p-8 rounded-2xl text-center">
-                <div class="text-3xl md:text-5xl font-bold text-gradient mb-2">5+ Yrs</div>
-                <div class="text-[10px] tracking-widest uppercase text-gray-500">Design Experience</div>
-            </div>
+        <div class="cs-contact__mini">
+          <img src="arduino.jpg" alt="Smart queue arduino build frame">
+          <span class="cs-frame-no">07B</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <!-- Global Marketplaces Section -->
-    <section id="marketplaces" class="py-32 bg-[#050505] relative overflow-hidden">
-        <div class="section-glow circle-a hidden lg:block"></div>
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-xs uppercase tracking-[0.4em] text-blue-400 font-bold mb-4 block">Commercial Impact</span>
-                <h2 class="text-5xl md:text-7xl serif mb-6">Global Marketplaces</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" class="glass-card rounded-3xl overflow-hidden group p-8 md:p-12 border border-white/5 hover:border-blue-500/30 transition-all duration-500">
-                    <div class="flex items-center gap-6 mb-8">
-                        <div class="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 overflow-hidden">
-                            <img src="image1.png" class="w-full h-full object-cover" alt="Adobe Stock">
-                        </div>
-                        <h3 class="text-3xl serif text-white">Adobe Stock</h3>
-                    </div>
-                    <div class="text-5xl font-extrabold text-white mb-4 tracking-tighter">6,000+ <span class="text-lg text-gray-500 font-light">Assets</span></div>
-                    <p class="text-gray-400 font-light leading-relaxed mb-8">Successfully navigating commercial trends through a mix of manual design and AI prompt architecture.</p>
-                    <div class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest group-hover:text-blue-400 transition">Visit Portfolio <i class="fa-solid fa-arrow-right"></i></div>
-                </a>
-                <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" class="glass-card rounded-3xl overflow-hidden group p-8 md:p-12 border border-white/5 hover:border-purple-500/30 transition-all duration-500">
-                    <div class="flex items-center gap-6 mb-8">
-                        <div class="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 overflow-hidden">
-                            <img src="image2.png" class="w-full h-full object-cover" alt="Freepik">
-                        </div>
-                        <h3 class="text-3xl serif text-white">Freepik</h3>
-                    </div>
-                    <div class="text-5xl font-extrabold text-white mb-4 tracking-tighter">2,500+ <span class="text-lg text-gray-500 font-light">Assets</span></div>
-                    <p class="text-gray-400 font-light leading-relaxed mb-8">Specializing in high-demand PNGs and vector graphics. Top-tier contributor in the Magnific collection.</p>
-                    <div class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest group-hover:text-purple-400 transition">Visit Portfolio <i class="fa-solid fa-arrow-right"></i></div>
-                </a>
-            </div>
+<!-- ================= LEDGER / STATS ================= -->
+<section class="cs-ledger">
+  <div class="wrap cs-ledger__row">
+    <div class="cs-ledger__item cs-reveal">
+      <span class="cs-ledger__label">Adobe Stock</span>
+      <span class="cs-ledger__value">6k<span>+</span></span>
+    </div>
+    <div class="cs-ledger__item cs-reveal">
+      <span class="cs-ledger__label">Freepik</span>
+      <span class="cs-ledger__value">2.5k<span>+</span></span>
+    </div>
+    <div class="cs-ledger__item cs-reveal">
+      <span class="cs-ledger__label">Freepik Standing</span>
+      <span class="cs-ledger__value">Level <span>3</span></span>
+    </div>
+    <div class="cs-ledger__item cs-reveal">
+      <span class="cs-ledger__label">In the Field</span>
+      <span class="cs-ledger__value">5<span>+</span> yrs</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARKETPLACES ================= -->
+<section id="marketplaces">
+  <div class="wrap">
+    <div class="section-head cs-reveal">
+      <span class="eyebrow">Roll 01 — Commercial Prints</span>
+      <h2>Global Marketplaces</h2>
+      <p>Two contributor accounts, one habit: read the trend data first, generate in batches, keep only what earns its place in the catalog.</p>
+    </div>
+    <div class="cs-mounts">
+      <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" rel="noopener" class="slide-mount cs-reveal">
+        <div class="slide-mount__top">
+          <div class="slide-mount__icon"><img src="image1.png" alt="Adobe Stock"></div>
+          <h3>Adobe Stock</h3>
         </div>
-    </section>
-
-    <!-- ==============================
-         EDUCATION SECTION (NEW)
-    ============================== -->
-    <section id="education" class="py-32 bg-[#050505] border-t border-white/5 relative overflow-hidden">
-        <div class="section-glow circle-b hidden lg:block"></div>
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(0,210,255,0.05) 0%,transparent 70%);pointer-events:none;"></div>
-
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-20">
-                <span class="text-xs uppercase tracking-[0.4em] text-blue-400 font-bold mb-4 block">Academic Foundation</span>
-                <h2 class="text-5xl md:text-7xl serif">Education</h2>
-            </div>
-
-            <!-- Timeline wrapper -->
-            <div class="relative max-w-4xl mx-auto">
-
-                <!-- Vertical centre line -->
-                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px"
-                     style="background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.08) 20%,rgba(255,255,255,0.08) 80%,transparent);transform:translateX(-50%);"></div>
-
-                <!-- ── Entry 1: HSC ── -->
-                <div class="relative flex flex-col md:flex-row items-stretch gap-0 mb-12">
-
-                    <!-- Left card (desktop: right half of left column) -->
-                    <div class="md:w-1/2 md:pr-12 flex justify-end mb-8 md:mb-0">
-                        <div class="glass-card rounded-3xl p-8 md:p-10 border border-white/5 hover:border-blue-500/30 transition-all duration-500 w-full">
-                            <div class="flex items-start justify-between gap-4 mb-6">
-                                <div>
-                                    <span class="text-[10px] uppercase tracking-[0.3em] text-blue-400 font-bold mb-2 block">Higher Secondary · HSC</span>
-                                    <h3 class="text-2xl md:text-3xl serif text-white leading-snug">Rajuk Uttara<br>Model College</h3>
-                                </div>
-                                <div class="flex-shrink-0 w-14 h-14 glass rounded-2xl flex items-center justify-center border border-white/10">
-                                    <i class="fa-solid fa-graduation-cap text-blue-400 text-xl"></i>
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap gap-3">
-                                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 bg-white/5">
-                                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-                                    <span class="text-sm font-bold text-white">GPA 5.00</span>
-                                    <span class="text-[10px] uppercase tracking-widest text-gray-500">/ 5.00</span>
-                                </div>
-                                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 bg-white/5">
-                                    <i class="fa-solid fa-flask text-blue-400 text-xs"></i>
-                                    <span class="text-[10px] uppercase tracking-widest text-gray-400">Science</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Timeline dot -->
-                    <div class="hidden md:flex absolute left-1/2 items-center justify-center" style="top:50%;transform:translate(-50%,-50%);">
-                        <div class="w-5 h-5 rounded-full border-2 border-blue-400 bg-[#050505] shadow-[0_0_12px_rgba(0,210,255,0.4)]"></div>
-                    </div>
-
-                    <!-- Right spacer -->
-                    <div class="md:w-1/2 md:pl-12 hidden md:flex items-center">
-                        <div class="glass rounded-2xl px-6 py-3 border border-white/5">
-                            <span class="text-[10px] uppercase tracking-[0.3em] text-gray-500">Completed</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── Entry 2: BSc ── -->
-                <div class="relative flex flex-col md:flex-row items-stretch gap-0">
-
-                    <!-- Left spacer -->
-                    <div class="md:w-1/2 md:pr-12 hidden md:flex justify-end items-center">
-                        <div class="glass rounded-2xl px-6 py-3 border border-white/5">
-                            <span class="text-[10px] uppercase tracking-[0.3em] text-gray-500">In Progress</span>
-                        </div>
-                    </div>
-
-                    <!-- Timeline dot -->
-                    <div class="hidden md:flex absolute left-1/2 items-center justify-center" style="top:50%;transform:translate(-50%,-50%);">
-                        <div class="w-5 h-5 rounded-full border-2 border-purple-400 bg-[#050505] shadow-[0_0_12px_rgba(138,43,226,0.4)]"></div>
-                    </div>
-
-                    <!-- Right card -->
-                    <div class="md:w-1/2 md:pl-12 flex justify-start">
-                        <div class="glass-card rounded-3xl p-8 md:p-10 border border-white/5 hover:border-purple-500/30 transition-all duration-500 w-full">
-                            <div class="flex items-start justify-between gap-4 mb-6">
-                                <div>
-                                    <span class="text-[10px] uppercase tracking-[0.3em] text-purple-400 font-bold mb-2 block">Bachelor of Science · Ongoing</span>
-                                    <h3 class="text-2xl md:text-3xl serif text-white leading-snug">United International<br>University</h3>
-                                </div>
-                                <div class="flex-shrink-0 w-14 h-14 glass rounded-2xl flex items-center justify-center border border-white/10">
-                                    <i class="fa-solid fa-microchip text-purple-400 text-xl"></i>
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap gap-3">
-                                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 bg-white/5">
-                                    <i class="fa-solid fa-code text-purple-400 text-xs"></i>
-                                    <span class="text-sm font-bold text-white">BSc in CSE</span>
-                                </div>
-                                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 bg-white/5">
-                                    <i class="fa-solid fa-circle-notch fa-spin text-purple-400 text-xs"></i>
-                                    <span class="text-sm font-bold text-white">3rd Year</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- /timeline -->
+        <div class="slide-mount__num">6,000+<span>assets live</span></div>
+        <p>A working catalog built on prompt architecture and manual retouching, tuned around seasonal and event-driven demand.</p>
+        <span class="slide-mount__link"><i class="fa-solid fa-arrow-right"></i> Visit Portfolio</span>
+      </a>
+      <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" rel="noopener" class="slide-mount cs-reveal">
+        <div class="slide-mount__top">
+          <div class="slide-mount__icon"><img src="image2.png" alt="Freepik"></div>
+          <h3>Freepik</h3>
         </div>
-    </section>
-    <!-- ============================== -->
+        <div class="slide-mount__num">2,500+<span>assets live</span></div>
+        <p>Focused on high-demand PNGs and vector graphics — a Level 3 standing inside the Magnific collection.</p>
+        <span class="slide-mount__link"><i class="fa-solid fa-arrow-right"></i> Visit Portfolio</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <!-- Engineering Section -->
-    <section id="engineering" class="py-32 bg-[#020202] border-t border-white/5 relative overflow-hidden">
-        <div class="section-glow circle-c hidden lg:block"></div>
-        <div class="max-w-7xl mx-auto px-6">
-            
-            <!-- Academic Documentation Section -->
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 gap-10">
-                <div>
-                    <span class="text-xs uppercase tracking-[0.4em] text-blue-400 font-bold mb-4 block">Software & Systems</span>
-                    <h2 class="text-5xl md:text-7xl serif section-title">Engineering Projects</h2>
-                    <div class="accent-line"></div>
-                    <p class="section-intro">I merge software design and visual interface thinking across every build, presenting both technical rigor and polished interaction design.</p>
-                </div>
-                <div class="lg:max-w-xl glass-card p-8 rounded-3xl border-l-4 border-l-blue-500">
-                    <p class="text-gray-300 font-light leading-relaxed text-sm md:text-base">
-                        Beyond these featured builds, my GitHub houses the complete documentation of my <span class="text-white font-medium">Computer Science</span> coursework. This includes my comprehensive journey through Data Structures & Algorithms in C++, Object-Oriented Java GUI applications, and relational DBMS architecture in SQL (including my database project, NewMarket).
-                    </p>
-                    <a href="https://github.com/splashahnaf445" target="_blank" class="inline-block mt-4 text-blue-400 text-xs font-bold uppercase tracking-widest hover:text-white transition">Explore Full Repository <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Core Expertise Badges -->
-            <div class="flex flex-wrap gap-4 mb-16">
-                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-blue-500/50 transition cursor-default">
-                    <i class="fa-solid fa-code text-blue-400"></i>
-                    <span class="text-sm font-bold tracking-widest uppercase text-white">C++</span>
-                </div>
-                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-purple-500/50 transition cursor-default">
-                    <i class="fa-brands fa-java text-purple-400 text-lg"></i>
-                    <span class="text-sm font-bold tracking-widest uppercase text-white">Java</span>
-                </div>
-                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-orange-500/50 transition cursor-default">
-                    <i class="fa-brands fa-adobe text-orange-400 text-lg"></i>
-                    <span class="text-sm font-bold tracking-widest uppercase text-white">Adobe Photoshop</span>
-                </div>
-                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-red-500/50 transition cursor-default">
-                    <i class="fa-brands fa-adobe text-red-400 text-lg"></i>
-                    <span class="text-sm font-bold tracking-widest uppercase text-white">Adobe Illustrator</span>
-                </div>
-                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-teal-500/50 transition cursor-default">
-                    <i class="fa-solid fa-database text-teal-400"></i>
-                    <span class="text-sm font-bold tracking-widest uppercase text-white">SQL / DBMS</span>
-                </div>
-                <div class="glass-card skill-badge px-6 py-3 rounded-xl flex items-center gap-3 hover:border-gray-400/50 transition cursor-default">
-                    <i class="fa-solid fa-microchip text-gray-400"></i>
-                    <span class="text-sm font-bold tracking-widest uppercase text-white">Arduino / Embedded</span>
-                </div>
-            </div>
-
-            <!-- Specific Projects -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="glass-card rounded-3xl overflow-hidden group project-card">
-                    <div class="img-zoom-container aspect-video"><img src="arduino.jpg" class="img-zoom w-full h-full object-cover"></div>
-                    <div class="p-10">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl md:text-3xl serif">Smart Queue Management</h3>
-                                <div class="project-tag mt-4">Arduino · Embedded Systems</div>
-                            </div>
-                            <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                        <p class="text-gray-400 font-light leading-relaxed mb-6">Built with **Arduino**, this project optimizes real-time waiting lines through sensor integration and an automated interface.</p>
-                    </div>
-                </div>
-                
-                <div class="glass-card rounded-3xl overflow-hidden group project-card">
-                    <div class="img-zoom-container aspect-video"><img src="image3.png" class="img-zoom w-full h-full object-cover bg-white"></div>
-                    <div class="p-10">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl md:text-3xl serif">Tuition Fee Calculator</h3>
-                                <div class="project-tag mt-4">Java Swing · Academic Tool</div>
-                            </div>
-                            <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" class="text-2xl hover:text-purple-400 transition"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                        <p class="text-gray-400 font-light leading-relaxed mb-6">A **Java GUI** application for BRACU, UIU, and NSU students factoring in complex credit and waiver logic.</p>
-                    </div>
-                </div>
-
-                <!-- Password Manager Project -->
-                <div class="glass-card rounded-3xl overflow-hidden group project-card">
-                    <div class="img-zoom-container aspect-video"><img src="image4.png" class="img-zoom w-full h-full object-cover bg-white"></div>
-                    <div class="p-10">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl md:text-3xl serif">Password Manager</h3>
-                                <div class="project-tag mt-4">Java Swing · UX-focused Tool</div>
-                            </div>
-                            <a href="#" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                        <p class="text-gray-400 font-light leading-relaxed mb-6">A simple and intuitive password manager implemented using **Java Swing** for local credential storage and management.</p>
-                    </div>
-                </div>
-
-                <!-- Seekr Project (Database Management System Course) - description with image previews -->
-                <div class="glass-card rounded-3xl overflow-hidden group project-card">
-                    <div class="p-10">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl md:text-3xl serif">Seekr — Lost & Found Portal</h3>
-                                <div class="project-tag mt-4">React · Node · MySQL</div>
-                            </div>
-                            <a href="https://github.com/splashahnaf445/Seekr" target="_blank" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                        <p class="text-gray-400 font-light leading-relaxed mb-4">Seekr is a Lost & Found University Portal that modernizes reporting, discovering, and claiming campus items. Features include user registration/login, lost/found posting, image uploads, category filtering, search, claim requests, messaging, moderation, and an admin dashboard. Email notifications are planned.</p>
-                        <div class="project-gallery">
-                            <div class="project-preview"><img src="seekr images/seekr preview (1).jpg" alt="Seekr interface preview 1"></div>
-                            <div class="project-preview"><img src="seekr images/seekr preview (2).jpeg" alt="Seekr interface preview 2"></div>
-                            <div class="project-preview"><img src="seekr images/seekr preview (3).jpeg" alt="Seekr interface preview 3"></div>
-                            <div class="project-preview"><img src="seekr images/seekr preview (4).jpeg" alt="Seekr interface preview 4"></div>
-                        </div>
-                        <p class="text-gray-400 font-light text-sm mt-4">Explore Seekr's dashboard, claim flow, item listings, and mobile-friendly submission screens.</p>
-                    </div>
-                </div>
-            </div>
+<!-- ================= EDUCATION ================= -->
+<section id="education" class="rule-top">
+  <div class="wrap">
+    <div class="section-head cs-reveal">
+      <span class="eyebrow">Roll 02 — Development Log</span>
+      <h2>Education</h2>
+      <p>One frame closed out, one still in the tray.</p>
+    </div>
+    <div class="cs-strip cs-reveal">
+      <div class="cs-strip__frame">
+        <span class="cs-strip__status cs-strip__status--done">Fully Exposed · Complete</span>
+        <h3>Rajuk Uttara Model College</h3>
+        <div class="cs-strip__tags">
+          <span class="mono-tag">GPA 5.00 / 5.00</span>
+          <span class="mono-tag">Science · HSC</span>
         </div>
-    </section>
-
-    <!-- Creative Sneak Peek Section -->
-    <section id="art" class="py-32 bg-gradient-art border-t border-white/5 relative overflow-hidden">
-        <div class="section-glow circle-d hidden lg:block"></div>
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-                <div>
-                    <span class="text-xs uppercase tracking-[0.3em] text-blue-400 font-bold mb-4 block">Visual Architecture</span>
-                    <h2 class="text-5xl md:text-7xl serif section-title">Creative Sneak Peek</h2>
-                    <div class="accent-line"></div>
-                    <p class="section-intro">A hand-picked collection of brand visuals, illustration work, and expressive texture-driven layouts made for polished digital storytelling.</p>
-                </div>
-                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="group flex items-center gap-3 text-lg font-medium hover:text-blue-400 transition mt-6">All Projects on Behance <i class="fa-brands fa-behance text-2xl group-hover:scale-110 transition"></i></a>
-            </div>
-
-            <!-- Project Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Project 1: Banner Design -->
-                <div class="glass-card rounded-3xl overflow-hidden group project-card">
-                    <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="banner_proj.jpg" class="img-zoom w-full h-full object-cover"></div>
-                    <div class="p-8">
-                        <h3 class="text-2xl serif mb-2">Banner Design</h3>
-                        <div class="project-tag mb-4">Photoshop · Layout</div>
-                        <p class="text-gray-400 font-light text-sm">Professional web and social media banners focused on high-conversion layouts and clean typography. [Bicycle Tours Project]</p>
-                    </div>
-                </div>
-
-                <!-- Project 2: Logo Design -->
-                <div class="glass-card rounded-3xl overflow-hidden group project-card">
-                    <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="logo_proj.jpg" class="img-zoom w-full h-full object-cover bg-white"></div>
-                    <div class="p-8">
-                        <h3 class="text-2xl serif mb-2">Logo Design</h3>
-                        <div class="project-tag mb-4">Illustrator · Branding</div>
-                        <p class="text-gray-400 font-light text-sm">Minimalist and elegant branding identities built with precision line art and balance. [Wonder World Identity]</p>
-                    </div>
-                </div>
-
-                <!-- Project 3: Mascot Illustrations -->
-                <div class="glass-card rounded-3xl overflow-hidden group project-card">
-                    <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="mascot_proj.jpg" class="img-zoom w-full h-full object-contain bg-zinc-900/50 p-4"></div>
-                    <div class="p-8">
-                        <h3 class="text-2xl serif mb-2">Mascot Illustration</h3>
-                        <div class="project-tag mb-4">Illustrator · Character Art</div>
-                        <p class="text-gray-400 font-light text-sm">Bold, high-detail character and mascot illustrations for gaming and modern brand storytelling.</p>
-                    </div>
-                </div>
-
-                <!-- Project 4: Poster Design -->
-                <div class="glass-card rounded-3xl overflow-hidden group project-card">
-                    <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="poster_proj.jpg" class="img-zoom w-full h-full object-cover"></div>
-                    <div class="p-8">
-                        <h3 class="text-2xl serif mb-2">Poster Design</h3>
-                        <div class="project-tag mb-4">Photoshop · Print Layout</div>
-                        <p class="text-gray-400 font-light text-sm">Vibrant digital compositions and event flyers blending photo manipulation with artistic typography. [Girls Night Event]</p>
-                    </div>
-                </div>
-
-                <!-- Project 5: Line Drawing Expertise -->
-                <div class="glass-card rounded-3xl overflow-hidden group md:col-span-2 project-card">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="image5.png" class="img-zoom w-full h-full object-cover bg-white"></div>
-                        <div class="img-zoom-container aspect-[21/9] lg:aspect-[16/6]"><img src="image6.png" class="img-zoom w-full h-full object-cover bg-white"></div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl serif mb-2">Line Drawing</h3>
-                        <div class="project-tag mb-4">Illustrator · Vector Detail</div>
-                        <p class="text-gray-400 font-light text-sm">Detailed vector illustrations and digital line art conversions from portraits and reference imagery, demonstrating precision and steady tracing techniques.</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="cs-strip__frame cs-strip__frame--developing">
+        <span class="cs-strip__status cs-strip__status--live">Still Developing</span>
+        <h3>United International University</h3>
+        <div class="cs-strip__tags">
+          <span class="mono-tag">BSc in CSE</span>
+          <span class="mono-tag">3rd Year</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer id="contact" class="py-32 bg-[#050505] border-t border-white/5 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <h2 class="text-5xl md:text-7xl serif mb-8 text-gradient">Let's Create.</h2>
-            <p class="text-xl text-gray-400 mb-12 font-light italic">"Driven by passion, not just motivation."</p>
-            <a href="mailto:shahriarahnaf420@gmail.com" class="inline-block px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(138,43,226,0.4)] transition duration-300 uppercase tracking-widest text-sm mb-20">Start a Project</a>
-            <div class="flex justify-center gap-10 text-3xl mb-12">
-                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-behance"></i></a>
-                <a href="https://github.com/splashahnaf445" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/@itsahnaf666" target="_blank" class="text-gray-500 hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            <p class="text-[10px] text-gray-600 uppercase tracking-widest">&copy; 2026 Ahnaf Shahriar. All Rights Reserved.</p>
+<!-- ================= ENGINEERING ================= -->
+<section id="engineering" class="rule-top">
+  <div class="wrap">
+    <div class="cs-eng__intro">
+      <div class="cs-reveal">
+        <span class="eyebrow">Roll 03 — Systems &amp; Code</span>
+        <h2>Engineering Projects</h2>
+      </div>
+      <div class="cs-eng__note cs-reveal">
+        Beyond these builds, my GitHub holds the full coursework record — Data Structures &amp; Algorithms in C++,
+        Java GUI applications, and relational DBMS design, including the NewMarket database project.
+        <br><br>
+        <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener">Explore the full repository →</a>
+      </div>
+    </div>
+
+    <div class="stamp-row cs-reveal">
+      <span class="stamp-chip"><i class="fa-solid fa-code"></i> C++</span>
+      <span class="stamp-chip"><i class="fa-brands fa-java"></i> Java</span>
+      <span class="stamp-chip"><img src="image_7.png" alt=""> Photoshop</span>
+      <span class="stamp-chip"><img src="image_8.png" alt=""> Illustrator</span>
+      <span class="stamp-chip"><i class="fa-solid fa-database"></i> SQL / DBMS</span>
+      <span class="stamp-chip"><i class="fa-solid fa-microchip"></i> Arduino / Embedded</span>
+    </div>
+
+    <div class="cs-grid">
+      <article class="frame-card cs-reveal">
+        <div class="frame-card__media"><img src="arduino.jpg" alt="Smart queue management system"></div>
+        <div class="frame-card__body">
+          <div class="frame-card__head">
+            <h3>Smart Queue Management</h3>
+            <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" rel="noopener" class="frame-card__gh"><i class="fa-brands fa-github"></i></a>
+          </div>
+          <p class="frame-card__desc">Sensor-driven waiting-line automation built on Arduino, with a live entry/exit counter and call display.</p>
+          <div class="frame-card__tags"><span class="mono-tag">Arduino</span><span class="mono-tag">Embedded</span></div>
         </div>
-    </footer>
+      </article>
 
-    
+      <article class="frame-card cs-reveal">
+        <div class="frame-card__media"><img src="image3.png" alt="Tuition fee calculator interface"></div>
+        <div class="frame-card__body">
+          <div class="frame-card__head">
+            <h3>Tuition Fee Calculator</h3>
+            <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" rel="noopener" class="frame-card__gh"><i class="fa-brands fa-github"></i></a>
+          </div>
+          <p class="frame-card__desc">A Java Swing tool for BRACU, UIU, and NSU students, working out per-trimester cost from CGPA and credit load.</p>
+          <div class="frame-card__tags"><span class="mono-tag">Java Swing</span><span class="mono-tag">Academic Tool</span></div>
+        </div>
+      </article>
 
+      <article class="frame-card cs-reveal">
+        <div class="frame-card__media"><img src="image4.png" alt="Password manager interface"></div>
+        <div class="frame-card__body">
+          <div class="frame-card__head">
+            <h3>Password Manager</h3>
+            <a href="#" class="frame-card__gh"><i class="fa-brands fa-github"></i></a>
+          </div>
+          <p class="frame-card__desc">A stripped-down, "press enter to reveal" credential store — Java Swing kept deliberately plain.</p>
+          <div class="frame-card__tags"><span class="mono-tag">Java Swing</span><span class="mono-tag">UX Tool</span></div>
+        </div>
+      </article>
+
+      <article class="frame-card frame-card--wide cs-reveal">
+        <div class="seekr-strip">
+          <img src="seekr_preview__1_.jpg" alt="Seekr login screen">
+          <img src="seekr_preview__2_.jpeg" alt="Seekr dashboard">
+          <img src="seekr_preview__3_.jpeg" alt="Seekr item listing board">
+        </div>
+        <div class="frame-card__body">
+          <div class="frame-card__head">
+            <h3>Seekr — Lost &amp; Found Portal</h3>
+            <a href="https://github.com/splashahnaf445/Seekr" target="_blank" rel="noopener" class="frame-card__gh"><i class="fa-brands fa-github"></i></a>
+          </div>
+          <p class="frame-card__desc">A university lost-and-found system: posting, claim requests, in-app messaging, moderation, and an admin dashboard, built with React, Node, and MySQL.</p>
+          <div class="frame-card__tags"><span class="mono-tag">React</span><span class="mono-tag">Node</span><span class="mono-tag">MySQL</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ART / VISUAL WORKS ================= -->
+<div class="sprocket-strip"></div>
+<section id="art" class="rule-top">
+  <div class="wrap">
+    <div class="section-head cs-reveal">
+      <span class="eyebrow">Roll 04 — Visual Works</span>
+      <h2>Creative Sneak Peek</h2>
+      <p>A working contact sheet — brand marks, mascots, posters, and line work pulled from the full archive on Behance.</p>
+    </div>
+
+    <div class="cs-art-grid cs-reveal">
+      <div class="art-frame art-frame--a art-frame--pick">
+        <img src="banner_proj.jpg" alt="Bicycle Tours banner design">
+        <span class="art-frame__no">01</span>
+        <svg class="art-pick-mark" viewBox="0 0 400 200" preserveAspectRatio="none"><path d="M200 6 C 320 2, 394 46, 392 100 C 390 158, 316 196, 198 196 C 84 196, 8 156, 8 100 C 8 44, 82 10, 200 6 Z" stroke="var(--red)" fill="none" stroke-width="3"/></svg>
+        <span class="art-frame__cap">Banner · Photoshop layout</span>
+      </div>
+      <div class="art-frame art-frame--b">
+        <img src="poster_proj.jpg" alt="Girls Night event poster">
+        <span class="art-frame__no">02</span>
+        <span class="art-frame__cap">Poster · Photo manipulation</span>
+      </div>
+      <div class="art-frame art-frame--c">
+        <img src="logo_proj.jpg" alt="Wonder World logo mark">
+        <span class="art-frame__no">03</span>
+        <span class="art-frame__cap">Logo · Illustrator</span>
+      </div>
+      <div class="art-frame art-frame--d">
+        <img src="mascot_proj.jpg" alt="Gorilla mascot illustration">
+        <span class="art-frame__no">04</span>
+        <span class="art-frame__cap">Mascot · Character art</span>
+      </div>
+      <div class="art-frame art-frame--e">
+        <img src="image5.jpg" alt="Portrait to line-drawing conversion">
+        <span class="art-frame__no">05</span>
+        <span class="art-frame__cap">Line drawing · Vector trace</span>
+      </div>
+    </div>
+    <p class="cs-art__footnote">Full archive on <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener">Behance ↗</a></p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="cs-footer__tear"></div>
+  <div class="cs-footer">
+    <div class="cs-footer__inner">
+      <span class="cs-footer__stamp">Developed by Ahnaf Shahriar</span>
+      <h2>Let's create.</h2>
+      <p class="cs-footer__tag">"Driven by passion, not just motivation."</p>
+      <a href="mailto:shahriarahnaf420@gmail.com" class="stamp-btn stamp-btn--outline" style="border-color:var(--paper); color:var(--paper);">
+        <i class="fa-solid fa-paper-plane"></i> Start a Project
+      </a>
+      <div class="cs-footer__social">
+        <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+        <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@itsahnaf666" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <p class="cs-footer__meta">© 2026 Ahnaf Shahriar — All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// mobile nav toggle
+document.getElementById('navToggle').addEventListener('click', function(){
+  document.getElementById('navLinks').classList.toggle('is-open');
+});
+
+// film-advance bar + frame counter
+var fill = document.getElementById('filmbarFill');
+var frameNum = document.getElementById('frameNum');
+function updateFilm(){
+  var scrollTop = window.scrollY || document.documentElement.scrollTop;
+  var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = docHeight > 0 ? Math.min(1, Math.max(0, scrollTop / docHeight)) : 0;
+  fill.style.width = (pct * 100) + '%';
+  var frame = Math.max(1, Math.ceil(pct * 36));
+  frameNum.textContent = String(frame).padStart(3, '0');
+}
+window.addEventListener('scroll', updateFilm, {passive:true});
+window.addEventListener('resize', updateFilm);
+updateFilm();
+
+// scroll reveal
+var reveals = document.querySelectorAll('.cs-reveal');
+if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+  reveals.forEach(function(el){ io.observe(el); });
+}else{
+  reveals.forEach(function(el){ el.classList.add('is-visible'); });
+}
+</script>
 </body>
 </html>
