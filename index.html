@@ -1,569 +1,740 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahnaf Shahriar | Visual Architect & Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-base: #030305;
-            --accent-primary: #818cf8; /* Indigo-400 */
-            --accent-secondary: #c084fc; /* Purple-400 */
-            --accent-glow: rgba(129, 140, 248, 0.15);
-            --card-surface: rgba(255, 255, 255, 0.02);
-            --card-border: rgba(255, 255, 255, 0.05);
-            --card-hover-border: rgba(129, 140, 248, 0.3);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahnaf Shahriar — Designer &amp; Engineer</title>
+<meta name="description" content="Ahnaf Shahriar — graphic designer and computer science engineer from Dhaka. Brand identities, stock art, illustration and working software.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23CE4524'/><text x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23F6F1E7' text-anchor='middle'>A</text></svg>">
 
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-base);
-            color: #f8fafc;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(129, 140, 248, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(192, 132, 252, 0.04) 0%, transparent 50%);
-            background-attachment: fixed;
-        }
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      paper:  '#F6F1E7',
+      paper2: '#EFE7D5',
+      ink:    '#221D15',
+      verm:   '#CE4524',
+      olive:  '#41604C',
+      mustard:'#DFA32E',
+      manila: '#EBDCB7'
+    },
+    fontFamily: {
+      sans:  ['"Instrument Sans"', 'sans-serif'],
+      serif: ['Fraunces', 'serif'],
+      hand:  ['Caveat', 'cursive']
+    }
+  }}
+};
+</script>
 
-        /* Premium Noise Texture Overlay */
-        .noise-overlay {
-            position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: 0.025;
-            background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)"/%3E%3C/svg%3E');
-        }
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+<style>
+  :root{
+    --paper:#F6F1E7; --paper2:#EFE7D5; --ink:#221D15; --verm:#CE4524;
+    --olive:#41604C; --mustard:#DFA32E; --manila:#EBDCB7;
+    --line:rgba(34,29,21,.16);
+  }
+  html{scroll-padding-top:88px}
+  body{background:var(--paper); color:var(--ink); overflow-x:hidden}
+  ::selection{background:var(--verm); color:var(--paper)}
+  ::-webkit-scrollbar{width:10px}
+  ::-webkit-scrollbar-track{background:var(--paper)}
+  ::-webkit-scrollbar-thumb{background:rgba(34,29,21,.22); border-radius:99px}
+  ::-webkit-scrollbar-thumb:hover{background:rgba(206,69,36,.55)}
 
-        /* Typography Gradients */
-        .text-gradient {
-            background: linear-gradient(135deg, #e2e8f0 0%, #818cf8 50%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .text-gradient-subtle {
-            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  /* ---------- film grain over everything ---------- */
+  .grain{position:fixed; inset:0; z-index:90; pointer-events:none; opacity:.055;
+    background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+    background-size:240px}
 
-        /* Modern Glass Cards */
-        .glass-panel {
-            background: var(--card-surface);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border);
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+  /* ---------- reusable rotation classes (CSS rotate property, so hover can override) ---------- */
+  .r-n05{rotate:-.5deg}.r-n1{rotate:-1deg}.r-n15{rotate:-1.5deg}.r-n2{rotate:-2deg}
+  .r-n3{rotate:-3deg}.r-n5{rotate:-5deg}.r-n10{rotate:-10deg}
+  .r05{rotate:.5deg}.r1{rotate:1deg}.r15{rotate:1.5deg}.r2{rotate:2deg}.r3{rotate:3deg}
 
-        .glass-panel:hover {
-            border-color: var(--card-hover-border);
-            background: rgba(255, 255, 255, 0.04);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 
-                        0 0 40px rgba(129, 140, 248, 0.1);
-        }
+  /* ---------- pinned things straighten on hover ---------- */
+  .pin{transition:rotate .5s cubic-bezier(.2,1,.3,1), translate .5s cubic-bezier(.2,1,.3,1)}
+  .pin:hover{translate:0 -6px; rotate:0deg}
 
-        /* Glowing Orbs */
-        .orb {
-            position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.4; z-index: -1; pointer-events: none;
-            animation: float 20s ease-in-out infinite alternate;
-        }
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, -50px) scale(1.1); }
-        }
+  /* ---------- scroll reveal (uses the `translate` property, never fights rotate) ---------- */
+  .reveal{opacity:0; translate:0 34px; transition:opacity .9s cubic-bezier(.2,.8,.2,1), translate .9s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1; translate:0 0}
+  .d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
 
-        /* Buttons & Badges */
-        .btn-glow {
-            position: relative; overflow: hidden;
-            background: linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .btn-glow::before {
-            content: ''; position: absolute; inset: -1px; background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-            z-index: -1; opacity: 0; transition: opacity 0.4s ease; border-radius: inherit;
-        }
-        .btn-glow:hover::before { opacity: 1; }
+  /* ---------- nav ---------- */
+  #nav{transition:box-shadow .3s}
+  #nav.scrolled{box-shadow:0 12px 30px -18px rgba(34,29,21,.4)}
+  .navlink{position:relative; font-size:11px; letter-spacing:.24em; text-transform:uppercase; font-weight:700; color:rgba(34,29,21,.72); padding:4px 0}
+  .navlink::after{content:''; position:absolute; left:0; bottom:0; height:2px; width:100%; background:var(--verm); scale:0 1; transform-origin:left; transition:scale .35s cubic-bezier(.2,1,.3,1)}
+  .navlink:hover{color:var(--ink)}
+  .navlink:hover::after{scale:1 1}
 
-        .tag-modern {
-            display: inline-flex; align-items: center; padding: 0.4rem 1rem;
-            border-radius: 99px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
-            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); color: #cbd5e1;
-        }
+  /* ---------- buttons ---------- */
+  .btn-ink{display:inline-flex; align-items:center; gap:12px; background:var(--ink); color:var(--paper);
+    padding:15px 28px; border-radius:999px; font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+    box-shadow:5px 7px 0 rgba(34,29,21,.18); transition:translate .35s, box-shadow .35s, background-color .35s}
+  .btn-ink:hover{translate:0 -3px; box-shadow:7px 11px 0 rgba(34,29,21,.22); background:var(--verm)}
+  .btn-ink:hover i{transform:translateY(3px)}
+  .btn-ink i{transition:transform .3s}
+  .btn-line{display:inline-flex; align-items:center; gap:12px; border:1.5px solid var(--ink); color:var(--ink);
+    padding:15px 28px; border-radius:999px; font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+    transition:translate .35s, background-color .35s, color .35s}
+  .btn-line:hover{background:var(--ink); color:var(--paper); translate:0 -3px}
 
-        /* Image Handling */
-        .img-mask {
-            overflow: hidden; isolation: isolate;
-        }
-        .img-mask img {
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glass-panel:hover .img-mask img {
-            transform: scale(1.05);
-        }
+  /* ---------- hand-made bits ---------- */
+  .overline{display:flex; align-items:center; gap:10px; font-size:11px; letter-spacing:.28em; text-transform:uppercase; font-weight:700}
+  .tape{position:absolute; width:86px; height:26px; z-index:5; opacity:.92;
+    background:rgba(224,209,171,.82);
+    background-image:repeating-linear-gradient(90deg, rgba(255,255,255,.16) 0 2px, transparent 2px 9px);
+    box-shadow:0 2px 5px rgba(34,29,21,.15);
+    clip-path:polygon(3% 0, 97% 3%, 100% 96%, 1% 100%)}
+  .tape.mini{width:54px; height:18px}
+  .stampbox{display:inline-block; padding:7px 13px; border:2px solid currentColor; border-radius:4px;
+    font-size:10px; letter-spacing:.22em; text-transform:uppercase; font-weight:700; line-height:1;
+    outline:1px solid currentColor; outline-offset:3px; opacity:.92}
+  .stampbox.dashed{border-style:dashed}
+  .sticky-note{background:#F0D68A; background-image:linear-gradient(180deg, rgba(255,255,255,.35), transparent 60%);
+    box-shadow:0 12px 24px -10px rgba(34,29,21,.45); padding:14px 20px 12px; border-radius:2px}
+  .polaroid{background:#FCFAF3; padding:12px 12px 0; border:1px solid rgba(34,29,21,.14);
+    box-shadow:0 26px 48px -20px rgba(34,29,21,.38)}
+  .p-cap{font-family:'Caveat',cursive; font-size:1.15rem; color:rgba(34,29,21,.75); padding:10px 4px 14px; text-align:center}
+  .stamp-spin{animation:spin 28s linear infinite; display:block}
+  .slow-spin{animation:spin 46s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .ico-ast{fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round}
+  .doodle{fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; opacity:.85}
+  .dotgrid{background-image:radial-gradient(rgba(34,29,21,.18) 1.2px, transparent 1.2px); background-size:22px 22px}
+  .shadow-hard{box-shadow:8px 10px 0 rgba(34,29,21,.09)}
 
-        /* Scroll Animations (Handled by JS Observer) */
-        .reveal-up { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal-up.active { opacity: 1; transform: translateY(0); }
-        .delay-100 { transition-delay: 100ms; }
-        .delay-200 { transition-delay: 200ms; }
-        .delay-300 { transition-delay: 300ms; }
+  /* hero squiggle draws itself in */
+  .squiggle{position:absolute; left:0; bottom:-12px; width:100%; height:16px; overflow:visible}
+  .squiggle path{fill:none; stroke:var(--verm); stroke-width:4; stroke-linecap:round;
+    vector-effect:non-scaling-stroke; stroke-dasharray:1; stroke-dashoffset:1;
+    animation:draw 1s 1s cubic-bezier(.65,0,.25,1) forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-base); }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
-    </style>
+  /* ---------- marquee ticker ---------- */
+  .marquee-track{display:flex; width:max-content; animation:marq 32s linear infinite}
+  .marquee-band:hover .marquee-track{animation-play-state:paused}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  .marquee-seg{display:flex; align-items:center; gap:30px; padding-right:30px}
+  .mq-caps{font-size:13px; letter-spacing:.26em; text-transform:uppercase; font-weight:700; white-space:nowrap}
+  .mq-serif{font-family:'Fraunces',serif; font-style:italic; font-size:17px; white-space:nowrap}
+  .mq-star{width:12px; height:12px; flex:none; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; opacity:.9}
+
+  /* ---------- marketplace cards ---------- */
+  .shop-link{display:inline-flex; align-items:center; gap:10px; font-size:11px; letter-spacing:.2em;
+    text-transform:uppercase; font-weight:700; border-bottom:2px solid var(--verm); padding-bottom:6px}
+  a:hover .shop-link i{transform:translateX(6px)}
+  .shop-link i{transition:transform .3s}
+
+  /* ---------- torn receipt ---------- */
+  .receipt{background:#F7F2E2; border:1px solid var(--line); padding:22px 26px 32px; max-width:420px;
+    box-shadow:0 18px 34px -18px rgba(34,29,21,.4);
+    clip-path:polygon(0 0,100% 0,100% 100%,95% calc(100% - 10px),90% 100%,85% calc(100% - 10px),80% 100%,75% calc(100% - 10px),70% 100%,65% calc(100% - 10px),60% 100%,55% calc(100% - 10px),50% 100%,45% calc(100% - 10px),40% 100%,35% calc(100% - 10px),30% 100%,25% calc(100% - 10px),20% 100%,15% calc(100% - 10px),10% 100%,5% calc(100% - 10px),0 100%)}
+  .ledger-row{display:flex; align-items:baseline; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    font-weight:700; color:rgba(34,29,21,.8); padding:9px 0}
+  .ledger-row i{flex:1; font-style:normal; border-bottom:2px dotted rgba(34,29,21,.32); margin:0 12px; translate:0 -3px}
+  .ledger-row b{font-family:'Fraunces',serif; font-size:19px; letter-spacing:0}
+
+  /* ---------- manila case file ---------- */
+  .folder-tab{position:absolute; top:-34px; left:20px; background:var(--manila);
+    border:1.5px solid rgba(34,29,21,.75); border-bottom:none; border-radius:8px 8px 0 0;
+    padding:9px 18px 7px; font-size:10px; letter-spacing:.24em; text-transform:uppercase; font-weight:700}
+
+  /* ---------- pinned tool tags ---------- */
+  .tool{position:relative; display:inline-flex; align-items:center; gap:9px; background:#FBF8F1;
+    border:1px solid rgba(34,29,21,.28); border-radius:4px; padding:8px 14px;
+    font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+    box-shadow:2px 3px 0 rgba(34,29,21,.08)}
+  .tool::before{content:''; position:absolute; top:-4px; left:50%; translate:-50% 0; width:7px; height:7px;
+    border-radius:50%; background:var(--verm); box-shadow:0 1px 2px rgba(34,29,21,.4)}
+  .tool:nth-child(3n){rotate:1.6deg}
+  .tool:nth-child(3n+1){rotate:-1.2deg}
+  .tool:nth-child(4n){rotate:.7deg}
+
+  /* ---------- seekr mini polaroids ---------- */
+  .mini-pin{background:#FCFAF3; padding:8px 8px 0; border:1px solid rgba(34,29,21,.14);
+    box-shadow:0 12px 24px -12px rgba(34,29,21,.35); transition:rotate .5s cubic-bezier(.2,1,.3,1)}
+  .mini-pin:hover{rotate:0deg}
+  .mini-pin img{width:100%; aspect-ratio:16/10; object-fit:cover; object-position:top; display:block}
+  .mini-pin figcaption{font-family:'Caveat',cursive; font-size:1rem; color:rgba(34,29,21,.7); text-align:center; padding:6px 2px 9px}
+
+  /* ---------- gallery wall ---------- */
+  .frame{background:#FCFAF4; padding:12px; border:1px solid rgba(34,29,21,.15);
+    box-shadow:0 20px 38px -18px rgba(34,29,21,.38)}
+  .frame .mat{overflow:hidden; background:#EDE7D7}
+  .frame img{width:100%; height:100%; object-fit:cover; transition:scale .7s cubic-bezier(.2,1,.3,1)}
+  .frame:hover img{scale:1.045}
+  .label-card{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+    background:#FCFAF4; border:1px solid var(--line); padding:10px 14px; margin-top:10px;
+    box-shadow:0 6px 14px -8px rgba(34,29,21,.25)}
+  .label-meta{font-size:9px; letter-spacing:.22em; text-transform:uppercase; font-weight:700;
+    color:rgba(34,29,21,.55); white-space:nowrap}
+
+  /* ---------- transcript double rule ---------- */
+  .rule-double::before{content:''; position:absolute; inset:9px; border:1px solid rgba(34,29,21,.22);
+    border-radius:5px; pointer-events:none}
+
+  /* ---------- ink cursor (fine pointers only) ---------- */
+  #c-dot,#c-ring{position:fixed; left:0; top:0; pointer-events:none; z-index:120; border-radius:50%; display:none}
+  body.has-cursor #c-dot, body.has-cursor #c-ring{display:block}
+  body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .pin, body.has-cursor .tool{cursor:none}
+  #c-dot{width:7px; height:7px; margin:-3.5px 0 0 -3.5px; background:var(--verm)}
+  #c-ring{width:36px; height:36px; margin:-18px 0 0 -18px; border:1.5px solid var(--verm); opacity:.55}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important; transition:none!important}
+    .reveal{opacity:1; translate:none}
+    .squiggle path{stroke-dashoffset:0}
+  }
+</style>
 </head>
-<body class="antialiased selection:bg-indigo-500/30 selection:text-white">
 
-    <div class="noise-overlay"></div>
+<body class="font-sans antialiased">
 
-    <!-- Floating Navigation -->
-    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-        <div class="glass-panel px-6 py-3 rounded-full flex items-center gap-8 md:gap-12 bg-black/40 shadow-2xl">
-            <a href="#" class="text-xl font-bold tracking-tighter serif text-white">AS<span class="text-indigo-400">.</span></a>
-            <div class="hidden md:flex items-center space-x-6 text-[10px] tracking-[0.25em] uppercase font-bold text-gray-400">
-                <a href="#art" class="hover:text-white transition-colors duration-300">The Art</a>
-                <a href="#marketplaces" class="hover:text-white transition-colors duration-300">Marketplaces</a>
-                <a href="#education" class="hover:text-white transition-colors duration-300">Education</a>
-                <a href="#engineering" class="hover:text-white transition-colors duration-300">The Code</a>
-            </div>
-            <a href="#contact" class="hidden md:inline-block px-5 py-2 btn-glow rounded-full text-[10px] uppercase tracking-widest font-bold text-white transition-all">Contact</a>
+<!-- reusable hand-drawn marks -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ast" viewBox="0 0 24 24">
+    <path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"/>
+  </symbol>
+  <symbol id="darrow" viewBox="0 0 90 50">
+    <path d="M4 6C28 42 56 46 82 30"/><path d="M82 30 69 24M82 30 77 17"/>
+  </symbol>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+<div id="c-dot" aria-hidden="true"></div>
+<div id="c-ring" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<nav id="nav" class="fixed top-0 inset-x-0 z-[80] bg-[rgba(246,241,231,.9)] backdrop-blur-md border-b border-ink/15">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+    <a href="#" class="font-serif italic font-bold text-xl tracking-tight">Ahnaf Shahriar<span class="text-verm not-italic">.</span></a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="navlink" href="#marketplaces">Shop fronts</a>
+      <a class="navlink" href="#engineering">The code</a>
+      <a class="navlink" href="#education">Paperwork</a>
+      <a class="navlink" href="#art">The wall</a>
+    </div>
+    <a href="#contact" class="inline-flex items-center gap-2 bg-ink text-paper text-[10px] font-bold tracking-[.22em] uppercase px-5 py-2.5 rounded-full hover:bg-verm transition-colors">
+      Say hello <i class="fa-solid fa-arrow-right text-[10px]"></i>
+    </a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="relative pt-32 md:pt-44 pb-20 md:pb-28 overflow-hidden">
+  <div class="dotgrid absolute top-20 right-0 w-[340px] h-[340px] md:w-[480px] md:h-[480px] opacity-50 [mask-image:radial-gradient(closest-side,black,transparent)]" aria-hidden="true"></div>
+
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-14 lg:gap-8 items-center relative">
+    <div class="lg:col-span-7 relative z-10">
+      <div class="reveal flex items-center gap-3 mb-7">
+        <svg class="ico-ast w-4 h-4 text-verm"><use href="#ast"/></svg>
+        <span class="text-[11px] tracking-[.32em] uppercase font-bold text-ink/70">Portfolio — Dhaka, Bangladesh</span>
+      </div>
+
+      <h1 class="reveal d1 font-serif font-black leading-[.9] tracking-tight text-[clamp(3.3rem,9.5vw,6.4rem)]">
+        Ahnaf<br/>
+        <span class="relative inline-block italic font-semibold">Shahriar<span class="text-verm">.</span>
+          <svg class="squiggle" viewBox="0 0 220 18" preserveAspectRatio="none" aria-hidden="true">
+            <path pathLength="1" d="M4 12 Q 26 4 48 12 T 92 12 T 136 12 T 180 12 T 216 10"/>
+          </svg>
+        </span>
+      </h1>
+
+      <div class="reveal d2 flex flex-wrap gap-4 mt-8">
+        <span class="stampbox text-verm r-n2">Computer Science Engineer</span>
+        <span class="stampbox text-olive r1">Graphic Designer</span>
+      </div>
+
+      <p class="reveal d2 mt-7 text-lg text-ink/75 leading-relaxed max-w-xl">
+        I build brand identities, stock-marketplace art and working software with the same obsession —
+        <strong class="text-ink">5+ years</strong> in, with <strong class="text-ink">10,500+ assets</strong>
+        live on Adobe Stock and Freepik, and code that actually ships.
+      </p>
+      <p class="reveal d3 font-hand text-xl text-verm/90 r-n1 mt-3">* still gets excited about a blank artboard</p>
+
+      <div class="reveal d3 flex flex-col sm:flex-row gap-4 mt-9">
+        <a href="#art" class="btn-ink">See the artwork <i class="fa-solid fa-arrow-down"></i></a>
+        <a href="#engineering" class="btn-line">Read the code <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i></a>
+      </div>
+    </div>
+
+    <!-- the desk: polaroid + stamp + sticky note -->
+    <div class="lg:col-span-5 relative reveal d2">
+      <svg class="ico-ast slow-spin absolute -top-14 -left-8 w-36 h-36 md:w-44 md:h-44 text-verm/20" aria-hidden="true"><use href="#ast"/></svg>
+
+      <figure class="polaroid pin r2 relative w-[min(88%,400px)] mx-auto">
+        <span class="tape r-n6" style="left:10%; top:-13px"></span>
+        <span class="tape r3" style="right:10%; top:-13px"></span>
+        <div class="overflow-hidden aspect-[4/5] bg-[#EAE4D4]">
+          <img src="profile.jpg" alt="Portrait of Ahnaf Shahriar" class="w-full h-full object-cover object-center contrast-[1.05] saturate-[1.05]">
         </div>
-    </nav>
+        <figcaption class="p-cap">yours truly — probably adjusting a kerning pair</figcaption>
+      </figure>
 
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden">
-        <div class="orb w-[500px] h-[500px] bg-indigo-600/20 top-[-10%] left-[-10%]"></div>
-        <div class="orb w-[600px] h-[600px] bg-purple-600/10 bottom-[-20%] right-[-10%] delay-700"></div>
+      <div class="absolute -top-10 -right-1 md:-right-6 w-28 h-28 md:w-36 md:h-36" aria-hidden="true">
+        <svg class="stamp-spin w-full h-full" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="59" fill="#F6F1E7"/>
+          <circle cx="60" cy="60" r="57" fill="none" stroke="#221D15" stroke-width="1.4" stroke-dasharray="2 4"/>
+          <defs><path id="circA" d="M60 60m-43 0a43 43 0 1 1 86 0a43 43 0 1 1-86 0"/></defs>
+          <text font-family="'Instrument Sans',sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.6" fill="#221D15">
+            <textPath href="#circA">AHNAF SHAHRIAR · DESIGNER · ENGINEER</textPath>
+          </text>
+          <circle cx="60" cy="60" r="27" fill="none" stroke="#221D15" stroke-width="1"/>
+          <path d="M60 49v22M49 60h22M52.5 52.5l15 15M67.5 52.5l-15 15" stroke="#CE4524" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+      </div>
 
-        <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-            <!-- Text Content -->
-            <div class="lg:col-span-7 flex flex-col justify-center text-center lg:text-left reveal-up">
-                <div class="inline-flex items-center gap-3 mb-8 mx-auto lg:mx-0 bg-white/5 border border-white/10 rounded-full py-2 px-4 w-fit backdrop-blur-md">
-                    <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-                    <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-300">Computer Science Engineer & Graphic Designer</span>
-                </div>
-                
-                <h1 class="text-6xl sm:text-7xl lg:text-[7rem] font-bold leading-[0.9] tracking-tighter serif mb-6">
-                    Ahnaf<br>
-                    <span class="text-gradient">Shahriar.</span>
-                </h1>
-                
-                <p class="text-lg md:text-xl text-gray-400 font-light mb-10 max-w-2xl leading-relaxed">
-                    Bridging the logic of <span class="text-white font-medium">Computer Engineering</span> with the soul of <span class="text-white font-medium">Digital Aesthetics.</span> Building expressive brand systems, polished UI, and code-driven projects.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                    <a href="#art" class="w-full sm:w-auto px-8 py-4 bg-white text-black rounded-full font-bold uppercase tracking-widest text-xs hover:bg-gray-200 transition-colors text-center">Explore My Art</a>
-                    <a href="#engineering" class="w-full sm:w-auto px-8 py-4 glass-panel rounded-full font-bold uppercase tracking-widest text-xs text-white flex items-center justify-center gap-3 hover:text-indigo-400">
-                        <i class="fa-solid fa-code"></i> View Code
-                    </a>
-                </div>
+      <div class="sticky-note pin r-n5 absolute -bottom-9 -left-1 md:-left-8">
+        <span class="block text-[9px] tracking-[.28em] uppercase font-bold text-ink/60">Experience</span>
+        <span class="font-hand text-3xl leading-none block mt-1">5+ years</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-7 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 opacity-60">
+    <span class="text-[9px] tracking-[.34em] uppercase font-bold">Scroll</span>
+    <span class="block w-px h-9 bg-ink/40"></span>
+  </div>
+</header>
+
+<!-- ============ TICKER ============ -->
+<div class="marquee-band relative rotate-[-1.3deg] w-[104vw] -ml-[2vw] bg-verm text-paper border-y border-ink/25 shadow-[0_14px_34px_-20px_rgba(34,29,21,.6)] overflow-hidden">
+  <div class="marquee-track py-3.5">
+    <div class="marquee-seg">
+      <span class="mq-caps">Brand identity</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">poster art &amp; print</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">Vector illustration</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">ui / ux design</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">Prompt architecture</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">java &amp; react</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">Mascot art</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">stock marketplaces</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">Line drawing</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">arduino tinkering</span><svg class="mq-star"><use href="#ast"/></svg>
+    </div>
+    <div class="marquee-seg" aria-hidden="true">
+      <span class="mq-caps">Brand identity</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">poster art &amp; print</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">Vector illustration</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">ui / ux design</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">Prompt architecture</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">java &amp; react</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">Mascot art</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">stock marketplaces</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">Line drawing</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">arduino tinkering</span><svg class="mq-star"><use href="#ast"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MARKETPLACES ============ -->
+<section id="marketplaces" class="py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal mb-14 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <p class="overline text-ink/70 mb-4"><span class="text-verm font-serif italic text-sm">(01)</span> Shop fronts</p>
+        <h2 class="font-serif font-black text-[clamp(2.4rem,5.5vw,4rem)] leading-[1.02]">Selling to the world.</h2>
+      </div>
+      <p class="max-w-sm text-ink/70 leading-relaxed md:text-right">Two stock marketplaces, one habit: making things people actually download. Every asset crafted, tagged and tuned by hand.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      <!-- Adobe Stock -->
+      <div class="reveal lg:col-span-7">
+        <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" rel="noopener"
+           class="pin r-n05 group block bg-[#FBF8F1] border-[1.5px] border-ink/80 rounded-2xl p-7 md:p-10 relative shadow-hard">
+          <span class="tape r-n6" style="left:38px; top:-13px"></span>
+          <div class="flex items-start justify-between gap-4 mb-8">
+            <div class="w-20 h-20 bg-white border border-ink/15 rounded-xl p-3.5 flex items-center justify-center shadow-[3px_4px_0_rgba(34,29,21,.08)]">
+              <img src="image1.png" alt="Adobe Stock logo" class="w-full h-full object-contain">
             </div>
+            <span class="stampbox text-verm r3">Top-selling shop</span>
+          </div>
+          <h3 class="font-serif font-bold text-3xl">Adobe Stock</h3>
+          <div class="flex items-baseline gap-3 mt-3 mb-4">
+            <span class="font-serif font-black text-[3.4rem] leading-none text-verm tabular-nums" data-count="8000">0</span>
+            <span class="text-[11px] uppercase tracking-[.22em] font-bold text-ink/60">assets live&nbsp;+</span>
+          </div>
+          <p class="text-ink/70 leading-relaxed max-w-lg">A blend of hand-built design and carefully engineered prompts, tuned to what the market actually downloads — commercial-ready media, shipped weekly.</p>
+          <span class="shop-link mt-7">Browse the collection <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
 
-            <!-- Profile Image -->
-            <div class="lg:col-span-5 flex justify-center lg:justify-end relative reveal-up delay-200">
-                <div class="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[480px] lg:h-[480px]">
-                    <div class="absolute inset-0 border border-white/20 rounded-full animate-[spin_60s_linear_infinite] border-dashed"></div>
-                    <div class="absolute inset-4 glass-panel rounded-full p-2">
-                        <img src="profile.jpg" alt="Ahnaf Shahriar" class="w-full h-full object-cover rounded-full filter contrast-110 saturate-110 object-center">
-                    </div>
-                    
-                    <!-- Floating Badge -->
-                    <div class="absolute top-10 -right-4 sm:-right-10 glass-panel px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-xl animate-[float_6s_ease-in-out_infinite]">
-                        <span class="block text-[9px] uppercase tracking-[0.2em] text-indigo-400 font-bold mb-1">Experience</span>
-                        <strong class="text-xl serif text-white">5+ Years</strong>
-                    </div>
-                </div>
+      <!-- Freepik -->
+      <div class="reveal d1 lg:col-span-5 lg:mt-14">
+        <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" rel="noopener"
+           class="pin r1 group block bg-[#FBF8F1] border-[1.5px] border-ink/80 rounded-2xl p-7 md:p-10 relative shadow-hard">
+          <span class="tape r4" style="right:38px; top:-13px"></span>
+          <div class="flex items-start justify-between gap-4 mb-8">
+            <div class="w-20 h-20 bg-white border border-ink/15 rounded-xl p-3.5 flex items-center justify-center shadow-[3px_4px_0_rgba(34,29,21,.08)]">
+              <img src="image2.png" alt="Freepik logo" class="w-full h-full object-contain">
             </div>
-        </div>
-    </header>
+            <span class="stampbox dashed text-olive r-n3">Level 3</span>
+          </div>
+          <h3 class="font-serif font-bold text-3xl">Freepik</h3>
+          <div class="flex items-baseline gap-3 mt-3 mb-4">
+            <span class="font-serif font-black text-[3.4rem] leading-none text-olive tabular-nums" data-count="2500">0</span>
+            <span class="text-[11px] uppercase tracking-[.22em] font-bold text-ink/60">assets live&nbsp;+</span>
+          </div>
+          <p class="text-ink/70 leading-relaxed">High-demand PNG packs and precise vector sets — recognized in the Magnific exclusive collection as a top-tier contributor.</p>
+          <span class="shop-link mt-7">Visit the shop <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
 
-    <!-- Stats Section (Bento Style) -->
-    <section class="py-12 border-y border-white/5 bg-black/20">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="glass-panel p-8 rounded-3xl text-center reveal-up">
-                <div class="text-4xl md:text-5xl font-bold text-gradient-subtle mb-3">8k+</div>
-                <div class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">Adobe Stock Assets</div>
-            </div>
-            <div class="glass-panel p-8 rounded-3xl text-center reveal-up delay-100">
-                <div class="text-4xl md:text-5xl font-bold text-gradient-subtle mb-3">2.5k+</div>
-                <div class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">Freepik Assets</div>
-            </div>
-            <div class="glass-panel p-8 rounded-3xl text-center reveal-up delay-200">
-                <div class="text-4xl md:text-5xl font-bold text-gradient-subtle mb-3">Lvl 3</div>
-                <div class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">Freepik Contributor</div>
-            </div>
-            <div class="glass-panel p-8 rounded-3xl text-center reveal-up delay-300">
-                <div class="text-4xl md:text-5xl font-bold text-gradient-subtle mb-3"><i class="fa-brands fa-behance text-3xl"></i></div>
-                <div class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">Verified Portfolio</div>
-            </div>
-        </div>
-    </section>
+    <!-- torn field-notes receipt -->
+    <div class="reveal d2 mt-14 lg:mt-16 flex justify-center lg:justify-end">
+      <div class="receipt r1 relative">
+        <span class="tape r-n4" style="left:50%; translate:-50% 0; top:-13px"></span>
+        <p class="text-center text-[10px] tracking-[.3em] uppercase font-bold text-ink/60 pb-3 border-b border-dashed border-ink/20">Field notes — ledger of proof</p>
+        <div class="ledger-row"><span>Years at the craft</span><i></i><b>5+</b></div>
+        <div class="ledger-row"><span>Freepik contributor</span><i></i><b>Level 3</b></div>
+        <div class="ledger-row"><span>Behance portfolio</span><i></i><b>Verified</b></div>
+        <div class="ledger-row"><span>Chai while kerning</span><i></i><b>Lots</b></div>
+        <p class="font-hand text-lg text-ink/60 text-center mt-1">numbers audited by me, at 2 a.m.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Global Marketplaces Section -->
-    <section id="marketplaces" class="py-32 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16 reveal-up">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="h-px bg-indigo-500/50 w-12"></div>
-                    <span class="text-[10px] uppercase tracking-[0.3em] text-indigo-400 font-bold">Commercial Impact</span>
-                </div>
-                <h2 class="text-5xl md:text-7xl serif">Global Marketplaces</h2>
-            </div>
+<!-- ============ ENGINEERING ============ -->
+<section id="engineering" class="py-24 md:py-32 bg-paper2 border-y border-dashed border-ink/20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+      <div class="max-w-2xl">
+        <p class="overline text-ink/70 mb-4"><span class="text-verm font-serif italic text-sm">(02)</span> The code</p>
+        <h2 class="font-serif font-black text-[clamp(2.4rem,5.5vw,4rem)] leading-[1.02]">Software with a designer's eye.</h2>
+        <p class="mt-5 text-ink/70 leading-relaxed">Not just working — designed. Interfaces, logic and databases built with the same obsession I give a poster.</p>
+      </div>
+      <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" class="btn-line">
+        <i class="fa-brands fa-github text-base"></i> Full repository
+      </a>
+    </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" class="glass-panel rounded-[2rem] p-8 md:p-12 group block reveal-up relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-4 group-hover:translate-x-0">
-                        <i class="fa-solid fa-arrow-right text-4xl text-indigo-400"></i>
-                    </div>
-                    <div class="w-20 h-20 bg-black/40 rounded-2xl flex items-center justify-center border border-white/10 mb-8 img-mask">
-                        <img src="image1.png" class="w-12 h-12 object-contain" alt="Adobe Stock">
-                    </div>
-                    <h3 class="text-3xl serif text-white mb-2">Adobe Stock</h3>
-                    <div class="text-5xl font-bold text-white tracking-tighter mb-6">8,000+ <span class="text-lg text-gray-500 font-normal">Assets</span></div>
-                    <p class="text-gray-400 font-light leading-relaxed text-sm md:text-base">Successfully navigating commercial trends through a mix of manual design and AI prompt architecture. Delivering high-quality, targeted visual media.</p>
-                </a>
+    <!-- tools of the trade -->
+    <div class="reveal d1 flex flex-wrap gap-3 md:gap-4 pt-2 mt-10 max-w-2xl">
+      <span class="tool"><i class="fa-solid fa-code text-verm"></i>C++</span>
+      <span class="tool"><i class="fa-brands fa-java text-[#B85C2B]"></i>Java</span>
+      <span class="tool"><i class="fa-brands fa-react text-olive"></i>React / Node</span>
+      <span class="tool"><i class="fa-solid fa-database text-verm"></i>SQL / DBMS</span>
+      <span class="tool"><i class="fa-brands fa-figma text-[#B04A78]"></i>UI · UX · Figma</span>
+    </div>
 
-                <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" class="glass-panel rounded-[2rem] p-8 md:p-12 group block reveal-up delay-100 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-4 group-hover:translate-x-0">
-                        <i class="fa-solid fa-arrow-right text-4xl text-purple-400"></i>
-                    </div>
-                    <div class="w-20 h-20 bg-black/40 rounded-2xl flex items-center justify-center border border-white/10 mb-8 img-mask">
-                        <img src="image2.png" class="w-12 h-12 object-contain" alt="Freepik">
-                    </div>
-                    <h3 class="text-3xl serif text-white mb-2">Freepik</h3>
-                    <div class="text-5xl font-bold text-white tracking-tighter mb-6">2,500+ <span class="text-lg text-gray-500 font-normal">Assets</span></div>
-                    <p class="text-gray-400 font-light leading-relaxed text-sm md:text-base">Specializing in high-demand PNGs and vector graphics. Recognized as a top-tier contributor in the Magnific exclusive collection.</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-32 bg-black/20 border-y border-white/5 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-20 text-center reveal-up">
-                <span class="text-[10px] uppercase tracking-[0.3em] text-purple-400 font-bold block mb-4">Academic Foundation</span>
-                <h2 class="text-5xl md:text-7xl serif">Education</h2>
-            </div>
-
-            <div class="relative max-w-4xl mx-auto">
-                <!-- Glowing timeline track -->
-                <div class="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent md:-translate-x-1/2"></div>
-                
-                <!-- Timeline Item 1 -->
-                <div class="relative flex flex-col md:flex-row gap-8 md:gap-0 mb-16 reveal-up">
-                    <div class="md:w-1/2 md:pr-16 flex md:justify-end pl-16 md:pl-0">
-                        <div class="glass-panel rounded-[2rem] p-8 w-full md:text-right relative">
-                            <!-- Mobile Dot -->
-                            <div class="md:hidden absolute top-1/2 -translate-y-1/2 -left-[45px] w-4 h-4 rounded-full bg-black border-2 border-indigo-400 shadow-[0_0_15px_rgba(129,140,248,0.5)]"></div>
-                            
-                            <span class="tag-modern mb-4">Completed</span>
-                            <h3 class="text-2xl serif text-white mb-2">Rajuk Uttara Model College</h3>
-                            <p class="text-indigo-300 text-sm font-bold tracking-widest uppercase mb-6">Higher Secondary · HSC</p>
-                            
-                            <div class="flex flex-wrap md:justify-end gap-3">
-                                <div class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2">
-                                    <i class="fa-solid fa-star text-yellow-500 text-xs"></i>
-                                    <span class="text-xs font-bold">GPA 5.00 / 5.00</span>
-                                </div>
-                                <div class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-indigo-400 text-xs"></i>
-                                    <span class="text-xs font-bold uppercase tracking-wider">Science</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Desktop Dot -->
-                    <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-black border-2 border-indigo-400 z-10 shadow-[0_0_15px_rgba(129,140,248,0.5)]"></div>
-                    <div class="md:w-1/2"></div>
-                </div>
-
-                <!-- Timeline Item 2 -->
-                <div class="relative flex flex-col md:flex-row gap-8 md:gap-0 reveal-up delay-100">
-                    <div class="md:w-1/2"></div>
-                    <!-- Desktop Dot -->
-                    <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-black border-2 border-purple-400 z-10 shadow-[0_0_15px_rgba(192,132,252,0.5)]"></div>
-                    
-                    <div class="md:w-1/2 md:pl-16 pl-16 md:pl-16">
-                        <div class="glass-panel rounded-[2rem] p-8 w-full relative">
-                            <!-- Mobile Dot -->
-                            <div class="md:hidden absolute top-1/2 -translate-y-1/2 -left-[45px] w-4 h-4 rounded-full bg-black border-2 border-purple-400 shadow-[0_0_15px_rgba(192,132,252,0.5)]"></div>
-                            
-                            <span class="tag-modern bg-purple-500/10 text-purple-300 border-purple-500/20 mb-4 border-pulse">In Progress</span>
-                            <h3 class="text-2xl serif text-white mb-2">United International University</h3>
-                            <p class="text-purple-400 text-sm font-bold tracking-widest uppercase mb-6">Bachelor of Science</p>
-                            
-                            <div class="flex flex-wrap gap-3">
-                                <div class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2">
-                                    <i class="fa-solid fa-code text-white text-xs"></i>
-                                    <span class="text-xs font-bold">BSc in CSE</span>
-                                </div>
-                                <div class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2">
-                                    <i class="fa-solid fa-circle-notch fa-spin text-purple-400 text-xs"></i>
-                                    <span class="text-xs font-bold uppercase tracking-wider">3rd Year</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Engineering & Code Section (Bento Grid) -->
-    <section id="engineering" class="py-32 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 mb-16 reveal-up">
-                <div class="max-w-2xl">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="h-px bg-cyan-500/50 w-12"></div>
-                        <span class="text-[10px] uppercase tracking-[0.3em] text-cyan-400 font-bold">Software & Systems</span>
-                    </div>
-                    <h2 class="text-5xl md:text-7xl serif mb-6">Engineering Projects</h2>
-                    <p class="text-gray-400 font-light leading-relaxed">Merging software design and visual interface thinking across every build. Discover technical rigor balanced with polished interaction design.</p>
-                </div>
-                <a href="https://github.com/splashahnaf445" target="_blank" class="px-6 py-3 rounded-full border border-white/20 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all flex items-center gap-3">
-                    <i class="fa-brands fa-github text-lg"></i> Complete Repository
-                </a>
-            </div>
-
-            <!-- Skills Row -->
-            <div class="flex flex-wrap gap-3 mb-12 reveal-up delay-100">
-                <div class="glass-panel px-5 py-2.5 rounded-xl flex items-center gap-2"><i class="fa-solid fa-code text-cyan-400"></i> <span class="text-[10px] font-bold tracking-widest uppercase">C++</span></div>
-                <div class="glass-panel px-5 py-2.5 rounded-xl flex items-center gap-2"><i class="fa-brands fa-java text-orange-400"></i> <span class="text-[10px] font-bold tracking-widest uppercase">Java</span></div>
-                <div class="glass-panel px-5 py-2.5 rounded-xl flex items-center gap-2"><i class="fa-brands fa-react text-blue-400"></i> <span class="text-[10px] font-bold tracking-widest uppercase">React / Node</span></div>
-                <div class="glass-panel px-5 py-2.5 rounded-xl flex items-center gap-2"><i class="fa-solid fa-database text-purple-400"></i> <span class="text-[10px] font-bold tracking-widest uppercase">SQL / DBMS</span></div>
-                <div class="glass-panel px-5 py-2.5 rounded-xl flex items-center gap-2"><i class="fa-brands fa-figma text-pink-400"></i> <span class="text-[10px] font-bold tracking-widest uppercase">UI / UX</span></div>
-            </div>
-
-            <!-- Bento Grid Structure -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
-                
-                <!-- Seekr: Full width feature -->
-                <div class="glass-panel rounded-[2rem] p-2 col-span-1 md:col-span-2 lg:col-span-3 group reveal-up relative">
-                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 rounded-[2rem] pointer-events-none"></div>
-                    <div class="p-8 md:p-10 flex flex-col lg:flex-row gap-10 items-center">
-                        <div class="lg:w-1/3 z-10">
-                            <span class="tag-modern mb-4">React · Node · MySQL</span>
-                            <h3 class="text-3xl md:text-4xl serif mb-4">Seekr</h3>
-                            <p class="text-gray-400 font-light text-sm leading-relaxed mb-8">A comprehensive Lost & Found University Portal that modernizes reporting, discovering, and claiming campus items. Features include auth, filtering, messaging, and an admin dashboard.</p>
-                            <a href="https://github.com/splashahnaf445/Seekr" target="_blank" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-white hover:text-black transition-all">
-                                <i class="fa-brands fa-github text-xl"></i>
-                            </a>
-                        </div>
-                        <div class="lg:w-2/3 grid grid-cols-2 gap-4 w-full relative z-10">
-                            <div class="rounded-2xl overflow-hidden border border-white/10 img-mask shadow-xl"><img src="seekr images/seekr preview (1).jpg" alt="Seekr interface preview 1" class="w-full h-full object-cover aspect-video"></div>
-                            <div class="rounded-2xl overflow-hidden border border-white/10 img-mask shadow-xl"><img src="seekr images/seekr preview (2).jpeg" alt="Seekr interface preview 2" class="w-full h-full object-cover aspect-video"></div>
-                            <div class="rounded-2xl overflow-hidden border border-white/10 img-mask shadow-xl"><img src="seekr images/seekr preview (3).jpeg" alt="Seekr interface preview 3" class="w-full h-full object-cover aspect-video"></div>
-                            <div class="rounded-2xl overflow-hidden border border-white/10 img-mask shadow-xl"><img src="seekr images/seekr preview (4).jpeg" alt="Seekr interface preview 4" class="w-full h-full object-cover aspect-video"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tuition Fee Calculator -->
-                <div class="glass-panel rounded-[2rem] p-2 flex flex-col reveal-up">
-                    <div class="rounded-[1.5rem] overflow-hidden img-mask border border-white/5 aspect-video bg-white mb-6">
-                        <img src="image3.png" class="w-full h-full object-cover">
-                    </div>
-                    <div class="px-6 pb-6 flex-grow flex flex-col">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-2xl serif">Tuition Calculator</h3>
-                            <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-github text-xl"></i></a>
-                        </div>
-                        <span class="text-[9px] uppercase tracking-widest text-indigo-400 font-bold mb-4">Java Swing · GUI</span>
-                        <p class="text-gray-400 font-light text-sm leading-relaxed mt-auto">A desktop application for university students factoring in complex credit matrices and waiver logic.</p>
-                    </div>
-                </div>
-
-                <!-- Password Manager -->
-                <div class="glass-panel rounded-[2rem] p-2 flex flex-col reveal-up delay-100">
-                    <div class="rounded-[1.5rem] overflow-hidden img-mask border border-white/5 aspect-video bg-white mb-6">
-                        <img src="image4.png" class="w-full h-full object-cover">
-                    </div>
-                    <div class="px-6 pb-6 flex-grow flex flex-col">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-2xl serif">Password Manager</h3>
-                            <a href="#" target="_blank" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-github text-xl"></i></a>
-                        </div>
-                        <span class="text-[9px] uppercase tracking-widest text-purple-400 font-bold mb-4">Java Swing · Security</span>
-                        <p class="text-gray-400 font-light text-sm leading-relaxed mt-auto">A simple, intuitive local credential storage tool implementing robust Java-based security practices.</p>
-                    </div>
-                </div>
-
-                <!-- Smart Queue -->
-                <div class="glass-panel rounded-[2rem] p-2 flex flex-col reveal-up delay-200">
-                    <div class="rounded-[1.5rem] overflow-hidden img-mask border border-white/5 aspect-video bg-black mb-6">
-                        <img src="arduino.jpg" class="w-full h-full object-cover opacity-80 mix-blend-lighten">
-                    </div>
-                    <div class="px-6 pb-6 flex-grow flex flex-col">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-2xl serif">Smart Queue</h3>
-                            <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-github text-xl"></i></a>
-                        </div>
-                        <span class="text-[9px] uppercase tracking-widest text-cyan-400 font-bold mb-4">Arduino · Embedded</span>
-                        <p class="text-gray-400 font-light text-sm leading-relaxed mt-auto">Hardware integration optimizing real-time waiting lines through sensor data and automated interfaces.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Art & Creative Section -->
-    <section id="art" class="py-32 bg-black/30 border-t border-white/5 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-up">
-                <div class="max-w-2xl">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="h-px bg-pink-500/50 w-12"></div>
-                        <span class="text-[10px] uppercase tracking-[0.3em] text-pink-400 font-bold">Visual Architecture</span>
-                    </div>
-                    <h2 class="text-5xl md:text-7xl serif mb-6">Creative Sneak Peek</h2>
-                    <p class="text-gray-400 font-light leading-relaxed">A hand-picked collection of brand visuals, illustration work, and expressive layout designs tailored for premium digital storytelling.</p>
-                </div>
-                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="mt-8 md:mt-0 flex items-center gap-3 px-6 py-3 rounded-full bg-blue-600/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all">
-                    View on Behance <i class="fa-brands fa-behance text-lg"></i>
-                </a>
-            </div>
-
-            <!-- Masonry-style Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-auto">
-                
-                <!-- Project 1 -->
-                <div class="glass-panel rounded-[2rem] overflow-hidden group reveal-up relative">
-                    <div class="aspect-[16/9] img-mask">
-                        <img src="banner_proj.jpg" class="w-full h-full object-cover">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-8 translate-y-4 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                        <span class="tag-modern w-fit mb-3">Photoshop · Layout</span>
-                        <h3 class="text-2xl serif text-white mb-2">Banner Design</h3>
-                        <p class="text-gray-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Professional web and social media banners focused on high-conversion layouts.</p>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="glass-panel rounded-[2rem] overflow-hidden group reveal-up delay-100 relative bg-white">
-                    <div class="aspect-[16/9] img-mask">
-                        <img src="logo_proj.jpg" class="w-full h-full object-cover mix-blend-multiply">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-8 translate-y-4 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                        <span class="tag-modern w-fit mb-3">Illustrator · Branding</span>
-                        <h3 class="text-2xl serif text-white mb-2">Logo Design</h3>
-                        <p class="text-gray-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Minimalist and elegant branding identities built with precision line art.</p>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="glass-panel rounded-[2rem] overflow-hidden group reveal-up relative bg-[#111]">
-                    <div class="aspect-[16/9] img-mask p-8">
-                        <img src="mascot_proj.jpg" class="w-full h-full object-contain filter drop-shadow-2xl">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 translate-y-4 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                        <span class="tag-modern w-fit mb-3">Character Art</span>
-                        <h3 class="text-2xl serif text-white mb-2">Mascot Illustration</h3>
-                        <p class="text-gray-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Bold, high-detail character mascots for gaming and modern brand storytelling.</p>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="glass-panel rounded-[2rem] overflow-hidden group reveal-up delay-100 relative">
-                    <div class="aspect-[16/9] img-mask">
-                        <img src="poster_proj.jpg" class="w-full h-full object-cover">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-8 translate-y-4 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                        <span class="tag-modern w-fit mb-3">Print Layout</span>
-                        <h3 class="text-2xl serif text-white mb-2">Poster Design</h3>
-                        <p class="text-gray-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Vibrant digital compositions blending photo manipulation with artistic typography.</p>
-                    </div>
-                </div>
-
-                <!-- Line Art Grid Component -->
-                <div class="glass-panel rounded-[2rem] p-2 md:col-span-2 group reveal-up">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
-                        <div class="aspect-[21/9] md:aspect-video rounded-[1.5rem] overflow-hidden img-mask bg-white">
-                            <img src="image5.png" class="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:opacity-100">
-                        </div>
-                        <div class="aspect-[21/9] md:aspect-video rounded-[1.5rem] overflow-hidden img-mask bg-white">
-                            <img src="image6.png" class="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:opacity-100">
-                        </div>
-                    </div>
-                    <div class="p-8 md:p-10 flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div>
-                            <span class="tag-modern mb-3">Illustrator · Vector Detail</span>
-                            <h3 class="text-2xl md:text-3xl serif text-white">Line Drawing Masterclass</h3>
-                        </div>
-                        <p class="text-gray-400 font-light text-sm md:max-w-md text-left md:text-right">Detailed vector illustrations and digital line art conversions demonstrating extreme precision and steady structural tracing techniques.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="pt-32 pb-12 bg-black relative overflow-hidden border-t border-white/5">
-        <div class="orb w-[800px] h-[800px] bg-indigo-600/10 bottom-[-50%] left-1/2 -translate-x-1/2"></div>
-        
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <h2 class="text-[12vw] md:text-8xl font-bold tracking-tighter serif mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20">Let's Create.</h2>
-            <p class="text-xl text-gray-400 mb-12 font-light italic tracking-wide">"Driven by passion, not just motivation."</p>
-            
-            <a href="mailto:shahriarahnaf420@gmail.com" class="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform duration-300 uppercase tracking-widest text-sm mb-20 shadow-[0_0_40px_rgba(255,255,255,0.2)]">
-                Start a Project <i class="fa-solid fa-arrow-right"></i>
+    <!-- Seekr: the case file -->
+    <div class="reveal mt-20">
+      <div class="folder-tab">Case file Nº 01 — Lost &amp; Found</div>
+      <div class="relative bg-manila border-[1.5px] border-ink/75 rounded-xl shadow-hard r-n05 p-6 md:p-10">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div class="lg:col-span-4">
+            <p class="text-[10px] tracking-[.24em] uppercase font-bold text-verm mb-3">React · Node.js · MySQL</p>
+            <h3 class="font-serif font-black text-4xl md:text-5xl">Seekr</h3>
+            <p class="mt-4 text-ink/75 leading-relaxed">A complete lost-&amp;-found portal for university campuses — report an item, search the feed, message, claim, and keep it all sane from an admin dashboard.</p>
+            <a href="https://github.com/splashahnaf445/Seekr" target="_blank" rel="noopener" class="btn-ink mt-7">
+              <i class="fa-brands fa-github text-base"></i> View on GitHub
             </a>
-            
-            <div class="flex justify-center gap-8 text-2xl mb-16">
-                <a href="https://www.behance.net/shahriarahnaf" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all"><i class="fa-brands fa-behance"></i></a>
-                <a href="https://github.com/splashahnaf445" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/@itsahnaf666" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            
-            <div class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5">
-                <p class="text-[10px] text-gray-600 uppercase tracking-widest mb-4 md:mb-0">&copy; 2026 Ahnaf Shahriar.</p>
-                <div class="text-[10px] text-gray-600 uppercase tracking-widest flex gap-4">
-                    <span>Designed for scale</span>
-                    <span>·</span>
-                    <span>Built with precision</span>
-                </div>
-            </div>
+            <p class="font-hand text-xl text-ink/60 r-n1 mt-5">the favourite — don't tell the others</p>
+          </div>
+          <div class="lg:col-span-8 grid grid-cols-2 gap-4 md:gap-6">
+            <figure class="mini-pin r-n2 relative">
+              <span class="tape mini r-n6" style="left:50%; translate:-50% 0; top:-10px"></span>
+              <img src="seekr%20images/seekr%20preview%20(1).jpg" alt="Seekr item feed"><figcaption>the feed</figcaption>
+            </figure>
+            <figure class="mini-pin r2 relative">
+              <span class="tape mini r4" style="left:50%; translate:-50% 0; top:-10px"></span>
+              <img src="seekr%20images/seekr%20preview%20(2).jpeg" alt="Reporting a lost item in Seekr"><figcaption>report an item</figcaption>
+            </figure>
+            <figure class="mini-pin r-n1 relative">
+              <span class="tape mini r-n4" style="left:50%; translate:-50% 0; top:-10px"></span>
+              <img src="seekr%20images/seekr%20preview%20(3).jpeg" alt="Seekr admin dashboard"><figcaption>admin dashboard</figcaption>
+            </figure>
+            <figure class="mini-pin r3 relative">
+              <span class="tape mini r5" style="left:50%; translate:-50% 0; top:-10px"></span>
+              <img src="seekr%20images/seekr%20preview%20(4).jpeg" alt="Claiming a found item in Seekr"><figcaption>found &amp; claimed</figcaption>
+            </figure>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
 
-    <!-- Intersection Observer Script for Premium Scroll Animations -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
+    <!-- three more, pinned casually -->
+    <div class="grid md:grid-cols-3 gap-7 md:gap-8 items-start mt-14">
+      <div class="reveal">
+        <article class="pin r-n05 bg-[#FBF8F1] border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard">
+          <div class="bg-white border-b border-ink/10">
+            <img src="image3.png" alt="Tuition Fee Calculator interface" class="w-full aspect-video object-cover object-top">
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-serif font-bold text-2xl">Tuition Calculator</h3>
+              <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" rel="noopener" class="text-ink/50 hover:text-verm transition-colors text-xl" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <p class="text-[10px] tracking-[.22em] uppercase font-bold text-verm mt-2">Java Swing · GUI</p>
+            <p class="text-ink/70 text-sm leading-relaxed mt-3">Crunches university credit matrices and waiver rules so students don't have to.</p>
+            <p class="font-hand text-lg text-ink/55 r-n1 mt-4">saved my batchmates' sanity</p>
+          </div>
+        </article>
+      </div>
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
+      <div class="reveal d1 md:mt-9">
+        <article class="pin r1 bg-[#FBF8F1] border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard">
+          <div class="bg-white border-b border-ink/10">
+            <img src="image4.png" alt="Password Manager interface" class="w-full aspect-video object-cover object-top">
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-serif font-bold text-2xl">Password Manager</h3>
+              <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" class="text-ink/50 hover:text-verm transition-colors text-xl" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <p class="text-[10px] tracking-[.22em] uppercase font-bold text-olive mt-2">Java Swing · Security</p>
+            <p class="text-ink/70 text-sm leading-relaxed mt-3">A local credential vault with proper Java security practices baked in.</p>
+            <p class="font-hand text-lg text-ink/55 r-n1 mt-4">no post-it passwords, ever</p>
+          </div>
+        </article>
+      </div>
 
-            document.querySelectorAll('.reveal-up').forEach(element => {
-                observer.observe(element);
-            });
-        });
-    </script>
+      <div class="reveal d2 md:mt-[4.5rem]">
+        <article class="pin r-n1 bg-[#FBF8F1] border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard">
+          <div class="bg-white border-b border-ink/10">
+            <img src="arduino.jpg" alt="Smart Queue Arduino hardware" class="w-full aspect-video object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-serif font-bold text-2xl">Smart Queue</h3>
+              <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" rel="noopener" class="text-ink/50 hover:text-verm transition-colors text-xl" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <p class="text-[10px] tracking-[.22em] uppercase font-bold text-verm mt-2">Arduino · Embedded</p>
+            <p class="text-ink/70 text-sm leading-relaxed mt-3">Sensor-driven queue management that keeps real waiting lines honest and moving.</p>
+            <p class="font-hand text-lg text-ink/55 r-n1 mt-4">beep — next!</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education" class="py-24 md:py-32">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="reveal text-center mb-14">
+      <p class="overline text-ink/70 mb-4 justify-center"><span class="text-verm font-serif italic text-sm">(03)</span> The paperwork</p>
+      <h2 class="font-serif font-black text-[clamp(2.4rem,5.5vw,4rem)]">Academic record.</h2>
+    </div>
+
+    <div class="reveal d1">
+      <div class="rule-double relative bg-[#FBF8F1] border-[1.5px] border-ink/75 rounded-lg shadow-hard r05 p-7 md:p-12">
+        <div class="text-center pb-7 border-b border-ink/20">
+          <p class="text-[10px] tracking-[.34em] uppercase font-bold">Academic record — Ahnaf Shahriar</p>
+          <p class="font-hand text-lg text-ink/55 mt-1">( the fun kind of paperwork )</p>
+        </div>
+
+        <!-- entry 1 -->
+        <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-9 border-b border-dashed border-ink/25">
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-3 flex-wrap">
+              <span class="stampbox text-olive r-n2">Completed</span>
+              <span class="text-[10px] uppercase tracking-[.2em] font-bold text-ink/55">Higher Secondary · HSC</span>
+            </div>
+            <h3 class="font-serif font-bold text-2xl md:text-3xl">Rajuk Uttara Model College</h3>
+            <p class="text-ink/70 mt-2 leading-relaxed">Science faculty — with the kind of grade sheet that's frame-worthy enough to hang on this very wall.</p>
+          </div>
+          <div class="shrink-0 r-n10" aria-hidden="true">
+            <svg viewBox="0 0 110 110" class="w-28 h-28 md:w-32 md:h-32 opacity-90">
+              <defs><path id="circB" d="M55 55m-40 0a40 40 0 1 1 80 0a40 40 0 1 1-80 0"/></defs>
+              <circle cx="55" cy="55" r="52" fill="none" stroke="#CE4524" stroke-width="2.5"/>
+              <circle cx="55" cy="55" r="47" fill="none" stroke="#CE4524" stroke-width="1"/>
+              <text font-family="'Instrument Sans',sans-serif" font-size="8" font-weight="700" letter-spacing="1.2" fill="#CE4524">
+                <textPath href="#circB">RAJUK UTTARA MODEL COLLEGE · SCIENCE · HSC ·</textPath>
+              </text>
+              <text x="55" y="52" text-anchor="middle" font-family="Fraunces,serif" font-size="12" fill="#CE4524" font-weight="700">GPA</text>
+              <text x="55" y="72" text-anchor="middle" font-family="Fraunces,serif" font-size="21" fill="#CE4524" font-weight="900">5.00</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- entry 2 -->
+        <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-9">
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-3 flex-wrap">
+              <span class="stampbox dashed text-verm r2">In progress</span>
+              <span class="text-[10px] uppercase tracking-[.2em] font-bold text-ink/55">3rd year · undergraduate</span>
+            </div>
+            <h3 class="font-serif font-bold text-2xl md:text-3xl">United International University</h3>
+            <p class="text-ink/70 mt-2 leading-relaxed">BSc in Computer Science &amp; Engineering — where the design habit and the circuits peacefully coexist.</p>
+          </div>
+          <div class="shrink-0 text-center md:pr-4">
+            <p class="font-serif font-black text-5xl text-olive leading-none">CSE</p>
+            <p class="text-[9px] tracking-[.28em] uppercase font-bold text-ink/50 mt-2">in the making</p>
+          </div>
+        </div>
+
+        <div class="flex justify-end">
+          <p class="font-hand text-xl text-ink/55 r-n1">— signed, the kid who enjoyed both semesters</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE WALL ============ -->
+<section id="art" class="py-24 md:py-32 bg-paper2 border-y border-dashed border-ink/20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+      <div class="max-w-2xl">
+        <p class="overline text-ink/70 mb-4"><span class="text-verm font-serif italic text-sm">(04)</span> The wall</p>
+        <h2 class="font-serif font-black text-[clamp(2.4rem,5.5vw,4rem)] leading-[1.02]">Selected artwork.</h2>
+        <p class="mt-5 text-ink/70 leading-relaxed">A hand-picked slice of the branding, illustration and layout work — the full wall lives on Behance.</p>
+      </div>
+      <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener" class="btn-line">
+        <i class="fa-brands fa-behance text-base"></i> View on Behance
+      </a>
+    </div>
+
+    <!--
+      Want more on the wall later? Drop extra images in the repo and copy
+      one of the <figure class="frame"> blocks below — that's all it takes.
+    -->
+    <div class="grid grid-cols-12 gap-7 md:gap-10 items-start mt-14">
+      <div class="reveal col-span-12 md:col-span-7">
+        <figure class="frame pin r-n05">
+          <div class="mat aspect-[16/10]"><img src="banner_proj.jpg" alt="Banner design work"></div>
+          <figcaption class="label-card"><span class="font-serif italic text-lg">Banner design</span><span class="label-meta">Photoshop · Layout</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="reveal d1 col-span-12 md:col-span-5 md:mt-14">
+        <figure class="frame pin r15">
+          <div class="mat bg-white aspect-[16/10]"><img src="logo_proj.jpg" alt="Logo design work" class="object-contain p-5"></div>
+          <figcaption class="label-card"><span class="font-serif italic text-lg">Logo suite</span><span class="label-meta">Illustrator · Branding</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="reveal col-span-12 md:col-span-5 md:mt-4">
+        <figure class="frame pin r1">
+          <div class="mat bg-ink aspect-[16/10]"><img src="mascot_proj.jpg" alt="Mascot illustration" class="object-contain p-5"></div>
+          <figcaption class="label-card"><span class="font-serif italic text-lg">Mascot illustration</span><span class="label-meta">Character art</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="reveal d1 col-span-12 md:col-span-7 md:mt-16">
+        <figure class="frame pin r-n05">
+          <div class="mat aspect-[16/10]"><img src="poster_proj.jpg" alt="Poster design work"></div>
+          <figcaption class="label-card"><span class="font-serif italic text-lg">Poster design</span><span class="label-meta">Print · Photo-manip</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- sketchbook row -->
+    <div class="reveal mt-16 md:mt-20">
+      <div class="flex items-center gap-4 mb-8 flex-wrap">
+        <svg class="ico-ast w-4 h-4 text-verm"><use href="#ast"/></svg>
+        <p class="text-[11px] tracking-[.3em] uppercase font-bold text-ink/70">From the sketchbook</p>
+        <span class="flex-1 h-px bg-ink/15"></span>
+        <p class="font-hand text-xl text-ink/55 r-n1">every line placed by hand — no shortcuts</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-7 md:gap-10">
+        <figure class="frame pin r-n1">
+          <div class="mat bg-white aspect-[16/10]"><img src="image5.png" alt="Detailed vector line drawing" class="object-contain p-6"></div>
+          <figcaption class="label-card"><span class="font-serif italic text-lg">Line drawing I</span><span class="label-meta">Illustrator · Vector</span></figcaption>
+        </figure>
+        <figure class="frame pin r1 md:mt-8">
+          <div class="mat bg-white aspect-[16/10]"><img src="image6.png" alt="Detailed vector line drawing" class="object-contain p-6"></div>
+          <figcaption class="label-card"><span class="font-serif italic text-lg">Line drawing II</span><span class="label-meta">Illustrator · Vector</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<svg class="block w-full h-[46px] md:h-[60px]" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+  <path fill="#221D15" d="M0 60V32l60 8 60-20 60 16 60-20 60 14 60-18 60 16 60-14 60 16 60-20 60 18 60-12 60 14 60-18 60 16 60-12 60 14 60-20 60 16 60-14 60 12 60-16 60 14 60-18 60 14V60z"/>
+</svg>
+
+<footer id="contact" class="relative bg-ink text-paper pt-12 md:pt-16 pb-10 overflow-hidden">
+  <svg class="ico-ast slow-spin absolute -right-14 -bottom-14 w-64 h-64 text-paper/5" aria-hidden="true"><use href="#ast"/></svg>
+
+  <div class="max-w-3xl mx-auto px-6 text-center relative">
+    <p class="overline text-paper/70 mb-5 justify-center"><span class="text-verm font-serif italic text-sm">(05)</span> Say hello</p>
+    <h2 class="font-serif font-black text-[clamp(2.6rem,7vw,4.6rem)] leading-[1.02]">Let's make something<br class="hidden md:block"/> worth pinning.</h2>
+    <p class="font-hand text-2xl md:text-3xl text-mustard r-n1 mt-6">"Driven by passion, not just motivation."</p>
+
+    <p class="text-paper/70 mt-12 text-sm">One file, one email, one idea — that's all it takes to start:</p>
+    <a href="mailto:shahriarahnaf420@gmail.com"
+       class="group inline-flex items-center gap-4 mt-4 font-serif italic text-xl sm:text-2xl md:text-4xl underline decoration-verm decoration-2 underline-offset-[10px] hover:text-mustard hover:decoration-mustard transition-colors break-all">
+      shahriarahnaf420@gmail.com <i class="fa-solid fa-arrow-right not-italic text-lg group-hover:translate-x-2 transition-transform"></i>
+    </a>
+
+    <div class="flex justify-center gap-4 md:gap-5 mt-12">
+      <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-paper/25 flex items-center justify-center text-paper/70 hover:bg-verm hover:border-verm hover:text-paper hover:-translate-y-1 transition-all" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+      <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-paper/25 flex items-center justify-center text-paper/70 hover:bg-verm hover:border-verm hover:text-paper hover:-translate-y-1 transition-all" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-paper/25 flex items-center justify-center text-paper/70 hover:bg-verm hover:border-verm hover:text-paper hover:-translate-y-1 transition-all" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://www.youtube.com/@itsahnaf666" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-paper/25 flex items-center justify-center text-paper/70 hover:bg-verm hover:border-verm hover:text-paper hover:-translate-y-1 transition-all" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+
+    <div class="mt-14 pt-7 border-t border-paper/15 flex flex-col md:flex-row items-center justify-between gap-3 text-[10px] tracking-[.22em] uppercase text-paper/45">
+      <p>&copy; 2026 Ahnaf Shahriar — Dhaka, Bangladesh</p>
+      <p>Designed &amp; built by hand, in one HTML file</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  /* ---- scroll reveals ---- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ---- animated counters (8,000 / 2,500) ---- */
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      cio.unobserve(e.target);
+      const el = e.target, target = +el.dataset.count, dur = 1600, t0 = performance.now();
+      const step = (t) => {
+        const p = Math.min((t - t0) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-US');
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }, { threshold: .4 });
+  document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+  /* ---- nav shadow on scroll ---- */
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
+
+  /* ---- ink cursor: dot + lagging ring (desktop, motion allowed) ---- */
+  if (matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.body.classList.add('has-cursor');
+    const dot = document.getElementById('c-dot'), ring = document.getElementById('c-ring');
+    let x = innerWidth / 2, y = innerHeight / 2, rx = x, ry = y, s = 1, ts = 1;
+    addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; });
+    addEventListener('mousedown', () => ts = .7);
+    addEventListener('mouseup',   () => ts = 1);
+    document.querySelectorAll('a, button, .pin, .tool').forEach(el => {
+      el.addEventListener('mouseenter', () => ts = 1.9);
+      el.addEventListener('mouseleave', () => ts = 1);
+    });
+    (function loop() {
+      rx += (x - rx) * .18; ry += (y - ry) * .18; s += (ts - s) * .2;
+      dot.style.transform  = `translate(${x}px, ${y}px)`;
+      ring.style.transform = `translate(${rx}px, ${ry}px) scale(${s})`;
+      requestAnimationFrame(loop);
+    })();
+  }
+});
+</script>
 </body>
 </html>
