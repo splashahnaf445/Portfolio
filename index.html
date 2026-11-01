@@ -1,374 +1,317 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahnaf Shahriar — Designer &amp; Software Engineer</title>
-<meta name="description" content="Ahnaf Shahriar — graphic designer and computer science engineer. Brand identities, stock art, illustration and working software.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%234F46E5'/><text x='32' y='45' font-family='Arial,sans-serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'>A</text></svg>">
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: { extend: {
-    colors: { paper:'#FAF8F4', sand:'#F2EEE7', line:'#E7E2D9', ink:'#17162B', night:'#14123A' },
-    fontFamily: { sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] },
-    boxShadow: {
-      soft: '0 1px 2px rgba(23,22,43,.04), 0 12px 32px -12px rgba(23,22,43,.12)',
-      lift: '0 2px 4px rgba(23,22,43,.05), 0 24px 48px -16px rgba(67,56,202,.22)'
-    }
-  }}
-};
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Ahnaf Shahriar — graphic designer and computer science engineer. Brand identities, stock art, illustration and system design.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%235B4BFF'/><text x='32' y='45' font-family='Arial,sans-serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'>A</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
-  html{scroll-padding-top:84px}
-  body{background:#FAF8F4;color:#17162B}
-  ::selection{background:#4F46E5;color:#fff}
-  a:focus-visible,button:focus-visible{outline:2px solid #4F46E5;outline-offset:3px;border-radius:8px}
-  .hero-glow{background:radial-gradient(60% 60% at 70% 20%, rgba(99,102,241,.16), transparent 70%)}
-  .card{background:#fff;border:1px solid #E7E2D9;border-radius:20px;box-shadow:0 1px 2px rgba(23,22,43,.04),0 12px 32px -12px rgba(23,22,43,.12);transition:box-shadow .3s, translate .3s}
-  a.card:hover,.card.hov:hover{box-shadow:0 2px 4px rgba(23,22,43,.05),0 24px 48px -16px rgba(67,56,202,.22);translate:0 -4px}
-  .chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #E7E2D9;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;padding:13px 24px;font-size:15px;font-weight:600;transition:background-color .2s, box-shadow .2s, translate .2s}
-  .btn-primary{background:#4F46E5;color:#fff;box-shadow:0 8px 20px -8px rgba(79,70,229,.7)}
-  .btn-primary:hover{background:#4338CA;translate:0 -2px}
-  .btn-ghost{background:#fff;color:#17162B;border:1px solid #D9D3C7}
-  .btn-ghost:hover{border-color:#4F46E5;color:#4F46E5}
-  .shot{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;display:block}
-  .hero-in{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
-  .hero-in.d{animation-delay:.12s}
-  @keyframes rise{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
-  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root{--ink:#12112B;--iris:#5B4BFF;--mist:#EFEEF8;--paper:#FAFAFD;--amber:#FFB020;--line:#DEDCEE;--mute:#5E5C7A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Bricolage Grotesque','Instrument Sans',system-ui,sans-serif;letter-spacing:-.025em;line-height:1.05}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:110px 0}
+h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:800}
+.lead{color:var(--mute);max-width:560px;margin-top:16px;font-size:1.08rem}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 26px;font-weight:600;font-size:15px;border:1.5px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn-iris{background:var(--iris);color:#fff}.btn-iris:hover{background:#4636E6}
+.btn-line{border-color:rgba(255,255,255,.35);color:#fff}.btn-line:hover{background:#fff;color:var(--ink)}
+.btn-dark{border-color:var(--ink)}.btn-dark:hover{background:var(--ink);color:#fff}
+
+/* floating pill nav */
+.nav{position:fixed;top:16px;left:50%;translate:-50% 0;z-index:50;display:flex;align-items:center;gap:6px;background:rgba(18,17,43,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:999px;padding:7px 7px 7px 22px;box-shadow:0 12px 40px -12px rgba(18,17,43,.6);max-width:calc(100vw - 24px)}
+.nav b{font-family:'Bricolage Grotesque',sans-serif;color:#fff;font-size:17px;margin-right:14px;white-space:nowrap}
+.nav a.l{color:rgba(255,255,255,.72);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:999px;transition:background .2s,color .2s}
+.nav a.l:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav .btn{padding:10px 20px;font-size:14px;margin-left:6px}
+@media(max-width:760px){.nav a.l{display:none}.nav b{margin-right:8px}}
+
+/* hero */
+.hero{background:var(--ink);color:#fff;padding:150px 0 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:720px;height:720px;right:-180px;top:-260px;background:radial-gradient(circle,rgba(91,75,255,.55),transparent 65%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.6fr 1fr;gap:56px;align-items:end}
+.hero h1{font-size:clamp(2.9rem,8.2vw,7rem);font-weight:800;line-height:.92}
+.hero h1 span{display:block;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 span:nth-child(2){animation-delay:.12s;color:#B9B2FF}
+.hero h1 span:nth-child(3){animation-delay:.24s}
+@keyframes rise{from{opacity:0;translate:0 40px}to{opacity:1;translate:0 0}}
+.hero p.s{margin-top:30px;color:rgba(255,255,255,.72);max-width:520px;font-size:1.12rem}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.portrait{width:100%;max-width:340px;aspect-ratio:3/4;object-fit:cover;border-radius:999px 999px 24px 24px;margin-left:auto;border:1px solid rgba(255,255,255,.18)}
+.facts{position:relative;margin-top:84px;border-top:1px solid rgba(255,255,255,.14)}
+.facts .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding-top:0;align-items:stretch}
+.facts div.f{padding:26px 0 30px}
+.facts div.f+div.f{padding-left:28px;border-left:1px solid rgba(255,255,255,.14)}
+.facts strong{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:1.7rem;font-weight:700;letter-spacing:-.02em}
+.facts span{color:rgba(255,255,255,.62);font-size:.93rem}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.portrait{margin:0;max-width:240px}.facts .wrap{grid-template-columns:1fr}.facts div.f+div.f{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.14)}}
+
+/* LawAid feature */
+.stage{background:var(--ink);color:#fff;border-radius:36px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-top:44px;position:relative;overflow:hidden}
+.stage::after{content:"";position:absolute;inset:auto -120px -200px auto;width:520px;height:520px;background:radial-gradient(circle,rgba(91,75,255,.5),transparent 65%)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.tag{font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.1)}
+.tag.am{background:var(--amber);color:var(--ink)}
+.stage h3{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:800}
+.stage p{color:rgba(255,255,255,.74);margin-top:18px;max-width:520px}
+.feat{list-style:none;margin:28px 0 34px;display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+.feat li{display:flex;gap:11px;align-items:flex-start;font-size:.97rem;color:rgba(255,255,255,.9)}
+.feat i{color:var(--amber);margin-top:5px;font-size:.85rem}
+.phone{position:relative;z-index:1;width:262px;margin:0 auto;background:#0B0A1E;border-radius:40px;padding:12px;border:1px solid rgba(255,255,255,.2);rotate:3deg;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.screen{background:var(--paper);color:var(--ink);border-radius:30px;padding:22px 16px 18px;min-height:500px}
+.screen .hi{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.25rem}
+.screen .sub{font-size:.8rem;color:var(--mute)}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:16px 0}
+.mini div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px}
+.mini b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:1.5rem;color:var(--iris);line-height:1}
+.mini span{font-size:.72rem;color:var(--mute)}
+.mini div:first-child{background:var(--iris);border-color:var(--iris)}
+.mini div:first-child b,.mini div:first-child span{color:#fff}
+.sc{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
+.sc div{text-align:center;font-size:.64rem;color:var(--mute)}
+.sc i{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:1;background:var(--mist);border-radius:14px;color:var(--iris);font-size:1rem;margin-bottom:5px}
+.next{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;font-size:.78rem}
+.next b{display:block;font-size:.85rem}
+.note{margin-top:14px;font-size:.88rem;color:var(--mute)}
+@media(max-width:900px){.stage{grid-template-columns:1fr;padding:34px 24px}.feat{grid-template-columns:1fr}}
+
+/* other projects */
+.dark-line{background:var(--mist)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.pj{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.pj img{aspect-ratio:16/10;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
+.pj div{padding:22px}
+.pj h3{font-size:1.3rem;display:flex;justify-content:space-between;gap:10px}
+.pj h3 a{color:var(--mute);font-size:1.2rem}.pj h3 a:hover{color:var(--iris)}
+.pj em{display:block;font-style:normal;color:var(--iris);font-weight:600;font-size:.88rem;margin:6px 0 10px}
+.pj p{color:var(--mute);font-size:.96rem}
+.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.skills span{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-weight:600;font-size:14px}
+@media(max-width:900px){.grid3{grid-template-columns:1fr}}
+
+/* stock */
+.mk{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.mk a{border:1px solid var(--line);border-radius:26px;padding:34px;background:#fff;display:flex;flex-direction:column;gap:6px;transition:border-color .2s,translate .25s}
+.mk a:hover{border-color:var(--iris);translate:0 -4px}
+.mk img{width:56px;height:56px;object-fit:contain;margin-bottom:14px}
+.mk strong{font-family:'Bricolage Grotesque',sans-serif;font-size:3.2rem;line-height:1;letter-spacing:-.03em;color:var(--iris)}
+.mk h3{font-size:1.5rem}
+.mk p{color:var(--mute)}
+@media(max-width:760px){.mk{grid-template-columns:1fr}}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:44px}
+.gal figure{border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--line);grid-column:span 2}
+.gal figure:nth-child(1),.gal figure:nth-child(4){grid-column:span 3}
+.gal img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}
+.gal .c img{object-fit:contain;padding:18px}
+.gal figcaption{padding:12px 18px;font-weight:600;font-size:.95rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;background:#fff}
+.gal figcaption span{color:var(--mute);font-weight:400}
+@media(max-width:860px){.gal figure,.gal figure:nth-child(1),.gal figure:nth-child(4){grid-column:span 6}}
+
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.edu div{border-radius:26px;padding:34px;background:#fff;border:1px solid var(--line)}
+.edu div:first-child{background:var(--ink);color:#fff;border-color:var(--ink)}
+.edu small{font-weight:600;color:var(--amber)}.edu div:last-child small{color:var(--iris)}
+.edu h3{font-size:1.6rem;margin:10px 0}
+.edu p{color:var(--mute)}.edu div:first-child p{color:rgba(255,255,255,.72)}
+@media(max-width:760px){.edu{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--iris);color:#fff;text-align:left;padding:100px 0 90px}
+.contact h2{font-size:clamp(2.4rem,7vw,5.6rem);font-weight:800;max-width:900px}
+.contact .mail{display:inline-block;margin-top:34px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.2rem,3.4vw,2rem);border-bottom:3px solid var(--amber);padding-bottom:4px;word-break:break-all}
+.soc{display:flex;gap:12px;margin-top:40px}
+.soc a{width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
+.soc a:hover{background:#fff;color:var(--iris)}
+footer{background:var(--ink);color:rgba(255,255,255,.55);padding:26px 0;font-size:.9rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
+<body>
 
-<body class="font-sans antialiased text-[16px] leading-relaxed">
+<nav class="nav" aria-label="Main">
+  <b>Ahnaf Shahriar</b>
+  <a class="l" href="#lawaid">LawAid</a>
+  <a class="l" href="#projects">Projects</a>
+  <a class="l" href="#stock">Stock</a>
+  <a class="l" href="#gallery">Artwork</a>
+  <a class="l" href="#education">Education</a>
+  <a class="btn btn-iris" href="#contact">Contact</a>
+</nav>
 
-<!-- NAV -->
-<header class="fixed top-0 inset-x-0 z-50 bg-paper/85 backdrop-blur-md border-b border-line">
-  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main">
-    <a href="#top" class="font-extrabold text-lg tracking-tight">Ahnaf Shahriar</a>
-    <div class="hidden md:flex items-center gap-9 text-[15px] font-medium text-ink/70">
-      <a class="hover:text-indigo-600 transition-colors" href="#work">Work</a>
-      <a class="hover:text-indigo-600 transition-colors" href="#projects">Projects</a>
-      <a class="hover:text-indigo-600 transition-colors" href="#education">Education</a>
-      <a class="hover:text-indigo-600 transition-colors" href="#gallery">Gallery</a>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1><span>I design the</span><span>interface and the</span><span>system behind it.</span></h1>
+      <p class="s">Computer science engineering student in Dhaka with 5+ years in graphic design. I make brand identities, stock art and illustration, and I design software systems around real people’s problems.</p>
+      <div class="cta">
+        <a class="btn btn-iris" href="#lawaid">See featured project</a>
+        <a class="btn btn-line" href="#gallery">Browse artwork</a>
+      </div>
     </div>
-    <a href="#contact" class="btn btn-primary !py-2.5 !px-5 !text-sm">Contact me</a>
-  </nav>
+    <img class="portrait" src="profile.jpg" alt="Portrait of Ahnaf Shahriar">
+  </div>
+  <div class="facts">
+    <div class="wrap">
+      <div class="f"><strong>5+ years</strong><span>in graphic design</span></div>
+      <div class="f"><strong>10,500+</strong><span>assets live on Adobe Stock and Freepik</span></div>
+      <div class="f"><strong>BSc CSE</strong><span>United International University, 3rd year</span></div>
+    </div>
+  </div>
 </header>
 
-<main id="top">
+<main>
 
-<!-- HERO -->
-<section class="relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden hero-glow">
-  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-14 items-center">
-    <div class="lg:col-span-7">
-      <p class="hero-in inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-sm font-semibold rounded-full px-4 py-1.5 border border-indigo-100">
-        <span class="w-2 h-2 rounded-full bg-indigo-500"></span> Designer and software engineer
-      </p>
-      <h1 class="hero-in d mt-6 text-[clamp(2.4rem,5.6vw,4.2rem)] font-extrabold leading-[1.05] tracking-tight">
-        I design brands and build software that works.
-      </h1>
-      <p class="hero-in d mt-6 text-lg text-ink/70 max-w-xl">
-        Computer science engineer with 5+ years in graphic design. I make brand identities, stock art and illustration, and I write the code behind real tools.
-      </p>
-      <div class="hero-in d flex flex-col sm:flex-row gap-3 mt-9">
-        <a href="#projects" class="btn btn-primary">View projects <i class="fa-solid fa-arrow-right text-xs"></i></a>
-        <a href="#gallery" class="btn btn-ghost">See artwork</a>
+<section id="lawaid">
+  <div class="wrap">
+    <h2>Featured project</h2>
+    <p class="lead">A course project where I worked on the full system analysis and design of a product, from the first survey to a mobile prototype.</p>
+    <article class="stage">
+      <div style="position:relative;z-index:1">
+        <div class="tags"><span class="tag am">Design stage</span><span class="tag">System Analysis and Design course</span><span class="tag">Team SysVision</span></div>
+        <h3>LawAid</h3>
+        <p>An AI-assisted legal platform for Bangladesh. Clients find verified lawyers, book appointments, chat, share documents and follow their case in one mobile app.</p>
+        <ul class="feat">
+          <li><i class="fa-solid fa-check"></i>Lawyer search, filters and recommendations</li>
+          <li><i class="fa-solid fa-check"></i>Appointments: free or paid, online or in person</li>
+          <li><i class="fa-solid fa-check"></i>Real-time chat and document sharing</li>
+          <li><i class="fa-solid fa-check"></i>Case and hearing tracking</li>
+          <li><i class="fa-solid fa-check"></i>Payments, receipts and QR verification</li>
+          <li><i class="fa-solid fa-check"></i>AI legal chatbot for first questions</li>
+        </ul>
+        <a class="btn btn-iris" href="https://github.com/splashahnaf445/LawAid" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View the repository</a>
+        <p class="note" style="color:rgba(255,255,255,.6)">Delivered: requirements specification, feasibility survey with 59 respondents, benchmark study, presentations and a Figma mobile prototype.</p>
       </div>
-    </div>
-
-    <!-- dashboard-style profile mockup -->
-    <div class="lg:col-span-5 hero-in d">
-      <div class="card overflow-hidden shadow-lift">
-        <div class="flex items-center gap-2 px-5 py-3.5 border-b border-line bg-sand/60">
-          <span class="w-3 h-3 rounded-full bg-[#F2B8B0]"></span><span class="w-3 h-3 rounded-full bg-[#F0D79A]"></span><span class="w-3 h-3 rounded-full bg-[#B9D9BE]"></span>
-          <span class="ml-3 text-xs font-semibold text-ink/50">profile / overview</span>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-4">
-            <img src="profile.jpg" alt="Portrait of Ahnaf Shahriar" class="w-16 h-16 rounded-2xl object-cover">
-            <div>
-              <p class="font-bold text-lg leading-tight">Ahnaf Shahriar</p>
-              <p class="text-sm text-ink/60">Dhaka, Bangladesh</p>
-            </div>
+      <div class="phone" aria-label="Illustration of the LawAid client dashboard">
+        <div class="screen">
+          <div class="hi">Client dashboard</div>
+          <div class="sub">Everything about your case, one screen</div>
+          <div class="mini">
+            <div><b>Cases</b><span>Active and updates</span></div>
+            <div><b>Hearings</b><span>Dates and reminders</span></div>
+            <div><b>Chats</b><span>With your lawyer</span></div>
+            <div><b>Visits</b><span>Booked appointments</span></div>
           </div>
-          <ul class="mt-6 divide-y divide-line text-sm">
-            <li class="flex items-center justify-between py-3.5">
-              <span class="flex items-center gap-3 font-medium"><span class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-graduation-cap"></i></span>Studying</span>
-              <span class="text-ink/60 text-right">BSc CSE, 3rd year</span>
-            </li>
-            <li class="flex items-center justify-between py-3.5">
-              <span class="flex items-center gap-3 font-medium"><span class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-store"></i></span>Selling on</span>
-              <span class="text-ink/60 text-right">Adobe Stock, Freepik</span>
-            </li>
-            <li class="flex items-center justify-between py-3.5">
-              <span class="flex items-center gap-3 font-medium"><span class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-code"></i></span>Building</span>
-              <span class="text-ink/60 text-right">Seekr, React + Node.js</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FIND ME ON -->
-<section class="border-y border-line bg-sand/50 py-9" aria-label="Profiles">
-  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row md:items-center gap-5 md:gap-10">
-    <p class="text-sm font-semibold text-ink/55 shrink-0">Find my work on</p>
-    <div class="flex flex-wrap gap-x-9 gap-y-4 text-[15px] font-semibold text-ink/65">
-      <a class="hover:text-indigo-600 transition-colors inline-flex items-center gap-2" href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" rel="noopener"><i class="fa-solid fa-image"></i> Adobe Stock</a>
-      <a class="hover:text-indigo-600 transition-colors inline-flex items-center gap-2" href="https://www.magnific.com/author/shahriarahnaf" target="_blank" rel="noopener"><i class="fa-solid fa-shapes"></i> Freepik</a>
-      <a class="hover:text-indigo-600 transition-colors inline-flex items-center gap-2" href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener"><i class="fa-brands fa-behance"></i> Behance</a>
-      <a class="hover:text-indigo-600 transition-colors inline-flex items-center gap-2" href="https://github.com/splashahnaf445" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
-      <a class="hover:text-indigo-600 transition-colors inline-flex items-center gap-2" href="https://www.youtube.com/@itsahnaf666" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> YouTube</a>
-    </div>
-  </div>
-</section>
-
-<!-- WORK / MARKETPLACES -->
-<section id="work" class="py-24 md:py-28">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="max-w-2xl">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Selling design to a global audience</h2>
-      <p class="mt-4 text-ink/70 text-lg">Two stock marketplaces, one habit: making assets people actually download. Each one is built, tagged and tuned by hand.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-6 mt-12">
-      <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" rel="noopener" class="card p-8 block">
-        <div class="flex items-start justify-between">
-          <div class="w-16 h-16 rounded-2xl bg-paper border border-line p-3"><img src="image1.png" alt="Adobe Stock logo" class="w-full h-full object-contain"></div>
-          <span class="text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 rounded-full px-3 py-1">Contributor</span>
-        </div>
-        <h3 class="mt-6 text-2xl font-bold">Adobe Stock</h3>
-        <p class="mt-1 text-4xl font-extrabold text-indigo-600 tabular-nums">8,000+ <span class="text-base font-semibold text-ink/55">assets live</span></p>
-        <p class="mt-4 text-ink/70">Hand-built design and carefully engineered prompts, tuned to what the market downloads. Commercial-ready media, shipped weekly.</p>
-        <p class="mt-6 text-sm font-semibold text-indigo-600">Browse the collection <i class="fa-solid fa-arrow-right text-xs ml-1"></i></p>
-      </a>
-
-      <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" rel="noopener" class="card p-8 block">
-        <div class="flex items-start justify-between">
-          <div class="w-16 h-16 rounded-2xl bg-paper border border-line p-3"><img src="image2.png" alt="Freepik logo" class="w-full h-full object-contain"></div>
-          <span class="text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 rounded-full px-3 py-1">Level 3 contributor</span>
-        </div>
-        <h3 class="mt-6 text-2xl font-bold">Freepik</h3>
-        <p class="mt-1 text-4xl font-extrabold text-indigo-600 tabular-nums">2,500+ <span class="text-base font-semibold text-ink/55">assets live</span></p>
-        <p class="mt-4 text-ink/70">High-demand PNG packs and precise vector sets. Recognized in the Magnific exclusive collection as a top-tier contributor.</p>
-        <p class="mt-6 text-sm font-semibold text-indigo-600">Visit the shop <i class="fa-solid fa-arrow-right text-xs ml-1"></i></p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- STATS (dark band) -->
-<section class="bg-night text-white py-16 md:py-20" aria-label="Numbers">
-  <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
-    <div><p class="text-4xl md:text-5xl font-extrabold tabular-nums"><span data-count="5">0</span>+</p><p class="mt-2 text-indigo-200/80 text-sm">Years in graphic design</p></div>
-    <div><p class="text-4xl md:text-5xl font-extrabold tabular-nums"><span data-count="10500">0</span>+</p><p class="mt-2 text-indigo-200/80 text-sm">Assets live across marketplaces</p></div>
-    <div><p class="text-4xl md:text-5xl font-extrabold tabular-nums"><span data-count="4">0</span></p><p class="mt-2 text-indigo-200/80 text-sm">Software projects on GitHub</p></div>
-    <div><p class="text-4xl md:text-5xl font-extrabold tabular-nums">Level 3</p><p class="mt-2 text-indigo-200/80 text-sm">Freepik contributor</p></div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="py-24 md:py-28">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Software with a designer's eye</h2>
-        <p class="mt-4 text-ink/70 text-lg">Interfaces, logic and databases built with the same care I give a poster.</p>
-      </div>
-      <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" class="btn btn-ghost shrink-0"><i class="fa-brands fa-github text-lg"></i> All repositories</a>
-    </div>
-
-    <div class="flex flex-wrap gap-3 mt-8">
-      <span class="chip"><i class="fa-solid fa-code text-indigo-600"></i>C++</span>
-      <span class="chip"><i class="fa-brands fa-java text-indigo-600"></i>Java</span>
-      <span class="chip"><i class="fa-brands fa-react text-indigo-600"></i>React / Node</span>
-      <span class="chip"><i class="fa-solid fa-database text-indigo-600"></i>SQL / DBMS</span>
-      <span class="chip"><i class="fa-brands fa-figma text-indigo-600"></i>UI / UX, Figma</span>
-    </div>
-
-    <!-- featured: Seekr -->
-    <article class="card mt-12 p-6 md:p-10">
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-4">
-          <span class="text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 rounded-full px-3 py-1">Featured project</span>
-          <h3 class="mt-5 text-3xl font-extrabold">Seekr</h3>
-          <p class="mt-1 text-sm font-semibold text-ink/55">React, Node.js, MySQL</p>
-          <p class="mt-4 text-ink/70">A complete lost-and-found portal for university campuses. Report an item, search the feed, message, claim, and manage everything from an admin dashboard.</p>
-          <a href="https://github.com/splashahnaf445/Seekr" target="_blank" rel="noopener" class="btn btn-primary mt-7"><i class="fa-brands fa-github text-lg"></i> View on GitHub</a>
-        </div>
-        <div class="lg:col-span-8 grid grid-cols-2 gap-4">
-          <figure><img class="shot rounded-xl border border-line" src="seekr%20images/seekr%20preview%20(1).jpg" alt="Seekr item feed" loading="lazy"><figcaption class="mt-2 text-sm text-ink/60">Item feed</figcaption></figure>
-          <figure><img class="shot rounded-xl border border-line" src="seekr%20images/seekr%20preview%20(2).jpeg" alt="Reporting a lost item in Seekr" loading="lazy"><figcaption class="mt-2 text-sm text-ink/60">Report an item</figcaption></figure>
-          <figure><img class="shot rounded-xl border border-line" src="seekr%20images/seekr%20preview%20(3).jpeg" alt="Seekr admin dashboard" loading="lazy"><figcaption class="mt-2 text-sm text-ink/60">Admin dashboard</figcaption></figure>
-          <figure><img class="shot rounded-xl border border-line" src="seekr%20images/seekr%20preview%20(4).jpeg" alt="Claiming a found item in Seekr" loading="lazy"><figcaption class="mt-2 text-sm text-ink/60">Found and claimed</figcaption></figure>
+          <div class="sc">
+            <div><i class="fa-solid fa-magnifying-glass"></i>Find</div>
+            <div><i class="fa-regular fa-calendar"></i>Book</div>
+            <div><i class="fa-regular fa-comments"></i>Chat</div>
+            <div><i class="fa-regular fa-file-lines"></i>Files</div>
+          </div>
+          <div class="next"><b>Next step</b>Illustrative layout of the client home screen.</div>
         </div>
       </div>
     </article>
+  </div>
+</section>
 
-    <!-- other projects -->
-    <div class="grid md:grid-cols-3 gap-6 mt-6">
-      <article class="card hov overflow-hidden flex flex-col">
-        <img class="shot object-top border-b border-line" src="image3.png" alt="Tuition Fee Calculator interface" loading="lazy">
-        <div class="p-6 flex flex-col flex-1">
-          <div class="flex items-start justify-between gap-3">
-            <h3 class="text-xl font-bold">Tuition Calculator</h3>
-            <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" rel="noopener" class="text-ink/45 hover:text-indigo-600 text-xl" aria-label="Tuition Calculator on GitHub"><i class="fa-brands fa-github"></i></a>
-          </div>
-          <p class="mt-1 text-sm font-semibold text-indigo-600">Java Swing, desktop GUI</p>
-          <p class="mt-3 text-ink/70 text-[15px]">Works out university credit matrices and waiver rules so students don't have to.</p>
+<section id="projects" class="dark-line">
+  <div class="wrap">
+    <h2>Other things I’ve built</h2>
+    <p class="lead">Smaller projects from my coursework, in Java and on Arduino.</p>
+    <div class="grid3">
+      <article class="pj">
+        <img src="image3.png" alt="Tuition Fee Calculator interface" loading="lazy">
+        <div>
+          <h3>Tuition Calculator <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" rel="noopener" aria-label="Tuition Calculator on GitHub"><i class="fa-brands fa-github"></i></a></h3>
+          <em>Java Swing, desktop GUI</em>
+          <p>Works out university credit matrices and waiver rules so students don’t have to.</p>
         </div>
       </article>
-
-      <article class="card hov overflow-hidden flex flex-col">
-        <img class="shot object-top border-b border-line" src="image4.png" alt="Password Manager interface" loading="lazy">
-        <div class="p-6 flex flex-col flex-1">
-          <div class="flex items-start justify-between gap-3">
-            <h3 class="text-xl font-bold">Password Manager</h3>
-            <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" class="text-ink/45 hover:text-indigo-600 text-xl" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a>
-          </div>
-          <p class="mt-1 text-sm font-semibold text-indigo-600">Java Swing, security</p>
-          <p class="mt-3 text-ink/70 text-[15px]">A local credential vault built on proper Java security practices.</p>
+      <article class="pj">
+        <img src="image4.png" alt="Password Manager interface" loading="lazy">
+        <div>
+          <h3>Password Manager <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a></h3>
+          <em>Java Swing, security</em>
+          <p>A local credential vault built on core Java security practices.</p>
         </div>
       </article>
-
-      <article class="card hov overflow-hidden flex flex-col">
-        <img class="shot border-b border-line" src="arduino.jpg" alt="Smart Queue Arduino hardware" loading="lazy">
-        <div class="p-6 flex flex-col flex-1">
-          <div class="flex items-start justify-between gap-3">
-            <h3 class="text-xl font-bold">Smart Queue</h3>
-            <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" rel="noopener" class="text-ink/45 hover:text-indigo-600 text-xl" aria-label="Smart Queue on GitHub"><i class="fa-brands fa-github"></i></a>
-          </div>
-          <p class="mt-1 text-sm font-semibold text-indigo-600">Arduino, embedded</p>
-          <p class="mt-3 text-ink/70 text-[15px]">Sensor-driven queue management that keeps real waiting lines moving.</p>
+      <article class="pj">
+        <img src="arduino.jpg" alt="Smart Queue Arduino hardware" loading="lazy">
+        <div>
+          <h3>Smart Queue <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" rel="noopener" aria-label="Smart Queue on GitHub"><i class="fa-brands fa-github"></i></a></h3>
+          <em>Arduino, embedded</em>
+          <p>Sensor-driven queue management that keeps real waiting lines moving.</p>
         </div>
       </article>
+    </div>
+    <div class="skills">
+      <span>C++</span><span>Java</span><span>SQL and databases</span><span>UML and requirements</span><span>UI/UX in Figma</span>
     </div>
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education" class="py-24 md:py-28 bg-sand/60 border-y border-line">
-  <div class="max-w-4xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Education</h2>
-    <ol class="mt-12 relative border-l-2 border-indigo-200 ml-3 space-y-8">
-      <li class="pl-8 relative">
-        <span class="absolute -left-[9px] top-8 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-sand"></span>
-        <div class="card p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-          <div>
-            <p class="text-sm font-semibold text-indigo-600">In progress, 3rd year</p>
-            <h3 class="mt-1 text-xl font-bold">United International University</h3>
-            <p class="mt-2 text-ink/70">BSc in Computer Science and Engineering, where the design habit and the circuits coexist.</p>
-          </div>
-          <p class="text-3xl font-extrabold text-indigo-600 shrink-0">CSE</p>
-        </div>
-      </li>
-      <li class="pl-8 relative">
-        <span class="absolute -left-[9px] top-8 w-4 h-4 rounded-full bg-indigo-300 ring-4 ring-sand"></span>
-        <div class="card p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-          <div>
-            <p class="text-sm font-semibold text-ink/55">Completed, Higher Secondary (HSC)</p>
-            <h3 class="mt-1 text-xl font-bold">Rajuk Uttara Model College</h3>
-            <p class="mt-2 text-ink/70">Science faculty.</p>
-          </div>
-          <div class="shrink-0 text-center sm:text-right">
-            <p class="text-3xl font-extrabold text-indigo-600">5.00</p>
-            <p class="text-xs font-semibold text-ink/55">GPA</p>
-          </div>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery" class="py-24 md:py-28">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Selected artwork</h2>
-        <p class="mt-4 text-ink/70 text-lg">A hand-picked slice of branding, illustration and layout work. The full collection lives on Behance.</p>
-      </div>
-      <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener" class="btn btn-ghost shrink-0"><i class="fa-brands fa-behance text-lg"></i> View on Behance</a>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-      <figure class="card hov overflow-hidden">
-        <div class="aspect-[16/10] bg-sand"><img src="banner_proj.jpg" alt="Banner design work" class="w-full h-full object-cover" loading="lazy"></div>
-        <figcaption class="px-5 py-4 flex items-baseline justify-between gap-3"><span class="font-bold">Banner design</span><span class="text-sm text-ink/55">Photoshop</span></figcaption>
-      </figure>
-      <figure class="card hov overflow-hidden">
-        <div class="aspect-[16/10] bg-white"><img src="logo_proj.jpg" alt="Logo design work" class="w-full h-full object-contain p-4" loading="lazy"></div>
-        <figcaption class="px-5 py-4 flex items-baseline justify-between gap-3 border-t border-line"><span class="font-bold">Logo suite</span><span class="text-sm text-ink/55">Illustrator</span></figcaption>
-      </figure>
-      <figure class="card hov overflow-hidden">
-        <div class="aspect-[16/10] bg-ink"><img src="mascot_proj.jpg" alt="Mascot illustration" class="w-full h-full object-contain p-4" loading="lazy"></div>
-        <figcaption class="px-5 py-4 flex items-baseline justify-between gap-3"><span class="font-bold">Mascot illustration</span><span class="text-sm text-ink/55">Character art</span></figcaption>
-      </figure>
-      <figure class="card hov overflow-hidden">
-        <div class="aspect-[16/10] bg-sand"><img src="poster_proj.jpg" alt="Poster design work" class="w-full h-full object-cover" loading="lazy"></div>
-        <figcaption class="px-5 py-4 flex items-baseline justify-between gap-3"><span class="font-bold">Poster design</span><span class="text-sm text-ink/55">Print, photo manipulation</span></figcaption>
-      </figure>
-      <figure class="card hov overflow-hidden">
-        <div class="aspect-[16/10] bg-white"><img src="image5.png" alt="Detailed vector line drawing" class="w-full h-full object-contain p-4" loading="lazy"></div>
-        <figcaption class="px-5 py-4 flex items-baseline justify-between gap-3 border-t border-line"><span class="font-bold">Line drawing I</span><span class="text-sm text-ink/55">Illustrator, vector</span></figcaption>
-      </figure>
-      <figure class="card hov overflow-hidden">
-        <div class="aspect-[16/10] bg-white"><img src="image6.png" alt="Detailed vector line drawing" class="w-full h-full object-contain p-4" loading="lazy"></div>
-        <figcaption class="px-5 py-4 flex items-baseline justify-between gap-3 border-t border-line"><span class="font-bold">Line drawing II</span><span class="text-sm text-ink/55">Illustrator, vector</span></figcaption>
-      </figure>
+<section id="stock">
+  <div class="wrap">
+    <h2>Selling design worldwide</h2>
+    <p class="lead">Two stock marketplaces, one habit: make assets people actually download.</p>
+    <div class="mk">
+      <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" rel="noopener">
+        <img src="image1.png" alt="Adobe Stock logo">
+        <h3>Adobe Stock</h3>
+        <strong>8,000+</strong>
+        <p>assets live. Commercial-ready media, tagged and tuned to what buyers search for.</p>
+      </a>
+      <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" rel="noopener">
+        <img src="image2.png" alt="Freepik logo">
+        <h3>Freepik</h3>
+        <strong>2,500+</strong>
+        <p>assets live as a Level 3 contributor. PNG packs and vector sets in high demand.</p>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT (dark) -->
-<section id="contact" class="bg-night text-white py-24 md:py-28">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">Have a project in mind? Let's talk.</h2>
-    <p class="mt-5 text-indigo-100/75 text-lg">Send one email with what you need and I'll get back to you.</p>
-    <a href="mailto:shahriarahnaf420@gmail.com" class="btn btn-primary mt-9 !bg-indigo-500 hover:!bg-indigo-400 !text-base break-all">
-      <i class="fa-regular fa-envelope"></i> shahriarahnaf420@gmail.com
-    </a>
-    <div class="flex justify-center gap-3 mt-10">
-      <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/75 hover:bg-white hover:text-night transition-colors" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
-      <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/75 hover:bg-white hover:text-night transition-colors" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/75 hover:bg-white hover:text-night transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://www.youtube.com/@itsahnaf666" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/75 hover:bg-white hover:text-night transition-colors" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+<section id="gallery" class="dark-line">
+  <div class="wrap">
+    <h2>Selected artwork</h2>
+    <p class="lead">A slice of branding, illustration and layout work. The full collection lives on Behance.</p>
+    <div class="gal">
+      <figure><img src="banner_proj.jpg" alt="Banner design work" loading="lazy"><figcaption>Banner design <span>Photoshop</span></figcaption></figure>
+      <figure class="c"><img src="logo_proj.jpg" alt="Logo design work" loading="lazy"><figcaption>Logo suite <span>Illustrator</span></figcaption></figure>
+      <figure class="c"><img src="mascot_proj.jpg" alt="Mascot illustration" loading="lazy"><figcaption>Mascot <span>Character art</span></figcaption></figure>
+      <figure><img src="poster_proj.jpg" alt="Poster design work" loading="lazy"><figcaption>Poster design <span>Print</span></figcaption></figure>
+      <figure class="c"><img src="image5.png" alt="Vector line drawing" loading="lazy"><figcaption>Line drawing I <span>Vector</span></figcaption></figure>
+      <figure class="c"><img src="image6.png" alt="Vector line drawing" loading="lazy"><figcaption>Line drawing II <span>Vector</span></figcaption></figure>
+    </div>
+    <p style="margin-top:30px"><a class="btn btn-dark" href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener"><i class="fa-brands fa-behance"></i> View on Behance</a></p>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="edu">
+      <div><small>In progress, 3rd year</small><h3>United International University</h3><p>BSc in Computer Science and Engineering.</p></div>
+      <div><small>Completed, HSC</small><h3>Rajuk Uttara Model College</h3><p>Science faculty, GPA 5.00.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Have a project in mind? Let’s talk.</h2>
+    <a class="mail" href="mailto:shahriarahnaf420@gmail.com">shahriarahnaf420@gmail.com</a>
+    <div class="soc">
+      <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+      <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://www.youtube.com/@itsahnaf666" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
     </div>
   </div>
 </section>
 
 </main>
-
-<footer class="bg-night text-white/50 border-t border-white/10 py-7 text-center text-sm">
-  &copy; 2026 Ahnaf Shahriar. Dhaka, Bangladesh.
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const els = document.querySelectorAll('[data-count]');
-  const run = el => {
-    const target = +el.dataset.count, t0 = performance.now(), dur = 1400;
-    const step = t => {
-      const p = Math.min((t - t0) / dur, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-US');
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { io.unobserve(e.target); reduce ? (e.target.textContent = (+e.target.dataset.count).toLocaleString('en-US')) : run(e.target); }
-  }), { threshold: .5 });
-  els.forEach(el => io.observe(el));
-});
-</script>
+<footer><div class="wrap">&copy; 2026 Ahnaf Shahriar. Dhaka, Bangladesh.</div></footer>
 </body>
 </html>
