@@ -1,316 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ahnaf Shahriar — Designer &amp; Software Engineer</title>
-<meta name="description" content="Ahnaf Shahriar — graphic designer and computer science engineer. Brand identities, stock art, illustration and system design.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%235B4BFF'/><text x='32' y='45' font-family='Arial,sans-serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'>A</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahnaf Shahriar — Graphic Designer &amp; Computer Science Engineer</title>
+<meta name="description" content="Computer science engineering student in Dhaka with 5+ years in graphic design.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#12112B;--iris:#5B4BFF;--mist:#EFEEF8;--paper:#FAFAFD;--amber:#FFB020;--line:#DEDCEE;--mute:#5E5C7A}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:'Bricolage Grotesque','Instrument Sans',system-ui,sans-serif;letter-spacing:-.025em;line-height:1.05}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:8px}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-section{padding:110px 0}
-h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:800}
-.lead{color:var(--mute);max-width:560px;margin-top:16px;font-size:1.08rem}
-.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 26px;font-weight:600;font-size:15px;border:1.5px solid transparent;transition:background .2s,color .2s,border-color .2s}
-.btn-iris{background:var(--iris);color:#fff}.btn-iris:hover{background:#4636E6}
-.btn-line{border-color:rgba(255,255,255,.35);color:#fff}.btn-line:hover{background:#fff;color:var(--ink)}
-.btn-dark{border-color:var(--ink)}.btn-dark:hover{background:var(--ink);color:#fff}
-
-/* floating pill nav */
-.nav{position:fixed;top:16px;left:50%;translate:-50% 0;z-index:50;display:flex;align-items:center;gap:6px;background:rgba(18,17,43,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:999px;padding:7px 7px 7px 22px;box-shadow:0 12px 40px -12px rgba(18,17,43,.6);max-width:calc(100vw - 24px)}
-.nav b{font-family:'Bricolage Grotesque',sans-serif;color:#fff;font-size:17px;margin-right:14px;white-space:nowrap}
-.nav a.l{color:rgba(255,255,255,.72);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:999px;transition:background .2s,color .2s}
-.nav a.l:hover{background:rgba(255,255,255,.12);color:#fff}
-.nav .btn{padding:10px 20px;font-size:14px;margin-left:6px}
-@media(max-width:760px){.nav a.l{display:none}.nav b{margin-right:8px}}
-
+:root,[data-theme=dark]{--iris:#6E60FF;--iris-glow:rgba(91,75,255,.45);--amber:#FFB020;--amber-glow:rgba(255,176,32,.55);--bg:#070612;--surf:#12112B;--elev:rgba(26,24,58,.72);--tx:#F5F4FF;--mute:#9B99B8;--line:rgba(255,255,255,.11);--art:#F4F3FA}
+[data-theme=light]{--iris:#5B4BFF;--bg:#FAFAFD;--surf:#EFEEF8;--elev:#FFF;--tx:#12112B;--mute:#5E5C7A;--line:#DEDCEE;--art:#F4F3FA}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.6 'Instrument Sans',system-ui,sans-serif;overflow-x:hidden;transition:background .3s,color .3s}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;line-height:1.05}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.78rem}
+a{color:inherit}img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-new(root){z-index:9999}
+section{max-width:1120px;margin:0 auto;padding:96px 22px 24px}
+h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px}.lead{color:var(--mute);max-width:60ch;margin-bottom:32px}
+.card{background:var(--elev);border:1px solid var(--line);border-radius:22px;backdrop-filter:blur(14px);position:relative;overflow:hidden}
+.spot::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),var(--iris),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .25s;pointer-events:none}
+.spot:hover::before{opacity:1}
+.btn{display:inline-flex;gap:8px;align-items:center;padding:12px 22px;border-radius:999px;border:1px solid var(--line);background:var(--elev);font-weight:600;text-decoration:none;cursor:pointer;color:var(--tx);font-family:inherit;font-size:1rem;transition:transform .2s}
+.btn.p{background:var(--iris);border-color:transparent;color:#fff;box-shadow:0 8px 30px var(--iris-glow)}.btn:hover{transform:translateY(-2px)}
+/* nav */
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:6px;padding:8px 10px 8px 20px;border-radius:999px;background:var(--elev);border:1px solid var(--line);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.brand{font:800 1rem 'Bricolage Grotesque';text-decoration:none;margin-right:10px}
+.links{display:flex;position:relative}.links a{position:relative;z-index:1;padding:8px 15px;border-radius:999px;font-size:.92rem;font-weight:500;text-decoration:none;color:var(--mute);transition:color .2s}
+.links a.on{color:var(--tx)}.ind{position:absolute;top:0;height:100%;border-radius:999px;background:var(--surf);border:1px solid var(--line);transition:left .4s cubic-bezier(.34,1.56,.64,1),width .4s;left:0;width:0}
+.mt{display:none;background:none;border:0;color:var(--tx);font-size:1.3rem;cursor:pointer;padding:4px 10px}
+/* bulb */
+.bulb{position:fixed;top:0;right:clamp(14px,4vw,56px);z-index:60;width:84px;height:230px;background:none;border:0;cursor:pointer;transform-origin:42px 0;padding:0;color:var(--tx)}
+.bulb svg{width:100%;height:100%;overflow:visible}.glass{fill:rgba(255,255,255,.07);stroke:var(--mute);stroke-width:1.5;transition:.4s}
+.fil{stroke:var(--mute);stroke-width:2;fill:none;transition:.3s}
+[data-theme=light] .glass{fill:rgba(255,176,32,.35);stroke:var(--amber);filter:drop-shadow(0 0 16px var(--amber-glow))}[data-theme=light] .fil{stroke:var(--amber);filter:drop-shadow(0 0 5px var(--amber))}
+[data-theme=dark] .glass{filter:drop-shadow(0 0 10px var(--iris-glow))}
+.bpill{position:absolute;top:196px;left:50%;transform:translateX(-50%);white-space:nowrap;font:600 .68rem 'JetBrains Mono';padding:3px 10px;border-radius:999px;background:var(--elev);border:1px solid var(--line);backdrop-filter:blur(8px)}
 /* hero */
-.hero{background:var(--ink);color:#fff;padding:150px 0 0;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;width:720px;height:720px;right:-180px;top:-260px;background:radial-gradient(circle,rgba(91,75,255,.55),transparent 65%)}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1.6fr 1fr;gap:56px;align-items:end}
-.hero h1{font-size:clamp(2.9rem,8.2vw,7rem);font-weight:800;line-height:.92}
-.hero h1 span{display:block;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
-.hero h1 span:nth-child(2){animation-delay:.12s;color:#B9B2FF}
-.hero h1 span:nth-child(3){animation-delay:.24s}
-@keyframes rise{from{opacity:0;translate:0 40px}to{opacity:1;translate:0 0}}
-.hero p.s{margin-top:30px;color:rgba(255,255,255,.72);max-width:520px;font-size:1.12rem}
-.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.portrait{width:100%;max-width:340px;aspect-ratio:3/4;object-fit:cover;border-radius:999px 999px 24px 24px;margin-left:auto;border:1px solid rgba(255,255,255,.18)}
-.facts{position:relative;margin-top:84px;border-top:1px solid rgba(255,255,255,.14)}
-.facts .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding-top:0;align-items:stretch}
-.facts div.f{padding:26px 0 30px}
-.facts div.f+div.f{padding-left:28px;border-left:1px solid rgba(255,255,255,.14)}
-.facts strong{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:1.7rem;font-weight:700;letter-spacing:-.02em}
-.facts span{color:rgba(255,255,255,.62);font-size:.93rem}
-@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.portrait{margin:0;max-width:240px}.facts .wrap{grid-template-columns:1fr}.facts div.f+div.f{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.14)}}
-
-/* LawAid feature */
-.stage{background:var(--ink);color:#fff;border-radius:36px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-top:44px;position:relative;overflow:hidden}
-.stage::after{content:"";position:absolute;inset:auto -120px -200px auto;width:520px;height:520px;background:radial-gradient(circle,rgba(91,75,255,.5),transparent 65%)}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.tag{font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.1)}
-.tag.am{background:var(--amber);color:var(--ink)}
-.stage h3{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:800}
-.stage p{color:rgba(255,255,255,.74);margin-top:18px;max-width:520px}
-.feat{list-style:none;margin:28px 0 34px;display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
-.feat li{display:flex;gap:11px;align-items:flex-start;font-size:.97rem;color:rgba(255,255,255,.9)}
-.feat i{color:var(--amber);margin-top:5px;font-size:.85rem}
-.phone{position:relative;z-index:1;width:262px;margin:0 auto;background:#0B0A1E;border-radius:40px;padding:12px;border:1px solid rgba(255,255,255,.2);rotate:3deg;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
-.screen{background:var(--paper);color:var(--ink);border-radius:30px;padding:22px 16px 18px;min-height:500px}
-.screen .hi{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.25rem}
-.screen .sub{font-size:.8rem;color:var(--mute)}
-.mini{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:16px 0}
-.mini div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px}
-.mini b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:1.5rem;color:var(--iris);line-height:1}
-.mini span{font-size:.72rem;color:var(--mute)}
-.mini div:first-child{background:var(--iris);border-color:var(--iris)}
-.mini div:first-child b,.mini div:first-child span{color:#fff}
-.sc{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
-.sc div{text-align:center;font-size:.64rem;color:var(--mute)}
-.sc i{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:1;background:var(--mist);border-radius:14px;color:var(--iris);font-size:1rem;margin-bottom:5px}
-.next{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;font-size:.78rem}
-.next b{display:block;font-size:.85rem}
-.note{margin-top:14px;font-size:.88rem;color:var(--mute)}
-@media(max-width:900px){.stage{grid-template-columns:1fr;padding:34px 24px}.feat{grid-template-columns:1fr}}
-
-/* other projects */
-.dark-line{background:var(--mist)}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
-.pj{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
-.pj img{aspect-ratio:16/10;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
-.pj div{padding:22px}
-.pj h3{font-size:1.3rem;display:flex;justify-content:space-between;gap:10px}
-.pj h3 a{color:var(--mute);font-size:1.2rem}.pj h3 a:hover{color:var(--iris)}
-.pj em{display:block;font-style:normal;color:var(--iris);font-weight:600;font-size:.88rem;margin:6px 0 10px}
-.pj p{color:var(--mute);font-size:.96rem}
-.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.skills span{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-weight:600;font-size:14px}
-@media(max-width:900px){.grid3{grid-template-columns:1fr}}
-
+#top{padding-top:140px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;position:relative}
+.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);font-weight:800}.hero p{color:var(--mute);margin:22px 0 28px;max-width:52ch}
+.tr{border-bottom:2px dashed var(--iris);cursor:help;color:var(--iris)}
+.ov{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;z-index:-1}.ov svg{width:100%;height:100%}
+#top.d .ov.d,#top.e .ov.e{opacity:.7}
+.ph{position:relative;perspective:900px;justify-self:center;width:min(100%,340px)}
+.ph .arch{border-radius:999px 999px 28px 28px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line);box-shadow:0 30px 80px var(--iris-glow);transition:transform .15s;transform-style:preserve-3d;position:relative}
+.arch img{width:100%;height:100%;object-fit:cover}
+.ring{position:absolute;inset:-14px;border-radius:999px 999px 40px 40px;border:1px dashed var(--iris);opacity:.5;animation:spin 14s linear infinite;pointer-events:none}@keyframes spin{50%{opacity:.15}}
+.stat{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);padding:8px 14px;border-radius:999px;background:var(--elev);border:1px solid var(--line);backdrop-filter:blur(12px);white-space:nowrap;display:flex;gap:8px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:#2ee58a;animation:pulse 1.6s infinite}@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(46,229,138,0)}0%{box-shadow:0 0 0 0 rgba(46,229,138,.6)}}
+.facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.facts div{padding:22px}.facts b{font:800 2rem 'Bricolage Grotesque';display:block}.facts span{color:var(--mute)}
+/* lawaid */
+.lw{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;padding:36px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.tag{padding:3px 12px;border-radius:999px;border:1px solid var(--line);color:var(--mute)}
+.lw h3{font-size:2.6rem}.lw p{color:var(--mute);margin:10px 0}
+.ck{list-style:none;padding:0;margin:16px 0;display:grid;gap:7px}.ck li::before{content:"✓";color:var(--amber);font-weight:700;margin-right:10px}
+.note{font-size:.9rem;color:var(--mute);margin-top:16px}
+.stage{display:grid;place-items:center;perspective:1000px}
+.phone{width:262px;height:520px;border-radius:38px;background:#0b0a1c;border:8px solid #1e1c3c;box-shadow:0 30px 70px var(--iris-glow);transition:transform .15s;position:relative;overflow:hidden;color:#F5F4FF}
+.scr{position:absolute;inset:0;padding:30px 14px 70px;opacity:0;transform:translateX(24px);transition:.35s;pointer-events:none;overflow:auto;font-size:.8rem}
+.scr.on{opacity:1;transform:none;pointer-events:auto}
+.phone h4{font:700 1rem 'Bricolage Grotesque';margin-bottom:8px;cursor:pointer}.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.g2 button,.lc,.bub,.slot{background:#1a183a;border:1px solid rgba(255,255,255,.1);border-radius:14px;color:inherit;padding:10px;font:inherit;text-align:left}
+.g2 button{cursor:pointer}.g2 button:hover{border-color:#6E60FF}.g2 b{display:block;font-size:1.1rem;color:#FFB020}
+.pill{display:inline-block;font-size:.66rem;padding:2px 8px;border-radius:99px;background:#6E60FF33;margin:4px 4px 0 0;cursor:pointer;border:0;color:inherit}.pill.on{background:#6E60FF}
+.lc{margin:8px 0}.bub{margin:6px 0;max-width:86%}.bub.me{margin-left:auto;background:#5B4BFF}
+.typ span{display:inline-block;width:6px;height:6px;border-radius:50%;background:#9B99B8;margin:0 2px;animation:bn 1s infinite}.typ span:nth-child(2){animation-delay:.15s}.typ span:nth-child(3){animation-delay:.3s}@keyframes bn{50%{transform:translateY(-4px)}}
+.slot{display:inline-block;margin:3px 3px 3px 0;cursor:pointer;padding:6px 10px}.slot.on{background:#FFB020;color:#12112B}
+.qr{width:54px;height:54px;background:conic-gradient(#fff 25%,#000 0 50%,#fff 0 75%,#000 0);background-size:14px 14px;border:4px solid #fff;border-radius:6px}
+.dock{position:absolute;bottom:0;left:0;right:0;display:flex;background:#12112B;border-top:1px solid rgba(255,255,255,.1)}
+.dock button{flex:1;padding:12px 0;background:none;border:0;color:#9B99B8;font:600 .7rem 'JetBrains Mono';cursor:pointer}.dock button.on{color:#FFB020}
+.hint{margin-top:18px;color:var(--amber);animation:pulse2 2s infinite}@keyframes pulse2{50%{opacity:.45}}
+/* projects */
+.pulse{display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:14px 20px;margin-bottom:24px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pc{text-decoration:none;display:block;transition:opacity .3s,transform .3s,box-shadow .3s}.pc img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.pc div{padding:20px}.pc h3{font-size:1.4rem;margin:6px 0}.pc p{color:var(--mute);font-size:.95rem}
+.pc.dim{opacity:.3}.pc.hit{box-shadow:0 0 0 2px var(--amber),0 0 40px var(--amber-glow);transform:translateY(-4px)}
+.gh{display:flex;gap:10px;margin-top:10px;color:var(--iris)}
+.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.sk{padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:var(--elev);color:var(--tx);cursor:pointer;font:500 .95rem inherit;font-family:inherit}.sk.on{background:var(--iris);color:#fff;border-color:transparent}
 /* stock */
-.mk{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
-.mk a{border:1px solid var(--line);border-radius:26px;padding:34px;background:#fff;display:flex;flex-direction:column;gap:6px;transition:border-color .2s,translate .25s}
-.mk a:hover{border-color:var(--iris);translate:0 -4px}
-.mk img{width:56px;height:56px;object-fit:contain;margin-bottom:14px}
-.mk strong{font-family:'Bricolage Grotesque',sans-serif;font-size:3.2rem;line-height:1;letter-spacing:-.03em;color:var(--iris)}
-.mk h3{font-size:1.5rem}
-.mk p{color:var(--mute)}
-@media(max-width:760px){.mk{grid-template-columns:1fr}}
-
+.g2c{display:grid;grid-template-columns:1fr 1fr;gap:18px}.mk{text-decoration:none;display:block}.mk img{aspect-ratio:16/8;object-fit:cover;width:100%}.mk div{padding:24px}
+.big{font:800 3.2rem 'Bricolage Grotesque';color:var(--iris);display:block;line-height:1;font-variant-numeric:tabular-nums}
+.imp{display:flex;flex-wrap:wrap;justify-content:space-around;gap:20px;padding:26px;margin:18px 0;text-align:center}.imp b{font:800 2.2rem 'Bricolage Grotesque';display:block;color:var(--amber);font-variant-numeric:tabular-nums}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 14px}.tb{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:var(--elev);color:var(--tx);cursor:pointer;font:500 .9rem 'Instrument Sans'}.tb.on{background:var(--iris);color:#fff;border-color:transparent}
+.pn{display:none;padding:26px;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.pn.on{display:grid}
+.cs{aspect-ratio:4/3;border:1px solid var(--line);border-radius:14px;position:relative;background:var(--art);overflow:hidden}.cs i{position:absolute;background:var(--iris);opacity:.5}
+.cs .thirds{position:absolute;inset:0;background:linear-gradient(90deg,transparent 33%,#5B4BFF55 33% 33.4%,transparent 33.4% 66%,#5B4BFF55 66% 66.4%,transparent 66.4%),linear-gradient(transparent 33%,#5B4BFF55 33% 33.4%,transparent 33.4% 66%,#5B4BFF55 66% 66.4%,transparent 66.4%);transition:opacity .3s}
+.bar{height:10px;border-radius:9px;background:var(--surf);margin:4px 0 12px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--iris),var(--amber))}
 /* gallery */
-.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:44px}
-.gal figure{border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--line);grid-column:span 2}
-.gal figure:nth-child(1),.gal figure:nth-child(4){grid-column:span 3}
-.gal img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}
-.gal .c img{object-fit:contain;padding:18px}
-.gal figcaption{padding:12px 18px;font-weight:600;font-size:.95rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;background:#fff}
-.gal figcaption span{color:var(--mute);font-weight:400}
-@media(max-width:860px){.gal figure,.gal figure:nth-child(1),.gal figure:nth-child(4){grid-column:span 6}}
-
-/* education */
-.edu{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
-.edu div{border-radius:26px;padding:34px;background:#fff;border:1px solid var(--line)}
-.edu div:first-child{background:var(--ink);color:#fff;border-color:var(--ink)}
-.edu small{font-weight:600;color:var(--amber)}.edu div:last-child small{color:var(--iris)}
-.edu h3{font-size:1.6rem;margin:10px 0}
-.edu p{color:var(--mute)}.edu div:first-child p{color:rgba(255,255,255,.72)}
-@media(max-width:760px){.edu{grid-template-columns:1fr}}
-
+.fl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px}
+.it{border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative;cursor:pointer;background:var(--surf);padding:0;transition:transform .35s,opacity .35s;color:inherit;font:inherit}.it.w{grid-column:span 2}.it.h{display:none}
+.it img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.it:hover img{transform:scale(1.05)}
+.it.c{background:radial-gradient(circle at 50% 40%,#fff,var(--art))}.it.c img{object-fit:contain;padding:18px}.it.c:hover img{transform:scale(1.03)}
+.cap{position:absolute;left:10px;bottom:10px;padding:5px 12px;border-radius:99px;background:var(--elev);backdrop-filter:blur(10px);border:1px solid var(--line);font-size:.8rem;color:var(--tx)}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,4,16,.78);backdrop-filter:blur(18px);display:none;place-items:center;padding:20px}.lb.on{display:grid}
+.lbi{max-width:min(900px,100%);padding:18px;text-align:center;color:var(--tx)}.lbi img{max-height:66vh;margin:0 auto 14px;border-radius:12px;background:var(--art);object-fit:contain}
+.lbi .x{position:absolute;top:18px;right:22px;font-size:1.8rem;background:none;border:0;color:#fff;cursor:pointer}
+.nv{position:absolute;top:50%;background:var(--elev);border:1px solid var(--line);color:var(--tx);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.2rem}
+/* edu */
+.edu{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:70px}.edu .card{padding:26px}.edu svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:70px;height:50px;overflow:visible}
+.edu h3{margin:6px 0}.edu p{color:var(--mute)}
 /* contact */
-.contact{background:var(--iris);color:#fff;text-align:left;padding:100px 0 90px}
-.contact h2{font-size:clamp(2.4rem,7vw,5.6rem);font-weight:800;max-width:900px}
-.contact .mail{display:inline-block;margin-top:34px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.2rem,3.4vw,2rem);border-bottom:3px solid var(--amber);padding-bottom:4px;word-break:break-all}
-.soc{display:flex;gap:12px;margin-top:40px}
-.soc a{width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
-.soc a:hover{background:#fff;color:var(--iris)}
-footer{background:var(--ink);color:rgba(255,255,255,.55);padding:26px 0;font-size:.9rem}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+#contact{text-align:center;padding-bottom:70px}#contact h2{font-size:clamp(2.2rem,6vw,4.4rem)}
+.em{display:inline-block;font:700 clamp(1.1rem,3.6vw,2.4rem) 'Bricolage Grotesque';text-decoration:none;color:var(--iris);word-break:break-all;transition:transform .2s}
+.soc{display:flex;gap:14px;justify-content:center;margin:30px 0}.soc a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--elev);border:1px solid var(--line);text-decoration:none;font:700 .85rem 'JetBrains Mono';will-change:transform}
+.spk{position:fixed;pointer-events:none;z-index:200;font-size:16px;animation:fly .8s forwards}@keyframes fly{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+footer{text-align:center;color:var(--mute);padding:20px 22px 50px;border-top:1px solid var(--line);max-width:1120px;margin:0 auto}
+@media(max-width:860px){#top,.lw,.pn,.g2c,.edu{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.bento{grid-template-columns:1fr 1fr}.facts{grid-template-columns:1fr}.edu{gap:20px}.edu svg{display:none}}
+@media(max-width:760px){.mt{display:block}.links{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;background:var(--elev);border:1px solid var(--line);border-radius:22px;padding:8px;backdrop-filter:blur(16px)}.links.open{display:flex}.ind{display:none}.links a.on{background:var(--surf)}.nav{width:calc(100% - 150px);left:16px;transform:none;justify-content:space-between}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<button class="bulb" id="bulb" aria-label="Toggle light and dark theme (pull the cord)" aria-pressed="false">
+<svg viewBox="0 0 84 230" aria-hidden="true"><line x1="42" y1="0" x2="42" y2="60" stroke="var(--mute)" stroke-width="2"/><rect x="34" y="58" width="16" height="20" rx="3" fill="var(--mute)"/><path class="glass" d="M42 78c-18 0-28 14-28 30 0 11 6 18 11 25v9h34v-9c5-7 11-14 11-25 0-16-10-30-28-30z"/><path class="fil" d="M34 130l4-16 4 10 4-10 4 16"/><line x1="42" y1="142" x2="42" y2="188" stroke="var(--mute)" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="42" cy="192" r="5" fill="var(--amber)"/></svg>
+<span class="bpill" id="bpill">Pull for Light</span></button>
 
-<nav class="nav" aria-label="Main">
-  <b>Ahnaf Shahriar</b>
-  <a class="l" href="#projects">Projects</a>
-  <a class="l" href="#stock">Stock</a>
-  <a class="l" href="#gallery">Artwork</a>
-  <a class="l" href="#education">Education</a>
-  <a class="btn btn-iris" href="#contact">Contact</a>
-</nav>
-
-<header class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <h1><span>I design the</span><span>interface and the</span><span>system behind it.</span></h1>
-      <p class="s">Computer science engineering student in Dhaka with 5+ years in graphic design. I make brand identities, stock art and illustration, and I design software systems around real people’s problems.</p>
-      <div class="cta">
-        <a class="btn btn-iris" href="#lawaid">See featured project</a>
-        <a class="btn btn-line" href="#gallery">Browse artwork</a>
-      </div>
-    </div>
-    <img class="portrait" src="profile.jpg" alt="Portrait of Ahnaf Shahriar">
-  </div>
-  <div class="facts">
-    <div class="wrap">
-      <div class="f"><strong>5+ years</strong><span>in graphic design</span></div>
-      <div class="f"><strong>11,000+</strong><span>assets live on Adobe Stock and Freepik</span></div>
-      <div class="f"><strong>BSc CSE</strong><span>United International University, 3rd year</span></div>
-    </div>
-  </div>
-</header>
+<nav class="nav" aria-label="Main"><a class="brand" href="#top">Ahnaf Shahriar</a>
+<div class="links" id="links"><span class="ind" id="ind"></span><a href="#projects">Projects</a><a href="#stock">Stock</a><a href="#gallery">Artwork</a><a href="#education">Education</a><a href="#contact">Contact</a></div>
+<button class="mt" id="mt" aria-label="Open menu" aria-expanded="false">☰</button></nav>
 
 <main>
-
-<section id="lawaid">
-  <div class="wrap">
-    <h2>Featured project</h2>
-    <p class="lead">A course project where I worked on the full system analysis and design of a product, from the first survey to a mobile and web prototype.</p>
-    <article class="stage">
-      <div style="position:relative;z-index:1">
-        <div class="tags"><span class="tag am">Design stage</span><span class="tag">System Analysis and Design course</span><span class="tag">Team SysVision</span></div>
-        <h3>LawAid</h3>
-        <p>An AI-assisted legal platform for Bangladesh. Clients find verified lawyers, book appointments, chat, share documents and follow their case in one mobile app.</p>
-        <ul class="feat">
-          <li><i class="fa-solid fa-check"></i>Lawyer search, filters and recommendations</li>
-          <li><i class="fa-solid fa-check"></i>Appointments: free or paid, online or in person</li>
-          <li><i class="fa-solid fa-check"></i>Real-time chat and document sharing</li>
-          <li><i class="fa-solid fa-check"></i>Case and hearing tracking</li>
-          <li><i class="fa-solid fa-check"></i>Payments, receipts and QR verification</li>
-          <li><i class="fa-solid fa-check"></i>AI legal chatbot for first questions</li>
-        </ul>
-        <a class="btn btn-iris" href="https://github.com/splashahnaf445/LawAid" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View the repository</a>
-        <p class="note" style="color:rgba(255,255,255,.6)">Delivered: requirements specification, feasibility survey with 59 respondents, benchmark study, presentations and a Figma mobile prototype.</p>
-      </div>
-      <div class="phone" aria-label="Illustration of the LawAid client dashboard">
-        <div class="screen">
-          <div class="hi">Client dashboard</div>
-          <div class="sub">Everything about your case, one screen</div>
-          <div class="mini">
-            <div><b>Cases</b><span>Active and updates</span></div>
-            <div><b>Hearings</b><span>Dates and reminders</span></div>
-            <div><b>Chats</b><span>With your lawyer</span></div>
-            <div><b>Visits</b><span>Booked appointments</span></div>
-          </div>
-          <div class="sc">
-            <div><i class="fa-solid fa-magnifying-glass"></i>Find</div>
-            <div><i class="fa-regular fa-calendar"></i>Book</div>
-            <div><i class="fa-regular fa-comments"></i>Chat</div>
-            <div><i class="fa-regular fa-file-lines"></i>Files</div>
-          </div>
-          <div class="next"><b>Next step</b>Illustrative layout of the client home screen.</div>
-        </div>
-      </div>
-    </article>
-  </div>
+<section id="top" class="hero">
+<div class="ov d" aria-hidden="true"><svg viewBox="0 0 600 400" fill="none" stroke="#5B4BFF"><path d="M20 340C160 40 340 380 580 60"/><circle cx="20" cy="340" r="6"/><circle cx="580" cy="60" r="6"/><path d="M20 340l60-90M580 60l-60 90" stroke-dasharray="4"/><circle cx="300" cy="200" r="130" stroke="#FFB020" stroke-dasharray="3 6"/></svg></div>
+<div class="ov e" aria-hidden="true"><svg viewBox="0 0 600 400" fill="none" stroke="#FFB020"><path d="M0 300l300-150 300 150M0 340l300-150 300 150M0 260l300-150 300 150M150 80v320M300 40v360M450 80v320" opacity=".4"/><rect x="60" y="60" width="80" height="40" rx="6"/><rect x="460" y="300" width="80" height="40" rx="6"/><path d="M140 80h160v220h160"/></svg></div>
+<div>
+<h1>I design the<br><span class="tr" tabindex="0" id="t1">interface</span> and the<br><span class="tr" tabindex="0" id="t2">system behind it.</span></h1>
+<p>Computer science engineering student in Dhaka with 5+ years in graphic design. I make brand identities, stock art and illustration, and I design software systems around real people’s problems.</p>
+<a class="btn p" href="#lawaid">See featured project</a> <a class="btn" href="#gallery">Browse artwork</a></div>
+<div class="ph" id="ph"><div class="arch" id="arch"><img src="profile.jpg" alt="Portrait of Ahnaf Shahriar"><div class="ring"></div></div><div class="stat mono"><span class="dot"></span>Dhaka, BD • <span id="clk">--:--:--</span> GMT+6</div></div>
+<div class="facts">
+<div class="card spot"><b data-n="5" data-s="+ years">5+ years</b><span>in graphic design</span></div>
+<div class="card spot"><b data-n="11000" data-s="+">11,000+</b><span>assets live on Adobe Stock and Freepik</span></div>
+<div class="card spot"><b>BSc CSE</b><span>United International University, 3rd year</span></div></div>
 </section>
 
-<section id="projects" class="dark-line">
-  <div class="wrap">
-    <h2>Other things I’ve built</h2>
-    <p class="lead">Smaller projects from my coursework, in Java and on Arduino.</p>
-    <div class="grid3">
-      <article class="pj">
-        <img src="image3.png" alt="Tuition Fee Calculator interface" loading="lazy">
-        <div>
-          <h3>Tuition Calculator <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" rel="noopener" aria-label="Tuition Calculator on GitHub"><i class="fa-brands fa-github"></i></a></h3>
-          <em>Java Swing, desktop GUI</em>
-          <p>Works out university credit matrices and waiver rules so students don’t have to.</p>
-        </div>
-      </article>
-      <article class="pj">
-        <img src="image4.png" alt="Password Manager interface" loading="lazy">
-        <div>
-          <h3>Password Manager <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a></h3>
-          <em>Java Swing, security</em>
-          <p>A local credential vault built on core Java security practices.</p>
-        </div>
-      </article>
-      <article class="pj">
-        <img src="arduino.jpg" alt="Smart Queue Arduino hardware" loading="lazy">
-        <div>
-          <h3>Smart Queue <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" rel="noopener" aria-label="Smart Queue on GitHub"><i class="fa-brands fa-github"></i></a></h3>
-          <em>Arduino, embedded</em>
-          <p>Sensor-driven queue management that keeps real waiting lines moving.</p>
-        </div>
-      </article>
-    </div>
-    <div class="skills">
-      <span>C++</span><span>Java</span><span>SQL and databases</span><span>UML and requirements</span><span>UI/UX in Figma</span>
-    </div>
-  </div>
-</section>
+<section id="lawaid"><h2>Featured project</h2>
+<p class="lead">A course project where I worked on the full system analysis and design of a product, from the first survey to a mobile and web prototype.</p>
+<div class="card lw"><div>
+<div class="tags mono"><span class="tag">Design stage</span><span class="tag">System Analysis and Design course</span><span class="tag">Team SysVision</span></div>
+<h3>LawAid</h3><p>An AI-assisted legal platform for Bangladesh. Clients find verified lawyers, book appointments, chat, share documents and follow their case in one mobile app.</p>
+<ul class="ck"><li>Lawyer search, filters and recommendations</li><li>Appointments: free or paid, online or in person</li><li>Real-time chat and document sharing</li><li>Case and hearing tracking</li><li>Payments, receipts and QR verification</li><li>AI legal chatbot for first questions</li></ul>
+<a class="btn p" href="https://github.com/splashahnaf445/LawAid">View the repository</a>
+<p class="note">Delivered: requirements specification, feasibility survey with 59 respondents, benchmark study, presentations and a Figma mobile prototype.</p></div>
+<div class="stage" id="stage"><div class="phone" id="phone">
+<div class="scr on" data-v="dash"><h4>LawAid</h4><div class="lc">Active case: Property dispute<br><span class="mono">Next hearing in 3d 04h</span></div><div class="g2"><button data-go="find"><b>3</b>Cases</button><button data-go="book"><b>2</b>Hearings</button><button data-go="chat"><b>4</b>Chats</button><button data-go="book"><b>1</b>Visits</button></div></div>
+<div class="scr" data-v="find"><h4 data-go="dash">‹ Find a lawyer</h4><div><button class="pill on">All</button><button class="pill">Criminal</button><button class="pill">Family</button><button class="pill">Property</button></div><div class="lc" data-t="Criminal"><b>Adv. Rahman</b> · Supreme Court<br>Criminal law <span class="pill">৳1,500</span></div><div class="lc" data-t="Family"><b>Adv. Nasrin</b> · District Court<br>Family law <span class="pill">Free intro</span></div><div class="lc" data-t="Property"><b>Adv. Karim</b> · Supreme Court<br>Property law <span class="pill">৳2,000</span></div></div>
+<div class="scr" data-v="chat"><h4 data-go="dash">‹ AI legal assistant</h4><div class="bub me">Can I contest a land mutation?</div><div class="bub">Yes. Gather your deed and khatian, then file an appeal with the AC Land office.</div><div class="bub typ"><span></span><span></span><span></span></div><div class="lc">📎 deed_copy.pdf shared</div></div>
+<div class="scr" data-v="book"><h4 data-go="dash">‹ Hearings and booking</h4><div><span class="slot on" data-m>Online</span><span class="slot" data-m>In person</span></div><div><span class="slot" data-s>10:00</span><span class="slot" data-s>12:30</span><span class="slot" data-s>16:00</span></div><div class="lc">Timeline: Filed ▸ <b style="color:#FFB020">Hearing 1</b> ▸ Verdict</div><div class="lc" style="display:flex;gap:10px;align-items:center"><div class="qr"></div>Receipt verified<br>LA-2026-0412</div></div>
+<div class="dock"><button data-go="find">Find</button><button data-go="book">Book</button><button data-go="chat">Chat</button><button data-go="book">Files</button></div></div>
+<p class="hint mono">Interactive Prototype — Click tabs inside phone to explore</p></div></div></section>
 
-<section id="stock">
-  <div class="wrap">
-    <h2>Selling design worldwide</h2>
-    <p class="lead">Two stock marketplaces, one habit: make assets people actually download.</p>
-    <div class="mk">
-      <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" rel="noopener">
-        <img src="image1.png" alt="Adobe Stock logo">
-        <h3>Adobe Stock</h3>
-        <strong>8,500+</strong>
-        <p>assets live. Commercial-ready media, tagged and tuned to what buyers search for, <strong>1.6k+</strong> Licenses Sold ➡️ ></p>
-      </a>
-      <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" rel="noopener">
-        <img src="image2.png" alt="Freepik logo">
-        <h3>Freepik</h3>
-        <strong>2,500+</strong>
-        <p>assets live as a Level 3 contributor. PNG packs and vector sets in high demand, <strong>8.6k+</strong> Total Lifetime Licenses Sold ➡️ </p>
-      </a>
-    </div>
-  </div>
-</section>
+<section id="projects"><h2>Other things I’ve built</h2><p class="lead">Smaller projects from my coursework, in Java and on Arduino.</p>
+<div class="card pulse mono" id="pulse"><span><span class="dot" id="gd" style="display:inline-block"></span> <a href="https://github.com/splashahnaf445">@splashahnaf445</a></span><span id="gr">– public repos</span><span>Java · C++ · System Design</span><span id="gs">connecting…</span></div>
+<div class="grid3" id="pg">
+<a class="pc card spot" data-k="java sql uml" data-repo="Tutionfee-calculator" href="https://github.com/splashahnaf445/Tutionfee-calculator"><img src="image3.png" alt="Tuition Calculator" loading="lazy"><div><span class="mono">Java Swing, desktop GUI</span><h3>Tuition Calculator</h3><p>Works out university credit matrices and waiver rules so students don’t have to.</p><div class="gh mono"></div></div></a>
+<a class="pc card spot" data-k="java sql" data-repo="" href="https://github.com/splashahnaf445"><img src="image4.png" alt="Password Manager" loading="lazy"><div><span class="mono">Java Swing, security</span><h3>Password Manager</h3><p>A local credential vault built on core Java security practices.</p></div></a>
+<a class="pc card spot" data-k="cpp uml" data-repo="Smart-Queue-Management-System" href="https://github.com/splashahnaf445/Smart-Queue-Management-System"><img src="arduino.jpg" alt="Smart Queue" loading="lazy"><div><span class="mono">Arduino, embedded</span><h3>Smart Queue</h3><p>Sensor-driven queue management that keeps real waiting lines moving.</p><div class="gh mono"></div></div></a></div>
+<div class="skills" id="sk"><button class="sk" data-k="cpp">C++</button><button class="sk" data-k="java">Java</button><button class="sk" data-k="sql">SQL and databases</button><button class="sk" data-k="uml">UML and requirements</button><button class="sk" data-k="figma">UI/UX in Figma</button></div></section>
 
-<section id="gallery" class="dark-line">
-  <div class="wrap">
-    <h2>Selected artwork</h2>
-    <p class="lead">A slice of branding, illustration and layout work. The full collection lives on Behance.</p>
-    <div class="gal">
-      <figure><img src="banner_proj.jpg" alt="Banner design work" loading="lazy"><figcaption>Banner design <span>Photoshop</span></figcaption></figure>
-      <figure class="c"><img src="logo_proj.jpg" alt="Logo design work" loading="lazy"><figcaption>Logo suite <span>Illustrator</span></figcaption></figure>
-      <figure class="c"><img src="mascot_proj.jpg" alt="Mascot illustration" loading="lazy"><figcaption>Mascot <span>Character art</span></figcaption></figure>
-      <figure><img src="poster_proj.jpg" alt="Poster design work" loading="lazy"><figcaption>Poster design <span>Print</span></figcaption></figure>
-      <figure class="c"><img src="image5.png" alt="Vector line drawing" loading="lazy"><figcaption>Line drawing I <span>Vector</span></figcaption></figure>
-      <figure class="c"><img src="image6.png" alt="Vector line drawing" loading="lazy"><figcaption>Line drawing II <span>Vector</span></figcaption></figure>
-    </div>
-    <p style="margin-top:30px"><a class="btn btn-dark" href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener"><i class="fa-brands fa-behance"></i> View on Behance</a></p>
-  </div>
-</section>
+<section id="stock"><h2>Selling design worldwide</h2><p class="lead">Two stock marketplaces, one habit: make assets people actually download.</p>
+<div class="g2c">
+<a class="mk card spot" href="https://stock.adobe.com/contributor/212238217/stockimgahnaf"><img src="image1.png" alt="Adobe Stock contributor page" loading="lazy"><div><h3>Adobe Stock</h3><span class="big" data-n="8500" data-s="+">8,500+</span><p>assets live. Commercial-ready media, tagged and tuned to what buyers search for, 1.6k+ Licenses Sold</p></div></a>
+<a class="mk card spot" href="https://www.magnific.com/author/shahriarahnaf"><img src="image2.png" alt="Freepik contributor page" loading="lazy"><div><h3>Freepik</h3><span class="big" data-n="2500" data-s="+">2,500+</span><p>assets live as a Level 3 contributor. PNG packs and vector sets in high demand, 8.6k+ Total Lifetime Licenses Sold</p></div></a></div>
+<div class="card imp"><div><b data-n="11000" data-s="+">11,000+</b>Total Published Assets</div><div><b data-n="10200" data-s="+">10,200+</b>Combined Commercial Licenses Sold Worldwide</div></div>
+<div class="tabs" role="tablist" aria-label="Asset pipeline"><button class="tb on" role="tab" aria-selected="true" data-p="0">1. Commercial Stock Architecture</button><button class="tb" role="tab" aria-selected="false" data-p="1">2. Vector &amp; Mascot Systems</button><button class="tb" role="tab" aria-selected="false" data-p="2">3. Marketplace SEO &amp; Conversion</button></div>
+<div class="card pn on"><div class="cs" id="c1"><div class="thirds" id="th"></div><i style="left:8%;bottom:12%;width:30%;height:42%;border-radius:12px;opacity:.8"></i><span class="mono" style="position:absolute;right:12px;top:10px;color:var(--mute)">copy space</span></div><div><h3>Built for the buyer’s layout</h3><p class="lead" style="margin:10px 0">Subject on a third, clean space for headlines, soft low-ISO light and zero artifacts before upload.</p><button class="btn" id="thb" aria-pressed="true">Toggle rule-of-thirds grid</button></div></div>
+<div class="card pn"><div class="cs"><svg viewBox="0 0 200 150" style="width:100%;height:100%"><g id="rn"><circle cx="100" cy="75" r="46" fill="#5B4BFF"/><circle cx="84" cy="66" r="7" fill="#fff"/><circle cx="116" cy="66" r="7" fill="#fff"/><path d="M82 92q18 14 36 0" stroke="#fff" stroke-width="4" fill="none"/></g><g id="wf" fill="none" stroke="#12112B" stroke-width="1.2"><circle cx="100" cy="75" r="46"/><circle cx="84" cy="66" r="7"/><circle cx="116" cy="66" r="7"/><path d="M82 92q18 14 36 0"/><g fill="#FFB020" stroke="none"><circle cx="54" cy="75" r="3"/><circle cx="146" cy="75" r="3"/><circle cx="100" cy="29" r="3"/><circle cx="100" cy="121" r="3"/></g></g></svg></div><div><h3>Clean nodes, scalable mascots</h3><p class="lead" style="margin:10px 0">Few Bézier nodes, modular PNG packs. Drag to compare wireframe and render.</p><input type="range" id="rg" min="0" max="100" value="50" aria-label="Wireframe to render"></div></div>
+<div class="card pn"><div><h3>Search intent to license</h3><p class="lead" style="margin:10px 0">Level 3 contributor on Freepik, tuned to what people search.</p></div><div><span class="mono">Buyer search intent mapping</span><div class="bar"><i style="width:86%"></i></div><span class="mono">High-demand commercial niches</span><div class="bar"><i style="width:72%"></i></div><span class="mono">License velocity: Adobe Stock + Freepik</span><div class="bar"><i style="width:91%"></i></div></div></div></section>
 
-<section id="education">
-  <div class="wrap">
-    <h2>Education</h2>
-    <div class="edu">
-      <div><small>In progress, 3rd year</small><h3>United International University</h3><p>BSc in Computer Science and Engineering.</p></div>
-      <div><small>Completed, HSC</small><h3>Rajuk Uttara Model College</h3><p>Science faculty, GPA 5.00.</p></div>
-    </div>
-  </div>
-</section>
+<section id="gallery"><h2>Selected artwork</h2><p class="lead">A slice of branding, illustration and layout work. The full collection lives on Behance.</p>
+<div class="fl" id="fl"><button class="tb on" data-f="all">All Work (6)</button><button class="tb" data-f="b">Branding &amp; Print</button><button class="tb" data-f="v">Character &amp; Vector Art</button></div>
+<div class="bento" id="bt">
+<button class="it w" data-c="b" data-m="Photoshop"><img src="banner_proj.jpg" alt="Banner design" loading="lazy"><span class="cap">Banner design</span></button>
+<button class="it c" data-c="b" data-m="Illustrator"><img src="logo_proj.jpg" alt="Logo suite" loading="lazy"><span class="cap">Logo suite</span></button>
+<button class="it c" data-c="v" data-m="Character art"><img src="mascot_proj.jpg" alt="Mascot" loading="lazy"><span class="cap">Mascot</span></button>
+<button class="it w" data-c="b" data-m="Print"><img src="poster_proj.jpg" alt="Poster design" loading="lazy"><span class="cap">Poster design</span></button>
+<button class="it c" data-c="v" data-m="Vector"><img src="image5.png" alt="Line drawing I" loading="lazy"><span class="cap">Line drawing I</span></button>
+<button class="it c" data-c="v" data-m="Vector"><img src="image6.png" alt="Line drawing II" loading="lazy"><span class="cap">Line drawing II</span></button></div>
+<p style="margin-top:22px"><a class="btn p" href="https://www.behance.net/shahriarahnaf">View on Behance</a></p></section>
 
-<section id="contact" class="contact">
-  <div class="wrap">
-    <h2>Have a project in mind? Let’s talk.</h2>
-    <a class="mail" href="mailto:shahriarahnaf420@gmail.com">shahriarahnaf420@gmail.com</a>
-    <div class="soc">
-      <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
-      <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/ahnaf-shahriar15/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://www.youtube.com/@itsahnaf666" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-    </div>
-  </div>
-</section>
+<section id="education"><h2>Education</h2><div class="edu" id="edu">
+<svg viewBox="0 0 70 50" fill="none" aria-hidden="true"><path d="M0 25h20v-15h30v30h20" stroke="var(--line)" stroke-width="2"/><path id="cp" d="M0 25h20v-15h30v30h20" stroke="var(--amber)" stroke-width="2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+<div class="card spot"><span class="mono">In progress, 3rd year</span><h3>United International University</h3><p>BSc in Computer Science and Engineering.</p></div>
+<div class="card spot"><span class="mono">Completed, HSC</span><h3>Rajuk Uttara Model College</h3><p>Science faculty, GPA 5.00.</p></div></div></section>
 
+<section id="contact"><h2>Have a project in mind? Let’s talk.</h2>
+<a class="em" id="em" href="mailto:shahriarahnaf420@gmail.com">shahriarahnaf420@gmail.com</a><p style="margin-top:18px"><button class="btn p" id="cpb">Copy Email</button></p>
+<div class="soc" id="soc"><a href="https://www.behance.net/shahriarahnaf" aria-label="Behance">Be</a><a href="https://github.com/splashahnaf445" aria-label="GitHub">Gh</a><a href="https://www.linkedin.com/in/ahnaf-shahriar15/" aria-label="LinkedIn">In</a><a href="https://www.youtube.com/@itsahnaf666" aria-label="YouTube">Yt</a></div></section>
 </main>
-<footer><div class="wrap">&copy; 2026 Ahnaf Shahriar. Dhaka, Bangladesh.</div></footer>
+<footer>© 2026 Ahnaf Shahriar. Dhaka, Bangladesh.</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer"><button class="nv" id="lp" style="left:16px" aria-label="Previous">‹</button><div class="lbi card"><button class="x" id="lx" aria-label="Close">×</button><img id="li" alt=""><h3 id="lt"></h3><p class="mono" id="lm" style="color:var(--mute);margin:6px 0 14px"></p><a class="btn p" href="https://www.behance.net/shahriarahnaf">View on Behance</a></div><button class="nv" id="ln" style="right:16px" aria-label="Next">›</button></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* audio */
+let ac;function click(){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.setValueAtTime(900,ac.currentTime);o.frequency.exponentialRampToValueAtTime(150,ac.currentTime+.015);g.gain.setValueAtTime(.08,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+.02);o.connect(g).connect(ac.destination);o.start();o.stop(ac.currentTime+.025)}catch(e){}}
+/* theme + bulb physics */
+const root=document.documentElement,bulb=$('#bulb'),pill=$('#bpill');
+function apply(l){root.dataset.theme=l?'light':'dark';bulb.setAttribute('aria-pressed',l);pill.textContent=l?'Pull for Dark':'Pull for Light';try{localStorage.setItem('ahn_theme',l?'light':'dark')}catch(e){}}
+function toggle(){const l=root.dataset.theme!=='light',r=bulb.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+110;click();pull=30;
+if(document.startViewTransition&&!RM){const t=document.startViewTransition(()=>apply(l));t.ready.then(()=>root.animate({clipPath:[`circle(0px at ${x}px ${y}px)`,`circle(150vmax at ${x}px ${y}px)`]},{duration:800,easing:'ease-in',pseudoElement:'::view-transition-new(root)'})).catch(()=>{})}else apply(l)}
+let ang=6,va=0,pull=0,vp=0,mx=-999,my=-999;
+bulb.addEventListener('click',toggle);addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
+if(!RM)(function tick(t){const r=bulb.getBoundingClientRect();const cx=r.left+r.width/2;
+if(Math.abs(mx-cx)<110&&my<260){va+=(mx-cx)/110*.03}
+va+=-ang*.012+Math.sin(t/1700)*.004;va*=.985;ang+=va;
+vp+=-pull*.14;vp*=.82;pull+=vp;
+bulb.style.transform=`rotate(${ang}deg) translateY(${pull}px) scaleY(${1+pull*.0027})`;requestAnimationFrame(tick)})(0);
+try{if(localStorage.getItem('ahn_theme')==='light')apply(true)}catch(e){}
+/* nav */
+const lk=$('#links'),ind=$('#ind'),as=$$('a',lk);
+function mv(a){if(!a)return;as.forEach(x=>x.classList.toggle('on',x===a));ind.style.left=a.offsetLeft+'px';ind.style.width=a.offsetWidth+'px'}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)mv(as.find(a=>a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+$$('section[id]').forEach(s=>io.observe(s));addEventListener('resize',()=>mv($('a.on',lk)));
+$('#mt').onclick=()=>{const o=lk.classList.toggle('open');$('#mt').setAttribute('aria-expanded',o)};as.forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));
+/* hero */
+const top_=$('#top');[['t1','d'],['t2','e']].forEach(([id,c])=>{const el=$('#'+id);['mouseenter','focus'].forEach(v=>el.addEventListener(v,()=>top_.classList.add(c)));['mouseleave','blur'].forEach(v=>el.addEventListener(v,()=>top_.classList.remove(c)))});
+const arch=$('#arch');$('#ph').addEventListener('pointermove',e=>{if(RM)return;const r=e.currentTarget.getBoundingClientRect();arch.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*16}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*16}deg)`});
+$('#ph').addEventListener('pointerleave',()=>arch.style.transform='');
+const fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dhaka',hour12:false,hour:'2-digit',minute:'2-digit',second:'2-digit'});(function c(){$('#clk').textContent=fmt.format(new Date());setTimeout(c,1000)})();
+/* spotlight */
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.spot');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')});
+/* counters */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);const el=e.target,n=+el.dataset.n,s=el.dataset.s||'',t0=performance.now();(function f(t){const p=RM?1:Math.min((t-t0)/1400,1),v=Math.round(n*(1-Math.pow(1-p,4)));el.textContent=v.toLocaleString('en-US')+s;if(p<1)requestAnimationFrame(f)})(t0)}),{threshold:.5});$$('[data-n]').forEach(e=>cio.observe(e));
+/* phone */
+const ph=$('#phone');function go(v){$$('.scr',ph).forEach(s=>s.classList.toggle('on',s.dataset.v===v));const m={find:0,book:1,chat:2}[v];$$('.dock button',ph).forEach((b,i)=>b.classList.toggle('on',(v==='find'&&i===0)||(v==='book'&&(i===1||i===3))&&false||(v==='find'&&i===0)||(v==='book'&&i===1)||(v==='chat'&&i===2)))}
+ph.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)return go(g.dataset.go);const p=e.target.closest('.pill');if(p&&p.tagName==='BUTTON'){$$('button.pill',ph).forEach(x=>x.classList.toggle('on',x===p));$$('.lc[data-t]',ph).forEach(c=>c.style.display=(p.textContent==='All'||c.dataset.t===p.textContent)?'':'none')}const m=e.target.closest('[data-m]'),s=e.target.closest('[data-s]');if(m){$$('[data-m]',ph).forEach(x=>x.classList.toggle('on',x===m))}if(s){$$('[data-s]',ph).forEach(x=>x.classList.toggle('on',x===s))}});
+$('#stage').addEventListener('pointermove',e=>{if(RM)return;const r=e.currentTarget.getBoundingClientRect();ph.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*22}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*18}deg)`});
+$('#stage').addEventListener('pointerleave',()=>ph.style.transform='');
+/* skills */
+$$('.sk').forEach(b=>{const on=()=>{const k=b.dataset.k,act=b.classList.contains('on');$$('.pc').forEach(c=>{const h=c.dataset.k.split(' ').includes(k);c.classList.toggle('hit',h);c.classList.toggle('dim',!h)})},off=()=>{if(!$('.sk.on'))$$('.pc').forEach(c=>c.classList.remove('hit','dim'))};
+b.addEventListener('mouseenter',on);b.addEventListener('mouseleave',()=>{if($('.sk.on'))on.call($('.sk.on'))&&0;else off()});
+b.addEventListener('click',()=>{const was=b.classList.contains('on');$$('.sk').forEach(x=>x.classList.remove('on'));if(was)return off();b.classList.add('on');on()})});
+$$('.sk').forEach(b=>b.addEventListener('mouseleave',()=>{const a=$('.sk.on');if(a){const k=a.dataset.k;$$('.pc').forEach(c=>{const h=c.dataset.k.split(' ').includes(k);c.classList.toggle('hit',h);c.classList.toggle('dim',!h)})}}));
+/* github */
+(async()=>{const KEY='ahnaf_gh_cache',FB={user:{public_repos:null},repos:[{name:'LawAid',language:'Java',stargazers_count:0,forks_count:0},{name:'Tutionfee-calculator',language:'Java',stargazers_count:0,forks_count:0},{name:'Smart-Queue-Management-System',language:'C++',stargazers_count:0,forks_count:0}]};
+let d,live=true;try{d=JSON.parse(sessionStorage.getItem(KEY)||'null');if(!d){const [u,r]=await Promise.all([fetch('https://api.github.com/users/splashahnaf445'),fetch('https://api.github.com/users/splashahnaf445/repos?per_page=100')]);if(!u.ok||!r.ok)throw 0;d={user:await u.json(),repos:await r.json()};sessionStorage.setItem(KEY,JSON.stringify(d))}}catch(e){d=FB;live=false}
+$('#gr').textContent=(d.user.public_repos??'–')+' public repos';$('#gs').textContent=live?'live':'offline snapshot';$('#gd').style.background=live?'#2ee58a':'#888';
+$$('.pc[data-repo]').forEach(c=>{const r=(d.repos||[]).find(x=>x.name===c.dataset.repo),box=$('.gh',c);if(!r||!box)return;const ago=r.pushed_at?Math.max(0,Math.round((Date.now()-new Date(r.pushed_at))/864e5))+'d ago':'';box.textContent=[r.language,'★ '+r.stargazers_count,'⑂ '+r.forks_count,ago&&'pushed '+ago].filter(Boolean).join(' · ')});
+const L=$('#lawaid .btn.p');const lr=(d.repos||[]).find(x=>x.name==='LawAid');if(lr){const s=document.createElement('p');s.className='note mono';s.textContent=[lr.language,'★ '+lr.stargazers_count,'⑂ '+lr.forks_count].filter(Boolean).join(' · ');L.after(s)}})();
+/* stock tabs */
+const tbs=$$('.tb[data-p]'),pns=$$('.pn');tbs.forEach((b,i)=>b.addEventListener('click',()=>{tbs.forEach((x,j)=>{x.classList.toggle('on',i===j);x.setAttribute('aria-selected',i===j)});pns.forEach((p,j)=>p.classList.toggle('on',i===j))}));
+$('#thb').onclick=e=>{const t=$('#th'),h=t.style.opacity==='0';t.style.opacity=h?1:0;e.target.setAttribute('aria-pressed',h)};
+const rg=$('#rg'),sync=()=>{$('#rn').style.clipPath=`inset(0 ${100-rg.value}% 0 0)`;$('#wf').style.clipPath=`inset(0 0 0 ${rg.value}%)`};rg.oninput=sync;sync();
+/* gallery */
+const its=$$('.it');let cur=0;
+$$('#fl .tb').forEach(b=>b.addEventListener('click',()=>{$$('#fl .tb').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;its.forEach(i=>{const hide=f!=='all'&&(f==='b'?i.dataset.c!=='b':i.dataset.c!=='v');i.classList.toggle('h',hide)})}));
+const lb=$('#lb');function show(i){const v=its.filter(x=>!x.classList.contains('h'));cur=(i+v.length)%v.length;const it=v[cur],im=$('img',it);$('#li').src=im.getAttribute('src');$('#li').alt=im.alt;$('#lt').textContent=im.alt;$('#lm').textContent=it.dataset.m;lb.classList.add('on');$('#lx').focus()}
+its.forEach(i=>i.addEventListener('click',()=>show(its.filter(x=>!x.classList.contains('h')).indexOf(i))));
+$('#lx').onclick=()=>lb.classList.remove('on');$('#lp').onclick=()=>show(cur-1);$('#ln').onclick=()=>show(cur+1);lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('on')});
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+/* education circuit */
+const cp=$('#cp');function sc(){const r=$('#edu').getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.75-r.top)/(r.height+innerHeight*.2)));cp.style.strokeDashoffset=1-p}addEventListener('scroll',sc,{passive:true});sc();
+/* contact */
+const em=$('#em');em.addEventListener('pointermove',e=>{if(RM)return;const r=em.getBoundingClientRect();em.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.08}px,${(e.clientY-r.top-r.height/2)*.3}px)`});em.addEventListener('pointerleave',()=>em.style.transform='');
+$$('#soc a').forEach(a=>{addEventListener('pointermove',e=>{if(RM)return;const r=a.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2),d=Math.hypot(dx,dy);a.style.transform=d<r.width/2+40?`translate(${dx*.3}px,${dy*.3}px)`:''})});
+$('#cpb').onclick=async e=>{const b=e.currentTarget,r=b.getBoundingClientRect();try{await navigator.clipboard.writeText('shahriarahnaf420@gmail.com')}catch(x){}b.textContent='Copied to clipboard! ✓';setTimeout(()=>b.textContent='Copy Email',2200);if(RM)return;for(let i=0;i<14;i++){const s=document.createElement('span');s.className='spk';s.textContent=['✦','✧','•'][i%3];s.style.cssText=`left:${r.left+r.width/2}px;top:${r.top+r.height/2}px;color:${i%2?'#FFB020':'#6E60FF'};--dx:${(Math.random()-.5)*180}px;--dy:${(Math.random()-.8)*140}px`;document.body.appendChild(s);setTimeout(()=>s.remove(),850)}};
+</script>
 </body>
 </html>
