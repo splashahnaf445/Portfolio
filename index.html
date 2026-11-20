@@ -4,21 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahnaf Shahriar — Designer &amp; Engineer</title>
-<meta name="description" content="Ahnaf Shahriar — graphic designer and computer science engineer. Brand identities, stock art, illustration and working software.">
+<meta name="description" content="Ahnaf Shahriar — Graphic Designer and Computer Science Engineer. Brand identities, stock art, illustration and working software.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23CE4524'/><text x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23F6F1E7' text-anchor='middle'>A</text></svg>">
 
+<!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
+  darkMode: 'class',
   theme: { extend: {
     colors: {
-      paper:  '#F6F1E7',
-      paper2: '#EFE7D5',
-      ink:    '#221D15',
-      verm:   '#CE4524',
-      olive:  '#41604C',
-      mustard:'#DFA32E',
-      manila: '#EBDCB7'
+      paper:  'var(--paper)',
+      paper2: 'var(--paper2)',
+      paper3: 'var(--paper3)',
+      ink:    'var(--ink)',
+      verm:   'var(--verm)',
+      olive:  'var(--olive)',
+      mustard:'var(--mustard)',
+      manila: 'var(--manila)'
     },
     fontFamily: {
       sans:  ['"Instrument Sans"', 'sans-serif'],
@@ -29,175 +32,890 @@ tailwind.config = {
 };
 </script>
 
+<!-- Google Fonts & Font Awesome -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-  :root{
-    --paper:#F6F1E7; --paper2:#EFE7D5; --ink:#221D15; --verm:#CE4524;
-    --olive:#41604C; --mustard:#DFA32E; --manila:#EBDCB7;
-    --line:rgba(34,29,21,.16);
+  /* ============ THEME VARIABLES ============ */
+  :root {
+    --paper: #F6F1E7;
+    --paper2: #EFE7D5;
+    --paper3: #FCFAF3;
+    --ink: #221D15;
+    --ink-rgb: 34, 29, 21;
+    --verm: #CE4524;
+    --olive: #41604C;
+    --mustard: #DFA32E;
+    --manila: #EBDCB7;
+    --line: rgba(34, 29, 21, 0.16);
+    --card-bg: #FBF8F1;
+    --card-sub: #FFFFFF;
+    --receipt-bg: #F7F2E2;
+    --shadow-hard: 8px 10px 0 rgba(34, 29, 21, 0.09);
+    --tape-bg: rgba(224, 209, 171, 0.85);
+    --nav-bg: rgba(246, 241, 231, 0.88);
   }
-  html{scroll-padding-top:88px}
-  body{background:var(--paper); color:var(--ink); overflow-x:hidden}
-  ::selection{background:var(--verm); color:var(--paper)}
-  ::-webkit-scrollbar{width:10px}
-  ::-webkit-scrollbar-track{background:var(--paper)}
-  ::-webkit-scrollbar-thumb{background:rgba(34,29,21,.22); border-radius:99px}
-  ::-webkit-scrollbar-thumb:hover{background:rgba(206,69,36,.55)}
 
-  /* ---------- film grain over everything ---------- */
-  .grain{position:fixed; inset:0; z-index:90; pointer-events:none; opacity:.055;
-    background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
-    background-size:240px}
+  html.dark {
+    --paper: #12100E;
+    --paper2: #191612;
+    --paper3: #1E1A15;
+    --ink: #F5EFE6;
+    --ink-rgb: 245, 239, 230;
+    --verm: #FF5E36;
+    --olive: #68A87E;
+    --mustard: #F5C253;
+    --manila: #282119;
+    --line: rgba(245, 239, 230, 0.14);
+    --card-bg: #1A1612;
+    --card-sub: #221D17;
+    --receipt-bg: #1C1713;
+    --shadow-hard: 8px 10px 0 rgba(0, 0, 0, 0.55);
+    --tape-bg: rgba(140, 115, 80, 0.55);
+    --nav-bg: rgba(18, 16, 14, 0.88);
+  }
 
-  /* ---------- reusable rotation classes (CSS rotate property, so hover can override) ---------- */
+  html { scroll-padding-top: 88px; }
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  ::selection { background: var(--verm); color: #FFF; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--paper); }
+  ::-webkit-scrollbar-thumb { background: rgba(var(--ink-rgb), 0.22); border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--verm); }
+
+  /* ---------- Scroll Progress Bar ---------- */
+  #scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--verm), var(--mustard));
+    z-index: 120;
+    transition: width 0.1s ease-out;
+  }
+
+  /* ---------- Film Grain ---------- */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    opacity: .055;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+    background-size: 240px;
+    transition: opacity 0.4s ease;
+  }
+  html.dark .grain { opacity: .075; }
+
+  /* ---------- Rotations & Pins ---------- */
   .r-n05{rotate:-.5deg}.r-n1{rotate:-1deg}.r-n15{rotate:-1.5deg}.r-n2{rotate:-2deg}
-  .r-n3{rotate:-3deg}.r-n5{rotate:-5deg}.r-n10{rotate:-10deg}
-  .r05{rotate:.5deg}.r1{rotate:1deg}.r15{rotate:1.5deg}.r2{rotate:2deg}.r3{rotate:3deg}
+  .r-n3{rotate:-3deg}.r-n4{rotate:-4deg}.r-n5{rotate:-5deg}.r-n6{rotate:-6deg}.r-n10{rotate:-10deg}
+  .r05{rotate:.5deg}.r1{rotate:1deg}.r15{rotate:1.5deg}.r2{rotate:2deg}.r3{rotate:3deg}.r4{rotate:4deg}.r5{rotate:5deg}
 
-  /* ---------- pinned things straighten on hover ---------- */
-  .pin{transition:rotate .5s cubic-bezier(.2,1,.3,1), translate .5s cubic-bezier(.2,1,.3,1)}
-  .pin:hover{translate:0 -6px; rotate:0deg}
+  .pin {
+    transition: rotate .5s cubic-bezier(.2,1,.3,1), translate .5s cubic-bezier(.2,1,.3,1), box-shadow .5s ease;
+  }
+  .pin:hover {
+    translate: 0 -6px;
+    rotate: 0deg;
+    box-shadow: 0 22px 38px -14px rgba(var(--ink-rgb), 0.25);
+  }
 
-  /* ---------- scroll reveal (uses the `translate` property, never fights rotate) ---------- */
-  .reveal{opacity:0; translate:0 34px; transition:opacity .9s cubic-bezier(.2,.8,.2,1), translate .9s cubic-bezier(.2,.8,.2,1)}
-  .reveal.in{opacity:1; translate:0 0}
-  .d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+  /* ---------- Scroll Reveal ---------- */
+  .reveal {
+    opacity: 0;
+    translate: 0 34px;
+    transition: opacity .85s cubic-bezier(.2,.8,.2,1), translate .85s cubic-bezier(.2,.8,.2,1);
+  }
+  .reveal.in { opacity: 1; translate: 0 0; }
+  .d1 { transition-delay: .12s; }
+  .d2 { transition-delay: .24s; }
+  .d3 { transition-delay: .36s; }
 
-  /* ---------- nav ---------- */
-  #nav{transition:box-shadow .3s}
-  #nav.scrolled{box-shadow:0 12px 30px -18px rgba(34,29,21,.4)}
-  .navlink{position:relative; font-size:11px; letter-spacing:.24em; text-transform:uppercase; font-weight:700; color:rgba(34,29,21,.72); padding:4px 0}
-  .navlink::after{content:''; position:absolute; left:0; bottom:0; height:2px; width:100%; background:var(--verm); scale:0 1; transform-origin:left; transition:scale .35s cubic-bezier(.2,1,.3,1)}
-  .navlink:hover{color:var(--ink)}
-  .navlink:hover::after{scale:1 1}
+  /* ---------- Nav ---------- */
+  #nav {
+    background: var(--nav-bg);
+    transition: box-shadow .3s, background-color .4s;
+  }
+  #nav.scrolled {
+    box-shadow: 0 12px 30px -18px rgba(var(--ink-rgb), .4);
+  }
+  .navlink {
+    position: relative;
+    font-size: 11px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(var(--ink-rgb), .75);
+    padding: 4px 0;
+    transition: color .3s ease;
+  }
+  .navlink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--verm);
+    scale: 0 1;
+    transform-origin: left;
+    transition: scale .35s cubic-bezier(.2,1,.3,1);
+  }
+  .navlink:hover { color: var(--ink); }
+  .navlink:hover::after { scale: 1 1; }
 
-  /* ---------- buttons ---------- */
-  .btn-ink{display:inline-flex; align-items:center; gap:12px; background:var(--ink); color:var(--paper);
-    padding:15px 28px; border-radius:999px; font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
-    box-shadow:5px 7px 0 rgba(34,29,21,.18); transition:translate .35s, box-shadow .35s, background-color .35s}
-  .btn-ink:hover{translate:0 -3px; box-shadow:7px 11px 0 rgba(34,29,21,.22); background:var(--verm)}
-  .btn-ink:hover i{transform:translateY(3px)}
-  .btn-ink i{transition:transform .3s}
-  .btn-line{display:inline-flex; align-items:center; gap:12px; border:1.5px solid var(--ink); color:var(--ink);
-    padding:15px 28px; border-radius:999px; font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
-    transition:translate .35s, background-color .35s, color .35s}
-  .btn-line:hover{background:var(--ink); color:var(--paper); translate:0 -3px}
+  /* ---------- Buttons ---------- */
+  .btn-ink {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    box-shadow: 5px 7px 0 rgba(var(--ink-rgb), .2);
+    transition: translate .35s, box-shadow .35s, background-color .35s, color .35s;
+  }
+  .btn-ink:hover {
+    translate: 0 -3px;
+    box-shadow: 7px 11px 0 rgba(var(--ink-rgb), .26);
+    background: var(--verm);
+    color: #FFF;
+  }
+  .btn-ink:hover i { transform: translateY(2px); }
+  .btn-ink i { transition: transform .3s; }
 
-  /* ---------- hand-made bits ---------- */
-  .overline{display:flex; align-items:center; gap:10px; font-size:11px; letter-spacing:.28em; text-transform:uppercase; font-weight:700}
-  .tape{position:absolute; width:86px; height:26px; z-index:5; opacity:.92;
-    background:rgba(224,209,171,.82);
-    background-image:repeating-linear-gradient(90deg, rgba(255,255,255,.16) 0 2px, transparent 2px 9px);
-    box-shadow:0 2px 5px rgba(34,29,21,.15);
-    clip-path:polygon(3% 0, 97% 3%, 100% 96%, 1% 100%)}
-  .tape.mini{width:54px; height:18px}
-  .stampbox{display:inline-block; padding:7px 13px; border:2px solid currentColor; border-radius:4px;
-    font-size:10px; letter-spacing:.22em; text-transform:uppercase; font-weight:700; line-height:1;
-    outline:1px solid currentColor; outline-offset:3px; opacity:.92}
-  .stampbox.dashed{border-style:dashed}
-  .sticky-note{background:#F0D68A; background-image:linear-gradient(180deg, rgba(255,255,255,.35), transparent 60%);
-    box-shadow:0 12px 24px -10px rgba(34,29,21,.45); padding:14px 20px 12px; border-radius:2px}
-  .polaroid{background:#FCFAF3; padding:12px 12px 0; border:1px solid rgba(34,29,21,.14);
-    box-shadow:0 26px 48px -20px rgba(34,29,21,.38)}
-  .p-cap{font-family:'Caveat',cursive; font-size:1.15rem; color:rgba(34,29,21,.75); padding:10px 4px 14px; text-align:center}
-  .stamp-spin{animation:spin 28s linear infinite; display:block}
-  .slow-spin{animation:spin 46s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .ico-ast{fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round}
-  .doodle{fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; opacity:.85}
-  .dotgrid{background-image:radial-gradient(rgba(34,29,21,.18) 1.2px, transparent 1.2px); background-size:22px 22px}
-  .shadow-hard{box-shadow:8px 10px 0 rgba(34,29,21,.09)}
+  .btn-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    transition: translate .35s, background-color .35s, color .35s, border-color .35s;
+  }
+  .btn-line:hover {
+    background: var(--ink);
+    color: var(--paper);
+    translate: 0 -3px;
+  }
 
-  /* hero squiggle draws itself in */
-  .squiggle{position:absolute; left:0; bottom:-12px; width:100%; height:16px; overflow:visible}
-  .squiggle path{fill:none; stroke:var(--verm); stroke-width:4; stroke-linecap:round;
-    vector-effect:non-scaling-stroke; stroke-dasharray:1; stroke-dashoffset:1;
-    animation:draw 1s 1s cubic-bezier(.65,0,.25,1) forwards}
-  @keyframes draw{to{stroke-dashoffset:0}}
+  /* ---------- Hand-made Bits & Stamps ---------- */
+  .overline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .tape {
+    position: absolute;
+    width: 86px;
+    height: 26px;
+    z-index: 5;
+    opacity: .92;
+    background: var(--tape-bg);
+    background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.16) 0 2px, transparent 2px 9px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .18);
+    clip-path: polygon(3% 0, 97% 3%, 100% 96%, 1% 100%);
+    transition: transform .35s cubic-bezier(.2,1,.3,1), box-shadow .35s ease;
+    cursor: grab;
+  }
+  .tape:hover {
+    transform: translateY(-2px) scale(1.05) rotate(1deg);
+    box-shadow: 0 6px 12px rgba(0,0,0,.25);
+  }
+  .tape.mini { width: 54px; height: 18px; }
 
-  /* ---------- marquee ticker ---------- */
-  .marquee-track{display:flex; width:max-content; animation:marq 32s linear infinite}
-  .marquee-band:hover .marquee-track{animation-play-state:paused}
-  @keyframes marq{to{transform:translateX(-50%)}}
-  .marquee-seg{display:flex; align-items:center; gap:30px; padding-right:30px}
-  .mq-caps{font-size:13px; letter-spacing:.26em; text-transform:uppercase; font-weight:700; white-space:nowrap}
-  .mq-serif{font-family:'Fraunces',serif; font-style:italic; font-size:17px; white-space:nowrap}
-  .mq-star{width:12px; height:12px; flex:none; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; opacity:.9}
+  .stampbox {
+    display: inline-block;
+    padding: 7px 13px;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1;
+    outline: 1px solid currentColor;
+    outline-offset: 3px;
+    opacity: .92;
+    transition: transform .3s ease;
+  }
+  .stampbox:hover { transform: scale(1.04); }
+  .stampbox.dashed { border-style: dashed; }
 
-  /* ---------- marketplace cards ---------- */
-  .shop-link{display:inline-flex; align-items:center; gap:10px; font-size:11px; letter-spacing:.2em;
-    text-transform:uppercase; font-weight:700; border-bottom:2px solid var(--verm); padding-bottom:6px}
-  a:hover .shop-link i{transform:translateX(6px)}
-  .shop-link i{transition:transform .3s}
+  .sticky-note {
+    background: #F0D68A;
+    color: #221D15;
+    background-image: linear-gradient(180deg, rgba(255,255,255,.35), transparent 60%);
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, .45);
+    padding: 14px 20px 12px;
+    border-radius: 2px;
+    transition: transform .35s cubic-bezier(.2,1,.3,1), box-shadow .35s;
+  }
+  html.dark .sticky-note {
+    background: #D4A338;
+    color: #17130C;
+  }
+  .sticky-note:hover {
+    transform: translateY(-4px) rotate(0deg) scale(1.04);
+    box-shadow: 0 18px 30px -10px rgba(0, 0, 0, .6);
+  }
 
-  /* ---------- torn receipt ---------- */
-  .receipt{background:#F7F2E2; border:1px solid var(--line); padding:22px 26px 32px; max-width:420px;
-    box-shadow:0 18px 34px -18px rgba(34,29,21,.4);
-    clip-path:polygon(0 0,100% 0,100% 100%,95% calc(100% - 10px),90% 100%,85% calc(100% - 10px),80% 100%,75% calc(100% - 10px),70% 100%,65% calc(100% - 10px),60% 100%,55% calc(100% - 10px),50% 100%,45% calc(100% - 10px),40% 100%,35% calc(100% - 10px),30% 100%,25% calc(100% - 10px),20% 100%,15% calc(100% - 10px),10% 100%,5% calc(100% - 10px),0 100%)}
-  .ledger-row{display:flex; align-items:baseline; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
-    font-weight:700; color:rgba(34,29,21,.8); padding:9px 0}
-  .ledger-row i{flex:1; font-style:normal; border-bottom:2px dotted rgba(34,29,21,.32); margin:0 12px; translate:0 -3px}
-  .ledger-row b{font-family:'Fraunces',serif; font-size:19px; letter-spacing:0}
+  .polaroid {
+    background: var(--paper3);
+    padding: 12px 12px 0;
+    border: 1px solid var(--line);
+    box-shadow: 0 26px 48px -20px rgba(var(--ink-rgb), .38);
+    transition: transform .5s cubic-bezier(.2,1,.3,1), box-shadow .5s ease;
+  }
+  .p-cap {
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    color: rgba(var(--ink-rgb), .78);
+    padding: 10px 4px 14px;
+    text-align: center;
+  }
+  .stamp-spin { animation: spin 28s linear infinite; display: block; }
+  .slow-spin { animation: spin 46s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ---------- manila case file ---------- */
-  .folder-tab{position:absolute; top:-34px; left:20px; background:var(--manila);
-    border:1.5px solid rgba(34,29,21,.75); border-bottom:none; border-radius:8px 8px 0 0;
-    padding:9px 18px 7px; font-size:10px; letter-spacing:.24em; text-transform:uppercase; font-weight:700}
+  .ico-ast { fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+  .dotgrid {
+    background-image: radial-gradient(rgba(var(--ink-rgb), .18) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
+  }
+  .shadow-hard { box-shadow: var(--shadow-hard); }
 
-  /* ---------- pinned tool tags ---------- */
-  .tool{position:relative; display:inline-flex; align-items:center; gap:9px; background:#FBF8F1;
-    border:1px solid rgba(34,29,21,.28); border-radius:4px; padding:8px 14px;
-    font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
-    box-shadow:2px 3px 0 rgba(34,29,21,.08)}
-  .tool::before{content:''; position:absolute; top:-4px; left:50%; translate:-50% 0; width:7px; height:7px;
-    border-radius:50%; background:var(--verm); box-shadow:0 1px 2px rgba(34,29,21,.4)}
+  /* Hero squiggle animation */
+  .squiggle { position: absolute; left: 0; bottom: -12px; width: 100%; height: 16px; overflow: visible; }
+  .squiggle path {
+    fill: none;
+    stroke: var(--verm);
+    stroke-width: 4;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 1s 1s cubic-bezier(.65,0,.25,1) forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  /* ---------- Marquee Ticker ---------- */
+  .marquee-band {
+    background: var(--verm);
+    color: #FFF;
+    border-color: rgba(var(--ink-rgb), .25);
+    transition: background-color .4s ease;
+  }
+  .marquee-track { display: flex; width: max-content; animation: marq 32s linear infinite; }
+  .marquee-band:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marq { to { transform: translateX(-50%); } }
+  .marquee-seg { display: flex; align-items: center; gap: 30px; padding-right: 30px; }
+  .mq-caps { font-size: 13px; letter-spacing: .26em; text-transform: uppercase; font-weight: 700; white-space: nowrap; }
+  .mq-serif { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; white-space: nowrap; }
+  .mq-star { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; opacity: .9; }
+
+  /* ---------- Shop Cards ---------- */
+  .shop-card {
+    background: var(--card-bg);
+    border: 1.5px solid rgba(var(--ink-rgb), .75);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-hard);
+    transition: transform .4s cubic-bezier(.2,1,.3,1), box-shadow .4s ease, border-color .4s;
+  }
+  .shop-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 2px solid var(--verm);
+    padding-bottom: 6px;
+    color: var(--ink);
+  }
+  a:hover .shop-link i { transform: translateX(6px); }
+  .shop-link i { transition: transform .3s; }
+
+  /* ---------- Torn Receipt ---------- */
+  .receipt {
+    background: var(--receipt-bg);
+    border: 1px solid var(--line);
+    padding: 22px 26px 32px;
+    max-width: 420px;
+    box-shadow: 0 18px 34px -18px rgba(var(--ink-rgb), .4);
+    clip-path: polygon(0 0,100% 0,100% 100%,95% calc(100% - 10px),90% 100%,85% calc(100% - 10px),80% 100%,75% calc(100% - 10px),70% 100%,65% calc(100% - 10px),60% 100%,55% calc(100% - 10px),50% 100%,45% calc(100% - 10px),40% 100%,35% calc(100% - 10px),30% 100%,25% calc(100% - 10px),20% 100%,15% calc(100% - 10px),10% 100%,5% calc(100% - 10px),0 100%);
+    transition: background-color .4s, border-color .4s;
+  }
+  .ledger-row {
+    display: flex;
+    align-items: baseline;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(var(--ink-rgb), .85);
+    padding: 9px 0;
+  }
+  .ledger-row i {
+    flex: 1;
+    font-style: normal;
+    border-bottom: 2px dotted rgba(var(--ink-rgb), .32);
+    margin: 0 12px;
+    translate: 0 -3px;
+  }
+  .ledger-row b {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    letter-spacing: 0;
+    color: var(--ink);
+  }
+
+  /* ---------- Manila Case File ---------- */
+  .folder-tab {
+    position: absolute;
+    top: -34px;
+    left: 20px;
+    background: var(--manila);
+    border: 1.5px solid rgba(var(--ink-rgb), .75);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    padding: 9px 18px 7px;
+    font-size: 10px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ink);
+    transition: background-color .4s, color .4s, border-color .4s;
+  }
+
+  /* ---------- Pinned Tool Tags ---------- */
+  .tool {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--card-bg);
+    border: 1px solid rgba(var(--ink-rgb), .28);
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    box-shadow: 2px 3px 0 rgba(var(--ink-rgb), .08);
+    color: var(--ink);
+    transition: transform .3s, background-color .4s, box-shadow .3s;
+  }
+  .tool:hover { transform: translateY(-3px) scale(1.05) !important; box-shadow: 3px 6px 0 rgba(var(--ink-rgb), .15); }
+  .tool::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    translate: -50% 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--verm);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+  }
   .tool:nth-child(3n){rotate:1.6deg}
   .tool:nth-child(3n+1){rotate:-1.2deg}
   .tool:nth-child(4n){rotate:.7deg}
 
-  /* ---------- seekr mini polaroids ---------- */
-  .mini-pin{background:#FCFAF3; padding:8px 8px 0; border:1px solid rgba(34,29,21,.14);
-    box-shadow:0 12px 24px -12px rgba(34,29,21,.35); transition:rotate .5s cubic-bezier(.2,1,.3,1)}
-  .mini-pin:hover{rotate:0deg}
-  .mini-pin img{width:100%; aspect-ratio:16/10; object-fit:cover; object-position:top; display:block}
-  .mini-pin figcaption{font-family:'Caveat',cursive; font-size:1rem; color:rgba(34,29,21,.7); text-align:center; padding:6px 2px 9px}
+  /* ---------- Seekr Mini Polaroids ---------- */
+  .mini-pin {
+    background: var(--paper3);
+    padding: 8px 8px 0;
+    border: 1px solid var(--line);
+    box-shadow: 0 12px 24px -12px rgba(var(--ink-rgb), .35);
+    transition: rotate .5s cubic-bezier(.2,1,.3,1), transform .4s ease, box-shadow .4s;
+    cursor: pointer;
+  }
+  .mini-pin:hover {
+    rotate: 0deg;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 20px 30px -10px rgba(var(--ink-rgb), .45);
+  }
+  .mini-pin img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; display: block; }
+  .mini-pin figcaption {
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    color: rgba(var(--ink-rgb), .75);
+    text-align: center;
+    padding: 6px 2px 9px;
+  }
 
-  /* ---------- gallery wall ---------- */
-  .frame{background:#FCFAF4; padding:12px; border:1px solid rgba(34,29,21,.15);
-    box-shadow:0 20px 38px -18px rgba(34,29,21,.38)}
-  .frame .mat{overflow:hidden; background:#EDE7D7}
-  .frame img{width:100%; height:100%; object-fit:cover; transition:scale .7s cubic-bezier(.2,1,.3,1)}
-  .frame:hover img{scale:1.045}
-  .label-card{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
-    background:#FCFAF4; border:1px solid var(--line); padding:10px 14px; margin-top:10px;
-    box-shadow:0 6px 14px -8px rgba(34,29,21,.25)}
-  .label-meta{font-size:9px; letter-spacing:.22em; text-transform:uppercase; font-weight:700;
-    color:rgba(34,29,21,.55); white-space:nowrap}
+  /* ---------- Gallery Wall & Frames ---------- */
+  .frame {
+    background: var(--paper3);
+    padding: 12px;
+    border: 1px solid var(--line);
+    box-shadow: 0 20px 38px -18px rgba(var(--ink-rgb), .38);
+    transition: transform .5s cubic-bezier(.2,1,.3,1), box-shadow .5s ease;
+    cursor: pointer;
+  }
+  .frame .mat {
+    overflow: hidden;
+    background: var(--card-sub);
+    position: relative;
+  }
+  .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: scale .7s cubic-bezier(.2,1,.3,1);
+  }
+  .frame:hover img { scale: 1.05; }
+  .frame:hover {
+    box-shadow: 0 28px 48px -16px rgba(var(--ink-rgb), .5);
+  }
+  .label-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    background: var(--paper3);
+    border: 1px solid var(--line);
+    padding: 10px 14px;
+    margin-top: 10px;
+    box-shadow: 0 6px 14px -8px rgba(var(--ink-rgb), .25);
+  }
+  .label-meta {
+    font-size: 9px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(var(--ink-rgb), .6);
+    white-space: nowrap;
+  }
 
-  /* ---------- transcript double rule ---------- */
-  .rule-double::before{content:''; position:absolute; inset:9px; border:1px solid rgba(34,29,21,.22);
-    border-radius:5px; pointer-events:none}
+  /* ---------- Gallery Filter Buttons ---------- */
+  .filter-pill {
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--card-bg);
+    color: rgba(var(--ink-rgb), .7);
+    transition: all .3s ease;
+  }
+  .filter-pill:hover, .filter-pill.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
 
-  /* ---------- ink cursor (fine pointers only) ---------- */
-  #c-dot,#c-ring{position:fixed; left:0; top:0; pointer-events:none; z-index:120; border-radius:50%; display:none}
-  body.has-cursor #c-dot, body.has-cursor #c-ring{display:block}
-  body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .pin, body.has-cursor .tool{cursor:none}
-  #c-dot{width:7px; height:7px; margin:-3.5px 0 0 -3.5px; background:var(--verm)}
-  #c-ring{width:36px; height:36px; margin:-18px 0 0 -18px; border:1.5px solid var(--verm); opacity:.55}
+  /* ---------- Transcript Double Rule ---------- */
+  .rule-double::before {
+    content: '';
+    position: absolute;
+    inset: 9px;
+    border: 1px solid rgba(var(--ink-rgb), .22);
+    border-radius: 5px;
+    pointer-events: none;
+  }
 
-  @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation:none!important; transition:none!important}
-    .reveal{opacity:1; translate:none}
-    .squiggle path{stroke-dashoffset:0}
+  /* ============ HANGING LIGHT BULB TOGGLE ============ */
+  .lamp-fixture {
+    position: fixed;
+    top: 0;
+    right: 36px;
+    z-index: 105;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+  }
+
+  @media (max-width: 768px) {
+    .lamp-fixture {
+      right: 18px;
+      scale: 0.84;
+      transform-origin: top right;
+    }
+  }
+
+  .lamp-canopy {
+    width: 26px;
+    height: 7px;
+    background: #382F24;
+    border-radius: 0 0 6px 6px;
+    border: 1px solid rgba(0,0,0,0.4);
+    border-top: none;
+  }
+  html.dark .lamp-canopy { background: #5E503F; border-color: rgba(255,255,255,0.1); }
+
+  .lamp-cord {
+    width: 2.5px;
+    height: 48px;
+    background: #2C241B;
+  }
+  html.dark .lamp-cord { background: #4E4234; }
+
+  /* Swings from top of cord attachment */
+  .lamp-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: top center;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  /* Gentle idle breeze */
+  .lamp-unit.idle-breeze {
+    animation: lampBreeze 5.5s ease-in-out infinite alternate;
+  }
+  @keyframes lampBreeze {
+    0% { transform: rotate(-1.5deg); }
+    50% { transform: rotate(1.2deg); }
+    100% { transform: rotate(-0.8deg); }
+  }
+
+  /* Dynamic realistic pendulum swing on pull */
+  .lamp-unit.swinging {
+    animation: lampSwing 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+  }
+  @keyframes lampSwing {
+    0% { transform: rotate(0deg); }
+    18% { transform: rotate(-14deg); }
+    36% { transform: rotate(10deg); }
+    54% { transform: rotate(-6deg); }
+    72% { transform: rotate(3deg); }
+    88% { transform: rotate(-1deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* Socket */
+  .lamp-socket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .socket-cap {
+    width: 14px;
+    height: 6px;
+    background: #483B2C;
+    border-radius: 3px 3px 0 0;
+  }
+  .socket-ring {
+    width: 18px;
+    height: 9px;
+    background: #685743;
+    border-top: 1px solid #826E57;
+    border-bottom: 1px solid #362B1F;
+  }
+  .socket-base {
+    width: 15px;
+    height: 5px;
+    background: #483B2C;
+    border-radius: 0 0 2px 2px;
+  }
+  html.dark .socket-cap, html.dark .socket-base { background: #6D5B46; }
+  html.dark .socket-ring { background: #927B60; border-color: #B59D7F; }
+
+  /* Bulb wrapper */
+  .lamp-bulb-wrap {
+    position: relative;
+    width: 44px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lamp-bulb-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  /* Bulb Lit State (Light mode: light is ON) */
+  :root:not(.dark) .bulb-envelope {
+    fill: url(#bulbGlassLit);
+    stroke: rgba(255, 193, 7, 0.7);
+    stroke-width: 1.2;
+  }
+  :root:not(.dark) .bulb-filament {
+    stroke: #FF6F00;
+    stroke-width: 2;
+    filter: drop-shadow(0 0 4px #FFB300);
+  }
+  :root:not(.dark) .lamp-ambient-glow {
+    position: absolute;
+    inset: -22px -30px -30px -30px;
+    background: radial-gradient(circle at 50% 55%, rgba(255, 193, 7, 0.42) 0%, rgba(255, 152, 0, 0.18) 45%, transparent 75%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: warmGlowPulse 4s ease-in-out infinite alternate;
+  }
+  @keyframes warmGlowPulse {
+    0% { opacity: 0.85; transform: scale(0.96); }
+    100% { opacity: 1; transform: scale(1.04); }
+  }
+
+  /* Bulb Off State (Dark mode: light is OFF, cozy dark atmosphere) */
+  html.dark .bulb-envelope {
+    fill: url(#bulbGlassDark);
+    stroke: rgba(255, 255, 255, 0.22);
+    stroke-width: 1;
+  }
+  html.dark .bulb-filament {
+    stroke: #52473B;
+    stroke-width: 1.6;
+  }
+  html.dark .lamp-ambient-glow {
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  html.dark .lamp-fixture:hover .bulb-filament {
+    stroke: #FFA726;
+    opacity: 0.8;
+  }
+
+  /* Pull Cord with Ball */
+  .lamp-pull-cord {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 2px;
+    transform-origin: top center;
+    transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .lamp-pull-cord.pulling {
+    transform: translateY(16px);
+  }
+
+  .cord-line {
+    width: 1.8px;
+    height: 38px;
+    background-image: repeating-linear-gradient(to bottom, #9E855C 0, #9E855C 3px, transparent 3px, transparent 5px);
+  }
+
+  .cord-bobble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1px;
+  }
+  .bobble-ball {
+    width: 9px;
+    height: 12px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #FFD57E 0%, #A67932 100%);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .cord-tip-pill {
+    position: absolute;
+    top: 48px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+  .lamp-fixture:hover .cord-tip-pill {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+
+  /* ---------- Lightbox Modal ---------- */
+  .lightbox-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .lightbox-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(18, 16, 14, 0.85);
+    backdrop-filter: blur(8px);
+  }
+  .lightbox-card {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    max-height: 90vh;
+    width: 100%;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 30px 60px -15px rgba(0,0,0,0.7);
+    scale: 0.95;
+    transition: scale 0.35s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  .lightbox-modal.active .lightbox-card { scale: 1; }
+  .lightbox-img-wrap {
+    background: var(--card-sub);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    max-height: 68vh;
+    overflow: hidden;
+  }
+  .lightbox-img-wrap img {
+    max-height: 64vh;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  .lightbox-bar {
+    padding: 18px 24px;
+    background: var(--card-bg);
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Toast Stamp ---------- */
+  #toast-stamp {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    translate: -50% 40px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 140;
+    box-shadow: 0 16px 32px -8px rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease, translate 0.35s cubic-bezier(.2,1,.3,1);
+  }
+  #toast-stamp.show {
+    opacity: 1;
+    translate: -50% 0;
+  }
+
+  /* ---------- Floating Back-to-Top Stamp ---------- */
+  #back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 95;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 24px -6px rgba(var(--ink-rgb), 0.3);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    translate: 0 20px;
+    transition: opacity .35s, translate .35s, background-color .35s, color .35s;
+  }
+  #back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    translate: 0 0;
+  }
+  #back-to-top:hover {
+    background: var(--verm);
+    color: #FFF;
+    border-color: var(--verm);
+    transform: translateY(-4px) rotate(-15deg);
+  }
+
+  /* ---------- Ink Cursor (Fine pointers) ---------- */
+  #c-dot, #c-ring { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 160; border-radius: 50%; display: none; }
+  body.has-cursor #c-dot, body.has-cursor #c-ring { display: block; }
+  body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .pin, body.has-cursor .tool, body.has-cursor .tape { cursor: none; }
+  #c-dot { width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; background: var(--verm); }
+  #c-ring { width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1.5px solid var(--verm); opacity: .55; transition: border-color .3s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; translate: none; }
+    .squiggle path { stroke-dashoffset: 0; }
+    .lamp-unit { animation: none !important; }
   }
 </style>
 </head>
 
 <body class="font-sans antialiased">
 
-<!-- reusable hand-drawn marks -->
+<!-- Reusable hand-drawn marks -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="ast" viewBox="0 0 24 24">
     <path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"/>
@@ -207,23 +925,96 @@ tailwind.config = {
   </symbol>
 </svg>
 
+<!-- Film Grain Overlay -->
 <div class="grain" aria-hidden="true"></div>
+
+<!-- Top Scroll Progress Bar -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- Custom Cursor Elements -->
 <div id="c-dot" aria-hidden="true"></div>
 <div id="c-ring" aria-hidden="true"></div>
 
+<!-- ============ HANGING LIGHT BULB TOGGLE ============ -->
+<div id="lamp-fixture" class="lamp-fixture" title="Pull cord to toggle Dark / Light mode">
+  <!-- Ceiling Canopy -->
+  <div class="lamp-canopy"></div>
+  <!-- Hanging Braided Cord -->
+  <div class="lamp-cord"></div>
+  <!-- Lamp Assembly (Socket, Bulb, Chain) -->
+  <div class="lamp-unit idle-breeze" id="lamp-unit">
+    <!-- Brass Socket -->
+    <div class="lamp-socket">
+      <div class="socket-cap"></div>
+      <div class="socket-ring"></div>
+      <div class="socket-base"></div>
+    </div>
+    <!-- Bulb Glass & Glowing Filament -->
+    <div class="lamp-bulb-wrap" id="lamp-bulb-wrap" role="button" aria-label="Toggle dark mode" tabindex="0">
+      <svg class="lamp-bulb-svg" viewBox="0 0 44 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bulbGlassLit" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFF9C4" stop-opacity="0.95" />
+            <stop offset="35%" stop-color="#FFE082" stop-opacity="0.65" />
+            <stop offset="80%" stop-color="#FFB300" stop-opacity="0.35" />
+            <stop offset="100%" stop-color="#FFA000" stop-opacity="0.2" />
+          </radialGradient>
+          <radialGradient id="bulbGlassDark" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#4A423A" stop-opacity="0.45" />
+            <stop offset="70%" stop-color="#2C2621" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#1E1915" stop-opacity="0.65" />
+          </radialGradient>
+          <filter id="filamentGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="1.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <!-- Bulb Glass Contour -->
+        <path class="bulb-envelope" d="M14 8 C14 4 30 4 30 8 C30 11 36 17 39 25 C43 35 39 46 30 50 C21 54 11 48 7 39 C4 31 8 18 14 8 Z" />
+        <!-- Specular Highlight Curve -->
+        <path d="M10 24 C8 32 11 41 18 46" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round" fill="none" />
+        <!-- Internal Stem Supports -->
+        <path d="M18 10 L18 22 M26 10 L26 22" stroke="currentColor" stroke-width="1.2" opacity="0.6" />
+        <!-- Glowing Edison Filament Loop -->
+        <path class="bulb-filament" d="M18 22 C18 18 21 16 22 16 C23 16 26 18 26 22 C26 25 24 27 22 27 C20 27 18 25 18 22 Z M19 24 L22 32 L25 24" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <!-- Radiating Ambient Glow Halo -->
+      <div class="lamp-ambient-glow" aria-hidden="true"></div>
+    </div>
+    <!-- Beaded Pull Cord with Brass Weight -->
+    <div class="lamp-pull-cord" id="lamp-pull-cord" role="button" aria-label="Pull cord to toggle light mode" tabindex="0">
+      <div class="cord-line"></div>
+      <div class="cord-bobble">
+        <span class="bobble-ball"></span>
+      </div>
+      <div class="cord-tip-pill" id="cord-tip-pill">
+        <span id="cord-status-text">Pull</span>
+        <svg class="w-2.5 h-2.5" viewBox="0 0 10 10"><path d="M5 2 v6 M2 5 l3 3 l3 -3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ============ NAV ============ -->
-<nav id="nav" class="fixed top-0 inset-x-0 z-[80] bg-[rgba(246,241,231,.9)] backdrop-blur-md border-b border-ink/15">
+<nav id="nav" class="fixed top-0 inset-x-0 z-[80] backdrop-blur-md border-b border-ink/15">
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
     <a href="#" class="font-serif italic font-bold text-xl tracking-tight">Ahnaf Shahriar<span class="text-verm not-italic">.</span></a>
+    
     <div class="hidden md:flex items-center gap-8">
       <a class="navlink" href="#marketplaces">Shop fronts</a>
       <a class="navlink" href="#engineering">The code</a>
       <a class="navlink" href="#education">Paperwork</a>
       <a class="navlink" href="#art">The wall</a>
     </div>
-    <a href="#contact" class="inline-flex items-center gap-2 bg-ink text-paper text-[10px] font-bold tracking-[.22em] uppercase px-5 py-2.5 rounded-full hover:bg-verm transition-colors">
-      Say hello <i class="fa-solid fa-arrow-right text-[10px]"></i>
-    </a>
+
+    <div class="flex items-center gap-3 pr-14 md:pr-16">
+      <a href="#contact" class="inline-flex items-center gap-2 bg-ink text-paper text-[10px] font-bold tracking-[.22em] uppercase px-5 py-2.5 rounded-full hover:bg-verm hover:text-white transition-colors">
+        Say hello <i class="fa-solid fa-arrow-right text-[10px]"></i>
+      </a>
+    </div>
   </div>
 </nav>
 
@@ -233,9 +1024,14 @@ tailwind.config = {
 
   <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-14 lg:gap-8 items-center relative">
     <div class="lg:col-span-7 relative z-10">
-      <div class="reveal flex items-center gap-3 mb-7">
-        <svg class="ico-ast w-4 h-4 text-verm"><use href="#ast"/></svg>
-        <span class="text-[11px] tracking-[.32em] uppercase font-bold text-ink/70">Portfolio</span>
+      
+      <!-- Live Status Badge -->
+      <div class="reveal flex items-center gap-3 mb-6 flex-wrap">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold tracking-[.2em] uppercase bg-olive/15 text-olive border border-olive/30">
+          <span class="w-2 h-2 rounded-full bg-olive animate-ping"></span>
+          Available for Projects &amp; Roles
+        </span>
+        <span class="text-[11px] tracking-[.24em] uppercase font-bold text-ink/60" id="live-time">Dhaka, BD · 15:24 BST</span>
       </div>
 
       <h1 class="reveal d1 font-serif font-black leading-[.9] tracking-tight text-[clamp(3.3rem,9.5vw,6.4rem)]">
@@ -262,37 +1058,41 @@ tailwind.config = {
       <div class="reveal d3 flex flex-col sm:flex-row gap-4 mt-9">
         <a href="#art" class="btn-ink">See the artwork <i class="fa-solid fa-arrow-down"></i></a>
         <a href="#engineering" class="btn-line">Read the code <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i></a>
+        <button onclick="copyEmailToClipboard()" class="btn-line border-dashed hover:border-solid">
+          <i class="fa-regular fa-copy text-sm"></i> Copy Email
+        </button>
       </div>
     </div>
 
-    <!-- the desk: polaroid + stamp + sticky note -->
+    <!-- The Desk: Polaroid + Stamp + Sticky Note -->
     <div class="lg:col-span-5 relative reveal d2">
       <svg class="ico-ast slow-spin absolute -top-14 -left-8 w-36 h-36 md:w-44 md:h-44 text-verm/20" aria-hidden="true"><use href="#ast"/></svg>
 
-      <figure class="polaroid pin r2 relative w-[min(88%,400px)] mx-auto">
+      <figure class="polaroid pin r2 relative w-[min(88%,400px)] mx-auto cursor-pointer" onclick="openLightbox('profile.jpg', 'Ahnaf Shahriar', 'Portrait · Yours truly')">
         <span class="tape r-n6" style="left:10%; top:-13px"></span>
         <span class="tape r3" style="right:10%; top:-13px"></span>
-        <div class="overflow-hidden aspect-[4/5] bg-[#EAE4D4]">
-          <img src="profile.jpg" alt="Portrait of Ahnaf Shahriar" class="w-full h-full object-cover object-center contrast-[1.05] saturate-[1.05]">
+        <div class="overflow-hidden aspect-[4/5] bg-paper2">
+          <img src="profile.jpg" alt="Portrait of Ahnaf Shahriar" class="w-full h-full object-cover object-center contrast-[1.05] saturate-[1.05] hover:scale-105 transition-transform duration-700">
         </div>
-        <figcaption class="p-cap">yours truly — adjusting a kerning pair</figcaption>
+        <figcaption class="p-cap">yours truly — probably adjusting a kerning pair (click to inspect)</figcaption>
       </figure>
 
+      <!-- Stamp Badge -->
       <div class="absolute -top-10 -right-1 md:-right-6 w-28 h-28 md:w-36 md:h-36" aria-hidden="true">
         <svg class="stamp-spin w-full h-full" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="59" fill="#F6F1E7"/>
-          <circle cx="60" cy="60" r="57" fill="none" stroke="#221D15" stroke-width="1.4" stroke-dasharray="2 4"/>
+          <circle cx="60" cy="60" r="59" fill="var(--paper)"/>
+          <circle cx="60" cy="60" r="57" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="2 4"/>
           <defs><path id="circA" d="M60 60m-43 0a43 43 0 1 1 86 0a43 43 0 1 1-86 0"/></defs>
-          <text font-family="'Instrument Sans',sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.6" fill="#221D15">
+          <text font-family="'Instrument Sans',sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.6" fill="var(--ink)">
             <textPath href="#circA">AHNAF SHAHRIAR · DESIGNER · ENGINEER</textPath>
           </text>
-          <circle cx="60" cy="60" r="27" fill="none" stroke="#221D15" stroke-width="1"/>
-          <path d="M60 49v22M49 60h22M52.5 52.5l15 15M67.5 52.5l-15 15" stroke="#CE4524" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="60" cy="60" r="27" fill="none" stroke="var(--ink)" stroke-width="1"/>
+          <path d="M60 49v22M49 60h22M52.5 52.5l15 15M67.5 52.5l-15 15" stroke="var(--verm)" stroke-width="2.6" stroke-linecap="round"/>
         </svg>
       </div>
 
-      <div class="sticky-note pin r-n5 absolute -bottom-9 -left-1 md:-left-8">
-        <span class="block text-[9px] tracking-[.28em] uppercase font-bold text-ink/60">Experience</span>
+      <div class="sticky-note pin r-n5 absolute -bottom-9 -left-1 md:-left-8 cursor-grab">
+        <span class="block text-[9px] tracking-[.28em] uppercase font-bold opacity-75">Experience</span>
         <span class="font-hand text-3xl leading-none block mt-1">5+ years</span>
       </div>
     </div>
@@ -305,7 +1105,7 @@ tailwind.config = {
 </header>
 
 <!-- ============ TICKER ============ -->
-<div class="marquee-band relative rotate-[-1.3deg] w-[104vw] -ml-[2vw] bg-verm text-paper border-y border-ink/25 shadow-[0_14px_34px_-20px_rgba(34,29,21,.6)] overflow-hidden">
+<div class="marquee-band relative rotate-[-1.3deg] w-[104vw] -ml-[2vw] shadow-[0_14px_34px_-20px_rgba(0,0,0,.6)] overflow-hidden">
   <div class="marquee-track py-3.5">
     <div class="marquee-seg">
       <span class="mq-caps">Brand identity</span><svg class="mq-star"><use href="#ast"/></svg>
@@ -349,10 +1149,10 @@ tailwind.config = {
       <!-- Adobe Stock -->
       <div class="reveal lg:col-span-7">
         <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" rel="noopener"
-           class="pin r-n05 group block bg-[#FBF8F1] border-[1.5px] border-ink/80 rounded-2xl p-7 md:p-10 relative shadow-hard">
+           class="pin r-n05 group block shop-card p-7 md:p-10 relative">
           <span class="tape r-n6" style="left:38px; top:-13px"></span>
           <div class="flex items-start justify-between gap-4 mb-8">
-            <div class="w-20 h-20 bg-white border border-ink/15 rounded-xl p-3.5 flex items-center justify-center shadow-[3px_4px_0_rgba(34,29,21,.08)]">
+            <div class="w-20 h-20 bg-card-sub border border-ink/15 rounded-xl p-3.5 flex items-center justify-center shadow-[3px_4px_0_rgba(var(--ink-rgb),.08)]">
               <img src="image1.png" alt="Adobe Stock logo" class="w-full h-full object-contain">
             </div>
             <span class="stampbox text-verm r3">Top-selling shop</span>
@@ -362,7 +1162,7 @@ tailwind.config = {
             <span class="font-serif font-black text-[3.4rem] leading-none text-verm tabular-nums" data-count="8000">0</span>
             <span class="text-[11px] uppercase tracking-[.22em] font-bold text-ink/60">assets live&nbsp;+</span>
           </div>
-          <p class="text-ink/70 leading-relaxed max-w-lg">A blend of hand-built design and carefully engineered prompts, tuned to what the market actually downloads <b>1.6k + Licenses Sold</b>.</p>
+          <p class="text-ink/70 leading-relaxed max-w-lg">A blend of hand-built design and carefully engineered prompts, tuned to what the market actually downloads — commercial-ready media, shipped weekly.</p>
           <span class="shop-link mt-7">Browse the collection <i class="fa-solid fa-arrow-right"></i></span>
         </a>
       </div>
@@ -370,10 +1170,10 @@ tailwind.config = {
       <!-- Freepik -->
       <div class="reveal d1 lg:col-span-5 lg:mt-14">
         <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" rel="noopener"
-           class="pin r1 group block bg-[#FBF8F1] border-[1.5px] border-ink/80 rounded-2xl p-7 md:p-10 relative shadow-hard">
+           class="pin r1 group block shop-card p-7 md:p-10 relative">
           <span class="tape r4" style="right:38px; top:-13px"></span>
           <div class="flex items-start justify-between gap-4 mb-8">
-            <div class="w-20 h-20 bg-white border border-ink/15 rounded-xl p-3.5 flex items-center justify-center shadow-[3px_4px_0_rgba(34,29,21,.08)]">
+            <div class="w-20 h-20 bg-card-sub border border-ink/15 rounded-xl p-3.5 flex items-center justify-center shadow-[3px_4px_0_rgba(var(--ink-rgb),.08)]">
               <img src="image2.png" alt="Freepik logo" class="w-full h-full object-contain">
             </div>
             <span class="stampbox dashed text-olive r-n3">Level 3</span>
@@ -383,13 +1183,13 @@ tailwind.config = {
             <span class="font-serif font-black text-[3.4rem] leading-none text-olive tabular-nums" data-count="2500">0</span>
             <span class="text-[11px] uppercase tracking-[.22em] font-bold text-ink/60">assets live&nbsp;+</span>
           </div>
-          <p class="text-ink/70 leading-relaxed">High-demand PNG packs and precise vector sets — recognized in the Magnific exclusive collection as a top-tier contributor, <b>8.6k+ Lifetime Downloads.</b></p>
+          <p class="text-ink/70 leading-relaxed">High-demand PNG packs and precise vector sets — recognized in the Magnific exclusive collection as a top-tier contributor.</p>
           <span class="shop-link mt-7">Visit the shop <i class="fa-solid fa-arrow-right"></i></span>
         </a>
       </div>
     </div>
 
-    <!-- torn field-notes receipt -->
+    <!-- Torn Field-Notes Receipt -->
     <div class="reveal d2 mt-14 lg:mt-16 flex justify-center lg:justify-end">
       <div class="receipt r1 relative">
         <span class="tape r-n4" style="left:50%; translate:-50% 0; top:-13px"></span>
@@ -418,7 +1218,7 @@ tailwind.config = {
       </a>
     </div>
 
-    <!-- tools of the trade -->
+    <!-- Tools of the Trade -->
     <div class="reveal d1 flex flex-wrap gap-3 md:gap-4 pt-2 mt-10 max-w-2xl">
       <span class="tool"><i class="fa-solid fa-code text-verm"></i>C++</span>
       <span class="tool"><i class="fa-brands fa-java text-[#B85C2B]"></i>Java</span>
@@ -427,7 +1227,7 @@ tailwind.config = {
       <span class="tool"><i class="fa-brands fa-figma text-[#B04A78]"></i>UI · UX · Figma</span>
     </div>
 
-    <!-- Seekr: the case file -->
+    <!-- Seekr: The Case File -->
     <div class="reveal mt-20">
       <div class="folder-tab">Case file Nº 01 — Lost &amp; Found</div>
       <div class="relative bg-manila border-[1.5px] border-ink/75 rounded-xl shadow-hard r-n05 p-6 md:p-10">
@@ -436,25 +1236,28 @@ tailwind.config = {
             <p class="text-[10px] tracking-[.24em] uppercase font-bold text-verm mb-3">React · Node.js · MySQL</p>
             <h3 class="font-serif font-black text-4xl md:text-5xl">Seekr</h3>
             <p class="mt-4 text-ink/75 leading-relaxed">A complete lost-&amp;-found portal for university campuses — report an item, search the feed, message, claim, and keep it all sane from an admin dashboard.</p>
-            <a href="https://github.com/splashahnaf445/Seekr" target="_blank" rel="noopener" class="btn-ink mt-7">
-              <i class="fa-brands fa-github text-base"></i> View on GitHub
-            </a>
-            <p class="font-hand text-xl text-ink/60 r-n1 mt-5">the favourite — don't tell the others</p>
+            <div class="flex flex-wrap gap-3 mt-7">
+              <a href="https://github.com/splashahnaf445/Seekr" target="_blank" rel="noopener" class="btn-ink">
+                <i class="fa-brands fa-github text-base"></i> View on GitHub
+              </a>
+            </div>
+            <p class="font-hand text-xl text-ink/60 r-n1 mt-5">the favourite — click any preview to enlarge</p>
           </div>
+          
           <div class="lg:col-span-8 grid grid-cols-2 gap-4 md:gap-6">
-            <figure class="mini-pin r-n2 relative">
+            <figure class="mini-pin r-n2 relative" onclick="openLightbox('seekr images/seekr preview (1).jpg', 'Seekr Item Feed', 'React &bull; Campus feed overview')">
               <span class="tape mini r-n6" style="left:50%; translate:-50% 0; top:-10px"></span>
               <img src="seekr%20images/seekr%20preview%20(1).jpg" alt="Seekr item feed"><figcaption>the feed</figcaption>
             </figure>
-            <figure class="mini-pin r2 relative">
+            <figure class="mini-pin r2 relative" onclick="openLightbox('seekr images/seekr preview (2).jpeg', 'Report Lost Item', 'Seekr &bull; Item submission workflow')">
               <span class="tape mini r4" style="left:50%; translate:-50% 0; top:-10px"></span>
               <img src="seekr%20images/seekr%20preview%20(2).jpeg" alt="Reporting a lost item in Seekr"><figcaption>report an item</figcaption>
             </figure>
-            <figure class="mini-pin r-n1 relative">
+            <figure class="mini-pin r-n1 relative" onclick="openLightbox('seekr images/seekr preview (3).jpeg', 'Admin Dashboard', 'Seekr &bull; Moderation & claims control')">
               <span class="tape mini r-n4" style="left:50%; translate:-50% 0; top:-10px"></span>
               <img src="seekr%20images/seekr%20preview%20(3).jpeg" alt="Seekr admin dashboard"><figcaption>admin dashboard</figcaption>
             </figure>
-            <figure class="mini-pin r3 relative">
+            <figure class="mini-pin r3 relative" onclick="openLightbox('seekr images/seekr preview (4).jpeg', 'Claim Item Workflow', 'Seekr &bull; Verified claims interface')">
               <span class="tape mini r5" style="left:50%; translate:-50% 0; top:-10px"></span>
               <img src="seekr%20images/seekr%20preview%20(4).jpeg" alt="Claiming a found item in Seekr"><figcaption>found &amp; claimed</figcaption>
             </figure>
@@ -463,12 +1266,12 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- three more, pinned casually -->
+    <!-- Three More Projects -->
     <div class="grid md:grid-cols-3 gap-7 md:gap-8 items-start mt-14">
       <div class="reveal">
-        <article class="pin r-n05 bg-[#FBF8F1] border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard">
-          <div class="bg-white border-b border-ink/10">
-            <img src="image3.png" alt="Tuition Fee Calculator interface" class="w-full aspect-video object-cover object-top">
+        <article class="pin r-n05 bg-card-themed border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard" style="background:var(--card-bg)">
+          <div class="bg-card-sub border-b border-ink/10 cursor-pointer" onclick="openLightbox('image3.png', 'Tuition Fee Calculator', 'Java Swing GUI &bull; University credit matrices')">
+            <img src="image3.png" alt="Tuition Fee Calculator interface" class="w-full aspect-video object-cover object-top hover:scale-105 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-start justify-between gap-3">
@@ -483,9 +1286,9 @@ tailwind.config = {
       </div>
 
       <div class="reveal d1 md:mt-9">
-        <article class="pin r1 bg-[#FBF8F1] border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard">
-          <div class="bg-white border-b border-ink/10">
-            <img src="image4.png" alt="Password Manager interface" class="w-full aspect-video object-cover object-top">
+        <article class="pin r1 bg-card-themed border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard" style="background:var(--card-bg)">
+          <div class="bg-card-sub border-b border-ink/10 cursor-pointer" onclick="openLightbox('image4.png', 'Password Manager', 'Java Swing Security &bull; Local encrypted credential vault')">
+            <img src="image4.png" alt="Password Manager interface" class="w-full aspect-video object-cover object-top hover:scale-105 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-start justify-between gap-3">
@@ -500,9 +1303,9 @@ tailwind.config = {
       </div>
 
       <div class="reveal d2 md:mt-[4.5rem]">
-        <article class="pin r-n1 bg-[#FBF8F1] border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard">
-          <div class="bg-white border-b border-ink/10">
-            <img src="arduino.jpg" alt="Smart Queue Arduino hardware" class="w-full aspect-video object-cover">
+        <article class="pin r-n1 bg-card-themed border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard" style="background:var(--card-bg)">
+          <div class="bg-card-sub border-b border-ink/10 cursor-pointer" onclick="openLightbox('arduino.jpg', 'Smart Queue Management', 'Arduino Hardware &bull; Sensor driven line dispatch')">
+            <img src="arduino.jpg" alt="Smart Queue Arduino hardware" class="w-full aspect-video object-cover hover:scale-105 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-start justify-between gap-3">
@@ -528,13 +1331,13 @@ tailwind.config = {
     </div>
 
     <div class="reveal d1">
-      <div class="rule-double relative bg-[#FBF8F1] border-[1.5px] border-ink/75 rounded-lg shadow-hard r05 p-7 md:p-12">
+      <div class="rule-double relative border-[1.5px] border-ink/75 rounded-lg shadow-hard r05 p-7 md:p-12" style="background:var(--card-bg)">
         <div class="text-center pb-7 border-b border-ink/20">
           <p class="text-[10px] tracking-[.34em] uppercase font-bold">Academic record — Ahnaf Shahriar</p>
           <p class="font-hand text-lg text-ink/55 mt-1">( the fun kind of paperwork )</p>
         </div>
 
-        <!-- entry 1 -->
+        <!-- Entry 1: Rajuk Uttara Model College -->
         <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-9 border-b border-dashed border-ink/25">
           <div class="flex-1">
             <div class="flex items-center gap-3 mb-3 flex-wrap">
@@ -547,18 +1350,18 @@ tailwind.config = {
           <div class="shrink-0 r-n10" aria-hidden="true">
             <svg viewBox="0 0 110 110" class="w-28 h-28 md:w-32 md:h-32 opacity-90">
               <defs><path id="circB" d="M55 55m-40 0a40 40 0 1 1 80 0a40 40 0 1 1-80 0"/></defs>
-              <circle cx="55" cy="55" r="52" fill="none" stroke="#CE4524" stroke-width="2.5"/>
-              <circle cx="55" cy="55" r="47" fill="none" stroke="#CE4524" stroke-width="1"/>
-              <text font-family="'Instrument Sans',sans-serif" font-size="8" font-weight="700" letter-spacing="1.2" fill="#CE4524">
+              <circle cx="55" cy="55" r="52" fill="none" stroke="var(--verm)" stroke-width="2.5"/>
+              <circle cx="55" cy="55" r="47" fill="none" stroke="var(--verm)" stroke-width="1"/>
+              <text font-family="'Instrument Sans',sans-serif" font-size="8" font-weight="700" letter-spacing="1.2" fill="var(--verm)">
                 <textPath href="#circB">RAJUK UTTARA MODEL COLLEGE · SCIENCE · HSC ·</textPath>
               </text>
-              <text x="55" y="52" text-anchor="middle" font-family="Fraunces,serif" font-size="12" fill="#CE4524" font-weight="700">GPA</text>
-              <text x="55" y="72" text-anchor="middle" font-family="Fraunces,serif" font-size="21" fill="#CE4524" font-weight="900">5.00</text>
+              <text x="55" y="52" text-anchor="middle" font-family="Fraunces,serif" font-size="12" fill="var(--verm)" font-weight="700">GPA</text>
+              <text x="55" y="72" text-anchor="middle" font-family="Fraunces,serif" font-size="21" fill="var(--verm)" font-weight="900">5.00</text>
             </svg>
           </div>
         </div>
 
-        <!-- entry 2 -->
+        <!-- Entry 2: United International University -->
         <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-9">
           <div class="flex-1">
             <div class="flex items-center gap-3 mb-3 flex-wrap">
@@ -589,48 +1392,57 @@ tailwind.config = {
       <div class="max-w-2xl">
         <p class="overline text-ink/70 mb-4"><span class="text-verm font-serif italic text-sm">(04)</span> The wall</p>
         <h2 class="font-serif font-black text-[clamp(2.4rem,5.5vw,4rem)] leading-[1.02]">Selected artwork.</h2>
-        <p class="mt-5 text-ink/70 leading-relaxed">A hand-picked slice of the branding, illustration and layout work — the full wall lives on Behance.</p>
+        <p class="mt-5 text-ink/70 leading-relaxed">A hand-picked slice of the branding, illustration and layout work — click any piece for the studio inspection view. Full wall lives on Behance.</p>
       </div>
       <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener" class="btn-line">
         <i class="fa-brands fa-behance text-base"></i> View on Behance
       </a>
     </div>
 
-    <!--
-      Want more on the wall later? Drop extra images in the repo and copy
-      one of the <figure class="frame"> blocks below — that's all it takes.
-    -->
-    <div class="grid grid-cols-12 gap-7 md:gap-10 items-start mt-14">
-      <div class="reveal col-span-12 md:col-span-7">
-        <figure class="frame pin r-n05">
+    <!-- Gallery Category Filter Pills -->
+    <div class="reveal d1 flex flex-wrap gap-2.5 mt-10">
+      <button class="filter-pill active" onclick="filterGallery('all', this)">All Work (6)</button>
+      <button class="filter-pill" onclick="filterGallery('branding', this)">Branding &amp; Logo</button>
+      <button class="filter-pill" onclick="filterGallery('print', this)">Poster &amp; Layout</button>
+      <button class="filter-pill" onclick="filterGallery('vector', this)">Vector &amp; Sketch</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-12 gap-7 md:gap-10 items-start mt-12" id="gallery-grid">
+      <!-- Item 1: Banner Design -->
+      <div class="gallery-item reveal col-span-12 md:col-span-7" data-cat="print">
+        <figure class="frame pin r-n05" onclick="openLightbox('banner_proj.jpg', 'Banner Design', 'Photoshop &bull; Event composition &amp; typographical layout')">
           <div class="mat aspect-[16/10]"><img src="banner_proj.jpg" alt="Banner design work"></div>
           <figcaption class="label-card"><span class="font-serif italic text-lg">Banner design</span><span class="label-meta">Photoshop · Layout</span></figcaption>
         </figure>
       </div>
 
-      <div class="reveal d1 col-span-12 md:col-span-5 md:mt-14">
-        <figure class="frame pin r15">
-          <div class="mat bg-white aspect-[16/10]"><img src="logo_proj.jpg" alt="Logo design work" class="object-contain p-5"></div>
+      <!-- Item 2: Logo Suite -->
+      <div class="gallery-item reveal d1 col-span-12 md:col-span-5 md:mt-14" data-cat="branding">
+        <figure class="frame pin r15" onclick="openLightbox('logo_proj.jpg', 'Logo Suite', 'Illustrator &bull; Minimalist vector identity marks')">
+          <div class="mat aspect-[16/10]"><img src="logo_proj.jpg" alt="Logo design work" class="object-contain p-5"></div>
           <figcaption class="label-card"><span class="font-serif italic text-lg">Logo suite</span><span class="label-meta">Illustrator · Branding</span></figcaption>
         </figure>
       </div>
 
-      <div class="reveal col-span-12 md:col-span-5 md:mt-4">
-        <figure class="frame pin r1">
-          <div class="mat bg-ink aspect-[16/10]"><img src="mascot_proj.jpg" alt="Mascot illustration" class="object-contain p-5"></div>
+      <!-- Item 3: Mascot Illustration -->
+      <div class="gallery-item reveal col-span-12 md:col-span-5 md:mt-4" data-cat="branding">
+        <figure class="frame pin r1" onclick="openLightbox('mascot_proj.jpg', 'Mascot Illustration', 'Digital Character Design &bull; Expression &amp; personality')">
+          <div class="mat aspect-[16/10]"><img src="mascot_proj.jpg" alt="Mascot illustration" class="object-contain p-5"></div>
           <figcaption class="label-card"><span class="font-serif italic text-lg">Mascot illustration</span><span class="label-meta">Character art</span></figcaption>
         </figure>
       </div>
 
-      <div class="reveal d1 col-span-12 md:col-span-7 md:mt-16">
-        <figure class="frame pin r-n05">
+      <!-- Item 4: Poster Design -->
+      <div class="gallery-item reveal d1 col-span-12 md:col-span-7 md:mt-16" data-cat="print">
+        <figure class="frame pin r-n05" onclick="openLightbox('poster_proj.jpg', 'Poster Design Work', 'Photoshop &bull; Photo-manipulation &amp; print aesthetics')">
           <div class="mat aspect-[16/10]"><img src="poster_proj.jpg" alt="Poster design work"></div>
           <figcaption class="label-card"><span class="font-serif italic text-lg">Poster design</span><span class="label-meta">Print · Photo-manip</span></figcaption>
         </figure>
       </div>
     </div>
 
-    <!-- sketchbook row -->
+    <!-- Sketchbook Row -->
     <div class="reveal mt-16 md:mt-20">
       <div class="flex items-center gap-4 mb-8 flex-wrap">
         <svg class="ico-ast w-4 h-4 text-verm"><use href="#ast"/></svg>
@@ -639,14 +1451,25 @@ tailwind.config = {
         <p class="font-hand text-xl text-ink/55 r-n1">every line placed by hand — no shortcuts</p>
       </div>
       <div class="grid md:grid-cols-2 gap-7 md:gap-10">
-        <figure class="frame pin r-n1">
-          <div class="mat bg-white aspect-[16/10]"><img src="image5.png" alt="Detailed vector line drawing" class="object-contain p-6"></div>
-          <figcaption class="label-card"><span class="font-serif italic text-lg">Line drawing I</span><span class="label-meta">Illustrator · Vector</span></figcaption>
-        </figure>
-        <figure class="frame pin r1 md:mt-8">
-          <div class="mat bg-white aspect-[16/10]"><img src="image6.png" alt="Detailed vector line drawing" class="object-contain p-6"></div>
-          <figcaption class="label-card"><span class="font-serif italic text-lg">Line drawing II</span><span class="label-meta">Illustrator · Vector</span></figcaption>
-        </figure>
+        <!-- Line Drawing 1 -->
+        <div class="gallery-item" data-cat="vector">
+          <figure class="frame pin r-n1" onclick="openLightbox('image 7.png', 'Line Drawing I', 'Illustrator Vector &bull; High precision digital line art')">
+            <div class="mat aspect-[16/10]">
+              <img src="image%207.png" alt="Detailed vector line drawing" onerror="this.onerror=null; this.src='image5.jpg';" class="object-contain p-6">
+            </div>
+            <figcaption class="label-card"><span class="font-serif italic text-lg">Line drawing I</span><span class="label-meta">Illustrator · Vector</span></figcaption>
+          </figure>
+        </div>
+
+        <!-- Line Drawing 2 -->
+        <div class="gallery-item" data-cat="vector">
+          <figure class="frame pin r1 md:mt-8" onclick="openLightbox('image 8.png', 'Line Drawing II', 'Illustrator Vector &bull; Anatomical &amp; contour tracing')">
+            <div class="mat aspect-[16/10]">
+              <img src="image%208.png" alt="Detailed vector line drawing" onerror="this.onerror=null; this.src='banner_proj.jpg';" class="object-contain p-6">
+            </div>
+            <figcaption class="label-card"><span class="font-serif italic text-lg">Line drawing II</span><span class="label-meta">Illustrator · Vector</span></figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </div>
@@ -654,10 +1477,10 @@ tailwind.config = {
 
 <!-- ============ FOOTER ============ -->
 <svg class="block w-full h-[46px] md:h-[60px]" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
-  <path fill="#221D15" d="M0 60V32l60 8 60-20 60 16 60-20 60 14 60-18 60 16 60-14 60 16 60-20 60 18 60-12 60 14 60-18 60 16 60-12 60 14 60-20 60 16 60-14 60 12 60-16 60 14 60-18 60 14V60z"/>
+  <path fill="currentColor" class="text-ink" d="M0 60V32l60 8 60-20 60 16 60-20 60 14 60-18 60 16 60-14 60 16 60-20 60 18 60-12 60 14 60-18 60 16 60-12 60 14 60-20 60 16 60-14 60 12 60-16 60 14 60-18 60 14V60z"/>
 </svg>
 
-<footer id="contact" class="relative bg-ink text-paper pt-12 md:pt-16 pb-10 overflow-hidden">
+<footer id="contact" class="relative bg-ink text-paper pt-12 md:pt-16 pb-12 overflow-hidden transition-colors duration-400">
   <svg class="ico-ast slow-spin absolute -right-14 -bottom-14 w-64 h-64 text-paper/5" aria-hidden="true"><use href="#ast"/></svg>
 
   <div class="max-w-3xl mx-auto px-6 text-center relative">
@@ -666,11 +1489,18 @@ tailwind.config = {
     <p class="font-hand text-2xl md:text-3xl text-mustard r-n1 mt-6">"Driven by passion, not just motivation."</p>
 
     <p class="text-paper/70 mt-12 text-sm">One file, one email, one idea — that's all it takes to start:</p>
-    <a href="mailto:shahriarahnaf420@gmail.com"
-       class="group inline-flex items-center gap-4 mt-4 font-serif italic text-xl sm:text-2xl md:text-4xl underline decoration-verm decoration-2 underline-offset-[10px] hover:text-mustard hover:decoration-mustard transition-colors break-all">
-      shahriarahnaf420@gmail.com <i class="fa-solid fa-arrow-right not-italic text-lg group-hover:translate-x-2 transition-transform"></i>
-    </a>
+    
+    <div class="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="mailto:shahriarahnaf420@gmail.com"
+         class="group inline-flex items-center gap-4 font-serif italic text-xl sm:text-2xl md:text-3xl underline decoration-verm decoration-2 underline-offset-[10px] hover:text-mustard hover:decoration-mustard transition-colors break-all">
+        shahriarahnaf420@gmail.com <i class="fa-solid fa-arrow-right not-italic text-lg group-hover:translate-x-2 transition-transform"></i>
+      </a>
+      <button onclick="copyEmailToClipboard()" class="px-4 py-2 border border-paper/30 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-verm hover:border-verm transition-colors">
+        <i class="fa-regular fa-copy mr-1"></i> Copy
+      </button>
+    </div>
 
+    <!-- Social Links -->
     <div class="flex justify-center gap-4 md:gap-5 mt-12">
       <a href="https://www.behance.net/shahriarahnaf" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-paper/25 flex items-center justify-center text-paper/70 hover:bg-verm hover:border-verm hover:text-paper hover:-translate-y-1 transition-all" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
       <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-paper/25 flex items-center justify-center text-paper/70 hover:bg-verm hover:border-verm hover:text-paper hover:-translate-y-1 transition-all" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -680,21 +1510,172 @@ tailwind.config = {
 
     <div class="mt-14 pt-7 border-t border-paper/15 flex flex-col md:flex-row items-center justify-between gap-3 text-[10px] tracking-[.22em] uppercase text-paper/45">
       <p>&copy; 2026 Ahnaf Shahriar — Dhaka, Bangladesh</p>
+      <p class="font-mono">Handcrafted with Design &bull; Code &bull; Passion</p>
     </div>
   </div>
 </footer>
 
+<!-- ============ LIGHTBOX MODAL ============ -->
+<div id="lightbox-modal" class="lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+  <div class="lightbox-card">
+    <div class="lightbox-img-wrap">
+      <img id="lightbox-img" src="" alt="Enlarged gallery artwork">
+    </div>
+    <div class="lightbox-bar">
+      <div>
+        <h3 id="lightbox-title" class="font-serif font-bold text-2xl"></h3>
+        <p id="lightbox-meta" class="text-xs uppercase tracking-widest text-ink/60 mt-1"></p>
+      </div>
+      <button onclick="closeLightbox()" class="btn-ink !py-2.5 !px-5 text-[10px]">
+        Close <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TOAST STAMP ============ -->
+<div id="toast-stamp" aria-live="polite">
+  <i class="fa-solid fa-envelope text-verm"></i>
+  <span id="toast-msg">Email copied to clipboard!</span>
+</div>
+
+<!-- ============ FLOATING BACK TO TOP ============ -->
+<button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up text-lg"></i>
+</button>
+
+<!-- ============ SCRIPTS ============ -->
 <script>
+/* ============ THEME & HANGING LIGHT BULB TOGGLE ============ */
+let isDark = false;
+
+// Audio synthesis for crisp switch click
+function playSwitchSound() {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(140, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(35, ctx.currentTime + 0.045);
+    gain.gain.setValueAtTime(0.22, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.045);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.05);
+  } catch (err) {}
+}
+
+function applyTheme(dark) {
+  isDark = dark;
+  const root = document.documentElement;
+  const cordStatus = document.getElementById('cord-status-text');
+  
+  if (dark) {
+    root.classList.add('dark');
+    if (cordStatus) cordStatus.textContent = 'Light';
+    localStorage.setItem('ahnaf_theme', 'dark');
+  } else {
+    root.classList.remove('dark');
+    if (cordStatus) cordStatus.textContent = 'Dark';
+    localStorage.setItem('ahnaf_theme', 'light');
+  }
+}
+
+function toggleTheme() {
+  playSwitchSound();
+
+  const cord = document.getElementById('lamp-pull-cord');
+  const unit = document.getElementById('lamp-unit');
+
+  // Pull cord spring animation
+  if (cord) {
+    cord.classList.add('pulling');
+    setTimeout(() => cord.classList.remove('pulling'), 180);
+  }
+
+  // Realistic pendulum swing animation
+  if (unit) {
+    unit.classList.remove('idle-breeze');
+    unit.classList.remove('swinging');
+    void unit.offsetWidth; // trigger reflow
+    unit.classList.add('swinging');
+    setTimeout(() => {
+      unit.classList.remove('swinging');
+      unit.classList.add('idle-breeze');
+    }, 1800);
+  }
+
+  // Toggle state
+  applyTheme(!isDark);
+  showToast(isDark ? '🌙 Studio Dark Mode active' : '☀️ Studio Light Mode active');
+}
+
+// Initialize theme from storage or system
+(function initTheme() {
+  const saved = localStorage.getItem('ahnaf_theme');
+  if (saved === 'dark') {
+    applyTheme(true);
+  } else if (saved === 'light') {
+    applyTheme(false);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    applyTheme(true);
+  } else {
+    applyTheme(false);
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
-  /* ---- scroll reveals ---- */
+  // Bind Lightbulb Click & Enter Key
+  const fixture = document.getElementById('lamp-fixture');
+  const bulb = document.getElementById('lamp-bulb-wrap');
+  const cord = document.getElementById('lamp-pull-cord');
+
+  if (fixture) {
+    fixture.addEventListener('click', (e) => {
+      toggleTheme();
+    });
+  }
+  if (bulb) {
+    bulb.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleTheme();
+      }
+    });
+  }
+
+  /* ---- Scroll Progress Indicator & Back to Top ---- */
+  const progressBar = document.getElementById('scroll-progress');
+  const backToTop = document.getElementById('back-to-top');
+  const nav = document.getElementById('nav');
+
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    
+    if (progressBar) progressBar.style.width = scrolled + '%';
+    if (nav) nav.classList.toggle('scrolled', winScroll > 12);
+    if (backToTop) backToTop.classList.toggle('visible', winScroll > 400);
+  }, { passive: true });
+
+  /* ---- Scroll Reveals ---- */
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
     });
   }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* ---- animated counters (8,000 / 2,500) ---- */
+  /* ---- Animated Counters (8,000 / 2,500) ---- */
   const cio = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
@@ -707,25 +1688,39 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       requestAnimationFrame(step);
     });
-  }, { threshold: .4 });
+  }, { threshold: .3 });
   document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 
-  /* ---- nav shadow on scroll ---- */
-  const nav = document.getElementById('nav');
-  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
+  /* ---- Live Dhaka Clock ---- */
+  function updateDhakaTime() {
+    const el = document.getElementById('live-time');
+    if (!el) return;
+    const now = new Date();
+    // UTC+6 for Dhaka
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const dhaka = new Date(utc + (3600000 * 6));
+    const h = String(dhaka.getHours()).padStart(2, '0');
+    const m = String(dhaka.getMinutes()).padStart(2, '0');
+    el.textContent = `Dhaka, BD · ${h}:${m} BST`;
+  }
+  updateDhakaTime();
+  setInterval(updateDhakaTime, 30000);
 
-  /* ---- ink cursor: dot + lagging ring (desktop, motion allowed) ---- */
+  /* ---- Ink Cursor: Dot + Lagging Ring ---- */
   if (matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.body.classList.add('has-cursor');
     const dot = document.getElementById('c-dot'), ring = document.getElementById('c-ring');
     let x = innerWidth / 2, y = innerHeight / 2, rx = x, ry = y, s = 1, ts = 1;
+    
     addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; });
-    addEventListener('mousedown', () => ts = .7);
+    addEventListener('mousedown', () => ts = .65);
     addEventListener('mouseup',   () => ts = 1);
-    document.querySelectorAll('a, button, .pin, .tool').forEach(el => {
+
+    document.querySelectorAll('a, button, .pin, .tool, .tape, .lamp-fixture, .filter-pill').forEach(el => {
       el.addEventListener('mouseenter', () => ts = 1.9);
       el.addEventListener('mouseleave', () => ts = 1);
     });
+
     (function loop() {
       rx += (x - rx) * .18; ry += (y - ry) * .18; s += (ts - s) * .2;
       dot.style.transform  = `translate(${x}px, ${y}px)`;
@@ -734,6 +1729,76 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
   }
 });
+
+/* ============ GALLERY FILTER ============ */
+function filterGallery(category, btn) {
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+
+  const items = document.querySelectorAll('.gallery-item');
+  items.forEach(item => {
+    const cat = item.dataset.cat;
+    if (category === 'all' || cat === category) {
+      item.style.display = '';
+      setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 20);
+    } else {
+      item.style.opacity = '0';
+      item.style.transform = 'scale(0.92)';
+      setTimeout(() => { item.style.display = 'none'; }, 250);
+    }
+  });
+}
+
+/* ============ LIGHTBOX MODAL ============ */
+function openLightbox(src, title, meta) {
+  const modal = document.getElementById('lightbox-modal');
+  const img = document.getElementById('lightbox-img');
+  const titleEl = document.getElementById('lightbox-title');
+  const metaEl = document.getElementById('lightbox-meta');
+
+  if (!modal || !img) return;
+  img.src = src;
+  if (titleEl) titleEl.textContent = title;
+  if (metaEl) metaEl.innerHTML = meta;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const modal = document.getElementById('lightbox-modal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+/* ============ TOAST & CLIPBOARD ============ */
+let toastTimeout;
+function showToast(msg) {
+  const toast = document.getElementById('toast-stamp');
+  const msgEl = document.getElementById('toast-msg');
+  if (!toast || !msgEl) return;
+  msgEl.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3200);
+}
+
+function copyEmailToClipboard() {
+  const email = 'shahriarahnaf420@gmail.com';
+  navigator.clipboard.writeText(email).then(() => {
+    showToast('✓ Copied to clipboard: ' + email);
+  }).catch(() => {
+    showToast('✉️ ' + email);
+  });
+}
 </script>
 </body>
 </html>
