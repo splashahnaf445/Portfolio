@@ -522,6 +522,11 @@ tailwind.config = {
     pointer-events: none;
   }
 
+  
+  /* Prototype Carousel No-Scrollbar */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
   /* ============ HANGING LIGHT BULB TOGGLE ============ */
   .lamp-fixture {
     position: fixed;
@@ -1028,7 +1033,7 @@ tailwind.config = {
 
       <p class="reveal d2 mt-7 text-lg text-ink/75 leading-relaxed max-w-xl">
         I architect software systems, machine learning models, and commercial stock art with the same meticulous obsession —
-        <strong class="text-ink">5+ years</strong> in design, <strong class="text-ink">10,500+ assets live</strong> with <strong class="text-verm font-bold">5,300+ licenses sold</strong> across Adobe Stock &amp; Freepik, and structured engineering that actually ships.
+        <strong class="text-ink">5+ years</strong> in design, <strong class="text-ink">11,500+ assets live</strong> with <strong class="text-verm font-bold">10,300+ licenses &amp; downloads</strong> across Adobe Stock &amp; Freepik, and structured engineering that actually ships.
       </p>
       <p class="reveal d3 font-hand text-xl text-verm/90 r-n1 mt-3">* currently training ML models &amp; building LawAid</p>
 
@@ -1070,7 +1075,7 @@ tailwind.config = {
 
       <div class="sticky-note pin r-n5 absolute -bottom-9 -left-1 md:-left-8 cursor-grab">
         <span class="block text-[9px] tracking-[.28em] uppercase font-bold opacity-75">Commercial Track</span>
-        <span class="font-hand text-3xl leading-none block mt-1">5,300+ sold</span>
+        <span class="font-hand text-3xl leading-none block mt-1">10,300+ sold</span>
       </div>
     </div>
   </div>
@@ -1090,7 +1095,7 @@ tailwind.config = {
       <span class="mq-caps">LawAid Legal System</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-serif">A* Search &amp; CSP Solvers</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-caps">Brand identity</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">5,300+ licenses sold</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">10,300+ licenses &amp; downloads</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-caps">React &amp; FastAPI</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-serif">bilingual legal intelligence</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-caps">Vector illustration</span><svg class="mq-star"><use href="#ast"/></svg>
@@ -1102,7 +1107,7 @@ tailwind.config = {
       <span class="mq-caps">LawAid Legal System</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-serif">A* Search &amp; CSP Solvers</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-caps">Brand identity</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">5,300+ licenses sold</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">10,300+ licenses &amp; downloads</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-caps">React &amp; FastAPI</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-serif">bilingual legal intelligence</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-caps">Vector illustration</span><svg class="mq-star"><use href="#ast"/></svg>
@@ -1140,14 +1145,14 @@ tailwind.config = {
           <div class="grid grid-cols-2 gap-4 mt-5 mb-5 pt-4 border-t border-dashed border-ink/20">
             <div>
               <div class="flex items-baseline gap-2">
-                <span class="font-serif font-black text-3xl sm:text-4xl md:text-5xl leading-none text-verm tabular-nums" data-count="8000">0</span>
+                <span class="font-serif font-black text-3xl sm:text-4xl md:text-5xl leading-none text-verm tabular-nums" data-count="9000">0</span>
                 <span class="text-xl font-bold text-verm">+</span>
               </div>
               <span class="text-[10px] md:text-[11px] uppercase tracking-[.22em] font-bold text-ink/65 mt-2 block">Assets Live</span>
             </div>
             <div class="border-l border-ink/15 pl-4">
               <div class="flex items-baseline gap-2">
-                <span class="font-serif font-black text-3xl sm:text-4xl md:text-5xl leading-none text-mustard tabular-nums" data-count="1500">0</span>
+                <span class="font-serif font-black text-3xl sm:text-4xl md:text-5xl leading-none text-mustard tabular-nums" data-count="1600">0</span>
                 <span class="text-xl font-bold text-mustard">+</span>
               </div>
               <span class="text-[10px] md:text-[11px] uppercase tracking-[.22em] font-bold text-ink/65 mt-2 block">Licenses Sold</span>
@@ -1183,10 +1188,10 @@ tailwind.config = {
             </div>
             <div class="border-l border-ink/15 pl-4">
               <div class="flex items-baseline gap-2">
-                <span class="font-serif font-black text-3xl sm:text-4xl md:text-5xl leading-none text-mustard tabular-nums" data-count="3800">0</span>
+                <span class="font-serif font-black text-3xl sm:text-4xl md:text-5xl leading-none text-mustard tabular-nums" data-count="8700">0</span>
                 <span class="text-xl font-bold text-mustard">+</span>
               </div>
-              <span class="text-[10px] md:text-[11px] uppercase tracking-[.22em] font-bold text-ink/65 mt-2 block">Licenses Sold</span>
+              <span class="text-[10px] md:text-[11px] uppercase tracking-[.22em] font-bold text-ink/65 mt-2 block">Downloads</span>
             </div>
           </div>
 
@@ -1202,8 +1207,8 @@ tailwind.config = {
         <span class="tape r-n4" style="left:50%; translate:-50% 0; top:-13px"></span>
         <p class="text-center text-[10px] tracking-[.3em] uppercase font-bold text-ink/60 pb-3 border-b border-dashed border-ink/20">Field notes — ledger of proof</p>
         <div class="ledger-row"><span>Years at the craft</span><i></i><b>5+</b></div>
-        <div class="ledger-row"><span>Total Assets Live</span><i></i><b>10,500+</b></div>
-        <div class="ledger-row"><span>Licenses Sold / DLs</span><i></i><b>5,300+</b></div>
+        <div class="ledger-row"><span>Total Assets Live</span><i></i><b>11,500+</b></div>
+        <div class="ledger-row"><span>Licenses &amp; Downloads</span><i></i><b>10,300+</b></div>
         <div class="ledger-row"><span>Freepik contributor</span><i></i><b>Level 3</b></div>
         <div class="ledger-row"><span>Behance portfolio</span><i></i><b>Verified</b></div>
         <div class="ledger-row"><span>Chai while kerning</span><i></i><b>Lots</b></div>
@@ -1308,6 +1313,178 @@ tailwind.config = {
               </span>
             </div>
           </div>
+
+          
+          <!-- Prototype Mobile Screenshots Showcase (from LawAid UI) -->
+          <div class="mt-6 pt-5 border-t border-dashed border-ink/20">
+            <div class="flex items-center justify-between gap-3 mb-3.5 flex-wrap">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-verm animate-pulse"></span>
+                  <h4 class="font-serif font-bold text-lg text-ink">Mobile App Prototype &amp; UI Architecture</h4>
+                </div>
+                <p class="text-[11px] text-ink/65 mt-0.5">High-fidelity Flutter &amp; Figma interface designs from the SRS specification (click any screen to enlarge)</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="scrollLawaidScreens(-1)" class="w-8 h-8 rounded-full border border-ink/20 bg-card-sub hover:bg-ink hover:text-paper flex items-center justify-center text-xs transition-colors shadow-sm" title="Previous screen" aria-label="Previous screen">
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button type="button" onclick="scrollLawaidScreens(1)" class="w-8 h-8 rounded-full border border-ink/20 bg-card-sub hover:bg-ink hover:text-paper flex items-center justify-center text-xs transition-colors shadow-sm" title="Next screen" aria-label="Next screen">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Horizontal Scrollable Device Mockup Strip -->
+            <div id="lawaid-screen-strip" class="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x no-scrollbar scroll-smooth" style="-webkit-overflow-scrolling: touch;">
+              
+              <!-- Screen 1: Mobile Splash & Onboarding -->
+              <div class="snap-start shrink-0 w-[175px] sm:w-[195px] group cursor-pointer" onclick="openLightbox('LawAid UI/lawaid_screen1_onboarding.png', 'M1 · Mobile Splash &amp; Vision', 'LawAid Mobile App &bull; Strategic Vision: Streamline operations from courtroom to client with advanced legal intelligence.')">
+                <div class="relative bg-card-sub p-2 rounded-2xl border border-ink/15 shadow-sm group-hover:shadow-md group-hover:border-verm/40 transition-all duration-300">
+                  <div class="relative rounded-xl overflow-hidden aspect-[9/19] bg-black border border-ink/20">
+                    <img src="LawAid UI/lawaid_screen1_onboarding.png" alt="LawAid Mobile Onboarding" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
+                      <span class="bg-ink/85 text-paper text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>Enlarge</span>
+                    </div>
+                  </div>
+                  <div class="mt-2.5 px-1">
+                    <div class="flex items-center justify-between gap-1 mb-1">
+                      <span class="text-[9px] font-mono uppercase tracking-wider font-bold text-verm bg-verm/10 px-1.5 py-0.5 rounded">M1 · Splash</span>
+                      <span class="text-[9px] text-ink/50">Figma / Flutter</span>
+                    </div>
+                    <h5 class="font-serif font-bold text-xs text-ink line-clamp-1">Onboarding &amp; Vision</h5>
+                    <p class="text-[10px] text-ink/65 leading-tight mt-0.5 line-clamp-2">Brand identity &amp; courtroom-to-client value proposition.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 2: Bilingual AI Legal Assistant -->
+              <div class="snap-start shrink-0 w-[175px] sm:w-[195px] group cursor-pointer" onclick="openLightbox('LawAid UI/lawaid_screen6_bilingual_ai.png', 'M6 · Bilingual AI Assistant Help Desk', 'LawAid Legal AI &bull; Natural language Bangla and English procedural guidance under Bangladesh Laws, Specific Relief Act 1877 &amp; Order 39 Injunction analysis.')">
+                <div class="relative bg-card-sub p-2 rounded-2xl border border-ink/15 shadow-sm group-hover:shadow-md group-hover:border-olive/50 transition-all duration-300">
+                  <div class="relative rounded-xl overflow-hidden aspect-[9/19] bg-black border border-ink/20">
+                    <img src="LawAid UI/lawaid_screen6_bilingual_ai.png" alt="Bilingual AI Assistant Help Desk" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
+                      <span class="bg-ink/85 text-paper text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>Enlarge</span>
+                    </div>
+                  </div>
+                  <div class="mt-2.5 px-1">
+                    <div class="flex items-center justify-between gap-1 mb-1">
+                      <span class="text-[9px] font-mono uppercase tracking-wider font-bold text-olive bg-olive/10 px-1.5 py-0.5 rounded">M6 · Legal AI</span>
+                      <span class="text-[9px] text-ink/50">Gemini LLM</span>
+                    </div>
+                    <h5 class="font-serif font-bold text-xs text-ink line-clamp-1">Bilingual AI Assistant</h5>
+                    <p class="text-[10px] text-ink/65 leading-tight mt-0.5 line-clamp-2">Bangla/English instant procedural counsel &amp; doc checklists.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 3: Verified Lawyer Directory & Booking -->
+              <div class="snap-start shrink-0 w-[175px] sm:w-[195px] group cursor-pointer" onclick="openLightbox('LawAid UI/lawaid_screen5_lawyer_directory.png', 'M5 · Verified Lawyer Directory &amp; Booking', 'LawAid Lawyer Directory &bull; Bar Council certified advocates, experience metrics, client rating reviews (4.8-5.0), next available slots &amp; transparent fees.')">
+                <div class="relative bg-card-sub p-2 rounded-2xl border border-ink/15 shadow-sm group-hover:shadow-md group-hover:border-mustard/60 transition-all duration-300">
+                  <div class="relative rounded-xl overflow-hidden aspect-[9/19] bg-black border border-ink/20">
+                    <img src="LawAid UI/lawaid_screen5_lawyer_directory.png" alt="Verified Lawyer Directory" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
+                      <span class="bg-ink/85 text-paper text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>Enlarge</span>
+                    </div>
+                  </div>
+                  <div class="mt-2.5 px-1">
+                    <div class="flex items-center justify-between gap-1 mb-1">
+                      <span class="text-[9px] font-mono uppercase tracking-wider font-bold text-mustard bg-mustard/15 px-1.5 py-0.5 rounded">M5 · Directory</span>
+                      <span class="text-[9px] text-ink/50">Bar Verified</span>
+                    </div>
+                    <h5 class="font-serif font-bold text-xs text-ink line-clamp-1">Lawyer Discovery &amp; Booking</h5>
+                    <p class="text-[10px] text-ink/65 leading-tight mt-0.5 line-clamp-2">Bar ID verified advocates, fee rates &amp; slot scheduling.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 4: End-to-End Encrypted Video Call -->
+              <div class="snap-start shrink-0 w-[175px] sm:w-[195px] group cursor-pointer" onclick="openLightbox('LawAid UI/lawaid_screen7_video_consultation.png', 'M7 · Virtual Chamber Consultation', 'LawAid Video Consultation &bull; End-to-end encrypted real-time video consultation bridging rural and urban litigants with Supreme Court advocates.')">
+                <div class="relative bg-card-sub p-2 rounded-2xl border border-ink/15 shadow-sm group-hover:shadow-md group-hover:border-verm/40 transition-all duration-300">
+                  <div class="relative rounded-xl overflow-hidden aspect-[9/19] bg-black border border-ink/20">
+                    <img src="LawAid UI/lawaid_screen7_video_consultation.png" alt="Video Consultation" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
+                      <span class="bg-ink/85 text-paper text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>Enlarge</span>
+                    </div>
+                  </div>
+                  <div class="mt-2.5 px-1">
+                    <div class="flex items-center justify-between gap-1 mb-1">
+                      <span class="text-[9px] font-mono uppercase tracking-wider font-bold text-verm bg-verm/10 px-1.5 py-0.5 rounded">M7 · Virtual Room</span>
+                      <span class="text-[9px] text-ink/50">E2E Encrypted</span>
+                    </div>
+                    <h5 class="font-serif font-bold text-xs text-ink line-clamp-1">Encrypted Video Hearing</h5>
+                    <p class="text-[10px] text-ink/65 leading-tight mt-0.5 line-clamp-2">Live chamber consultation without geographical barriers.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 5: Litigant & Client Portal -->
+              <div class="snap-start shrink-0 w-[175px] sm:w-[195px] group cursor-pointer" onclick="openLightbox('LawAid UI/lawaid_screen4_client_portal.png', 'M4 · Litigant Client Portal', 'LawAid Client Portal &bull; Verified litigant dashboard (Ahnaf): upcoming hearing session, 12 active submitted cases, notifications &amp; 5-month judicial expenditure analytics.')">
+                <div class="relative bg-card-sub p-2 rounded-2xl border border-ink/15 shadow-sm group-hover:shadow-md group-hover:border-olive/50 transition-all duration-300">
+                  <div class="relative rounded-xl overflow-hidden aspect-[9/19] bg-black border border-ink/20">
+                    <img src="LawAid UI/lawaid_screen4_client_portal.png" alt="Litigant Client Portal" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
+                      <span class="bg-ink/85 text-paper text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>Enlarge</span>
+                    </div>
+                  </div>
+                  <div class="mt-2.5 px-1">
+                    <div class="flex items-center justify-between gap-1 mb-1">
+                      <span class="text-[9px] font-mono uppercase tracking-wider font-bold text-olive bg-olive/10 px-1.5 py-0.5 rounded">M4 · Litigant Hub</span>
+                      <span class="text-[9px] text-ink/50">Client View</span>
+                    </div>
+                    <h5 class="font-serif font-bold text-xs text-ink line-clamp-1">Client Case Tracker</h5>
+                    <p class="text-[10px] text-ink/65 leading-tight mt-0.5 line-clamp-2">Active cases, hearing dates &amp; escrow expense ledger.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 6: Advocate Practice Dashboard -->
+              <div class="snap-start shrink-0 w-[175px] sm:w-[195px] group cursor-pointer" onclick="openLightbox('LawAid UI/lawaid_screen3_advocate_portal.png', 'M3 · Advocate Practice Portal', 'LawAid Advocate Dashboard &bull; Counsel portal (Adv. Rezwana Karim): daily High Court cause lists, 4 hearing schedules, 7 pending consultation requests &amp; chamber retainer billing.')">
+                <div class="relative bg-card-sub p-2 rounded-2xl border border-ink/15 shadow-sm group-hover:shadow-md group-hover:border-mustard/60 transition-all duration-300">
+                  <div class="relative rounded-xl overflow-hidden aspect-[9/19] bg-black border border-ink/20">
+                    <img src="LawAid UI/lawaid_screen3_advocate_portal.png" alt="Advocate Practice Portal" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
+                      <span class="bg-ink/85 text-paper text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>Enlarge</span>
+                    </div>
+                  </div>
+                  <div class="mt-2.5 px-1">
+                    <div class="flex items-center justify-between gap-1 mb-1">
+                      <span class="text-[9px] font-mono uppercase tracking-wider font-bold text-mustard bg-mustard/15 px-1.5 py-0.5 rounded">M3 · Advocate Hub</span>
+                      <span class="text-[9px] text-ink/50">Lawyer View</span>
+                    </div>
+                    <h5 class="font-serif font-bold text-xs text-ink line-clamp-1">Daily Filings Dashboard</h5>
+                    <p class="text-[10px] text-ink/65 leading-tight mt-0.5 line-clamp-2">Daily court cause lists, hearing dockets &amp; client requests.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 7: Chamber Admin & Court Dockets -->
+              <div class="snap-start shrink-0 w-[175px] sm:w-[195px] group cursor-pointer" onclick="openLightbox('LawAid UI/lawaid_screen2_admin_overview.png', 'M2 · Chamber Admin Overview', 'LawAid Chamber Operations &bull; Central institutional management: 24,850 registered clients, 1,240 verified advocates, ৳8,45,000 escrow fee turnover &amp; High Court docket trends.')">
+                <div class="relative bg-card-sub p-2 rounded-2xl border border-ink/15 shadow-sm group-hover:shadow-md group-hover:border-verm/40 transition-all duration-300">
+                  <div class="relative rounded-xl overflow-hidden aspect-[9/19] bg-black border border-ink/20">
+                    <img src="LawAid UI/lawaid_screen2_admin_overview.png" alt="Chamber Operations & Admin Overview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
+                      <span class="bg-ink/85 text-paper text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>Enlarge</span>
+                    </div>
+                  </div>
+                  <div class="mt-2.5 px-1">
+                    <div class="flex items-center justify-between gap-1 mb-1">
+                      <span class="text-[9px] font-mono uppercase tracking-wider font-bold text-verm bg-verm/10 px-1.5 py-0.5 rounded">M2 · Chamber Admin</span>
+                      <span class="text-[9px] text-ink/50">Analytics</span>
+                    </div>
+                    <h5 class="font-serif font-bold text-xs text-ink line-clamp-1">Chamber Operations</h5>
+                    <p class="text-[10px] text-ink/65 leading-tight mt-0.5 line-clamp-2">24k+ clients, 1.2k+ lawyers &amp; ৳8.45L escrow revenue metrics.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="flex items-center justify-between text-[10px] text-ink/55 pt-1 px-1 font-mono">
+              <span>← Swipe / drag horizontally to inspect all 7 modules</span>
+              <span class="text-verm font-bold">7 Mobile Prototype Screens</span>
+            </div>
+          </div>
+
 
           <!-- Interactive UI Preview Card -->
           <div class="mt-6 p-4 rounded-xl bg-ink text-paper border border-ink/20 shadow-inner">
@@ -1896,6 +2073,14 @@ function filterGallery(category, btn) {
       setTimeout(() => { item.style.display = 'none'; }, 250);
     }
   });
+}
+
+
+function scrollLawaidScreens(dir) {
+  const el = document.getElementById('lawaid-screen-strip');
+  if (el) {
+    el.scrollBy({ left: dir * 230, behavior: 'smooth' });
+  }
 }
 
 /* ============ LIGHTBOX MODAL ============ */
