@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahnaf Shahriar — Designer &amp; Engineer</title>
-<meta name="description" content="Ahnaf Shahriar — Graphic Designer and Computer Science Engineer. Brand identities, stock art, illustration and working software.">
+<meta name="description" content="Ahnaf Shahriar — Graphic Designer and Computer Science Engineer. Brand identities, stock art, machine learning, and working software.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23CE4524'/><text x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23F6F1E7' text-anchor='middle'>A</text></svg>">
 
 <!-- Tailwind CDN -->
@@ -395,7 +395,7 @@ tailwind.config = {
     color: var(--ink);
   }
 
-  /* ---------- Manila Case File ---------- */
+  /* ---------- Manila Case File & Tech Dockets ---------- */
   .folder-tab {
     position: absolute;
     top: -34px;
@@ -447,29 +447,6 @@ tailwind.config = {
   .tool:nth-child(3n){rotate:1.6deg}
   .tool:nth-child(3n+1){rotate:-1.2deg}
   .tool:nth-child(4n){rotate:.7deg}
-
-  /* ---------- Seekr Mini Polaroids ---------- */
-  .mini-pin {
-    background: var(--paper3);
-    padding: 8px 8px 0;
-    border: 1px solid var(--line);
-    box-shadow: 0 12px 24px -12px rgba(var(--ink-rgb), .35);
-    transition: rotate .5s cubic-bezier(.2,1,.3,1), transform .4s ease, box-shadow .4s;
-    cursor: pointer;
-  }
-  .mini-pin:hover {
-    rotate: 0deg;
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 20px 30px -10px rgba(var(--ink-rgb), .45);
-  }
-  .mini-pin img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; display: block; }
-  .mini-pin figcaption {
-    font-family: 'Caveat', cursive;
-    font-size: 1rem;
-    color: rgba(var(--ink-rgb), .75);
-    text-align: center;
-    padding: 6px 2px 9px;
-  }
 
   /* ---------- Gallery Wall & Frames ---------- */
   .frame {
@@ -1005,7 +982,7 @@ tailwind.config = {
     
     <div class="hidden md:flex items-center gap-8">
       <a class="navlink" href="#marketplaces">Shop fronts</a>
-      <a class="navlink" href="#engineering">The code</a>
+      <a class="navlink" href="#engineering">Engineering &amp; AI</a>
       <a class="navlink" href="#education">Paperwork</a>
       <a class="navlink" href="#art">The wall</a>
     </div>
@@ -1029,9 +1006,9 @@ tailwind.config = {
       <div class="reveal flex items-center gap-3 mb-6 flex-wrap">
         <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold tracking-[.2em] uppercase bg-olive/15 text-olive border border-olive/30">
           <span class="w-2 h-2 rounded-full bg-olive animate-ping"></span>
-          Available for Projects &amp; Roles
+          Available for Projects &amp; AI/ML Roles
         </span>
-        <span class="text-[11px] tracking-[.24em] uppercase font-bold text-ink/60" id="live-time">Dhaka, BD · 15:24 BST</span>
+        <span class="text-[11px] tracking-[.24em] uppercase font-bold text-ink/60" id="live-time">Dhaka, BD · 23:31 BST</span>
       </div>
 
       <h1 class="reveal d1 font-serif font-black leading-[.9] tracking-tight text-[clamp(3.3rem,9.5vw,6.4rem)]">
@@ -1043,21 +1020,21 @@ tailwind.config = {
         </span>
       </h1>
 
-      <div class="reveal d2 flex flex-wrap gap-4 mt-8">
+      <div class="reveal d2 flex flex-wrap gap-3 mt-8">
         <span class="stampbox text-verm r-n2">Computer Science Engineer</span>
-        <span class="stampbox text-olive r1">Graphic Designer</span>
+        <span class="stampbox text-olive r1">Aspiring AI/ML Engineer</span>
+        <span class="stampbox dashed text-mustard r-n1">Graphic Designer</span>
       </div>
 
       <p class="reveal d2 mt-7 text-lg text-ink/75 leading-relaxed max-w-xl">
-        I build brand identities, stock-marketplace art and working software with the same obsession —
-        <strong class="text-ink">5+ years</strong> in, with <strong class="text-ink">10,500+ assets</strong>
-        live on Adobe Stock and Freepik, and code that actually ships.
+        I architect software systems, machine learning models, and commercial stock art with the same meticulous obsession —
+        <strong class="text-ink">5+ years</strong> in design, <strong class="text-ink">10,500+ assets live</strong> with <strong class="text-verm font-bold">5,300+ licenses sold</strong> across Adobe Stock &amp; Freepik, and structured engineering that actually ships.
       </p>
-      <p class="reveal d3 font-hand text-xl text-verm/90 r-n1 mt-3">* still gets excited about a blank artboard</p>
+      <p class="reveal d3 font-hand text-xl text-verm/90 r-n1 mt-3">* currently training ML models &amp; building LawAid</p>
 
       <div class="reveal d3 flex flex-col sm:flex-row gap-4 mt-9">
-        <a href="#art" class="btn-ink">See the artwork <i class="fa-solid fa-arrow-down"></i></a>
-        <a href="#engineering" class="btn-line">Read the code <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i></a>
+        <a href="#engineering" class="btn-ink">Explore Engineering &amp; AI <i class="fa-solid fa-code text-xs"></i></a>
+        <a href="#art" class="btn-line">See the artwork <i class="fa-solid fa-arrow-down text-xs"></i></a>
         <button onclick="copyEmailToClipboard()" class="btn-line border-dashed hover:border-solid">
           <i class="fa-regular fa-copy text-sm"></i> Copy Email
         </button>
@@ -1074,7 +1051,7 @@ tailwind.config = {
         <div class="overflow-hidden aspect-[4/5] bg-paper2">
           <img src="profile.jpg" alt="Portrait of Ahnaf Shahriar" class="w-full h-full object-cover object-center contrast-[1.05] saturate-[1.05] hover:scale-105 transition-transform duration-700">
         </div>
-        <figcaption class="p-cap">yours truly — probably adjusting a kerning pair (click to inspect)</figcaption>
+        <figcaption class="p-cap">yours truly — probably tuning hyperparameters or kerning (click to inspect)</figcaption>
       </figure>
 
       <!-- Stamp Badge -->
@@ -1084,7 +1061,7 @@ tailwind.config = {
           <circle cx="60" cy="60" r="57" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="2 4"/>
           <defs><path id="circA" d="M60 60m-43 0a43 43 0 1 1 86 0a43 43 0 1 1-86 0"/></defs>
           <text font-family="'Instrument Sans',sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.6" fill="var(--ink)">
-            <textPath href="#circA">AHNAF SHAHRIAR · DESIGNER · ENGINEER</textPath>
+            <textPath href="#circA">AHNAF SHAHRIAR · AI/ML · SOFTWARE · DESIGN</textPath>
           </text>
           <circle cx="60" cy="60" r="27" fill="none" stroke="var(--ink)" stroke-width="1"/>
           <path d="M60 49v22M49 60h22M52.5 52.5l15 15M67.5 52.5l-15 15" stroke="var(--verm)" stroke-width="2.6" stroke-linecap="round"/>
@@ -1092,8 +1069,8 @@ tailwind.config = {
       </div>
 
       <div class="sticky-note pin r-n5 absolute -bottom-9 -left-1 md:-left-8 cursor-grab">
-        <span class="block text-[9px] tracking-[.28em] uppercase font-bold opacity-75">Experience</span>
-        <span class="font-hand text-3xl leading-none block mt-1">5+ years</span>
+        <span class="block text-[9px] tracking-[.28em] uppercase font-bold opacity-75">Commercial Track</span>
+        <span class="font-hand text-3xl leading-none block mt-1">5,300+ sold</span>
       </div>
     </div>
   </div>
@@ -1108,28 +1085,28 @@ tailwind.config = {
 <div class="marquee-band relative rotate-[-1.3deg] w-[104vw] -ml-[2vw] shadow-[0_14px_34px_-20px_rgba(0,0,0,.6)] overflow-hidden">
   <div class="marquee-track py-3.5">
     <div class="marquee-seg">
+      <span class="mq-caps">AI &amp; Machine Learning</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">Logistic Prediction &amp; Scikit-Learn</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">LawAid Legal System</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">A* Search &amp; CSP Solvers</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-caps">Brand identity</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">poster art &amp; print</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">5,300+ licenses sold</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">React &amp; FastAPI</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">bilingual legal intelligence</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-caps">Vector illustration</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">ui / ux design</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-caps">Prompt architecture</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">java &amp; react</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-caps">Mascot art</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">stock marketplaces</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-caps">Line drawing</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">arduino tinkering</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">java &amp; arduino</span><svg class="mq-star"><use href="#ast"/></svg>
     </div>
     <div class="marquee-seg" aria-hidden="true">
+      <span class="mq-caps">AI &amp; Machine Learning</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">Logistic Prediction &amp; Scikit-Learn</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">LawAid Legal System</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">A* Search &amp; CSP Solvers</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-caps">Brand identity</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">poster art &amp; print</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">5,300+ licenses sold</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-caps">React &amp; FastAPI</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">bilingual legal intelligence</span><svg class="mq-star"><use href="#ast"/></svg>
       <span class="mq-caps">Vector illustration</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">ui / ux design</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-caps">Prompt architecture</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">java &amp; react</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-caps">Mascot art</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">stock marketplaces</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-caps">Line drawing</span><svg class="mq-star"><use href="#ast"/></svg>
-      <span class="mq-serif">arduino tinkering</span><svg class="mq-star"><use href="#ast"/></svg>
+      <span class="mq-serif">java &amp; arduino</span><svg class="mq-star"><use href="#ast"/></svg>
     </div>
   </div>
 </div>
@@ -1142,7 +1119,7 @@ tailwind.config = {
         <p class="overline text-ink/70 mb-4"><span class="text-verm font-serif italic text-sm">(01)</span> Shop fronts</p>
         <h2 class="font-serif font-black text-[clamp(2.4rem,5.5vw,4rem)] leading-[1.02]">Selling to the world.</h2>
       </div>
-      <p class="max-w-sm text-ink/70 leading-relaxed md:text-right">Two stock marketplaces, one habit: making things people actually download. Every asset crafted, tagged and tuned by hand.</p>
+      <p class="max-w-sm text-ink/70 leading-relaxed md:text-right">Two premier stock marketplaces, one habit: making things people actually license and download. Every asset crafted, tagged, and tuned by hand.</p>
     </div>
 
     <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
@@ -1151,39 +1128,69 @@ tailwind.config = {
         <a href="https://stock.adobe.com/contributor/212238217/stockimgahnaf" target="_blank" rel="noopener"
            class="pin r-n05 group block shop-card p-7 md:p-10 relative">
           <span class="tape r-n6" style="left:38px; top:-13px"></span>
-          <div class="flex items-start justify-between gap-4 mb-8">
+          <div class="flex items-start justify-between gap-4 mb-6">
             <div class="w-20 h-20 bg-card-sub border border-ink/15 rounded-xl p-3.5 flex items-center justify-center shadow-[3px_4px_0_rgba(var(--ink-rgb),.08)]">
               <img src="image1.png" alt="Adobe Stock logo" class="w-full h-full object-contain">
             </div>
             <span class="stampbox text-verm r3">Top-selling shop</span>
           </div>
           <h3 class="font-serif font-bold text-3xl">Adobe Stock</h3>
-          <div class="flex items-baseline gap-3 mt-3 mb-4">
-            <span class="font-serif font-black text-[3.4rem] leading-none text-verm tabular-nums" data-count="8500">0</span>
-            <span class="text-[11px] uppercase tracking-[.22em] font-bold text-ink/60">assets live&nbsp;+</span>
+
+          <!-- Highlighted Stats Grid: Both Total Files & Licenses Sold Prominently Displayed -->
+          <div class="grid grid-cols-2 gap-4 mt-5 mb-5 pt-4 border-t border-dashed border-ink/20">
+            <div>
+              <div class="flex items-baseline gap-2">
+                <span class="font-serif font-black text-3xl sm:text-4xl md:text-5xl leading-none text-verm tabular-nums" data-count="8000">0</span>
+                <span class="text-xl font-bold text-verm">+</span>
+              </div>
+              <span class="text-[10px] md:text-[11px] uppercase tracking-[.22em] font-bold text-ink/65 mt-2 block">Assets Live</span>
+            </div>
+            <div class="border-l border-ink/15 pl-4">
+              <div class="flex items-baseline gap-2">
+                <span class="font-serif font-black text-3xl sm:text-4xl md:text-5xl leading-none text-mustard tabular-nums" data-count="1500">0</span>
+                <span class="text-xl font-bold text-mustard">+</span>
+              </div>
+              <span class="text-[10px] md:text-[11px] uppercase tracking-[.22em] font-bold text-ink/65 mt-2 block">Licenses Sold</span>
+            </div>
           </div>
-          <p class="text-ink/70 leading-relaxed max-w-lg">A blend of hand-built design and carefully engineered prompts, tuned to what the market actually downloads — <b>1.6k+ Licenses Sold.</b>.</p>
+
+          <p class="text-ink/70 leading-relaxed max-w-lg mt-2">A blend of hand-built design and carefully engineered prompts, tuned to commercial market demand with thousands of paid client downloads.</p>
           <span class="shop-link mt-7">Browse the collection <i class="fa-solid fa-arrow-right"></i></span>
         </a>
       </div>
 
       <!-- Freepik -->
-      <div class="reveal d1 lg:col-span-5 lg:mt-14">
+      <div class="reveal d1 lg:col-span-5 lg:mt-6">
         <a href="https://www.magnific.com/author/shahriarahnaf" target="_blank" rel="noopener"
            class="pin r1 group block shop-card p-7 md:p-10 relative">
           <span class="tape r4" style="right:38px; top:-13px"></span>
-          <div class="flex items-start justify-between gap-4 mb-8">
+          <div class="flex items-start justify-between gap-4 mb-6">
             <div class="w-20 h-20 bg-card-sub border border-ink/15 rounded-xl p-3.5 flex items-center justify-center shadow-[3px_4px_0_rgba(var(--ink-rgb),.08)]">
               <img src="image2.png" alt="Freepik logo" class="w-full h-full object-contain">
             </div>
             <span class="stampbox dashed text-olive r-n3">Level 3</span>
           </div>
           <h3 class="font-serif font-bold text-3xl">Freepik</h3>
-          <div class="flex items-baseline gap-3 mt-3 mb-4">
-            <span class="font-serif font-black text-[3.4rem] leading-none text-olive tabular-nums" data-count="2500">0</span>
-            <span class="text-[11px] uppercase tracking-[.22em] font-bold text-ink/60">assets live&nbsp;+</span>
+
+          <!-- Highlighted Stats Grid: Both Total Files & Licenses Sold Prominently Displayed -->
+          <div class="grid grid-cols-2 gap-4 mt-5 mb-5 pt-4 border-t border-dashed border-ink/20">
+            <div>
+              <div class="flex items-baseline gap-2">
+                <span class="font-serif font-black text-3xl sm:text-4xl md:text-5xl leading-none text-olive tabular-nums" data-count="2500">0</span>
+                <span class="text-xl font-bold text-olive">+</span>
+              </div>
+              <span class="text-[10px] md:text-[11px] uppercase tracking-[.22em] font-bold text-ink/65 mt-2 block">Assets Live</span>
+            </div>
+            <div class="border-l border-ink/15 pl-4">
+              <div class="flex items-baseline gap-2">
+                <span class="font-serif font-black text-3xl sm:text-4xl md:text-5xl leading-none text-mustard tabular-nums" data-count="3800">0</span>
+                <span class="text-xl font-bold text-mustard">+</span>
+              </div>
+              <span class="text-[10px] md:text-[11px] uppercase tracking-[.22em] font-bold text-ink/65 mt-2 block">Licenses Sold</span>
+            </div>
           </div>
-          <p class="text-ink/70 leading-relaxed">High-demand PNG packs and precise vector sets — recognized in the Magnific exclusive collection as a top-tier contributor, <b>8.6k+ Licenses Sold.</b>.</p>
+
+          <p class="text-ink/70 leading-relaxed mt-2">High-demand PNG packs and vector sets with massive user adoption — ranked in the Magnific exclusive tier.</p>
           <span class="shop-link mt-7">Visit the shop <i class="fa-solid fa-arrow-right"></i></span>
         </a>
       </div>
@@ -1195,6 +1202,8 @@ tailwind.config = {
         <span class="tape r-n4" style="left:50%; translate:-50% 0; top:-13px"></span>
         <p class="text-center text-[10px] tracking-[.3em] uppercase font-bold text-ink/60 pb-3 border-b border-dashed border-ink/20">Field notes — ledger of proof</p>
         <div class="ledger-row"><span>Years at the craft</span><i></i><b>5+</b></div>
+        <div class="ledger-row"><span>Total Assets Live</span><i></i><b>10,500+</b></div>
+        <div class="ledger-row"><span>Licenses Sold / DLs</span><i></i><b>5,300+</b></div>
         <div class="ledger-row"><span>Freepik contributor</span><i></i><b>Level 3</b></div>
         <div class="ledger-row"><span>Behance portfolio</span><i></i><b>Verified</b></div>
         <div class="ledger-row"><span>Chai while kerning</span><i></i><b>Lots</b></div>
@@ -1204,119 +1213,261 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ============ ENGINEERING ============ -->
+<!-- ============ ENGINEERING & AI ============ -->
 <section id="engineering" class="py-24 md:py-32 bg-paper2 border-y border-dashed border-ink/20">
   <div class="max-w-6xl mx-auto px-6">
     <div class="reveal flex flex-col lg:flex-row lg:items-end justify-between gap-8">
       <div class="max-w-2xl">
-        <p class="overline text-ink/70 mb-4"><span class="text-verm font-serif italic text-sm">(02)</span> The code</p>
-        <h2 class="font-serif font-black text-[clamp(2.4rem,5.5vw,4rem)] leading-[1.02]">Software with a designer's eye.</h2>
-        <p class="mt-5 text-ink/70 leading-relaxed">Not just working — designed. Interfaces, logic and databases built with the same obsession I give a poster.</p>
+        <p class="overline text-ink/70 mb-4"><span class="text-verm font-serif italic text-sm">(02)</span> The code &amp; intelligence</p>
+        <h2 class="font-serif font-black text-[clamp(2.4rem,5.5vw,4rem)] leading-[1.02]">Software architecture &amp; Machine Learning.</h2>
+        <p class="mt-5 text-ink/70 leading-relaxed">From rigorous System Analysis &amp; Design (SAD) and full-stack software development in SWE Lab to predictive Machine Learning and heuristic AI algorithms.</p>
       </div>
       <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" class="btn-line">
-        <i class="fa-brands fa-github text-base"></i> Full repository
+        <i class="fa-brands fa-github text-base"></i> Full GitHub Profile
       </a>
     </div>
 
     <!-- Tools of the Trade -->
-    <div class="reveal d1 flex flex-wrap gap-3 md:gap-4 pt-2 mt-10 max-w-2xl">
-      <span class="tool"><i class="fa-solid fa-code text-verm"></i>C++</span>
+    <div class="reveal d1 flex flex-wrap gap-3 md:gap-4 pt-2 mt-10 max-w-3xl">
+      <span class="tool"><i class="fa-brands fa-python text-verm"></i>Python</span>
+      <span class="tool"><i class="fa-solid fa-brain text-[#B85C2B]"></i>Machine Learning · Scikit-Learn</span>
+      <span class="tool"><i class="fa-solid fa-code text-olive"></i>A* Search &amp; CSP</span>
+      <span class="tool"><i class="fa-brands fa-react text-verm"></i>React · Next.js</span>
+      <span class="tool"><i class="fa-solid fa-bolt text-mustard"></i>FastAPI &amp; Node.js</span>
+      <span class="tool"><i class="fa-solid fa-database text-olive"></i>PostgreSQL · SQL</span>
       <span class="tool"><i class="fa-brands fa-java text-[#B85C2B]"></i>Java</span>
-      <span class="tool"><i class="fa-brands fa-react text-olive"></i>React / Node</span>
-      <span class="tool"><i class="fa-solid fa-database text-verm"></i>SQL / DBMS</span>
-      <span class="tool"><i class="fa-brands fa-figma text-[#B04A78]"></i>UI · UX · Figma</span>
+      <span class="tool"><i class="fa-brands fa-figma text-[#B04A78]"></i>UI · UX · System Design</span>
     </div>
 
-    <!-- Seekr: The Case File -->
-    <div class="reveal mt-20">
-      <div class="folder-tab">Case file Nº 01 — Lost &amp; Found</div>
-      <div class="relative bg-manila border-[1.5px] border-ink/75 rounded-xl shadow-hard r-n05 p-6 md:p-10">
-        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          <div class="lg:col-span-4">
-            <p class="text-[10px] tracking-[.24em] uppercase font-bold text-verm mb-3">React · Node.js · MySQL</p>
-            <h3 class="font-serif font-black text-4xl md:text-5xl">Seekr</h3>
-            <p class="mt-4 text-ink/75 leading-relaxed">A complete lost-&amp;-found portal for university campuses — report an item, search the feed, message, claim, and keep it all sane from an admin dashboard.</p>
-            <div class="flex flex-wrap gap-3 mt-7">
-              <a href="https://github.com/splashahnaf445/Seekr" target="_blank" rel="noopener" class="btn-ink">
-                <i class="fa-brands fa-github text-base"></i> View on GitHub
-              </a>
-            </div>
-            <p class="font-hand text-xl text-ink/60 r-n1 mt-5">the favourite — click any preview to enlarge</p>
+    <!-- ==================== TWO FLAGSHIP SHOWCASES ==================== -->
+    <div class="grid lg:grid-cols-12 gap-10 mt-20 items-start">
+      
+      <!-- FLAGSHIP 1: LAWAID (Main Showcase) -->
+      <div class="lg:col-span-7 reveal">
+        <div class="relative bg-manila border-[1.5px] border-ink/75 rounded-2xl shadow-hard r-n05 p-6 md:p-8">
+          <div class="folder-tab">Primary Case File Nº 01 — Legal Intelligence Platform</div>
+
+          <div class="flex items-center justify-between gap-3 flex-wrap mb-4 mt-2">
+            <span class="text-[10px] tracking-[.22em] uppercase font-bold text-verm bg-verm/10 px-3 py-1 rounded-full border border-verm/20">
+              SAD to SWE Lab Pipeline • Active Build
+            </span>
+            <span class="text-[10px] tracking-[.2em] uppercase font-bold text-ink/60">
+              Team SysVision • UIU
+            </span>
           </div>
-          
-          <div class="lg:col-span-8 grid grid-cols-2 gap-4 md:gap-6">
-            <figure class="mini-pin r-n2 relative" onclick="openLightbox('seekr images/seekr preview (1).jpg', 'Seekr Item Feed', 'React &bull; Campus feed overview')">
-              <span class="tape mini r-n6" style="left:50%; translate:-50% 0; top:-10px"></span>
-              <img src="seekr%20images/seekr%20preview%20(1).jpg" alt="Seekr item feed"><figcaption>the feed</figcaption>
-            </figure>
-            <figure class="mini-pin r2 relative" onclick="openLightbox('seekr images/seekr preview (2).jpeg', 'Report Lost Item', 'Seekr &bull; Item submission workflow')">
-              <span class="tape mini r4" style="left:50%; translate:-50% 0; top:-10px"></span>
-              <img src="seekr%20images/seekr%20preview%20(2).jpeg" alt="Reporting a lost item in Seekr"><figcaption>report an item</figcaption>
-            </figure>
-            <figure class="mini-pin r-n1 relative" onclick="openLightbox('seekr images/seekr preview (3).jpeg', 'Admin Dashboard', 'Seekr &bull; Moderation & claims control')">
-              <span class="tape mini r-n4" style="left:50%; translate:-50% 0; top:-10px"></span>
-              <img src="seekr%20images/seekr%20preview%20(3).jpeg" alt="Seekr admin dashboard"><figcaption>admin dashboard</figcaption>
-            </figure>
-            <figure class="mini-pin r3 relative" onclick="openLightbox('seekr images/seekr preview (4).jpeg', 'Claim Item Workflow', 'Seekr &bull; Verified claims interface')">
-              <span class="tape mini r5" style="left:50%; translate:-50% 0; top:-10px"></span>
-              <img src="seekr%20images/seekr%20preview%20(4).jpeg" alt="Claiming a found item in Seekr"><figcaption>found &amp; claimed</figcaption>
-            </figure>
+
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-xl bg-ink text-paper flex items-center justify-center shrink-0 shadow-md">
+              <i class="fa-solid fa-scale-balanced text-2xl text-mustard"></i>
+            </div>
+            <div>
+              <h3 class="font-serif font-black text-3xl md:text-4xl leading-tight">LawAid</h3>
+              <p class="font-serif italic text-base text-ink/75 mt-0.5">AI-Powered Legal Assistant &amp; Law Management System</p>
+            </div>
+          </div>
+
+          <p class="mt-5 text-ink/80 leading-relaxed text-sm md:text-base">
+            Designed to resolve Bangladesh's massive judicial bottleneck (46+ lakh pending court cases) by bridging citizens and verified lawyers through intelligent discovery, practice automation, and accessible legal literacy.
+          </p>
+
+          <!-- SDLC Milestones Grid -->
+          <div class="grid sm:grid-cols-2 gap-3.5 mt-5">
+            <div class="p-3.5 bg-paper3/85 rounded-xl border border-ink/15">
+              <span class="text-[9px] font-bold uppercase tracking-widest text-olive block mb-1">
+                <i class="fa-solid fa-check-circle mr-1"></i> Phase 1: SAD Completed
+              </span>
+              <p class="text-xs text-ink/75 leading-snug">Full SDLC design: comprehensive SRS, survey of 59 stakeholders, benchmark study against 5 platforms, and 6 UML diagrams (Use Case, DFD, Sequence, Class, State, Activity).</p>
+            </div>
+
+            <div class="p-3.5 bg-paper3/85 rounded-xl border border-ink/15">
+              <span class="text-[9px] font-bold uppercase tracking-widest text-verm block mb-1">
+                <i class="fa-solid fa-spinner fa-spin mr-1"></i> Phase 2: SWE Lab Active
+              </span>
+              <p class="text-xs text-ink/75 leading-snug">Currently engineering the production system in SWE Lab with React/Next.js, Flutter, FastAPI, PostgreSQL, and LLM legal query pipelines.</p>
+            </div>
+          </div>
+
+          <!-- Feature Highlights Badge Cluster -->
+          <div class="mt-5 pt-4 border-t border-dashed border-ink/20">
+            <p class="text-[10px] uppercase tracking-[.24em] font-bold text-ink/65 mb-2.5">Core System Capabilities</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] font-bold px-2.5 py-1 bg-ink/5 border border-ink/15 rounded-md text-ink/80">
+                <i class="fa-solid fa-language text-verm mr-1"></i> Bilingual AI Chatbot (Bangla &amp; English)
+              </span>
+              <span class="text-[10px] font-bold px-2.5 py-1 bg-ink/5 border border-ink/15 rounded-md text-ink/80">
+                <i class="fa-solid fa-id-card text-olive mr-1"></i> Bar Council &amp; NID Verification
+              </span>
+              <span class="text-[10px] font-bold px-2.5 py-1 bg-ink/5 border border-ink/15 rounded-md text-ink/80">
+                <i class="fa-solid fa-video text-mustard mr-1"></i> In-App Video &amp; Real-time Consultation
+              </span>
+              <span class="text-[10px] font-bold px-2.5 py-1 bg-ink/5 border border-ink/15 rounded-md text-ink/80">
+                <i class="fa-solid fa-qrcode text-verm mr-1"></i> QR-Verified Escrow Payments
+              </span>
+              <span class="text-[10px] font-bold px-2.5 py-1 bg-ink/5 border border-ink/15 rounded-md text-ink/80">
+                <i class="fa-solid fa-folder-tree text-olive mr-1"></i> Chamber Docket &amp; Cause List Tracking
+              </span>
+            </div>
+          </div>
+
+          <!-- Interactive UI Preview Card -->
+          <div class="mt-6 p-4 rounded-xl bg-ink text-paper border border-ink/20 shadow-inner">
+            <div class="flex items-center justify-between border-b border-paper/15 pb-2.5 mb-3">
+              <span class="text-[10px] font-mono tracking-widest text-mustard uppercase flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-olive animate-pulse"></span> LawAid AI Dialogue Sample
+              </span>
+              <span class="text-[9px] uppercase tracking-widest text-paper/50">Specific Relief Act, 1877</span>
+            </div>
+            <p class="text-xs text-paper/85 font-mono leading-relaxed">
+              <span class="text-mustard">&gt; User:</span> "পৈতৃক জমিতে প্রতিবেশী ভুয়া নামজারি নিয়ে দখলের হুমকি দিচ্ছে, কোন ধারায় মামলা করব?"<br/>
+              <span class="text-olive">&gt; LawAid AI:</span> "দেওয়ানী কার্যবিধির ৩৯ আদেশ (Order 39) অনুসারে অস্থায়ী নিষেধাজ্ঞা (Temporary Injunction) ও স্বত্ব ঘোষণার মোকদ্দমা দায়ের করা যেতে পারে..."
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-4 mt-6">
+            <span class="font-hand text-lg text-ink/65 r-n1">supervised by Ms. Tasnim Sanjida (UIU)</span>
+            <div class="flex items-center gap-2">
+              <span class="stampbox text-verm text-[9px]">SRS · UML · SDLC Validated</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLAGSHIP 2: AI / MACHINE LEARNING LAB (Target: AI/ML Engineer) -->
+      <div class="lg:col-span-5 reveal d1">
+        <div class="relative bg-card-themed border-[1.5px] border-ink/80 rounded-2xl shadow-hard r1 p-6 md:p-8" style="background:var(--card-bg)">
+          <div class="folder-tab !bg-olive/20 !border-olive/60 !text-olive">Machine Learning &amp; AI Algorithms</div>
+
+          <div class="flex items-center justify-between gap-3 mb-4 mt-2">
+            <span class="text-[10px] tracking-[.22em] uppercase font-bold text-olive bg-olive/10 px-3 py-1 rounded-full border border-olive/30">
+              AI Coursework &amp; Self-Built Models
+            </span>
+            <span class="text-[10px] tracking-[.2em] uppercase font-bold text-mustard font-mono">Python 3</span>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-xl bg-olive text-paper flex items-center justify-center shrink-0 shadow-md">
+              <i class="fa-solid fa-robot text-2xl text-paper"></i>
+            </div>
+            <div>
+              <h3 class="font-serif font-black text-2xl md:text-3xl leading-tight">AI &amp; ML Lab Suite</h3>
+              <p class="font-serif italic text-sm text-ink/75 mt-0.5">Logistic Prediction, Constraint Satisfaction &amp; Search</p>
+            </div>
+          </div>
+
+          <p class="mt-4 text-ink/75 leading-relaxed text-sm">
+            Hands-on machine learning implementations and algorithmic problem solving developed in my AI coursework at UIU, reflecting my direct ambition to become an <strong class="text-ink">AI/ML Engineer</strong>.
+          </p>
+
+          <!-- Sub-Project Breakdown -->
+          <div class="space-y-3.5 mt-5">
+            <!-- Item 1: Breast Cancer Prediction -->
+            <div class="p-3.5 bg-card-sub rounded-xl border border-ink/15 shadow-sm">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h4 class="font-serif font-bold text-base text-ink">1. Breast Cancer Diagnostic Prediction</h4>
+                <span class="text-[9px] uppercase font-bold tracking-wider text-verm bg-verm/10 px-2 py-0.5 rounded">Scikit-Learn</span>
+              </div>
+              <p class="text-xs text-ink/70 leading-relaxed">
+                Supervised classification with Logistic Regression on clinical diagnostic data. Included exploratory data analysis, standard scaling, decision boundaries, confusion matrices, and precision-recall trade-offs.
+              </p>
+            </div>
+
+            <!-- Item 2: AI Sudoku Solver -->
+            <div class="p-3.5 bg-card-sub rounded-xl border border-ink/15 shadow-sm">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h4 class="font-serif font-bold text-base text-ink">2. Intelligent Sudoku Solver</h4>
+                <span class="text-[9px] uppercase font-bold tracking-wider text-olive bg-olive/10 px-2 py-0.5 rounded">CSP &amp; Search</span>
+              </div>
+              <p class="text-xs text-ink/70 leading-relaxed">
+                Autonomous puzzle solver formulated as a Constraint Satisfaction Problem (CSP). Implemented Minimum Remaining Values (MRV) heuristic, forward checking, and recursive backtracking search.
+              </p>
+            </div>
+
+            <!-- Item 3: A* Search & Distance Heuristics -->
+            <div class="p-3.5 bg-card-sub rounded-xl border border-ink/15 shadow-sm">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h4 class="font-serif font-bold text-base text-ink">3. A* Pathfinding &amp; Heuristics</h4>
+                <span class="text-[9px] uppercase font-bold tracking-wider text-mustard bg-mustard/10 px-2 py-0.5 rounded">NumPy</span>
+              </div>
+              <p class="text-xs text-ink/70 leading-relaxed">
+                State-space graph traversal using Euclidean and Manhattan distance metrics, priority queue optimization, and admissible heuristic validation.
+              </p>
+            </div>
+          </div>
+
+          <!-- Direct Repo Button -->
+          <div class="mt-6 pt-4 border-t border-dashed border-ink/20">
+            <a href="https://github.com/splashahnaf445/Ai-Python-LogisticPrediction-Sudoku" target="_blank" rel="noopener" class="btn-ink w-full justify-center !py-3">
+              <i class="fa-brands fa-github text-base"></i> View AI/ML Repository on GitHub
+            </a>
+            <p class="font-hand text-lg text-ink/55 text-center mt-3">"every algorithm coded &amp; evaluated myself"</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Three More Projects -->
-    <div class="grid md:grid-cols-3 gap-7 md:gap-8 items-start mt-14">
-      <div class="reveal">
-        <article class="pin r-n05 bg-card-themed border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard" style="background:var(--card-bg)">
-          <div class="bg-card-sub border-b border-ink/10 cursor-pointer" onclick="openLightbox('image3.png', 'Tuition Fee Calculator', 'Java Swing GUI &bull; University credit matrices')">
-            <img src="image3.png" alt="Tuition Fee Calculator interface" class="w-full aspect-video object-cover object-top hover:scale-105 transition-transform duration-500">
-          </div>
-          <div class="p-6">
-            <div class="flex items-start justify-between gap-3">
-              <h3 class="font-serif font-bold text-2xl">Tuition Calculator</h3>
-              <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" rel="noopener" class="text-ink/50 hover:text-verm transition-colors text-xl" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a>
-            </div>
-            <p class="text-[10px] tracking-[.22em] uppercase font-bold text-verm mt-2">Java Swing · GUI</p>
-            <p class="text-ink/70 text-sm leading-relaxed mt-3">Crunches university credit matrices and waiver rules so students don't have to.</p>
-            <p class="font-hand text-lg text-ink/55 r-n1 mt-4">saved my batchmates' sanity</p>
-          </div>
-        </article>
+    <!-- ==================== THREE FOUNDATIONAL PROJECTS ==================== -->
+    <div class="mt-16">
+      <div class="flex items-center gap-4 mb-8 flex-wrap">
+        <svg class="ico-ast w-4 h-4 text-verm"><use href="#ast"/></svg>
+        <p class="text-[11px] tracking-[.3em] uppercase font-bold text-ink/70">Foundational Software &amp; Embedded Systems</p>
+        <span class="flex-1 h-px bg-ink/15"></span>
+        <p class="font-hand text-xl text-ink/55 r-n1">practical engineering that runs</p>
       </div>
 
-      <div class="reveal d1 md:mt-9">
-        <article class="pin r1 bg-card-themed border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard" style="background:var(--card-bg)">
-          <div class="bg-card-sub border-b border-ink/10 cursor-pointer" onclick="openLightbox('image4.png', 'Password Manager', 'Java Swing Security &bull; Local encrypted credential vault')">
-            <img src="image4.png" alt="Password Manager interface" class="w-full aspect-video object-cover object-top hover:scale-105 transition-transform duration-500">
-          </div>
-          <div class="p-6">
-            <div class="flex items-start justify-between gap-3">
-              <h3 class="font-serif font-bold text-2xl">Password Manager</h3>
-              <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" class="text-ink/50 hover:text-verm transition-colors text-xl" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a>
+      <div class="grid md:grid-cols-3 gap-7 md:gap-8 items-start">
+        <!-- Tuition Calculator -->
+        <div class="reveal">
+          <article class="pin r-n05 bg-card-themed border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard" style="background:var(--card-bg)">
+            <div class="bg-card-sub border-b border-ink/10 cursor-pointer" onclick="openLightbox('image3.png', 'Tuition Fee Calculator', 'Java Swing GUI &bull; University credit matrices &amp; waivers')">
+              <img src="image3.png" alt="Tuition Fee Calculator interface" class="w-full aspect-video object-cover object-top hover:scale-105 transition-transform duration-500">
             </div>
-            <p class="text-[10px] tracking-[.22em] uppercase font-bold text-olive mt-2">Java Swing · Security</p>
-            <p class="text-ink/70 text-sm leading-relaxed mt-3">A local credential vault with proper Java security practices baked in.</p>
-            <p class="font-hand text-lg text-ink/55 r-n1 mt-4">no post-it passwords, ever</p>
-          </div>
-        </article>
-      </div>
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-serif font-bold text-2xl">Tuition Calculator</h3>
+                <a href="https://github.com/splashahnaf445/Tutionfee-calculator" target="_blank" rel="noopener" class="text-ink/50 hover:text-verm transition-colors text-xl" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a>
+              </div>
+              <p class="text-[10px] tracking-[.22em] uppercase font-bold text-verm mt-2">Java Swing · Desktop GUI</p>
+              <p class="text-ink/70 text-sm leading-relaxed mt-3">Crunches university credit matrices, scholarship waivers, and lab dues so students don't have to calculate manually.</p>
+              <p class="font-hand text-lg text-ink/55 r-n1 mt-4">saved my batchmates' sanity</p>
+            </div>
+          </article>
+        </div>
 
-      <div class="reveal d2 md:mt-[4.5rem]">
-        <article class="pin r-n1 bg-card-themed border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard" style="background:var(--card-bg)">
-          <div class="bg-card-sub border-b border-ink/10 cursor-pointer" onclick="openLightbox('arduino.jpg', 'Smart Queue Management', 'Arduino Hardware &bull; Sensor driven line dispatch')">
-            <img src="arduino.jpg" alt="Smart Queue Arduino hardware" class="w-full aspect-video object-cover hover:scale-105 transition-transform duration-500">
-          </div>
-          <div class="p-6">
-            <div class="flex items-start justify-between gap-3">
-              <h3 class="font-serif font-bold text-2xl">Smart Queue</h3>
-              <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" rel="noopener" class="text-ink/50 hover:text-verm transition-colors text-xl" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a>
+        <!-- Password Manager -->
+        <div class="reveal d1 md:mt-8">
+          <article class="pin r1 bg-card-themed border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard" style="background:var(--card-bg)">
+            <div class="bg-card-sub border-b border-ink/10 cursor-pointer" onclick="openLightbox('image4.png', 'Password Manager', 'Java Swing Security &bull; Local encrypted credential vault')">
+              <img src="image4.png" alt="Password Manager interface" class="w-full aspect-video object-cover object-top hover:scale-105 transition-transform duration-500">
             </div>
-            <p class="text-[10px] tracking-[.22em] uppercase font-bold text-verm mt-2">Arduino · Embedded</p>
-            <p class="text-ink/70 text-sm leading-relaxed mt-3">Sensor-driven queue management that keeps real waiting lines honest and moving.</p>
-            <p class="font-hand text-lg text-ink/55 r-n1 mt-4">beep — next!</p>
-          </div>
-        </article>
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-serif font-bold text-2xl">Password Manager</h3>
+                <a href="https://github.com/splashahnaf445" target="_blank" rel="noopener" class="text-ink/50 hover:text-verm transition-colors text-xl" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a>
+              </div>
+              <p class="text-[10px] tracking-[.22em] uppercase font-bold text-olive mt-2">Java Swing · Security</p>
+              <p class="text-ink/70 text-sm leading-relaxed mt-3">A secure local credential vault with master key encryption and Java security practices baked in.</p>
+              <p class="font-hand text-lg text-ink/55 r-n1 mt-4">no post-it passwords, ever</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Smart Queue -->
+        <div class="reveal d2 md:mt-16">
+          <article class="pin r-n1 bg-card-themed border-[1.5px] border-ink/80 rounded-2xl overflow-hidden shadow-hard" style="background:var(--card-bg)">
+            <div class="bg-card-sub border-b border-ink/10 cursor-pointer" onclick="openLightbox('arduino.jpg', 'Smart Queue Management', 'Arduino Hardware &bull; Sensor driven line dispatch')">
+              <img src="arduino.jpg" alt="Smart Queue Arduino hardware" class="w-full aspect-video object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-serif font-bold text-2xl">Smart Queue</h3>
+                <a href="https://github.com/splashahnaf445/Smart-Queue-Management-System" target="_blank" rel="noopener" class="text-ink/50 hover:text-verm transition-colors text-xl" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a>
+              </div>
+              <p class="text-[10px] tracking-[.22em] uppercase font-bold text-verm mt-2">Arduino · Embedded Systems</p>
+              <p class="text-ink/70 text-sm leading-relaxed mt-3">Hardware-accelerated queue dispatch with IR sensors and seven-segment displays that keep real waiting lines honest.</p>
+              <p class="font-hand text-lg text-ink/55 r-n1 mt-4">beep — next in queue!</p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </div>
@@ -1366,19 +1517,19 @@ tailwind.config = {
           <div class="flex-1">
             <div class="flex items-center gap-3 mb-3 flex-wrap">
               <span class="stampbox dashed text-verm r2">In progress</span>
-              <span class="text-[10px] uppercase tracking-[.2em] font-bold text-ink/55">3rd year · undergraduate</span>
+              <span class="text-[10px] uppercase tracking-[.2em] font-bold text-ink/55">Undergraduate · 3rd year</span>
             </div>
             <h3 class="font-serif font-bold text-2xl md:text-3xl">United International University</h3>
-            <p class="text-ink/70 mt-2 leading-relaxed">BSc in Computer Science &amp; Engineering — where the design habit and the circuits peacefully coexist.</p>
+            <p class="text-ink/70 mt-2 leading-relaxed">BSc in Computer Science &amp; Engineering — where System Analysis &amp; Design (SAD), Artificial Intelligence (AI), and Software Engineering (SWE) Lab thrive together.</p>
           </div>
           <div class="shrink-0 text-center md:pr-4">
             <p class="font-serif font-black text-5xl text-olive leading-none">CSE</p>
-            <p class="text-[9px] tracking-[.28em] uppercase font-bold text-ink/50 mt-2">in the making</p>
+            <p class="text-[9px] tracking-[.28em] uppercase font-bold text-ink/50 mt-2">AI &amp; SWE Major</p>
           </div>
         </div>
 
         <div class="flex justify-end">
-          <p class="font-hand text-xl text-ink/55 r-n1">— signed, the kid who enjoyed both semesters</p>
+          <p class="font-hand text-xl text-ink/55 r-n1">— signed, the engineer who enjoys every semester</p>
         </div>
       </div>
     </div>
@@ -1485,10 +1636,10 @@ tailwind.config = {
 
   <div class="max-w-3xl mx-auto px-6 text-center relative">
     <p class="overline text-paper/70 mb-5 justify-center"><span class="text-verm font-serif italic text-sm">(05)</span> Say hello</p>
-    <h2 class="font-serif font-black text-[clamp(2.6rem,7vw,4.6rem)] leading-[1.02]">Let's make something<br class="hidden md:block"/> worth pinning.</h2>
-    <p class="font-hand text-2xl md:text-3xl text-mustard r-n1 mt-6">"Driven by passion, not just motivation."</p>
+    <h2 class="font-serif font-black text-[clamp(2.6rem,7vw,4.6rem)] leading-[1.02]">Let's build something<br class="hidden md:block"/> intelligent &amp; lasting.</h2>
+    <p class="font-hand text-2xl md:text-3xl text-mustard r-n1 mt-6">"Driven by passion, engineered with precision."</p>
 
-    <p class="text-paper/70 mt-12 text-sm">One file, one email, one idea — that's all it takes to start:</p>
+    <p class="text-paper/70 mt-12 text-sm">One email, one problem to solve, one idea — that's all it takes to start:</p>
     
     <div class="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
       <a href="mailto:shahriarahnaf420@gmail.com"
@@ -1510,7 +1661,7 @@ tailwind.config = {
 
     <div class="mt-14 pt-7 border-t border-paper/15 flex flex-col md:flex-row items-center justify-between gap-3 text-[10px] tracking-[.22em] uppercase text-paper/45">
       <p>&copy; 2026 Ahnaf Shahriar — Dhaka, Bangladesh</p>
-      <p class="font-mono">Handcrafted with Design &bull; Code &bull; Passion</p>
+      <p class="font-mono">AI / ML &bull; Software Engineering &bull; Graphic Design</p>
     </div>
   </div>
 </footer>
@@ -1633,10 +1784,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Bind Lightbulb Click & Enter Key
   const fixture = document.getElementById('lamp-fixture');
   const bulb = document.getElementById('lamp-bulb-wrap');
-  const cord = document.getElementById('lamp-pull-cord');
 
   if (fixture) {
-    fixture.addEventListener('click', (e) => {
+    fixture.addEventListener('click', () => {
       toggleTheme();
     });
   }
@@ -1675,7 +1825,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* ---- Animated Counters (8,000 / 2,500) ---- */
+  /* ---- Animated Counters ---- */
   const cio = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
@@ -1696,7 +1846,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById('live-time');
     if (!el) return;
     const now = new Date();
-    // UTC+6 for Dhaka
     const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
     const dhaka = new Date(utc + (3600000 * 6));
     const h = String(dhaka.getHours()).padStart(2, '0');
